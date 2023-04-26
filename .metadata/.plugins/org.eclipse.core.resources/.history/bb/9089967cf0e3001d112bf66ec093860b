@@ -1,0 +1,12 @@
+package javaexp.a10_exception;
+
+public class A09_ThrowsException {
+
+	public static void main(String[] args) {
+		static void call01() {
+			
+		}
+
+	}
+
+}

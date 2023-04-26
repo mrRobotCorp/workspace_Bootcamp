@@ -1,0 +1,10 @@
+package javaexp.a10_exception;
+
+public class A10_UserException {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

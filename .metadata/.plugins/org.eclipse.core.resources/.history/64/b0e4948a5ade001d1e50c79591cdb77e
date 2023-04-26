@@ -1,7 +1,0 @@
-package javaexp.a08_relation.access.story2.sonHome;
-
-import javaexp.a08_relation.access.story2.woodHome.WoodCutter;
-
-public class Son1 extends WoodCutter {
-	
-}

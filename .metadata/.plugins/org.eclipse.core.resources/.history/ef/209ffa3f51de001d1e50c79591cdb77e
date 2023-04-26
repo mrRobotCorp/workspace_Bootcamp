@@ -1,6 +1,0 @@
-package javaexp.a08_relation.access.story1.friendship;
-
-public class WoodCutter {
-	// X (default) - 접근 제어자가 없는 유형
-	String hiddenDeer = "";
-}

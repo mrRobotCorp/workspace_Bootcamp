@@ -5,12 +5,15 @@ public class A10_UserException {
 	public static void main(String[] args) {
 		System.out.println("- 사용자 정의 예외 시작 -");
 		try {
-			for(int i=1; i<=10; i++) {
-				System.out.println("no." + i);
-				if(i ==5) {
-					throw new User01Exception(i + " 에서 예외 발생");
-				}
-			}
+//			for(int i=1; i<=10; i++) {
+//				System.out.println("no." + i);
+//				if(i ==5) {
+//					throw new User01Exception(i + " 에서 예외 발생");
+				System.out.println("line1");
+				System.out.println("line2");
+				throw new User01Exception("특정 라인 예외 발생");
+//				}
+//			}
 		} catch (User01Exception e) {
 			System.out.println("- 예외 발생 -");
 			System.out.println(e.getMessage());

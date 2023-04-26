@@ -1,0 +1,18 @@
+package javaexp.a10_exception;
+
+public class A11_UserException {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+// ex) User02Exception으로 예외 클래스를 사용자 정의로 선언.
+// 		main()에서 임의의 수((int)Math.random() * 2 + 1))가 발생 할 때,
+// 		1이 나오면 예외 객체를 던져 처리
+class User02Exception extends Exception {
+	User02Exception(String str) {
+		
+	}
+}

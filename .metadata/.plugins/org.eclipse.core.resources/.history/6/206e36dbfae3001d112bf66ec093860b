@@ -1,0 +1,35 @@
+package javaexp.a10_exception;
+
+public class A11_UserException {
+
+	public static void main(String[] args) {
+		int ran = (int)(Math.random() * 2 + 1);
+		try {
+			System.out.println();
+			if(ran == 1) {
+				throw new User02Exception("임의의 수 : " + ran);
+			}
+		}catch (User02Exception e) {
+			System.out.println("사용자 정의 예외 처리");
+			System.out.println("예외 내용 : " + e.getMessage());
+		} finally {
+			System.out.println("예외 발생 상관없이 처리 finally");
+		}
+
+	}
+
+}
+// ex) User02Exception으로 예외 클래스를 사용자 정의로 선언.
+// 		main()에서 임의의 수((int)Math.random() * 2 + 1))가 발생 할 때,
+// 		1이 나오면 예외 객체를 던져 처리할 것
+class User02Exception extends Exception {
+	User02Exception(String str) {
+		super("사용자 정의 에러" + str);
+	}
+	
+	public String getMessage() {
+		String ss = super.getMessage();
+		System.out.println("예외 발생");
+		return ss;
+	}
+}

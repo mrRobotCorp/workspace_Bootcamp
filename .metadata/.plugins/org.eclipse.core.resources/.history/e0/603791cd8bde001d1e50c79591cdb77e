@@ -1,0 +1,20 @@
+package javaexp.z01_home.vegetable;
+
+import javaexp.z01_home.fruit.KoreanMelon;
+
+public class Onion {
+	public void callAll() {
+		KoreanMelon km = new KoreanMelon();
+//		System.out.println("private : " + km.name);
+//		System.out.println("default : " + km.cnt);
+//		System.out.println("protected : " + km.price);
+		System.out.println("public : " + km.point);
+	}
+	
+	public void callAll2() {
+//		System.out.println("private : " + name);
+//		System.out.println("default : " + cnt);
+//		System.out.println("protected : " + price);
+//		System.out.println("public : " + point);
+	}
+}

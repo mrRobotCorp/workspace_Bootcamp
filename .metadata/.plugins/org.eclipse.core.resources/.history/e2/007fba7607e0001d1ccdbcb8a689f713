@@ -1,0 +1,19 @@
+package javaexp.a09_inherit;
+
+public class A10_Final {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+
+final class Riger {
+	
+}
+
+// final 클래스는 상속해 줄 수 없음. 최종 클래스로 취급됨
+//class NewSpec extends Riger {}
+
+class 

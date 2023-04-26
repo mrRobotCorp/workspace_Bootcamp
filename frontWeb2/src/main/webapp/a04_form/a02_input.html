@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a02_input</title>
+    <link rel="stylesheet" href="./css/form.css">
+</head>
+<body>
+    <h3>input 형식</h3>
+    <form>
+        <div>
+            <span>text</span><input type="text">
+        </div>
+        <div>
+            <span>password</span><input type="password">
+        </div>
+        <div>
+            <span>button</span><input type="button">
+        </div>
+        <div>
+            <span>image</span><input type="image" src="../a00_img/mango.jpeg">
+        </div>
+        <div>
+            <span>checkbox</span><input type="checkbox">
+        </div>
+        <div>
+            <span>submit</span><input type="submit">
+        </div>
+        <div>
+            <span>reset</span><input type="reset">
+        </div>
+        <div>
+            <!-- 첨부 파일을 서버에 전송 시 사용 -->
+            <!-- name ="전송키" form 속성을 파일이 전송되는 multipart로 설정 -->
+            <span>file</span><input type="file">
+        </div>
+        <div>
+            <span>month</span><input type="month">
+        </div>
+        <div>
+            <span>date</span><input type="date">
+        </div>
+        <div>
+            <span>time</span><input type="time">
+        </div>
+        <div>
+            <span>color</span><input type="color">
+        </div>
+        <div>
+            <span>email</span><input type="email">
+        </div>
+        <div>
+            <span>range</span><input type="range">
+        </div>
+        <div>
+            <span>url</span><input type="url">
+        </div>
+        <div>
+            <span>tel</span><input type="tel">
+        </div>
+        <div>
+            <span>search</span><input type="search">
+        </div>
+        
+    </form>
+
+    <h4>좋아하는 과일</h4>
+    <input type="checkbox" name="fruit" value="apple"><span>사과</span>
+    <input type="checkbox" name="fruit" value="bnn"><span>바나나</span>
+    <input type="checkbox" name="fruit" value="stw"><span>딸기</span>
+    <input type="checkbox" name="fruit" value="org"><span>오렌지</span>
+    <input type="checkbox" name="fruit" value="cherry"><span>체리</span>
+
+    <!-- ex) 가고 싶은 여행지를 타이틀로 다중 선택하게 리스트 선택  -->
+    <h4>가고 싶은 여행지</h4>
+    <input type="checkbox" name="trip" value="spain"><span>spain</span>
+    <input type="checkbox" name="trip" value="paris"><span>paris</span>
+    <input type="checkbox" name="trip" value="NY"><span>NY</span>
+    <input type="checkbox" name="trip" value="Hawaii"><span>Hawaii</span>
+    <input type="checkbox" name="trip" value="HongKong"><span>HongKong</span>
+
+
+    <h3>오늘의 점심 메뉴 선택</h3>
+    <input type="radio" name="lunch" value=""><span>마라탕</span>
+    <input type="radio" name="lunch" value=""><span>도시락</span>
+    <input type="radio" name="lunch" value=""><span>냉면</span>
+    <input type="radio" name="lunch" value=""><span>샌드위치</span>
+
+    <h3>오늘의 저녁 메뉴 선택</h3>
+    <input type="radio" name="dinner" value=""><span>과카몰리</span>
+    <input type="radio" name="dinner" value=""><span>커리</span>
+    <input type="radio" name="dinner" value=""><span>똠양꿍</span>
+    <input type="radio" name="dinner" value=""><span>쌀국수</span>
+
+    <!-- 사는 곳을 국내외 둘 중 하나, 서울/경기 / 강원도 / 충청도 / 경상도 / 전라도 / 제주도(단일선택) -->
+    <h3>거주지 선택</h3>
+    <div class="bPlace">
+        <input class="based" type="radio" name="based" value="" hidden>
+        <label class="bLabel" for="based"></label>
+        <span>서울/경기</span>
+        <input class="based" type="radio" name="based" value="" hidden>
+        <label class="bLabel" for="based"></label>
+        <span>강원도</span>
+        <input class="based" type="radio" name="based" value="" hidden>
+        <label class="bLabel" for="based"></label>
+        <span>충청도</span>
+        <input class="based" type="radio" name="based" value="" hidden>
+        <label class="bLabel" for="based"></label>
+        <span>경상도</span>
+        <input class="based" type="radio" name="based" value="" hidden>
+        <label class="bLabel" for="based"></label>
+        <span>전라도</span>
+        <input class="based" type="radio" name="based" value="" hidden>
+        <label class="bLabel" for="based"></label>
+        <span>제주도</span>
+    </div>
+
+    <form>
+        <div>
+            구매 물건 : <input type="text" name="pname">
+        </div>
+        <div>
+            가격 : <input type="number" name="price" value="0">
+        </div>
+        <div>
+            갯수 : <input type="number" name="pcnt" value="0">
+        </div>
+        <div>
+            결제 : <input type="submit" name="pname">
+            다시 입력 : <input type="reset" value="clear">
+        </div>  
+    </form>
+
+
+
+
+</body>
+</html>

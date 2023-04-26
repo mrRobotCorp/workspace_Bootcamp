@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0410</title>
+</head>
+<body>
+    <!-- // 5. html의 meta 정보의 의미를 기술하세요.
+        html의 데이터를 담기 위한 태그로 link, style, title 등 페이지 정보를 작성할 수 있다.
+        이외에도 사진, 오디오, 이미지 등에 대한 데이터를 담을 수 있다 .
+    -->
+
+    <!-- // 6. base 태그를 처리하는 방법을 예제를 통해서 기술하세요. -->
+    <a href="http://localhost:8080/frontWeb2/z01_home/0406.html">페이지 이동</a>
+
+    <!-- 7. img 태그가 가지고 있는 속성을 기술하세요. -->
+    <img src="/frontWeb2/a00_img/img01.jpg" alt="대체 텍스트" width="200" height="200">
+
+    <!-- 8. webapp 하위에 a00_img안에 img03.jpg를 복사해와서 현재 폴드에서
+        img 태그로 호출해서 수행 하는 것과,  a00_img하위  img05.jpg
+        파일을 해당 경로 그대로 두고, img 태그로 호출해서 수행하는 것의 차이점을 기술하세요. -->
+    
+    <!-- 동일 폴더에 있는 파일은 그대로 출력 -->
+    <img src="./img03.jpg" alt="해당 폴더 img03">
+		
+		<!-- 다른 폴더에 있는 파일을 출력 경우  -->
+    <img src="/frontWeb2/a00_img/img05.jpg" alt="img05 경로 수정">
+<!-- ------------------------------------------ -->
+
+    <!-- head안에 base 태그가 존재할 때  -->
+    <img src="/a00_img/img05.jpg" alt="다른 폴더 img05"> <!-- 출력 X -->
+    <img src="/frontWeb2/a00_img/img05.jpg" alt="img05 경로 수정"> <!-- 출력 O -->
+
+    <!-- head안에 base 태그가 존재하지 않을 때  -->
+    <img src="/a00_img/img05.jpg" alt="다른 폴더 img05"> <!-- 출력 O -->
+    <img src="/frontWeb2/a00_img/img05.jpg" alt="img05 경로 수정"> <!-- 출력 X -->
+</body>
+</html>

@@ -1,0 +1,21 @@
+package javaexp.a10_exception;
+
+public class A03_RunTimeException {
+
+	public static void main(String[] args) {
+		// 입력되는 문자열 데이터 기능 메서드로 처리하는 내용
+		try {
+			System.out.println("영문으로 이름을 입력");
+			// 영문 이름 입력 시.
+			String name = null; 
+			// 소문자로 변환
+			System.out.println("소문자로 변환된 내용 : " + name.toLowerCase());
+			
+		} catch(NullPointerException e ) {
+			System.out.println("이름 입력이 필요함.");
+		}
+
+		
+	}
+
+}

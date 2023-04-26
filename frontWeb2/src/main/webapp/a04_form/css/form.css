@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.inBox {
+    border: 1px solid #222;
+}
+
+#btn0, #btn1, #btn2 {
+    margin: 10px 10px 0 0;
+    padding: 5px 12px;
+    border: 1px solid #6b00bd;
+    border-radius: 13px;
+    background-color: #fff;
+    font-size: 13px;
+}
+
+.bLabel {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border: 1px solid #6b00bd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.based:checked + label {
+    background-color: #6b00bd;
+}
+
+#inTable {
+    border-collapse: collapse;
+}
+
+#inTable th {
+    padding: 20px 25px;
+    color: #fff;
+    background-color: #222;
+    border: 1px solid #222;
+}
+
+#inTable td {
+    padding: 20px 25px;
+    height: 35px;
+    border: 1px solid #222;
+    font-weight: 100;
+    text-align: center;
+}
+
+#inTable td input {
+    height: 25px;
+}
+
+.exWrite {
+    width: 300px;
+}
+
+.exWrite div {
+    display: flex;
+    width: 100%;
+    margin: 20px 0;
+}
+.exWrite div span {
+    display: inline-block;
+    width: 70px;
+}
+
+.exWrite #conSub {
+    float: right;
+}

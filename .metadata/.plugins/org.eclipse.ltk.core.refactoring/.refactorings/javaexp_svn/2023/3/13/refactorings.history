@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;javaexp.z01_home&apos; to &apos;javaexp/src/javaexp&apos;&#x0D;&#x0A;- Original project: &apos;javaexp_svn&apos;&#x0D;&#x0A;- Destination element: &apos;javaexp/src/javaexp&apos;&#x0D;&#x0A;- Original element: &apos;javaexp_svn/src/javaexp.z01_home&apos;" description="Copy package" destination="=javaexp/src&lt;javaexp" element1="/src&lt;javaexp.z01_home" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1680226794835" version="1.0"/>
+</session>

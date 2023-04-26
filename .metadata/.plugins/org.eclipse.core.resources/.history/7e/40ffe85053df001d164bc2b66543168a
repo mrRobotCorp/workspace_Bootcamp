@@ -1,0 +1,61 @@
+package javaexp.z01_home;
+
+public class A13_0420 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+
+class Polygon {
+	private String kind;
+
+	public Polygon(String kind) {
+		this.kind = kind;
+	}
+	
+	public void drawing() {
+		System.out.print(kind + " 모양으로 ");
+	}
+}
+
+class triangle extends Polygon {
+
+	public triangle(String kind) {
+		super("삼각형");
+	}
+
+	@Override
+	public void drawing() {
+		super.drawing();
+		System.out.println("세모난 집을 그리다.");
+	}
+}
+
+class Square extends Polygon {
+
+	public Square(String kind) {
+		super("사각형");
+	}
+
+	@Override
+	public void drawing() {
+		super.drawing();
+		System.out.println("네모난 빌딩을 그리다.");
+	}
+}
+
+class Pentagon extends Polygon {
+
+	public Pentagon(String kind) {
+		super("오각형");
+	}
+
+	@Override
+	public void drawing() {
+		super.drawing();
+		System.out.println("세모난 집을 그리다.");
+	}
+}

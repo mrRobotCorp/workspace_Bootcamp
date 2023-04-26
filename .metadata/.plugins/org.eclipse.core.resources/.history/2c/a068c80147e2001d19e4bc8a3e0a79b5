@@ -1,0 +1,17 @@
+package javaexp.a08_relation.access.story2.woodHome;
+
+public class WoodCutter {
+	// 접근제어가의 목적은 자바의 은닉성을 위함
+	private String privSec = "personal secret";
+	String ourHomeSec = "family secret";
+	protected String inheritSec = "inherit money";
+	public String announce = "daughter’s marriage";
+	
+	public void callWoodInfo() {
+		System.out.println("private : " + privSec);
+		System.out.println("default : " + ourHomeSec);
+		System.out.println("protected : " + inheritSec);
+		System.out.println("public : " + announce);
+	}
+	
+}

@@ -1,0 +1,19 @@
+package javaexp.z01_home;
+
+public class A12_0419 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+
+class Team {
+	String name;
+	int win;
+	int same;
+	int loose;
+	int percent;
+	
+}

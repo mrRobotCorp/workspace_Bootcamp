@@ -1,0 +1,15 @@
+package javaexp.a09_inherit.abstrac;
+
+public class A04_Zerg_Users {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+
+class ZergUser {
+	private String color;
+	
+}

@@ -1,0 +1,87 @@
+package javaexp.a09_inherit;
+
+public class A02_Overriding {
+
+	public static void main(String[] args) {
+		HyunDae com1 = new HyunDae();
+		com1.earnMoney();
+		Samsung com2 = new Samsung();
+		com2.earnMoney();
+		
+		// company를 상속받은 회사 클래스 생성, earnMoney()를 재정의한 후 main()에ㅓㅅ 호출
+		Naver com3 = new Naver();
+		com3.earnMoney();
+		
+		// 상위 Worker - kine (직업종류), Worker(String name) 생성자, working()
+		// 하위 Police - 상위 변수 및 메서드 재정의
+		// 하위 Programmer
+	}
+
+}
+
+class Worker {
+	String kind;
+	
+	Worker(String name) {
+		this.kind = kind;
+	}
+	
+	public void jobInfo() {
+		
+	}
+}
+
+class Police extends Worker {
+	Police() {
+		super("경찰");
+	}
+	
+	public void jobInfo() {
+		
+	}
+}
+
+class Company{
+	private String name;
+	
+	public Company(String name) {
+		this.name = name;
+	}
+	
+	public void earnMoney() {
+		System.out.println(name + "회사가 돈을 벌다.");
+	}
+}
+
+class Naver extends Company {
+	public Naver() {
+		super("네이버");
+	}
+	
+	public void earnMoney() {
+		System.out.print("웹 포털로 ");
+		super.earnMoney();
+	}
+}
+
+class HyunDae extends Company {
+	public HyunDae() {
+		super("현대");
+	}
+	public void earnMoney() {
+		System.out.print("배를 만들어서 ");
+		super.earnMoney();
+	}
+}
+
+class Samsung extends Company {
+	public Samsung() {
+		super("삼성");
+	}
+	public void earnMoney() {
+		System.out.print("전자제품을 만들어서 ");
+		super.earnMoney();
+	}
+}
+
+

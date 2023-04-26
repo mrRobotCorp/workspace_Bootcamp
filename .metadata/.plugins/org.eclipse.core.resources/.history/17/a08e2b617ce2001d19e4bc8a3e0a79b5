@@ -1,0 +1,19 @@
+package javaexp.z01_home;
+
+public class A14_0424 {
+
+	public static void main(String[] args) {
+		// 1. 추상클래스와 일반 재정의 클래스의 차이점을 예제를 통해 기술하세요
+
+		// 
+	}
+
+}
+
+abstract class food {
+	String name;
+	
+	public void eat() {
+		System.out.println(name + " 을 먹다");
+	}
+}

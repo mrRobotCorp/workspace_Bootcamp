@@ -1,0 +1,18 @@
+package javaexp.a10_exception;
+
+import java.util.Scanner;
+
+public class A05_RunTimeError {
+
+	public static void main(String[] args) {
+		// 두 개의 숫자를 입력 받아 숫자형이 아닐 때는 숫자를 입력하새요 예외 처리.
+
+		Scanner sc = new Scanner(System.in);
+		Int num01 = sc.nextInt();
+		try {
+			
+		} catch(NumberFormatException e)
+		
+	}
+
+}

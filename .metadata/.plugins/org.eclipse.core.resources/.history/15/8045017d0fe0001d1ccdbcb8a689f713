@@ -1,0 +1,10 @@
+package javaexp.a09_inherit.abstrac;
+
+public class A02_CompanyAbstract {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

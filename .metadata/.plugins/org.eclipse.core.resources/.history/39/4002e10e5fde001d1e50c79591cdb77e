@@ -1,0 +1,28 @@
+package javaexp.a08_relation.access.ourHome;
+
+public class Father {
+	private int age = 60;
+	String lunch = "Sandwitch";
+	protected String job = "director";
+	public int height = 220;
+	
+	void callFatherInfo1() {
+		System.out.println("private age" + age);
+		System.out.println("default lunch" + lunch);
+		System.out.println("protected job" + job);
+		System.out.println("public height" + height);
+	}
+	
+	void callFatherInfo1() {
+		System.out.println("private age" + age);
+		System.out.println("default lunch" + lunch);
+		System.out.println("protected job" + job);
+		System.out.println("public height" + height);
+	}
+	
+	void callMineInfo() {
+		Mine m = new Mine();
+		System.out.println("default 접근 : " + m.tripPlan);
+//		System.out.println("private 접근 : " + m.secret);
+	}
+}

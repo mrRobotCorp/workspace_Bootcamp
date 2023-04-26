@@ -1,0 +1,58 @@
+package javaexp.a09_inherit;
+
+public class A13_MultiInherit {
+
+	public static void main(String[] args) {
+		/*
+		 ex) Wing인터페이스, Swimming 인터페이스
+		 class MultiSkillRobot implements Wing, Swimming
+		 SwimmingWay, Wing
+		*/
+		MultiSkill01 ms01 = new MultiSkill01();
+		MultiSkill02 ms02 = new MultiSkill02();
+		ms01.allSkill();
+		ms02.allSkill();
+
+	}
+
+}
+class MultiSkill01 implements SwimmingWay, Wing {
+
+	@Override
+	public void fly() {
+		System.out.println("우리 동네를 날다.");
+	}
+
+	@Override
+	public void swimming() {
+		System.out.println("호수가를 수영하다.");
+	}
+	
+	public void allSkill() {
+		fly();
+		swimming();
+	}
+	
+}
+
+class MultiSkill02 implements SwimmingWay, Wing {
+
+	@Override
+	public void fly() {
+		System.out.println("우리 나라 전국을 날다.");
+	}
+
+	@Override
+	public void swimming() {
+		System.out.println("바다를 수영하다.");
+	}
+	
+	public void allSkill() {
+		fly();
+		swimming();
+	}
+	
+}
+
+
+

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a01_tableProp</title>
+
+    <link rel="stylesheet" href="./css/a01.css">
+</head>
+
+<body>
+    <h3>테이블 계층별 구성 요소</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>frank</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>전체인원</th>
+                <td>3명</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="line"></div>
+
+    <!-- ex) 타이틀로 이름 html(과목명), css(과목명), 데이터로 @@@ 80 90, 
+        3명의 이름과 점수 출력, 마지막 하단에 합과 총계 출력 -->
+    <table>
+        <caption>1학기 성적(caption)</caption>
+        <tr class="tableH">
+            <th>이름</th>
+            <th>html</th>
+            <th>css</th>
+        </tr>
+        <tr>
+            <td>Frank</td>
+            <td>80</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <td>Elliot</td>
+            <td>90</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <td>Dalyne</td>
+            <td>90</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <th>합계</th>
+            <td>240</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <th>평균</th>
+            <td>240</td>
+            <td>360</td>
+        </tr>
+    </table>
+    <!-- -------------------------------------- -->
+    <div class="line"></div>
+
+    <table>
+        <caption>2X4 테이블</caption>
+        <tr class="tableH">
+            <td>1행 1열</td>
+            <td>1행 2열</td>
+        </tr>
+        <tr>
+            <td>2행 1열</td>
+            <td>2행 2열</td>
+        </tr>
+        <tr>
+            <td>3행 1열</td>
+            <td>3행 2열</td>
+        </tr>
+        <tr>
+            <td>4행 1열</td>
+            <td>4행 2열</td>
+        </tr>
+    </table>
+
+    <div class="line"></div>
+
+    <!-- ex) 1X3 과목명 리스트, 4X4 X/O 표시, 2X5 회원정보를 표시하는 테이블 -->
+
+    <table>
+        <caption>1X3 과목명</caption>
+        <tr>
+            <td>HTML</td>
+            <td>CSS3</td>
+            <td>JS</td>
+        </tr>
+    </table>
+
+    <div class="line"></div>
+
+    <table>
+        <caption>4X4</caption>
+        <tr>
+            <td>O</td>
+            <td>X</td>
+            <td>X</td>
+            <td>O</td>
+        </tr>
+        <tr>
+            <td>X</td>
+            <td>O</td>
+            <td>O</td>
+            <td>O</td>
+        </tr>
+        <tr>
+            <td>X</td>
+            <td>X</td>
+            <td>O</td>
+            <td>O</td>
+        </tr>
+        <tr>
+            <td>O</td>
+            <td>X</td>
+            <td>X</td>
+            <td>O</td>
+        </tr>
+    </table>
+
+    <div class="line"></div>
+
+    <table>
+        <caption>2X5 회원정보</caption>
+        <tr>
+            <td>이름</td>
+            <td>나이</td>
+            <td>주소</td>
+            <td>포인트</td>
+            <td>장바구니</td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td>나이</td>
+            <td>주소</td>
+            <td>포인트</td>
+            <td>장바구니</td>
+        </tr>
+    </table>
+
+    <!-- ex) 3X3 테이블로 기본 속성을 적용하여 테이블 만들기 -->
+
+    <div class="line"></div>
+
+    <table class="prop">
+        <caption>3X3 기본 속성 적용</caption>
+        <tr>
+            <td>html</td>
+            <td>css</td>
+            <td>js</td>
+        </tr>
+        <tr>
+            <td>ajax</td>
+            <td>java</td>
+            <td>DB</td>
+        </tr>
+        <tr>
+            <td>spring</td>
+            <td>node</td>
+            <td>three</td>
+        </tr>
+    </table>
+
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+package javaexp.a10_exception;
+
+public class A04_RunTime {
+
+	public static void main(String[] args) {
+		try {
+			
+		}catch(ArrayIndexOutOfBoundsException e) {
+			
+		}
+
+	}
+
+}

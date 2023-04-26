@@ -1,0 +1,33 @@
+package javaexp.a09_inherit;
+
+public class A06_Poly_Parts2 {
+
+	public static void main(String[] args) {
+		
+	
+	}
+
+}
+
+class ComputerParts {
+	private String company;
+	private Part[] parts;
+
+	public ComputerParts(String company) {
+		this.company = company;
+	}
+	
+	public void addPart(Part part) {
+		this.part = part;
+		System.out.println("부품이 장착되었음.");
+	}
+	
+	public void showInfo() {
+		System.out.println(company + " 회사의 컴퓨터");
+		if(part != null) {
+			part.showInfo();
+		} else {
+			System.out.println("부품이 장착되지 않았음.");
+		}
+	}
+}

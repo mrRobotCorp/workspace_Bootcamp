@@ -1,0 +1,28 @@
+package javaexp.a09_inherit;
+
+public class A13_MultiInherit {
+
+	public static void main(String[] args) {
+		/*
+		 ex) Wing인터페이스, Swimming 인터페이스
+		 class MultiSkillRobot implements Wing, Swimming
+		 SwimmingWay, Wing
+		*/
+		
+
+	}
+
+}
+class MultiSkillRobot implements SwimmingWay, Wing {
+
+	@Override
+	public void fly() {
+		
+	}
+
+	@Override
+	public void swimming() {
+		
+	}
+	
+}

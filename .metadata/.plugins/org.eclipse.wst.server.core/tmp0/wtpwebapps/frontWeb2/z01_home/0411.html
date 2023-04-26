@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0411</title>
+</head>
+
+<body>
+    <!-- 1. ul과 ol의 차이점을 기본예제를 통해서 기술하세요 -->
+    <ul>
+        <li>순서 없음</li>
+        <li>순서 없음</li>
+        <li>순서 없음</li>
+    </ul>
+
+    <ol>
+        <li>순서 있음</li>
+        <li>순서 있음</li>
+        <li>순서 있음</li>
+    </ol>
+
+    <!-- 2. 중첩태그 코드란 무엇인지 형식과 예제를 기술하세요. -->
+    <ol>
+        <li>
+            <h4>중첩 내용1</h4>
+            <ul>
+                <li>ol 안 ul</li>
+                <li>ol 안 ul</li>
+                <li>ol 안 ul</li>
+            </ul>
+        </li>
+        <li>
+            <h4>중첩 내용2</h4>
+            <ul>
+                <li>ol 안 ul</li>
+                <li>ol 안 ul</li>
+                <li>ol 안 ul</li>
+            </ul>
+        </li>
+    </ol>
+
+    <!-- 3. ul과 ol의 속성을 기술하고, 속성값이 적용된 예제를 만들어 보세요. -->
+    <ul type="square" start="3">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <ol type="i" start="2">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+
+    <!-- 4. ul/ol을 중첩적으로 사용하여, 학년 반별 학생명단을 리스트하세요  -->
+    <ol>
+        <li>
+            <h4>학년</h4>
+            <ol>
+                <li>
+                    <h5>반</h5>
+                    <ul>
+                        <li>학생1</li>
+                        <li>학생2</li>
+                        <li>학생3</li>
+                    </ul>
+                </li>
+                <li>
+                    <h5>반</h5>
+                    <ul>
+                        <li>학생1</li>
+                        <li>학생2</li>
+                        <li>학생3</li>
+                    </ul>
+                </li>
+                <li>
+                    <h5>반</h5>
+                    <ul>
+                        <li>학생1</li>
+                        <li>학생2</li>
+                        <li>학생3</li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+    </ol>
+
+    <!-- 5. table의 계층별 구성요소의 의미를 기본 예제를 통해서 기술하세요. -->
+    <table>
+        <thead>
+            <tr>
+                <th>thead부분</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>tbody부분</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>tfoot부분</th>
+            </tr>
+        </tfoot>
+    </table>
+    <!-- thead, tbody, tfoot은 생략 가능 -->
+
+    <!-- 6. table의 전체 계층 구조로 회원 현황 - 순차번호, 아이디 회원명 권한 포인트 -->
+    <table>
+        <tr>
+            <td>순차번호</td>
+            <td>아이디</td>
+            <td>회원명</td>
+            <td>포인트</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>abcd</td>
+            <td>Adam</td>
+            <td>388 point</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

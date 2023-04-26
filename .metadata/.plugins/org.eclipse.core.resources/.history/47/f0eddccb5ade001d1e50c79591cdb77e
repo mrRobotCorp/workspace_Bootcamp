@@ -1,0 +1,24 @@
+package javaexp.a08_relation.access.story2.woodHome;
+
+public class WoodCutter {
+	private String privSec = "personal secret";
+	String ourHomeSec = "family secret";
+	protected String inheritSec = "inherit money";
+	public String announce = "daughter’s marriage";
+
+//	public void callWoodInfo() {
+//		WoodCutter wc = new WoodCutter();
+//		System.out.println("private : " + wc.priSec);
+//		System.out.println("private : " + wc.priSec);
+//		System.out.println("private : " + wc.priSec);
+//		System.out.println("private : " + wc.priSec);
+//	}
+	
+	public void callWoodInfo() {
+		System.out.println("private : " + privSec);
+		System.out.println("default : " + ourHomeSec);
+		System.out.println("protected : " + inheritSec);
+		System.out.println("public : " + announce);
+	}
+	
+}

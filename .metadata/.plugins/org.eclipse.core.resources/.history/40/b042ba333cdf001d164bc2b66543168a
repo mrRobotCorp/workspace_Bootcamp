@@ -1,0 +1,39 @@
+package javaexp.a09_inherit;
+
+public class A04_Polymorphism {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+class Animal {
+	private String kind;
+
+	public Animal(String kind) {
+		this.kind = kind;
+	}
+	
+	public void sound() {
+		System.out.println(kind + "가 소리를 내다");
+	}
+	
+}
+
+class Cat extends Animal {
+	
+	
+	public Cat(String kind) {
+		super("고양이");
+	}
+	
+}
+
+class Bird extends Animal {
+
+	public Bird(String kind) {
+		super(kind);
+	}
+	
+}

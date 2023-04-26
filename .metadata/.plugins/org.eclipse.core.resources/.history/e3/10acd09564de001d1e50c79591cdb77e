@@ -1,0 +1,16 @@
+package javaexp.a09_inherit;
+
+public class A01_Basic {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+// this()로 정의된 생성자 호출
+class Person{
+	String name;
+	int age;
+	String loc;
+}

@@ -1,0 +1,29 @@
+package javaexp.a10_exception;
+
+public class A08_MultiException {
+
+	public static void main(String[] args) {
+
+		/*
+		A08_MultiException
+			NumberFormatException	Integet.parseInt("이십")
+			ArithMethicException 	1/0
+			Exception				args[0]
+		위와 같은 예외 처리를 다중으로 처리하고 최종적으로 finally까지 처리하여 예외를 계층적, 순차별로 처리
+		*/
+
+//		try {
+//			System.out.println(Integer.parseInt("이십"));
+//		} catch(NullPointerException e) {
+//			
+//		} catch( e) {
+//			
+//		} catch (Exception e) {
+//			
+//		} finally {
+//			
+//		}
+
+	}
+
+}

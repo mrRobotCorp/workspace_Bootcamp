@@ -1,0 +1,45 @@
+package javaexp.a09_inherit;
+
+public class A06_Poly_Parts2 {
+
+	public static void main(String[] args) {
+		ComputerParts com1 = new ComputerParts("조립");
+		com1.addPart(null);
+	
+	}
+
+}
+
+class ComputerParts {
+	private String company;
+	private Part[] parts;
+	private int idx;
+
+	public ComputerParts(String company) {
+		this.company = company;
+		parts = new Part[3];
+	}
+	
+	public void addPart(Part part) {
+		if(idx < 3) {
+			this.parts[idx++] = part;
+			System.out.println("부품이 장착되었음.");			
+		} else {
+			System.out.println("더 이상 부품을 장착할 수 없음");
+		}
+	}
+	
+	public void showInfo() {
+		System.out.println(company + " 회사의 컴퓨터");
+		// parts에 부품이 하나라도 추가되어 있을 때 출력
+		if(parts[0]!= null) {
+			for(Part p:parts) {
+				if(p != null ) {
+					p.showInfo();					
+				}
+			}
+		} else {
+			System.out.println("부품이 장착되지 않았음.");
+		}
+	}
+}

@@ -1,0 +1,7 @@
+package javaexp.a08_relation.access.sisterHome;
+
+import javaexp.a08_relation.access.ourHome.Father;
+
+public class Sister2 extends Father {
+
+}

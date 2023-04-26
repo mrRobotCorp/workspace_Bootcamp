@@ -1,0 +1,18 @@
+package javaexp.a10_exception;
+
+public class A04_RunTime {
+
+	public static void main(String[] args) {
+		// ArrayIndexOutOfBoundsException
+		// ex) A04_RunTime args[0]에 회원 아이디와 패스워드를 입력 받아 처리하는
+		// 프로그램으로 입력이 안될 때 예외 처리하는 내용을 하고, 예외 처리 내용으로 아이디, 패스워드를 입력하세요
+		System.out.println("아이디와 패스워드를 입력하세요.");
+		try {
+			
+		}catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println("아이디를 입력하세요");
+		}
+
+	}
+
+}

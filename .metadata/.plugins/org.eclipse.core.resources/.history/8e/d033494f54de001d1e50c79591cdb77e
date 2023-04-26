@@ -1,0 +1,5 @@
+package javaexp.a08_relation.access.ourHome;
+
+public class Mine {
+	String tripPlan = "어떤어떤계획";
+}

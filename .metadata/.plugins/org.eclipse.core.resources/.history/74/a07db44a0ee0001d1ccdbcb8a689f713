@@ -1,0 +1,81 @@
+package javaexp.a09_inherit.abstrac;
+
+public class A01_StarcraftWorld {
+
+	public static void main(String[] args) {
+		
+	}
+
+}
+
+// 추상 메서드가 하나라도 있으면 추상 클래스가 되고, 드디어 혼자 객체 생성을 하지 못 함.
+// 드디어 혼자 객체 생성을 하지 못함. Larba l1 = new Larba(); (X)
+// 다형성에 의해서 상속 받은 하위 객체가 할당 할 때만 생성
+// Larba l1 = new Dron();
+// Larba l2 = new Zerggling();
+// Larba l3 = new Hydralist();
+abstract class Larba { 
+	private String kind;
+	private String color;
+	public Larba(String kind, String color) {
+		this.kind = kind;
+		this.color = color;
+	}
+	
+	public String getUnit() {
+		return color + "색" + kind;
+	}
+	
+	// 공통 메서드
+	public void move() {
+		System.out.println(color + "색 " + kind + " 이동한다.");
+	}
+	
+	// 추상 메서드
+	// 상속 받는 하위에서 반드시 재정의 할 메서드
+	public abstract void attack();
+	
+	
+}
+
+class Dron extends Larba {
+
+	public Dron(String color) {
+		super("드론", color);
+	}
+
+	@Override
+	public void attack() {
+		System.out.println(getUnit() + " 채집 유닉이라 공격을 못 한다.");
+		System.out.println(getUnit() + " 공격력 5로 미약하게 공격하다");
+	}
+	
+}
+
+class Zerggling extends Larba {
+
+	public Zerggling(String color) {
+		super("저글링", color);
+	}
+
+	@Override
+	public void attack() {
+		System.out.println(getUnit() + " 초기 공격 유닉으로 공격력 5로 빠르게 공격하다");
+	}
+	
+}
+
+class Hydralisk extends Larba {
+
+	public Hydralisk(String color) {
+		super("히드라리스크", color);
+	}
+
+	@Override
+	public void attack() {
+		System.out.println(getUnit() + " 중대형 공격 유닉으로 공격력 15로 원거리 공격하다");
+	}
+	
+}
+
+

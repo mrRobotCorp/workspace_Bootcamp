@@ -1,0 +1,95 @@
+package javaexp.a09_inherit.list;
+
+import java.util.ArrayList;
+
+public class A01_PolyList {
+
+	public static void main(String[] args) {
+		ArrayList<Duck> dlist = new ArrayList<Duck>();
+		dlist.add(new NormalDuck());
+		dlist.add(new RubberDuck());
+		dlist.add(new Mallard());
+		
+		for(Duck d:dlist) {
+			d.swimming();
+		}
+		
+		// ex) Part class 하위 Ram, Cpu, Ssd 클래스 생성
+		//		위 ArrayList<Part>에 담아서 재정의된 메서드로 호출
+
+	}
+
+}
+
+class Part {
+	private String parts;
+
+	public Part(String parts) {
+		this.parts = parts;
+	}
+	
+	public void showPart() {
+		
+	}
+	
+}
+
+class Duck {
+	private String kind;
+
+	public Duck(String kind) {
+		this.kind = kind;
+	}
+	
+	public void swimming() {
+		System.out.println(kind + "가 수영을 한다");
+	}
+}
+
+class NormalDuck extends Duck {
+
+	public NormalDuck() {
+		super("집 오리");
+	}
+
+	@Override
+	public void swimming() {
+		super.swimming();
+		System.out.println("집 앞 호수에서 즐겁게...꽥꽥...");
+	}
+	
+}
+
+class RubberDuck extends Duck {
+
+	public RubberDuck() {
+		super("고무 오리");
+	}
+
+	@Override
+	public void swimming() {
+		super.swimming();
+		System.out.println("집 안 욕조 안에서 둥둥 떠다니며....");
+	}
+	
+}
+
+class Mallard extends Duck {
+
+	public Mallard() {
+		super("청둥 오리");
+	}
+
+	@Override
+	public void swimming() {
+		super.swimming();
+		System.out.println("강가에서 친구들과 즐겁게...첨벙..");
+	}
+	
+}
+
+
+
+
+
+

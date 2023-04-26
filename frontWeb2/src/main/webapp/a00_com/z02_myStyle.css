@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+* { margin: 0; padding: 0; }
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.a01Pro > * { padding: 20px; }
+.a01Pro .cls00 { border-bottom: 2px solid #d7d7d7;}
+.a01Pro .cls01 { font-size: 1em; }
+.a01Pro .cls02 { font-size: 2em; }
+.a01Pro .cls03 { font-size: 3em; }
+.a01Pro .cls04 { font-size: 120%; }
+.a01Pro .cls05 { font-size: 150%; }
+.a01Pro .cls06 { font-size: 200%; }
+
+.a01Pro h2 { background-color:bisque; }
+.a01Pro h3 { background-color: #ffcaca;}
+.a01Pro h4 { background-color: rgb(186, 255, 157);}
+
+.sizeO h2:first-child { font-size: 10px; }
+.sizeO h2:nth-child(2) { font-size: 20px; }
+.sizeO h2:nth-child(3) { font-size: 30px; }
+.sizeO h2:nth-child(4) { font-size: 40px; }
+
+.sizeP h2:first-child { font-size: 10px; }
+.sizeP h2:nth-child(2) { font-size: 20px; }
+.sizeP h2:nth-child(3) { font-size: 30px; }
+.sizeP h2:nth-child(4) { font-size: 40px; }
+
+.a01Tb { border-collapse: collapse;  text-align: center; }
+.a01Tb td { width: 80%; height: 50px; border: 1px solid #222; }

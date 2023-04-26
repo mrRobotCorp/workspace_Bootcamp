@@ -1,0 +1,38 @@
+package javaexp.a09_inherit.list;
+
+import java.util.ArrayList;
+
+public class A02_OneVsMulti {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+
+class Computer{
+	private String kind;
+	private ArrayList<Part> plist;
+	
+	public Computer(String kind, ArrayList<Part> plist) {
+		this.kind = kind;
+		// 생성자를 만들 때 부품 리스트 객체 생성
+		plist = new ArrayList<Part>();
+	}
+	
+	public void addPart(Part part) {
+		plist.add(part);
+		System.out.println(kind + "에 " + part.getParts() + " 부품 추가됩니다.");
+	}
+	
+	public void showAllInfo() {
+		System.out.println(kind + " 컴퓨터 부품 리스트");
+		if(plist.size()>0) {
+			
+		} else {
+			System.out.println("부품이 없음.");
+		}
+	}
+	
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a05_inputProp</title>
+    <link rel="stylesheet" href="./css/form.css">
+
+</head>
+<body>
+    <h4>보이는 크기 지정(size)</h4>
+    <input type="text" size="5" maxlength="5">
+    
+    <h4>실제 입력 할 크기 지정(maxlength)</h4>
+    <input type="text" size="5" maxlength="15">
+    <!-- 오/왼으로 데이터를 입력 가능하게 처리 -->
+    <input type="submit">
+
+
+    <!-- ex) 아래 항목을 table안에 레이블과 함께 출력하게 하되 size와 maxlength 활용하여 출력. --> 
+    <!-- 구매 정보      
+        물건 명 [7자 이내] 가격 [만 단위 숫자 이네]  갯수 [ 1단위 숫자 ] -->
+    <form>
+        <span>구매 정보 : </span>
+        <input name="pName" type="text" placeholder="물건명을 입력하세요" maxlength="7"> <br>
+        <span>가격 : </span>
+        <input name="price" type="text" placeholder="가격을 입력하세요" maxlength="5"> <br>
+        <span>갯수 : </span>
+        <input name="count" type="text" placeholder="갯수를 입력하세요" maxlength="1"> <br>
+
+        <input type="submit">
+    </form>
+
+    <form>
+        <table id="inTable">
+            <caption>구매 정보</caption>
+            <tr>
+                <th>물건명</th>
+                <td>
+                    <input name="pName" type="text" placeholder="물건명을 입력하세요" maxlength="7">
+                </td>
+            </tr>
+            <tr>
+                <th>가격</th>
+                <td>
+                    <input name="price" type="text" placeholder="가격을 입력하세요" maxlength="5">
+                </td>
+                
+            </tr>
+            <tr>
+                <th>갯수</th>
+                <td>
+                    <input name="count" type="text" placeholder="갯수를 입력하세요" maxlength="1">
+                </td>
+            </tr>
+        </table>
+
+        <input type="submit">
+    </form>
+
+</body>
+</html>

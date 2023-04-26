@@ -1,0 +1,10 @@
+package javaexp.a10_exception;
+
+public class A03_RunTimeException {
+
+	public static void main(String[] args) {
+		// 입력되는 데이터
+
+	}
+
+}

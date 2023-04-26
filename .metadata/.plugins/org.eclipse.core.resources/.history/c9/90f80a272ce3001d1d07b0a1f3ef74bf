@@ -1,0 +1,10 @@
+package javaexp.a10_exception;
+
+public class A08_MultiException {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

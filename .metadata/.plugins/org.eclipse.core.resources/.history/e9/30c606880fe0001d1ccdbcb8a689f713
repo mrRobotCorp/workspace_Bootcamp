@@ -1,0 +1,17 @@
+package javaexp.a09_inherit.abstrac;
+
+public class A02_CompanyAbstract {
+
+	public static void main(String[] args) {
+		/*
+		ex) 상위 추상 클래스 Company - 필드 회사명, working() 공통, earnMoney() 돈 버는 방법 - 추상
+			하위 실제 클래스 HyunDai, Samsung
+		*/
+
+	}
+
+}
+
+class Company {
+	
+}

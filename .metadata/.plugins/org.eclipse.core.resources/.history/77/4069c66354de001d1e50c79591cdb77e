@@ -1,0 +1,10 @@
+package javaexp.a08_relation.access.uncleHome;
+
+import javaexp.a08_relation.access.ourHome.Mine;
+
+public class Cousin {
+	void callPlan() {
+		Mine m1 = new Mine();
+//		System.out.println(m1.tripPlan);
+	}
+}

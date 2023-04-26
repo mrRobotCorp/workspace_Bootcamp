@@ -1,0 +1,8 @@
+package javaexp.a08_relation.access.story1.friendship;
+
+public class Deer {
+	//
+	void callWoodCutterInfo() {
+		
+	}
+}

@@ -1,0 +1,39 @@
+package javaexp.a09_inherit;
+
+public class A08_Poly_Zerg {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+class Larba {
+	private String unit;
+
+	public Larba(String unit) {
+		this.unit = unit;
+	}
+	
+	public void attack() {
+		System.out.println(unit + " 공격하려고 함.");
+	}
+
+}
+
+class Dron extends Larba {
+
+	public Dron() {
+		super("드론");
+	}
+
+	@Override
+	public void attack() {
+		super.attack();
+	}
+	
+	
+	
+}
+
+

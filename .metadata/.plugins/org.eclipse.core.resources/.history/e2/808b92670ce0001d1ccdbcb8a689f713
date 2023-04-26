@@ -1,0 +1,21 @@
+package javaexp.a09_inherit.abstrac;
+
+public class A01_StarcraftWorld {
+
+	public static void main(String[] args) {
+		
+	}
+
+}
+class Larba {
+	private String kind;
+	private String color;
+	public Larba(String kind, String color) {
+		this.kind = kind;
+		this.color = color;
+	}
+	
+	public void move() {
+		System.out.println(color + "색 " + kind + " 이동한다.");
+	}
+}

@@ -1,0 +1,18 @@
+package javaexp.a09_inherit.abstrac;
+
+public class A03_DuckWorld {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+/*
+ ex) 아래와 같이 추상 클래스 Duck을 선언하여 main()에서 호출
+	Duck(추상) - 필드 : kind(종류), 생성자1, swimming() 수영을 하다(공통), getKind(공통)
+	fly(추상메서드)
+	NormalDuck(실제클래스) 일반오리 : fly() 날지 못 한다.
+	Mallard(실제클래스) 청둥오리 : fly() 훨훨 난다.
+
+*/

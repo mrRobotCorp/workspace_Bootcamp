@@ -1,0 +1,8 @@
+package javaexp.a08_relation.access.ourHome;
+
+public class Brother {
+	void callPlan() {
+		Mine m1 = new Mine();
+		System.out.println(m1.tripPlan);
+	}
+}

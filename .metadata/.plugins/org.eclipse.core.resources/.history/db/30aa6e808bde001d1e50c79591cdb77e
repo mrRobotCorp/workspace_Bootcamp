@@ -1,0 +1,7 @@
+package javaexp.z01_home.fruit2;
+
+import javaexp.z01_home.fruit.KoreanMelon;
+
+public class Watermelon extends KoreanMelon {
+	
+}

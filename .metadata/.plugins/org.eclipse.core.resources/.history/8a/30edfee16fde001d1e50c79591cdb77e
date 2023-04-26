@@ -1,0 +1,7 @@
+package javaexp.a09_inherit.vo;
+
+public class Product {
+	String pName;
+	int price;
+	int pCnt;
+}

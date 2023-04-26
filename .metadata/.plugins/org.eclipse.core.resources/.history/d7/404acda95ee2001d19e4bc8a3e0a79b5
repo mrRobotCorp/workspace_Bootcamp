@@ -1,0 +1,18 @@
+package javaexp.a09_inherit.abstrac;
+
+public class A04_Zerg_Users {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+
+class ZergUser {
+	// 사용자 색상으로 식별
+	private String color;
+	private ArrayList<Larba> units;
+	
+	
+}

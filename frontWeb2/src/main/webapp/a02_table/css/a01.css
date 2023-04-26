@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+::selection {
+    color: #fff;
+    background-color: #9500ff;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.line {
+    height: 60px;
+}
+
+table {
+    /* 화면에 있는 border 붕괴시킴.. 나는요..완전히 붕괴됐어요... */
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table .tableH {
+    color: #fff;
+    background-color: #111;
+}
+
+table th, td {
+    /* border: 굵기 타입 색상 */
+    border: 1px solid #555;
+    padding: 10px 25px;
+}
+
+table caption {
+    text-align: left;
+    margin-bottom: 10px;
+    color: #3333b0;
+    font-weight: 600;
+}
+
+.prop {
+    margin: 0 auto;
+    width: 70%;
+    height: 300px;
+}
+
+.prop td {
+    border: 1px solid #9500ff;
+    font-size: 16px;
+    letter-spacing: 3px;
+    transition: all .4s;
+}
+
+.prop tr:first-child td:hover {
+    color: #fff;
+    background-color: #222;
+}
+
+.prop tr:nth-child(2) td:hover {
+    color: #fff;
+    background-color: #9500ff;
+}
+
+.prop tr:last-child td:hover {
+    color: #fff;
+    background-color: #3333b0;
+}
+
+.cellspan td {
+    width: 30px;
+    height: 20px;
+    border: 2px dotted #9500ff;
+    font-family: 900;
+}
+
+.spanEx0, .spanEx1, .spanEx2  {
+    width: 40%;
+    height: 240px;
+}
+
+.spanEx1 td {
+    height: 30%;
+}
+
+.spanEx0 td, .spanEx1 td, .spanEx2 td  {
+    border: 1px solid #413e9a;
+    transition: all .4s;
+}
+
+.cellBg:hover {
+    background-color: #413e9a;
+}

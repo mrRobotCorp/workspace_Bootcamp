@@ -1,0 +1,10 @@
+
+4월 10, 2023 15:46:31.152 NEW SESSION
+4월 10, 2023 15:46:31.153 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+4월 10, 2023 16:32:34.928 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+4월 24, 2023 09:12:09.872 NEW SESSION
+4월 24, 2023 09:12:09.872 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+4월 24, 2023 09:15:46.61 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+4월 24, 2023 09:17:29.223 [9920:6984:0424/091729.223:ERROR:device_event_log_impl.cc(222)] [09:17:29.223] Bluetooth: bluetooth_adapter_winrt.cc:1068 Getting Default Adapter failed.
+4월 24, 2023 09:31:16.378 [9920:6984:0424/093116.378:ERROR:interface_endpoint_client.cc(695)] Message 1 rejected by interface blink.mojom.WidgetHost

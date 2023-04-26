@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+}
+
+.line {
+    height: 60px;
+}
+
+table tr td {
+    border: 1px solid #3800a7;
+    overflow: hidden;
+
+}
+
+table tr td img {
+    width: 150px;
+    height: 120px;
+    
+}
+
+table tr td img:hover {
+    transform: scale(1.3);
+}

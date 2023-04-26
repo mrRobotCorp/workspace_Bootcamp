@@ -1,0 +1,25 @@
+# 필요한 툴
+1. editplus/totalcommand
+2. jdk(17.ver)
+	openjdk17 download
+3. eclipse// intellij
+	1) svn//git
+4. vscode
+5. notion
+
+
+# java 운영체제에서 사용할 수 있게 처리
+1. path를 java의 실행 파일 경로로 설정.
+	E:\a01_javaexp\jdk-17.0.2\bin\
+	해당 경로로 이동하지 않더라도 해당 경로에 있는 명령어를 수행하게 함.
+cmd
+윈도우용 콘솔명령어 창 입력
+-> java -version
+
+# eclipse의 사용
+1. 실행 명령 위치
+	e:\a01_javaexp\eclipse\eclipse.exe
+2.  프로그래밍한 코드 위치를 지정해서 실행
+	e:\a01_javaexp\workspace\
+	1) 프로젝트 코드 지정
+	2) 환경설정 정보 저장

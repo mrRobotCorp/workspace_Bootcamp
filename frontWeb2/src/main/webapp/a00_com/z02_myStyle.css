@@ -1,33 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300; 400; 500; 700; 900&display=swap');
+* { margin: 0; padding: 0; } 
 
-* { margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', sans-serif; } 
 
-body {
-    font-family: 'Noto Sans KR', sans-serif;
-}
+.a01Pro > * { padding: 20px; } 
+.a01Pro .cls00 { border-bottom: 2px solid #d7d7d7; } 
+.a01Pro .cls01 { font-size: 1em; } 
+.a01Pro .cls02 { font-size: 2em; } 
+.a01Pro .cls03 { font-size: 3em; } 
+.a01Pro .cls04 { font-size: 120%; } 
+.a01Pro .cls05 { font-size: 150%; } 
+.a01Pro .cls06 { font-size: 200%; } 
 
-.a01Pro > * { padding: 20px; }
-.a01Pro .cls00 { border-bottom: 2px solid #d7d7d7;}
-.a01Pro .cls01 { font-size: 1em; }
-.a01Pro .cls02 { font-size: 2em; }
-.a01Pro .cls03 { font-size: 3em; }
-.a01Pro .cls04 { font-size: 120%; }
-.a01Pro .cls05 { font-size: 150%; }
-.a01Pro .cls06 { font-size: 200%; }
+.a01Pro h2 { background-color:bisque; } 
+.a01Pro h3 { background-color: #ffcaca; } 
+.a01Pro h4 { background-color: rgb(186, 255, 157); } 
 
-.a01Pro h2 { background-color:bisque; }
-.a01Pro h3 { background-color: #ffcaca;}
-.a01Pro h4 { background-color: rgb(186, 255, 157);}
+.sizeO h2:first-child { font-size: 10px; } 
+.sizeO h2:nth-child(2) { font-size: 20px; } 
+.sizeO h2:nth-child(3) { font-size: 30px; } 
+.sizeO h2:nth-child(4) { font-size: 40px; } 
 
-.sizeO h2:first-child { font-size: 10px; }
-.sizeO h2:nth-child(2) { font-size: 20px; }
-.sizeO h2:nth-child(3) { font-size: 30px; }
-.sizeO h2:nth-child(4) { font-size: 40px; }
+.sizeP h2:first-child { font-size: 10px; } 
+.sizeP h2:nth-child(2) { font-size: 20px; } 
+.sizeP h2:nth-child(3) { font-size: 30px; } 
+.sizeP h2:nth-child(4) { font-size: 40px; } 
 
-.sizeP h2:first-child { font-size: 10px; }
-.sizeP h2:nth-child(2) { font-size: 20px; }
-.sizeP h2:nth-child(3) { font-size: 30px; }
-.sizeP h2:nth-child(4) { font-size: 40px; }
+.a01Tb { border-collapse: collapse; text-align: center; } 
+.a01Tb td { width: 80%; height: 50px; border: 1px solid #222; } 
 
-.a01Tb { border-collapse: collapse;  text-align: center; }
-.a01Tb td { width: 80%; height: 50px; border: 1px solid #222; }
+/* ---------------------------------------------------- */
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300; 400; 500; 700; 900&family=Stylish&display=swap'); */
+
+/* #a02B { font-family: 'Noto Sans KR', sans-serif; font-family: 'Stylish', sans-serif; } */
+#fontSty { text-align: center; font-size: 1.8em; padding: 15px 0; border-bottom: 2px solid #d7d7d7; } 
+.a02Font p { text-align: center; transition: all .4s; cursor: pointer; padding-bottom: 15px; } 
+.a02Font p:hover { transform: scale(1.2); } 
+.a02Font p:first-child { font-weight: 900; margin-top: 20px; } 
+.a02Font p:nth-child(2) { font-weight: 100; } 
+.a02Font p:nth-child(3) { font-style: italic; } 
+.a02Font p:last-child { font-size: 1.5em; } 
+
+.a2Ex { margin-bottom: 50px; } 
+.a2Ex p { text-align: center; transition: all .4s; cursor: pointer; padding-bottom: 15px; } 
+.a2Ex p:hover { transform: scale(1.2); } 
+.a2Ex p:first-child { font-size: 25px; font-weight: 500; margin-top: 20px; } 
+.a2Ex p:nth-child(2) { font-family: "궁서체"; font-size: 20pt; } 
+.a2Ex p:nth-child(3) { font-family: "맑은 고딕"; font-size: 0.24in; } 
+.a2Ex p:nth-child(4) { font-weight: 600; font-size: 1.7em; } 
+
+/* -------------------------------------------------------------- */
+.a03Div { display: flex; align-items: center; justify-content: center; width: 80vw; height: 80px; margin: 0 auto; } 
+.a03Div span { padding: 10px 20px; border: 1px solid #888; } 
+
+.a03Div0 { border: 2px solid #222; } 
+.a03Div1 { border-left: 2px solid #222; } 
+.a03Div2 { border-right: 2px solid #222; } 
+.a03Div3 { border-top: 2px solid #222; } 
+.a03Div4 { border-bottom: 2px solid #222; } 
+
+.a03Ex { width: 60vw; margin: 50px auto 0 auto; padding: 15px 20px; border-top: 3px solid #f0f; border-right: 3px dashed #00f; border-bottom: 3px dotted #f00; border-left: 3px solid #0ff; } 
+
+/* ----------------------------------------------------------------------- */
+.a04Div h3 { text-align: center; margin-top: 20px; } 
+.a04Div p { width: 60vw; margin: 20px auto 0 auto; padding: 20px; border: 1px solid #333; } 
+
+/* ----------------------------------------------------------------------- */
+div.box { padding: 20px; margin: 30px; color: #0ff; background-color: #333; border: 2px double #0ff; text-align: center; } 
+.a05P { width: 80vw; padding: 30px 40px; margin: 0 auto; color: #fff; background: url(../a00_img/colorful.jpg) center center no-repeat; background-size: cover; border-radius: 30px; font-size: 18px; font-weight: 600; box-shadow: 4px 4px 10px #999; } 
+/* .a05P > font#ch01 { color: #888; padding: 20px; border: #222; } */
+
+/* ------------------------------------------------------------------------ */
+.a06P p { padding: 30px; margin: 30px 0; width: 300px; background-color: #999; border-radius: 50px; } 
+.a06P p:first-child { border-radius: 50px; } 
+.a06P p:nth-child(2) { border-radius: 10px 20px 30px 40px; } 
+.a06P p:nth-child(3) { border-radius: 20px 30px 50px; } 
+.a06P p:nth-child(4) { border-radius: 30px 60px; } 
+
+.a06Ex { width: 300px; height: 150px; margin: 10px; background-color: #fffcc5; }
+.a06Ex0 { border-radius: 30px 50px 20px 60px; border: 2px solid #1736b1;}
+.a06Ex1 { border-radius: 10px 30px 50px; border: 2px solid #961d1d;}
+.a06Ex2 { border-radius: 30px 60px; border: 2px solid #139844;}
+.a06Ex3 { border-radius: 50px; border: 2px solid #8930cd; }

@@ -37,27 +37,7 @@ public class A09_ThrowsException {
 		System.out.println("입력한 문자 : " + (char)System.in.read());
 	}
 	
-	static void call07(String[] arry) throws ArrayIndexOutOfBoundsException {
-		String name = arry[0];
-	}
-	
-	// 배열을 참조 변수로 받는 예시
-	static void call08(String[] arr) {
-		// String[] args = {"데이터"};
-		// String[] arr = args;
-	}
-	
 	public static void main(String[] args) {
-		// 배열을 참조 변수로 받는 예시
-		call08(args);
-		call08(new String[]{"string data"});
-		call08(new String[3]);
-		
-		try {
-			call07(args);
-		} catch(ArrayIndexOutOfBoundsException e) {
-			System.out.println("참조변수 배열인 메서드 예외");
-		}
 		
 		try {
 			// 위임을 했기에 호출하는 곳에 다시 예외를 처리해야 함
@@ -108,21 +88,8 @@ public class A09_ThrowsException {
 		} finally {
 			System.out.println("예외 상관없이 처리");
 		}
-		System.out.println("-- IO 예외 종료 --");
+		System.out.println("예외 위임 처리 종료");
 		
-		
-		try {
-			call01();
-			call02();
-		} catch (ClassNotFoundException e) {
-			// 클래스에 관련된 예외 처리 (구체적 상세 내용 처리)
-			e.printStackTrace();
-		} catch (IOException e) {
-			// IO에 관련된 예외 (구체적 상세 내용 처리)
-			e.printStackTrace();
-		} catch(Exception e) { // 기타 예외 처리
-			System.out.println("기타 예외 : " + e.getMessage());			
-		}
 
 	}
 

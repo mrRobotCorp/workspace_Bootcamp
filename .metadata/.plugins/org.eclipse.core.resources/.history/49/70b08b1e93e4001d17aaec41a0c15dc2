@@ -3,15 +3,15 @@ package javaexp.a10_exception;
 public class A10_UserException {
 	/*
 	class Exceptinon {
-		private String message;
-		Exception() {}	
-		Exception(String message) {
-			this.message = message;
-		}
-		String getMessage() {
-			return message;
-		}
+	private String message;
+	Exception() {}	
+	Exception(String message) {
+		this.message = message;
 	}
+	String getMessage() {
+		return message;
+	}
+}
 	*/
 
 	public static void main(String[] args) {
@@ -39,11 +39,6 @@ public class A10_UserException {
 
 }
 class User01Exception extends Exception {
-	User01Exception() {
-		// 생성자는 반드시 상위에 있는 생성자를 호출해야 함
-		super();
-	}
-	
 	User01Exception(String errMsg) {
 		super("사용자 정의 에러 : " + errMsg); // 상위 생성자 중 매개변수가 문자열로 된 생성자 호출
 	}

@@ -3,10 +3,7 @@ package javaexp.z01_home;
 import java.util.Scanner;
 
 public class A16_0426 {
-	static void ex03(String[] arry) throws ArrayIndexOutOfBoundsException {
-		String name = arry[0];
-	}
-	
+
 	public static void main(String[] args) {
 
 		// 1) 예외 처리를 왜 하는지 알고 있나요?
@@ -69,12 +66,17 @@ public class A16_0426 {
 			}
 			*/
 		// 3) args값이 입력하지 않을 때, 처리되는 메서드를 선언하고, 예외를 위임하세요.
+			/*
+			static void ex03() throws ArrayIndexOutOfBoundsException {
+				System.out.println(args[0]);
+			}
+			
 			try {
-				ex03(args);				
+				ex03();				
 			} catch(ArrayIndexOutOfBoundsException e) {
 				System.out.println("예외 위임 처리");
 			}
-			
+			 */
 		
 		// 4) 아이디 입력시 8자미만 이거나 16자이상시 사용자 정의 예외를 발생하게 처리하세요
 			Scanner sc = new Scanner(System.in);
@@ -109,10 +111,10 @@ public class A16_0426 {
 		// 7. 1~10까지 출력할 때, 짝수인 경우에 사용자 정의 예외가 처리되게 하세요.
 			try {
 				for(int i=1; i<=10; i++) {
+					System.out.println(i);
 					if(i % 2 == 0) {
 						throw new Ex07("throw 처리");						
 					}
-					System.out.println(i);
 				}
 			} catch (Ex07 e) {
 				System.out.println(e.getMessage());

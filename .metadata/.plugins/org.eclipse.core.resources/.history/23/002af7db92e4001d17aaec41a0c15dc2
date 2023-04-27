@@ -56,7 +56,7 @@ public class A09_ThrowsException {
 		try {
 			call07(args);
 		} catch(ArrayIndexOutOfBoundsException e) {
-			System.out.println("참조변수 배열인 메서드 예외");
+			
 		}
 		
 		try {

@@ -41,22 +41,13 @@ public class A09_ThrowsException {
 		String name = arry[0];
 	}
 	
-	// 배열을 참조 변수로 받는 예시
-	static void call08(String[] arr) {
-		// String[] args = {"데이터"};
-		// String[] arr = args;
-	}
 	
 	public static void main(String[] args) {
-		// 배열을 참조 변수로 받는 예시
-		call08(args);
-		call08(new String[]{"string data"});
-		call08(new String[3]);
 		
 		try {
-			call07(args);
+			call07();
 		} catch(ArrayIndexOutOfBoundsException e) {
-			System.out.println("참조변수 배열인 메서드 예외");
+			
 		}
 		
 		try {

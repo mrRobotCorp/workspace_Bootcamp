@@ -1,0 +1,13 @@
+package javaexp.a11_api;
+
+public class A05_StringBuffer {
+
+	public static void main(String[] args) {
+		String strData = "A";
+		for(int i=0; i<10; i++) {
+			strData += i;
+		}
+
+	}
+
+}

@@ -1,0 +1,27 @@
+package javaexp.a11_api;
+
+public class A05_StringBuffer {
+
+	public static void main(String[] args) {
+		String name1 = "abc";
+		String name2 = "abc";
+		String name3 = new String("abc");
+		String name4 = new String("abc");
+		
+		System.out.println(name1.hashCode());
+		System.out.println(name2.hashCode());
+		System.out.println(name3.hashCode());
+		System.out.println(name4.hashCode());
+		
+		String strData = "A";
+		System.out.println("초기 주소값 : " + strData.hashCode()); // 스택에 있는 주소값 출력
+		for(int i=0; i<10; i++) {
+			strData += i;
+		}
+		System.out.println(strData);
+		System.out.println("마지막 주소값 : " + strData.hashCode()); // 스택에 있는 주소값 출력
+		
+
+	}
+
+}

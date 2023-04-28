@@ -1,0 +1,24 @@
+package javaexp.a11_api;
+
+public class A07_Math {
+
+	public static void main(String[] args) {
+		System.out.println("Math.random() : " + Math.random());
+		System.out.println("Math.abs(-5) : " + Math.abs(-5));
+		System.out.println("Math.abs(5) : " + Math.abs(5));
+		System.out.println("올림(실수) Math.ceil(5.2) : " + Math.ceil(5.2));
+		System.out.println("내림(실수) Math.floor(5.9) : " + Math.floor(5.9));
+		System.out.println("Math.max(3,4) : " + Math.max(3,4));
+		System.out.println("Math.min(2,7) : " + Math.min(2,7));
+		System.out.println("반올림(정수) Math.round(4.5) : " + Math.round(4.5));
+		System.out.println("반올림(정수) Math.round(4.4) : " + Math.round(4.4));
+		
+		// ex) 1-10까지 두 개의 수를 임의로 발생시켜 큰 수, 작은 수 출력 Math.method() 사용
+		int ran = (int)(Math.random() * 10 + 1);
+		
+		
+		
+
+	}
+
+}

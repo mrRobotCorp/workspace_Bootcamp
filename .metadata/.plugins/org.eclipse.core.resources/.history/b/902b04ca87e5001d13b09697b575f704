@@ -1,0 +1,15 @@
+package javaexp.a11_api;
+
+public class A06_WrapperClass {
+
+	public static void main(String[] args) {
+		int num01 = 25; // 기본 데이터 유형
+		Integer numWrap01 = new Integer(num01); // Wrapper 클래스
+		// numWrap01.XXX() 를 통해 포함되는 여러 기능 메서드 지원
+		System.out.println(numWrap01.byteValue());
+		System.out.println(numWrap01.hashCode());
+		System.out.println(numWrap01.MAX_VALUE);
+
+	}
+
+}

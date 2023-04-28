@@ -1,0 +1,10 @@
+package javaexp.a11_api;
+
+public class A07_Math {
+
+	public static void main(String[] args) {
+		System.out.println("Math.random() : " + Math.random());
+
+	}
+
+}

@@ -1,0 +1,41 @@
+package javaexp.a11_api;
+
+public class A06_WrapperClass {
+
+	public static void main(String[] args) {
+		int num01 = 25; // 기본 데이터 유형
+		Integer numWrap01 = new Integer(num01); // Wrapper 클래스
+		// numWrap01.XXX() 를 통해 포함되는 여러 기능 메서드 지원
+		System.out.println(numWrap01.byteValue());
+		System.out.println(numWrap01.hashCode());
+		System.out.println(numWrap01.MAX_VALUE);
+
+		
+		Byte obj1 = Byte.valueOf("25");
+		Integer obj2 = Integer.valueOf(30);
+		Double obj3 = Double.valueOf("30.8");
+		
+		System.out.println(obj1);
+		System.out.println(obj2);
+		System.out.println(obj3);
+		
+		// ex) boolean, double, float, short, char를 기본 데이터를 박싱하여 출력
+		Integer ex01 = Integer.valueOf(2);
+		Boolean ex02 = Boolean.valueOf(false);
+		Double ex03 = Double.valueOf("24.6");
+		Float ex04 = Float.valueOf("2.3");
+		Short ex05 = Short.valueOf("a");
+		Character ex06 = Character.valueOf((char)1);
+		
+		System.out.println("--- ex ----");
+		System.out.println(ex01);
+		System.out.println(ex02);
+		System.out.println(ex03);
+		System.out.println(ex04);
+		System.out.println(ex05);
+		System.out.println(ex06);
+		
+		
+	}
+
+}

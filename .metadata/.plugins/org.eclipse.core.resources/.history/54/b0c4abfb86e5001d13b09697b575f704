@@ -1,0 +1,11 @@
+package javaexp.a11_api;
+
+public class A06_WrapperClass {
+
+	public static void main(String[] args) {
+		int num01 = 25; // 기본 데이터 유형
+		Integer numWrap01 = new Integer(); // Wrapper 클래스
+
+	}
+
+}

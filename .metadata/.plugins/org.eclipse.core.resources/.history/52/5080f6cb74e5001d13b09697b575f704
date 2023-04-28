@@ -83,11 +83,9 @@ public class A04_IndexOf {
 		// name		nn		nn <- 한 줄에 이렇게 출력(2중 for문 사용)
 		String []nameAll = "Joe&90&60-Amy&80&50-Sam&60&70".split("-");
 		for(String na:nameAll) {
-			String []se = na.split("&");
-			for(String s:se) {
-				System.out.print(s + "\t");
-			}
-			System.out.println();
+			na.split("&");
+			System.out.println(na);
+			
 		}
 		
 		

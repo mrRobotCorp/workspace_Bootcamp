@@ -87,7 +87,7 @@ public class A04_IndexOf {
 			for(String s:se) {
 				System.out.print(s + "\t");
 			}
-			System.out.println();
+			
 		}
 		
 		

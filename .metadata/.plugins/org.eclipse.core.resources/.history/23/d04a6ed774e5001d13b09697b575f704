@@ -85,9 +85,9 @@ public class A04_IndexOf {
 		for(String na:nameAll) {
 			String []se = na.split("&");
 			for(String s:se) {
-				System.out.print(s + "\t");
+				System.out.print(s);
 			}
-			System.out.println();
+			
 		}
 		
 		

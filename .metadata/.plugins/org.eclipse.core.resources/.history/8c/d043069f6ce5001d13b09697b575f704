@@ -1,0 +1,12 @@
+package javaexp.a11_api;
+
+public class A04_IndexOf {
+
+	public static void main(String[] args) {
+		String msg = "점심 시간 주세요";
+		int idxLoc1 = msg.indexOf("아침");
+		int idxLoc2 = msg.indexOf("아침");
+
+	}
+
+}

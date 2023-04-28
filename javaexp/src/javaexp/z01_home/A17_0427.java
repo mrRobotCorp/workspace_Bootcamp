@@ -28,14 +28,46 @@ public class A17_0427 {
 		char[] arr = new char[10];
 		for(int i=0; i<arr.length; i++) {
 			int num = (int)(Math.random() * 62 + 48);
-			// 숫자 이후의 범위는 특수문자기 때문에 10씩을 더해서 알파벳 대문자로 나오게 설정
-			if(num > 57) {
-				num += 10;
+			// 숫자 이후의 범위는 특수문자기 때문에 7씩을 더해서 알파벳 대문자로 나오게 설정
+			if(num > 57) { // 58 ~ 64
+				num += 7;
 			}
-			if(num > 90) {
-				
+			// 대문자 이후의 범위는 특수문자기 때문에 소문자 전까지(97) 6씩 더하여 소문자 나오게 설정
+			if(num > 90) { // // 91 ~ 96
+				num += 6;
 			}
+			arr[i] = (char)num;
 		}
+//		String str1 = new arr[10];
+		System.out.println();
+		
+		// 11. charAt()를 활용하여, 우리나라에서 가장 많은 성 1~10, 가장 많이 사용하는 이름 중간자, 가장 많이 사용하는 마지막자를 조합하여 임의의 이름 3개를 출력하세요
+		String first = "김이박최정조강윤장임";
+		String middle = "은재동민혜원윤";
+		String last = "희연원주";
+		String[] names;
+		
+		for(int i=0; i<3; i++) {
+			int ran1 = (int)(Math.random() * first.length());
+			int ran2 = (int)(Math.random() * middle.length());
+			int ran3 = (int)(Math.random() * last.length());
+			System.out.print("임의의 이름 " + (i+1) + " : ");
+			System.out.print(first.charAt(ran1));
+			System.out.print(middle.charAt(ran2));
+			System.out.println(last.charAt(ran3));
+			
+			char[] name = new char[3];
+			name[0] = first.charAt(ran1);
+			name[1] = middle.charAt(ran2);
+			name[2] = last.charAt(ran3);
+//			names[i] = new String(name);
+			
+		}
+		System.out.println("--- 임의의 이름 3개 ---");
+//		for(String name:names) {
+//			System.out.println(name);
+//		}
+//		
 		
 
 	}

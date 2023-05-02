@@ -11,8 +11,8 @@ public class A18_0502 {
 		
 		// 1. 사용자 정의 예외 4지 선다 문제를 틀리면 사용자 예외 객체 생성, 맞으면 정답으로 처리.
 		Scanner sc = new Scanner(System.in);
-		System.out.println("홍대 어떻게 가요");
-		System.out.println("1. 지하철  2. 버스  3. 뉴진스의 하입보이요  4. 자전거");
+		System.out.println("css 속성이 아닌 것은?");
+		System.out.println("1. font-size  2. display  3. caption  4. cursor");
 		System.out.print("정답 선택 : ");
 		String answer = sc.nextLine();
 		
@@ -36,6 +36,7 @@ public class A18_0502 {
 		System.out.print("랜덤의 수 홀/짝 입력 : ");
 		String input = sc.nextLine();
 		
+		System.out.println("랜덤의 수는 " + ranNum);
 		if(input.equals(result)) {
 			System.out.println("정답");
 		} else {
@@ -54,18 +55,50 @@ public class A18_0502 {
 			System.out.print("가위/바위/보 중 하나를 입력하세요 : ");
 			String player = sc2.nextLine();
 			
-			if(player.equals(com)) {
-				System.out.println("무");
+			if(player.equals("가위") || player.equals("바위") || player.equals("보")) {
+				
+				if(player.equals("가위")) {
+					if(com == "가위") {
+						System.out.println("무");
+					}
+					if(com == "바위") {
+						System.out.println("패");
+					}
+					if(com == "보") {
+						System.out.println("승");
+					}
+				}
+				if(player.equals("바위")) {
+					if(com == "가위") {
+						System.out.println("승");
+					}
+					if(com == "바위") {
+						System.out.println("무");
+					}
+					if(com == "보") {
+						System.out.println("패");
+					}
+				}
+				if(player.equals("보")) {
+					if(com == "가위") {
+						System.out.println("패");
+					}
+					if(com == "바위") {
+						System.out.println("승");
+					}
+					if(com == "보") {
+						System.out.println("무");
+					}
+				}
+				
 			} else {
-				System.out.println("졌거나 이겼거나");
+				System.out.println("잘못 입력되었습니다.");
 			}
 			
 		}
 		
 		/*
 		5. 컬렉션 상위 3개 인터페이스의 특징을 기술하세요.
-
-		4단계 카드클래스(모양,번호)를 선언하고, 52개의 카드를 만들어(for문 활용) List에 담아서, 임의의 카드를 7장을 출력하세요 4명의 참가자에게 돌리세요.
 		*/
 		
 		// 1단계 1~10까지 숫자 카드를 만들어 List<String>에 담아서, 임의의 숫자를 1개를 출력하세요
@@ -73,19 +106,38 @@ public class A18_0502 {
 		Random r2 = new Random();
 		
 		for(int i=1; i<=10; i++) {
-			numList.add("숫자 카드 " + i);
+			numList.add("카드 no." + i);
 		}
 		System.out.println("임의의 숫자 카드 : " + numList.get(r2.nextInt(10) + 1));
 		
 		// 2단계 A~10,J,Q,K번호 문자로 만들어 List<String>를 임의의 카드를 7장을 출력하세요
 		List<String> clist = new ArrayList<String>();
 		
+		clist.add("A");
+		clist.add("J");
+		clist.add("Q");
+		clist.add("K");
+		
+		for(int i=2; i<=10; i++) {
+			clist.add("" + i);
+		}
+		
+		for(int i=1; i<=7; i++) {
+			System.out.println(i + "번 랜덤 카드 : " + clist.get(r2.nextInt(9) + 2));
+		}
+		
 		// 3단계 카드클래스(두가지 속성 - 모양♣,♥,♠,◆,번호 A~10,J,Q,K)를 선언하고, 52개의 카드를 만들어(for문 활용) List에 담아서 출력하세요
-		char[] spc = new char[4];
-
+		
+		// 4단계 카드클래스(모양,번호)를 선언하고, 52개의 카드를 만들어(for문 활용) List에 담아서, 임의의 카드를 7장을 출력하세요 4명의 참가자에게 돌리세요.
+		
 	}
 
 }
+class Card {
+	private String spe;
+	private String no;
+}
+
 class Ques extends Exception {
 	
 	public Ques() {

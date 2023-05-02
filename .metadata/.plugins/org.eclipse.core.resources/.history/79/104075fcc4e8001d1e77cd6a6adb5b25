@@ -65,23 +65,19 @@ public class A18_0502 {
 		/*
 		5. 컬렉션 상위 3개 인터페이스의 특징을 기술하세요.
 
+		3단계 카드클래스(두가지 속성 - 모양♣,♥,♠,◆,번호 A~10,J,Q,K)를 선언하고, 52개의 카드를 만들어(for문 활용) List에 담아서 출력하세요
 		4단계 카드클래스(모양,번호)를 선언하고, 52개의 카드를 만들어(for문 활용) List에 담아서, 임의의 카드를 7장을 출력하세요 4명의 참가자에게 돌리세요.
 		*/
 		
 		// 1단계 1~10까지 숫자 카드를 만들어 List<String>에 담아서, 임의의 숫자를 1개를 출력하세요
-		List<String> numList = new ArrayList<String>();
+//		List<String> numList = new ArrayList<String>();
 		Random r2 = new Random();
-		
-		for(int i=1; i<=10; i++) {
-			numList.add("숫자 카드 " + i);
-		}
-		System.out.println("임의의 숫자 카드 : " + numList.get(r2.nextInt(10) + 1));
+		String card = "" + r2.nextInt(10);
+		System.out.println("임의의 숫자 카드 : " + card);
 		
 		// 2단계 A~10,J,Q,K번호 문자로 만들어 List<String>를 임의의 카드를 7장을 출력하세요
 		List<String> clist = new ArrayList<String>();
 		
-		// 3단계 카드클래스(두가지 속성 - 모양♣,♥,♠,◆,번호 A~10,J,Q,K)를 선언하고, 52개의 카드를 만들어(for문 활용) List에 담아서 출력하세요
-		char[] spc = new char[4];
 
 	}
 

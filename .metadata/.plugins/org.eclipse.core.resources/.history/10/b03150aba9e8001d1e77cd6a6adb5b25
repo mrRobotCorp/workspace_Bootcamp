@@ -1,0 +1,25 @@
+package javaexp.y01_review;
+
+public class A05_UserException {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+class InputIdException extends Exception {
+
+	public InputIdException(String message) {
+		super("입력한 글자 수는 " + message + "자 입니다.");
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String getMessage() {
+		return "[입력 오류] : " + super.getMessage() + "\n";
+	}
+	
+	
+	
+}

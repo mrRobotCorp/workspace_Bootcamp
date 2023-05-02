@@ -6,7 +6,7 @@ public class A04_ArrayList {
 
 	public static void main(String[] args) {
 		ArrayList<Student> slist = new ArrayList<Student>();
-		slist.add(new Student("20061022", "Joanne", 90, 1, 19, 80, 90));
+		slist.add(new Student("20061022", "Joanne", 90, 10, 89, 80, 90));
 		slist.add(new Student("20061023", "Daniel", 80, 3, 17, 90, 30));
 		slist.add(new Student("20061024", "Kevin", 70, 1, 19, 70, 60));
 		
@@ -45,7 +45,7 @@ class Student {
 	// 합계 처리 메서드
 	public int totPoint() {
 		// 출결 점수 20% 반영, 과제 점수 10% 반영, 시험 점수 70%
-		int attAll = (int)(attPt/(absPt + attPt) * 0.2); // 20점
+		int attAll = (int)((attPt/(double)(absPt+attPt)) * 20); // 20점
 		int homePt = (int)(this.homePt * 0.1); // 10점
 		int tstAll = (int)((middTst + lstTst)/2 * 0.7); // 70점 
 		

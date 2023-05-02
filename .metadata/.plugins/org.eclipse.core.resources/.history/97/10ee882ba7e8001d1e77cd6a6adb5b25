@@ -1,0 +1,10 @@
+package javaexp.y01_review;
+
+public class A05_UserException {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

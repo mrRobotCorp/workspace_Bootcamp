@@ -46,7 +46,7 @@ class Student {
 	public int totPoint() {
 		// 출결 점수 20% 반영, 과제 점수 10% 반영, 시험 점수 70%
 		int attAll = (int)(attPt/(absPt + attPt) * 0.2); // 20점
-		int homePt = (int)(this.homePt * 0.1); // 10점
+		int homePt = this.homePt * 10; // 10점
 		int tstAll = (int)((middTst + lstTst)/2 * 0.7); // 70점 
 		
 		return attAll + homePt + tstAll;

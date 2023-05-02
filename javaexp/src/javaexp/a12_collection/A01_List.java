@@ -1,10 +1,59 @@
 package javaexp.a12_collection;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class A01_List {
 
 	public static void main(String[] args) {
+		// 인터페이스 List = ArrayList 처리
+		List<String> flist = new ArrayList<String>();
+		flist.add("apple");
+		flist.add(0, "orange"); // 특정 위치 추가
+		flist.set(1, "kiwi"); // 특정 위치 변경
+		System.out.println("있는지 여부 : " + flist.contains("kiwi"));
+		if(!flist.isEmpty()) {
+			System.out.println("크기 : " + flist.size());			
+		} else {
+			System.out.println("없는데요");
+		}
+		
+		flist.remove(1); // 두번째 내용 삭제
+		
+		System.out.println("현재 데이터 내용");
+		for(int i=0; i<flist.size(); i++) {
+			System.out.println(i + 1 + ") " + flist.get(i));
+		}
+		
+		flist.clear();
+		System.out.println("비어 있는지 -> " + flist.isEmpty()); // true 출력
+		
+		// ex) List<String>형태로 회원 3명의 아이디를 추가하고
+		//		1) 특정 회원을 1번쨰 위치에 추가
+		//		2) 2번째 특정 회원을 변경 처리
+		//		3) "Tom"이 있는지 확인
+		//		4) 마지막 회원을 삭제 처리
+		//		5) 전체 회원 리스트 출력
+		List<String> mlist = new ArrayList<String>();
+		mlist.add("Tom");
+		mlist.add("Taylor");
+		mlist.add("Sam");
+		mlist.add(2, "Amy");
+		mlist.set(1, "David");
+		
+		System.out.print("Tom 회원 등록 여부 : ");
+		if(mlist.contains("Tom")) {
+			System.out.println("등록");
+		} else {
+			System.out.println("미등록");			
+		}
+		
+		mlist.remove(mlist.size()-1);
+		
+		for(int i=0; i<mlist.size(); i++) {
+			System.out.println("회원 " + (i + 1) + ") " + mlist.get(i));
+		}
+		
 		// ctrl + shift + o - 자동 import
 		ArrayList<Person> plist = new ArrayList<Person>();
 		plist.add(new Person("Joe", 45, "seoul"));

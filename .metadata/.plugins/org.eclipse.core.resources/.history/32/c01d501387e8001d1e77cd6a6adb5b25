@@ -1,0 +1,46 @@
+package javaexp.a09_inherit.abstract2;
+
+public class A01_Main {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+
+abstract class Weapon {
+	private String kind;
+
+	public Weapon(String kind) {
+		this.kind = kind;
+	}
+	
+	// 공통 메서드
+	public void adapt() {
+		System.out.println(kind + " 장착하다.");
+	}
+	
+	// 추상 메서드
+	public abstract void attack();
+
+	public String getKind() {
+		return kind;
+	}
+	 
+}
+
+class Rocket extends Weapon {
+
+	public Rocket(String kind) {
+		super(kind);
+	}
+
+	@Override
+	public void attack() {
+		System.out.println(getKind() + " 로 공격력 20으로 공격하다.");
+	}
+	
+}
+
+

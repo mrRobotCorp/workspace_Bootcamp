@@ -9,4 +9,6 @@
     <fullyQualifiedTypeName name="javaexp.a08_relation.access.ourHome.Father"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="javaexp.a08_relation.a01_pck.Person"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="javaexp.a11_api.A05_StringBuffer"/>
 </qualifiedTypeNameHistroy>

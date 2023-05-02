@@ -1,0 +1,22 @@
+package javaexp.a09_inherit.abstract2;
+
+public class A01_Main {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+class Weapon {
+	private String kind;
+
+	public Weapon(String kind) {
+		this.kind = kind;
+	}
+	
+	public void adapt() {
+		System.out.println(kind + " 장착하다.");
+	}
+	 
+}

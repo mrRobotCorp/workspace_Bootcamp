@@ -5,7 +5,11 @@ import java.util.ArrayList;
 public class A01_Main {
 
 	public static void main(String[] args) {
-		
+		Robot r1 = new Robot("MZ");
+		r1.randomAttack();
+		r1.addWeapon(new Rocket());
+		r1.addWeapon(new Missile());
+		r1.randomAttack();
 
 	}
 
@@ -20,7 +24,7 @@ abstract class Weapon {
 	
 	// 공통 메서드
 	public void adapt() {
-		System.out.println(kind + " 장착하다.");
+		System.out.println(kind + " 장착.");
 	}
 	
 	// 추상 메서드
@@ -40,7 +44,19 @@ class Rocket extends Weapon {
 
 	@Override
 	public void attack() {
-		System.out.println(getKind() + " 로 공격력 20으로 공격하다.");
+		System.out.println(getKind() + "로 공격력 20으로 공격하다.");
+	}
+}
+
+class Missile extends Weapon {
+
+	public Missile() {
+		super("미사일");
+	}
+
+	@Override
+	public void attack() {
+		System.out.println(getKind() + "로 공격력 25로 장거리 공격하다.");
 	}
 }
 
@@ -62,16 +78,28 @@ class Robot {
 	
 	public void showAllWeapon() {
 		System.out.println(kind + " 로봇이 가진 무기들.");
-		for(Weapon wp:wlist) {
-			System.out.println(wp.getKind());
+		if(wlist.size() > 0) { // 무기 리스트 추가하기 전 에러 예방
+			for(Weapon wp:wlist) {
+				System.out.println(wp.getKind());
+			}			
+		} else {
+			checkWeapon();
 		}
 		System.out.println(wlist.size() + " 개의 무기 장착.");
 	}
 	
+	public void checkWeapon() {
+		System.out.println("무기가 장착되지 않았음. 장착 요로시꾸");
+	}
+	
 	public void randomAttack() {
-		System.out.print(kind + " 로봇이 가진 무기 중 임의의 무기로 공격");
-		int ranIdx = (int)(Math.random() * wlist.size());
-		wlist.get(ranIdx).attack();
+		System.out.print(kind + " 로봇이 가진 무기 중 임의의 무기로 공격 -> ");
+		if(wlist.size() > 0) { // 무기 리스트 추가하기 전 에러 예방
+			int ranIdx = (int)(Math.random() * wlist.size());
+			wlist.get(ranIdx).attack();			
+		} else {
+			checkWeapon();
+		}
 	}
 }
 

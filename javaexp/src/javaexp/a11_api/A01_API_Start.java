@@ -29,6 +29,8 @@ public class A01_API_Start {
 
 // 최상위 object
 class Person {
+	// 같은 값이 있는 경우에는 동일환 hash 코드가 나오기에 String이나 Wrapper의 동일한 데이터의 경우 한계가 있음
+	// 객체는 주소값을 가져올 수 있음.
 
 	@Override
 	public int hashCode() {

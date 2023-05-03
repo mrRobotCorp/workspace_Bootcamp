@@ -60,7 +60,6 @@ public class A18_0502 {
 			if(player.equals("가위") || player.equals("바위") || player.equals("보")) {
 				
 				if(player.equals("가위")) {
-					System.out.print("컴퓨터는 " + com + " , 결과 -> ");
 					if(com == "가위") {
 						System.out.println("무");
 					}
@@ -72,7 +71,6 @@ public class A18_0502 {
 					}
 				}
 				if(player.equals("바위")) {
-					System.out.print("컴퓨터는 " + com + " , 결과 -> ");
 					if(com == "가위") {
 						System.out.println("승");
 					}
@@ -84,7 +82,6 @@ public class A18_0502 {
 					}
 				}
 				if(player.equals("보")) {
-					System.out.print("컴퓨터는 " + com + " , 결과 -> ");
 					if(com == "가위") {
 						System.out.println("패");
 					}
@@ -101,16 +98,6 @@ public class A18_0502 {
 			}
 			
 		}
-		
-//		----------------------------------------------------------------------
-		System.out.print("가위는 1번, 바위는 2번, 보는 3번을 입력 : ");
-		int player = sc2.nextInt();
-		for(int i=1; i<=3; i++) {
-
-		}
-		
-		
-		
 		
 		/*
 		5. 컬렉션 상위 3개 인터페이스의 특징을 기술하세요.

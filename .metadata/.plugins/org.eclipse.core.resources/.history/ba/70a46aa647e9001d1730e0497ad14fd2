@@ -31,8 +31,8 @@ public class A18_0502 {
 		1) Math 클래스
 		
 		*/
-//		int mran = (int)(Math.random());
-//		Random ranMeth = new Random();
+		int mran = (int)(Math.random());
+		Random ranMeth = new Random();
 		
 		// 3. Random를 활용하여 10번 홀짝 게임 결과를 출력하세요.
 		Random ran = new Random();

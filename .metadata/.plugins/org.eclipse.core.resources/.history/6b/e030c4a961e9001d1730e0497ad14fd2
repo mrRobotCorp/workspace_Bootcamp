@@ -56,46 +56,22 @@ public class A03_Map {
 		}
 		
 		// ex) 물건의 serialNum을 key로 하여, Product 클래스를 만들어 Map 할당하고 출력
-		Map<Long, Product> pro = new HashMap<Long, Product>();
-		pro.put(7000001L, new Product("coffee", 3000, 2));
-		pro.put(7000001L, new Product("candy", 1500, 3));
-		pro.put(7000002L, new Product("jelly", 2000, 2));
-		pro.put(7000003L, new Product("jelly", 3000, 2));
-		pro.put(7000004L, new Product("cookie", 2000, 3));
+		Map<Integer, Product> pro = new HashMap<Integer, Product>();
+		pro.put(101, new Product("coffee"));
+		pro.put(101, new Product("candy"));
+		pro.put(102, new Product("jelly"));
+		pro.put(103, new Product("jelly"));
+		pro.put(104, new Product("cookie"));
 		
-		for(Long p:pro.keySet()) {
-			Product pr = pro.get(p); // 순서대로 Product의 객체 생성
-			System.out.println("물건의 일련 번호 : " + p);
-			System.out.print(pr.getPname() + "\t"); // 생성한 객체에서 이름(getter메서드) 불러오기
-			System.out.print(pr.getPrice() + "\t");
-			System.out.println(pr.getCnt());
+		for(int p:pro.keySet()) {
+			Product pr = pro.get(p);
+			System.out.println(pr.getPname());
 		}
-		
 	}
 
 }
 class Product {
 	private String pname;
-	private int price;
-	private int cnt;
-
-	public Product(String pname, int price, int cnt) {
-		this.pname = pname;
-		this.price = price;
-		this.cnt = cnt;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public int getCnt() {
-		return cnt;
-	}
-
-	public void setCnt(int cnt) {
-		this.cnt = cnt;
-	}
 
 	public Product(String pname) {
 		this.pname = pname;

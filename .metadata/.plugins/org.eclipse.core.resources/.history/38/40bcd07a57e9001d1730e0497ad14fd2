@@ -232,7 +232,7 @@ public class A18_0502 {
 		System.out.println();
 		
 		for(Card c:mem04) {
-			System.out.print(c.getSpe() + c.getNo() + "  ");
+			System.out.print(c.getSpe() + c.getNo());
 		}
 		System.out.println();
 		

@@ -1,0 +1,10 @@
+package javaexp.a12_collection;
+
+public class A03_Map {
+
+	public static void main(String[] args) {
+		//문자열 key, 문자열 value로 설정 map 선언과 할당
+		Map<String, String> map01 = new HashMap<String, String>();
+	}
+
+}

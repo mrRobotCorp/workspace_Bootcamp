@@ -27,8 +27,6 @@ public class A18_0502 {
 		}
 		
 		// 2. Math.random()과 Random 클래스의 차이점을 기능 메서드 위주로 기술하세요.
-		int mran = (int)(Math.random());
-		Random ranMeth = new Random();
 		
 		// 3. Random를 활용하여 10번 홀짝 게임 결과를 출력하세요.
 		Random ran = new Random();

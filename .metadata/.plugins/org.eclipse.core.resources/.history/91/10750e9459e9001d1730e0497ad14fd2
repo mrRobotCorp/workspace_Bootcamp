@@ -29,7 +29,7 @@ public class A02_Set {
 		pocket.add("yellow");
 		pocket.add("yellow");
 		
-		System.out.println("-- 주머니 속 구슬 색 종류 --");
+		System.out.println("주머니 속 구슬 색 종류");
 		for(String c:pocket) {
 			System.out.println(c);
 		}

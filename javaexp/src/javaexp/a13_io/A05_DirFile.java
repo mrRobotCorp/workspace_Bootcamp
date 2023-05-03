@@ -1,5 +1,4 @@
 package javaexp.a13_io;
-import java.io.IOException;
 import java.io.File;
 
 public class A05_DirFile {

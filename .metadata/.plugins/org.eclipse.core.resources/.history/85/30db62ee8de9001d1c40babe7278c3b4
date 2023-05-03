@@ -9,9 +9,9 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Set;
 
 public class A19_0503 {
 
@@ -97,6 +97,7 @@ public class A19_0503 {
 				}
 			}
 		}
+		
 		
 		// 7. c:\a01_javaexp\z01_fileExp\a1\show01.txt에 입력받은 물건명/가격/갯수 정보를 저장하세요.
 		String path02 = "E:\\a01_javaexp\\workspace_Bootcamp\\javaexp\\src\\javaexp\\z01_home\\z01_fileExp\\a1\\show01.txt";

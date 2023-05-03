@@ -1,0 +1,12 @@
+package javaexp.a13_io;
+
+public class A04_File {
+
+	public static void main(String[] args) {
+		// 만든 하위 폴더 a01_fold 경로에 
+		// E:\a01_javaexp\workspace_Bootcamp\javaexp\src\javaexp\a13_io\z01_data.txt
+		// a01.txt - a03.txt 파일 3개 생성
+
+	}
+
+}

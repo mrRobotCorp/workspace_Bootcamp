@@ -1,0 +1,21 @@
+package javaexp.a13_io;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+public class A01_Stream {
+
+	public static void main(String[] args) {
+		System.out.println("-- 기본 입력 문자 처리 --");
+		System.out.println("문자 1자를 입력 : ");
+		InputStream is01 = System.in;
+		try {
+			int data = is01.read();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

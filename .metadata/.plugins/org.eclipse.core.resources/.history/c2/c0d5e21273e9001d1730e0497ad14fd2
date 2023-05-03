@@ -1,0 +1,34 @@
+package javaexp.a13_io;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+public class A02_Stream {
+
+	public static void main(String[] args) {
+
+		// ex) A02_Stream.java 생성. 
+		// 정답 번호 입력, 입력된 정답 번호##, 정답 여부 : @@
+		
+		System.out.println("Q. 뭐뭐뭐뭐?");
+		System.out.println("1. ##  2.##  3.##  4.##");
+		InputStream ans = System.in;
+		
+		try {
+			int num = ans.read();
+			OutputStream ops = System.out;
+			System.out.println("입력된 정답 번호 : " + ops);
+			System.out.print("정답 여부 : ");
+			if(ans.equals(2)) {
+				System.out.println("정답");
+			} else {
+				System.out.println("오답");
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

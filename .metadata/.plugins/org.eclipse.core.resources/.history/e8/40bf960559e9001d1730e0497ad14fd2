@@ -28,10 +28,6 @@ public class A02_Set {
 		pocket.add("blue");
 		pocket.add("yellow");
 		pocket.add("yellow");
-		
-		for(String c:pocket) {
-			System.out.println(c);
-		}
 
 	}
 

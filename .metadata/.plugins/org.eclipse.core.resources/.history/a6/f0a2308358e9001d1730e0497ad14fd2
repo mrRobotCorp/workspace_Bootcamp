@@ -1,0 +1,15 @@
+package javaexp.a12_collection;
+
+public class A02_Set {
+
+	public static void main(String[] args) {
+		Set<String> set = new HashSet<String>();
+		set.add("오렌지");
+		set.add("오렌지");
+		set.add("오렌지");
+		set.add("오렌지");
+		set.add("오렌지");
+
+	}
+
+}

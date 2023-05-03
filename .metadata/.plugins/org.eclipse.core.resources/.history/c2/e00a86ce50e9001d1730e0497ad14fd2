@@ -162,7 +162,6 @@ public class A18_0502 {
 		Card cd = new Card();
 		String [] shapes = {"♣","♥","♠","◆"};
 		List<String> card = new ArrayList<String>();
-		
 		card.add("A");
 		card.add("J");
 		card.add("Q");

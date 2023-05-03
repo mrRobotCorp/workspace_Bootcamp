@@ -162,7 +162,6 @@ public class A18_0502 {
 		Card cd = new Card();
 		String [] shapes = {"♣","♥","♠","◆"};
 		List<String> card = new ArrayList<String>();
-		
 		card.add("A");
 		card.add("J");
 		card.add("Q");
@@ -177,10 +176,8 @@ public class A18_0502 {
 		}
 		
 		for(Card c:cardL) {
-			System.out.println(c.getSpe() + c.getNo() + "  ");
+			System.out.println(cd.getSpe() + cd.getNo() + "  ");
 		}
-		
-		System.out.println("카드의 총 갯수 : " + cardL.size());
 		
 		
 		// 4단계 카드클래스(모양,번호)를 선언하고, 52개의 카드를 만들어(for문 활용) List에 담아서, 임의의 카드를 7장을 출력하세요 4명의 참가자에게 돌리세요.

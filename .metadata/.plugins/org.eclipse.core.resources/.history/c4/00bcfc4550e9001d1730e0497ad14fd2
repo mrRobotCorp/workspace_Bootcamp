@@ -159,10 +159,8 @@ public class A18_0502 {
 		
 		// 3단계 카드클래스(두가지 속성 - 모양♣,♥,♠,◆,번호 A~10,J,Q,K)를 선언하고, 52개의 카드를 만들어(for문 활용) List에 담아서 출력하세요
 		List<Card> cardL = new ArrayList<Card>();
-		Card cd = new Card();
 		String [] shapes = {"♣","♥","♠","◆"};
 		List<String> card = new ArrayList<String>();
-		
 		card.add("A");
 		card.add("J");
 		card.add("Q");
@@ -170,18 +168,11 @@ public class A18_0502 {
 		
 		for(String sha:shapes) {
 			for(String num:card) {
-				System.out.print(sha + num + "  ");
-				cardL.add(new Card(sha,num));
+				System.out.println(sha + " : " + num);
 				
 			}
 		}
-		
-		for(Card c:cardL) {
-			System.out.println(c.getSpe() + c.getNo() + "  ");
-		}
-		
-		System.out.println("카드의 총 갯수 : " + cardL.size());
-		
+		Card cd = new Card();
 		
 		// 4단계 카드클래스(모양,번호)를 선언하고, 52개의 카드를 만들어(for문 활용) List에 담아서, 임의의 카드를 7장을 출력하세요 4명의 참가자에게 돌리세요.
 		
@@ -191,27 +182,6 @@ public class A18_0502 {
 class Card {
 	private String spe;
 	private String no;
-	public Card(String spe, String no) {
-		this.spe = spe;
-		this.no = no;
-	}
-	public String getSpe() {
-		return spe;
-	}
-	public Card() {
-		// TODO Auto-generated constructor stub
-	}
-	public void setSpe(String spe) {
-		this.spe = spe;
-	}
-	public String getNo() {
-		return no;
-	}
-	public void setNo(String no) {
-		this.no = no;
-	}
-	
-	
 }
 
 class Ques extends Exception {

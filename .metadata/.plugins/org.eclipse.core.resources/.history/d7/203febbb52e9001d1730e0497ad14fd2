@@ -1,7 +1,6 @@
 package javaexp.z01_home;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -200,41 +199,9 @@ public class A18_0502 {
 		List<Card> mem03 = new ArrayList<Card>();
 		List<Card> mem04 = new ArrayList<Card>();
 		
-//		for(Card c:cardL) {
-//			System.out.println(c.getSpe() + c.getNo() + "  ");
-//		}
-		// 4명에게 각 7장씩 카드 전달
-		for(int i=0; i<28; i++) {
-			Card d = cardL.get(i);
-			if(i%4 == 0) mem01.add(d);
-			if(i%4 == 1) mem02.add(d);
-			if(i%4 == 2) mem03.add(d);
-			if(i%4 == 3) {
-				mem04.add(d);				
-				System.out.println((i/4) + 1 + "번째 카드 배부");
-			}
+		for(Card c:cardL) {
+			System.out.println(c.getSpe() + c.getNo() + "  ");
 		}
-		
-		System.out.println("-- 각 플레이별 카드 내용 --");
-		for(Card c:mem01) {
-			System.out.print(c.getSpe() + c.getNo());
-		}
-		System.out.println();
-		
-		for(Card c:mem02) {
-			System.out.print(c.getSpe() + c.getNo());
-		}
-		System.out.println();
-		
-		for(Card c:mem03) {
-			System.out.print(c.getSpe() + c.getNo());
-		}
-		System.out.println();
-		
-		for(Card c:mem04) {
-			System.out.print(c.getSpe() + c.getNo());
-		}
-		System.out.println();
 		
 		
 		

@@ -49,24 +49,30 @@ public class A09_NIO {
 			// 복사 할 원본 파일 : pa2
 			// 복사 할 대상 파일 : copPath
 			Path copPath = Paths.get(path + "z10_data.txt");
-			// 복사 처리 Files.copy() <- 파일 대용량 카피에 용의
+			// 복사 처리
 			Files.copy(pa2, copPath, StandardCopyOption.REPLACE_EXISTING);
 			
-			// ex) 현재 폴더 하위에 a10_fold 폴더 생성. 그 하위에 z10_data.txt 를 복사한 
-			// a01_data.txt - a09_data.txt 생성
-			
-			File ffold = new File(path + "a10_fold");
-			ffold.mkdir();
-			
-			for(int i=1; i<=9; i++) {
-				Path copPath2 = Paths.get(path + "a10_fold\\a0" + i + "_data.txt");
-				File ftxt = new File(path + "a10_fold\\a0" + i + "_data.txt");
-				Files.copy(copPath, copPath2, StandardCopyOption.REPLACE_EXISTING);
-			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
 		
+		// ex) 현재 폴더 하위에 a10_fold 폴더 생성. 그 하위에 z10_data.txt 를 복사한 
+		// a01_data.txt - a09_data.txt 생성
+		
+		File ffold = new File(path + "a10_fold");
+		ffold.mkdir();
+		
+		for(int i=1; i<=9; i++) {
+			File ftxt = new File(path + "a10_fold\\a0" + i + "_data.txt");
+			try {
+				ftxt.createNewFile();
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			}
+			Path copPath2 = Paths.get(path + "a10_fold\\a0" + i + "_data.txt");
+			Files.copy(path + "z10_data.txt", copPath2, StandardCopyOption.REPLACE_EXISTING);
+			
+		}
 		
 		
 		

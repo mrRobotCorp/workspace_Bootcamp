@@ -32,7 +32,6 @@ public class A08_Reader {
 			System.out.println("기타 예외 " + e.getMessage());
 		} finally {
 			if(r1 != null) {
-				// reader 객체가 메모리에 있을 때, 최종으로 자원 해제
 				try {
 					r1.close();
 				} catch (IOException e) {

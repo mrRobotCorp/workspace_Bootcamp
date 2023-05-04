@@ -1,9 +1,0 @@
-package javaexp.a11_api;
-
-public class A02_String {
-
-	public static void main(String[] args) {
-		char [] arr = {'H', 'e', 'w', 'd', 'c'};
-	}
-
-}

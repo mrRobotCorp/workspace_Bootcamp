@@ -37,7 +37,35 @@ from emp
 where ename = 'SMITH'; -- 비교연산자 =표시는 하나만, 문자열은 ''작은 따옴표로, 대소문자 구분 확실히.
 
 SELECT * FROM EMP;
-
+-- ex) sal이 1250인 사원 정보 출력
+select *
+from emp
+where sal = 1250;
+-- ex) job이 CLERK인 사원 정보의 empno, ename, job 출력
+select empno, ename, job
+from emp
+where job = 'CLERK';    
+/*
+db --> ArrayList<Emp>
+--- java 예시 코드 ----
+class Emp{
+    private int empno;
+    private String ename;
+    private String job;
+    private int mgr;
+    private Date hiredate;
+    private double sal;
+    private double comm;
+    private int deptno;
+    
+    생성자, setter, getter 만들기
+}
+*/
+select * from dept;
+select * from emp;
+select *
+from emp, dept
+where emp.deptno = dept.deptno;
 
 
 

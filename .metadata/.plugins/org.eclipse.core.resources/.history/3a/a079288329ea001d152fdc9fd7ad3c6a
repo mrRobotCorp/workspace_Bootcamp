@@ -1,0 +1,11 @@
+package javaexp.a13_io;
+
+public class A07_Reader {
+
+	public static void main(String[] args) {
+		String path = "E:\\a01_javaexp\\workspace_Bootcamp\\javaexp\\src\\javaexp\\a13_io\\z01_data.txt";
+//		Reader r = new FileReader();
+
+	}
+
+}

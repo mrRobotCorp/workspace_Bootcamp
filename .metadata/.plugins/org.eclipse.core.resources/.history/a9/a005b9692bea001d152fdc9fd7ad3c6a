@@ -1,0 +1,15 @@
+package javaexp.a13_io;
+
+import java.io.Reader;
+
+public class A08_Reader {
+
+	public static void main(String[] args) {
+
+		// ex) z04_data.txt 생성, 좋아하는 음악 가사 삽입.
+		// A08_Reader.java 통해서 가사 출력
+		Reader r1 = null;
+
+	}
+
+}

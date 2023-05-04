@@ -11,4 +11,6 @@
     <fullyQualifiedTypeName name="javaexp.a08_relation.a01_pck.Person"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="javaexp.a11_api.A05_StringBuffer"/>
+    <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+    <fullyQualifiedTypeName name="javaexp.a13_io.A08_Reader"/>
 </qualifiedTypeNameHistroy>

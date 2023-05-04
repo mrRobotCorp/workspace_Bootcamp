@@ -1,7 +1,7 @@
 package javaexp.a13_io;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.File;
 
 public class A03_File {
 
@@ -22,10 +22,8 @@ public class A03_File {
 		
 		try {
 			// io가 일어나기 때문에 필수 예외 처리
-			if(!f02.exists()) { // 물리적으로 해당 파일이 없으면 실행
-				f02.createNewFile();				
-			}
-			f03.mkdir(); // make directory. 경로를 만들 때는 필수 예외 필요 없음(try catch 안 써도 됨)
+			f02.createNewFile();
+			f03.mkdir(); // make directory
 			f04.mkdir();
 			f05.mkdir();
 			f06.mkdir();

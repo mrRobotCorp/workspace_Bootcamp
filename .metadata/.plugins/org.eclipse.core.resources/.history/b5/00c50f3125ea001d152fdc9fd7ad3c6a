@@ -75,14 +75,13 @@ public class A19_0503 {
 		*/
 		Map<String, Member> memInfo = new HashMap<String, Member>();
 		memInfo.put("skrr", new Member("Joe", 59, "admin", 394));
-		memInfo.put("skrrt", new Member("Amy", 35, "user", 346));
+		memInfo.put("skrrt", new Member("Amy", 35, "admin", 346));
 		memInfo.put("skkrt", new Member("Sam", 75, "admin", 753));
-		memInfo.put("skrr", new Member("Tom", 26, "user", 1377));
+		memInfo.put("skrr", new Member("Tom", 26, "admin", 1377));
 		
 		for(String mem:memInfo.keySet()) {
-			Member mm = memInfo.get(mem);
-			System.out.print("회원 ID : " + mem);
-			System.out.println("\t회원 이름 : " + mm.getName() + "\t회원 나이 : " + mm.getAge() + "\t회원 권한 : " + mm.getAuth());
+			System.out.print("회원 ID : " + memInfo.get(mem));
+			System.out.println("\t회원 이름 : " + mem);
 		}
 		
 		// 5. 입력처리하는 기본 객체와 출력 처리하는 기본 객체를 기본예제를 통해 설명하세요.

@@ -25,7 +25,7 @@ public class A03_File {
 			if(!f02.exists()) { // 물리적으로 해당 파일이 없으면 실행
 				f02.createNewFile();				
 			}
-			f03.mkdir(); // make directory. 경로를 만들 때는 필수 예외 필요 없음(try catch 안 써도 됨)
+			f03.mkdir(); // make directory
 			f04.mkdir();
 			f05.mkdir();
 			f06.mkdir();

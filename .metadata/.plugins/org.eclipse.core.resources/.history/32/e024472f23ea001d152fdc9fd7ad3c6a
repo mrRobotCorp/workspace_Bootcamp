@@ -67,22 +67,21 @@ public class A19_0503 {
 			1. 회원 정보 설정 (아이디 제외)
 			2. class 정의 (회원 정보 설정) Member
 			3. Map<String, Member>
-			4. 회원 등록
+			4. 회우너 등록
 				mem.put("skrr", new Member("Joe", "admin", 7777));
 				mem.put("skrr2", new Member("Joe", "admin", 7777));
 			5. 회원 정보 수정 : 마지막에 추가된 key값으로 설정됨(수정)
-				mem.put("skrr", new Member("Amy", "admin", 9999)); <- 첫 번째 회원 내용은 해당 내용으로 수정됨(동일 key값)
+				mem.put("skrr", new Member("Amy", "admin", 9999));
 		*/
-		Map<String, Member> memInfo = new HashMap<String, Member>();
-		memInfo.put("skrr", new Member("Joe", 59, "admin", 394));
-		memInfo.put("skrrt", new Member("Amy", 35, "user", 346));
-		memInfo.put("skkrt", new Member("Sam", 75, "admin", 753));
-		memInfo.put("skrr", new Member("Tom", 26, "user", 1377));
+		Map<String, String> memInfo = new HashMap<String, String>();
+		memInfo.put("Joe", "skrr");
+		memInfo.put("Amy", "skrr");
+		memInfo.put("Sam", "skrr");
+		memInfo.put("Tom", "skrr");
 		
 		for(String mem:memInfo.keySet()) {
-			Member mm = memInfo.get(mem);
-			System.out.print("회원 ID : " + mem);
-			System.out.println("\t회원 이름 : " + mm.getName() + "\t회원 나이 : " + mm.getAge() + "\t회원 권한 : " + mm.getAuth());
+			System.out.print("회원 ID : " + memInfo.get(mem));
+			System.out.println("\t회원 이름 : " + mem);
 		}
 		
 		// 5. 입력처리하는 기본 객체와 출력 처리하는 기본 객체를 기본예제를 통해 설명하세요.
@@ -140,42 +139,4 @@ public class A19_0503 {
 
 	}
 
-}
-
-class Member {
-	private String name;
-	private int age;
-	private String auth;
-	private int point;
-	public Member(String name, int age, String auth, int point) {
-		this.name = name;
-		this.age = age;
-		this.auth = auth;
-		this.point = point;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public String getAuth() {
-		return auth;
-	}
-	public void setAuth(String auth) {
-		this.auth = auth;
-	}
-	public int getPoint() {
-		return point;
-	}
-	public void setPoint(int point) {
-		this.point = point;
-	}
-	
 }

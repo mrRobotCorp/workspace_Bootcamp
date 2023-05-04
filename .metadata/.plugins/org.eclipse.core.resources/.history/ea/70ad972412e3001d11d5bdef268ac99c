@@ -1,9 +1,0 @@
-package javaexp.a10_exception;
-
-public class A02_BasicException {
-
-	public static void main(String[] args) {
-
-	}
-
-}

@@ -1,23 +1,23 @@
 select * from emp;
 select empno from emp; -- ctrl + enter
 select empno, ename from emp;
--- ex) empno, job, mgr, deptnoë¥¼ 1,2,3,4 ì„ íƒí•´ì„œ ì¡°íšŒ
+-- ex) empno, job, mgr, deptno¸¦ 1,2,3,4 ¼±ÅÃÇØ¼­ Á¶È¸
 select empno from emp;
 select empno, job from emp;
 select empno, job, mgr from emp;
 select empno, job, mgr, deptno from emp;
 select deptno, empno, ename 
 from emp;
-select ename, sal /* ë³´ê²Œ ë  ì»¬ëŸ¼ ì§€ì • */
+select ename, sal
 from emp
-where sal >= 2000; /* í–‰ ë‹¨ìœ„ë¡œ ë¹„êµ ì—°ì‚°ìë¥¼ í†µí•œ ê²€ìƒ‰ */
+where sal >= 2000;
 select *
 from emp;
--- ex1) salì´ 2000 ë¯¸ë§Œì¸ ì‚¬ì› ì •ë³´ ê²€ìƒ‰.
+-- ex1) salÀÌ 2000 ¹Ì¸¸ÀÎ »ç¿ø Á¤º¸ °Ë»ö.
 select ename, sal
 from emp
 where sal < 2000;
--- ex2) salì´ 2000 ì´ìƒ, 4000ë¯¸ë§Œì¸ ì‚¬ì› ì´ë¦„, sal ê²€ìƒ‰. (and, or ì‚¬ìš©)
+-- ex2) salÀÌ 2000 ÀÌ»ó, 4000¹Ì¸¸ÀÎ »ç¿ø ÀÌ¸§, sal °Ë»ö. (and, or »ç¿ë)
 select ename, sal
 from emp
 where sal >= 2000 and sal < 4000;
@@ -27,29 +27,27 @@ from emp
 where sal < 2000 or sal >= 5000;
 
 select * from emp;
--- ex3) empno(ìˆ«ìí˜•) ê¸°ì¤€ìœ¼ë¡œ 7500 ë¯¸ë§Œì´ê±°ë‚˜ 7800 ì´ìƒì¸ ì‚¬ì›ì˜ empno, ename, sal ì¶œë ¥
+-- ex3) empno(¼ıÀÚÇü) ±âÁØÀ¸·Î 7500 ¹Ì¸¸ÀÌ°Å³ª 7800 ÀÌ»óÀÎ »ç¿øÀÇ empno, ename, sal Ãâ·Â
 select empno, ename, sal
 from emp
 where empno < 7500 or empno >= 7800;
 
-select * -- ì „ì²´ ì—´ ì¶œë ¥
+select * -- ÀüÃ¼ ¿­ Ãâ·Â
 from emp
-where ename = 'SMITH'; 
--- ë¹„êµì—°ì‚°ì =í‘œì‹œëŠ” í•˜ë‚˜ë§Œ(sql ì—ì„œëŠ” ëŒ€ì… ì—°ì‚°ì ì—†ìŒ)
--- ë¬¸ìì—´ì€ ''ì‘ì€ ë”°ì˜´í‘œë¡œ, ëŒ€ì†Œë¬¸ì êµ¬ë¶„ í™•ì‹¤íˆ.
+where ename = 'SMITH'; -- ºñ±³¿¬»êÀÚ =Ç¥½Ã´Â ÇÏ³ª¸¸, ¹®ÀÚ¿­Àº ''ÀÛÀº µû¿ÈÇ¥·Î, ´ë¼Ò¹®ÀÚ ±¸ºĞ È®½ÇÈ÷.
 
 SELECT * FROM EMP;
--- ex) salì´ 1250ì¸ ì‚¬ì› ì •ë³´ ì¶œë ¥
+-- ex) salÀÌ 1250ÀÎ »ç¿ø Á¤º¸ Ãâ·Â
 select *
 from emp
 where sal = 1250;
--- ex) jobì´ CLERKì¸ ì‚¬ì› ì •ë³´ì˜ empno, ename, job ì¶œë ¥
+-- ex) jobÀÌ CLERKÀÎ »ç¿ø Á¤º¸ÀÇ empno, ename, job Ãâ·Â
 select empno, ename, job
 from emp
 where job = 'CLERK';    
 /*
 db --> ArrayList<Emp>
---- java ì˜ˆì‹œ ì½”ë“œ ----
+--- java ¿¹½Ã ÄÚµå ----
 class Emp{
     private int empno;
     private String ename;
@@ -60,7 +58,7 @@ class Emp{
     private double comm;
     private int deptno;
     
-    ìƒì„±ì, setter, getter ë§Œë“¤ê¸°
+    »ı¼ºÀÚ, setter, getter ¸¸µé±â
 }
 */
 select * from dept;

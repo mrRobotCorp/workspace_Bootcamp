@@ -8,9 +8,9 @@ select empno, job, mgr from emp;
 select empno, job, mgr, deptno from emp;
 select deptno, empno, ename 
 from emp;
-select ename, sal /* 보게 될 컬럼 지정 */
+select ename, sal
 from emp
-where sal >= 2000; /* 행 단위로 비교 연산자를 통한 검색 */
+where sal >= 2000;
 select *
 from emp;
 -- ex1) sal이 2000 미만인 사원 정보 검색.
@@ -34,9 +34,7 @@ where empno < 7500 or empno >= 7800;
 
 select * -- 전체 열 출력
 from emp
-where ename = 'SMITH'; 
--- 비교연산자 =표시는 하나만(sql 에서는 대입 연산자 없음)
--- 문자열은 ''작은 따옴표로, 대소문자 구분 확실히.
+where ename = 'SMITH'; -- 비교연산자 =표시는 하나만, 문자열은 ''작은 따옴표로, 대소문자 구분 확실히.
 
 SELECT * FROM EMP;
 -- ex) sal이 1250인 사원 정보 출력

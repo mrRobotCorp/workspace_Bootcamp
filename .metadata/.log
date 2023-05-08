@@ -7208,3 +7208,23 @@ Binding(CTRL+F3,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.jkiss.dbeaver.ui.perspective,,,system)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-05-08 11:37:10.236
+!MESSAGE No active connection
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-05-08 11:41:36.424
+!MESSAGE Transaction log is not available.
+Connect to a database.
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-05-08 11:43:56.213
+!MESSAGE No active connection
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-05-08 12:13:35.767
+!MESSAGE No active connection
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-05-08 12:13:46.356
+!MESSAGE No active connection
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-05-08 12:13:49.542
+!MESSAGE Transaction log is not available.
+Connect to a database.

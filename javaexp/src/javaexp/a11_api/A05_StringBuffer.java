@@ -37,7 +37,7 @@ public class A05_StringBuffer {
 		--> StringBuffer
 		
 		*/
-		System.out.print("---StringBuffer 객체 주소 비교-->");
+		System.out.println("---StringBuffer 객체 주소 비교--");
 		StringBuffer sb = new StringBuffer();
 //		
 //		for(int i=0; i<10; i++) {

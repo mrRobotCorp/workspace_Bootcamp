@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <items>
+	<item id="NodeList/DBNProjectDatabases/DBNBookmarkFolder/DBNDiagramFolder/DBNResource">
+		<column name="이름" visible="true" order="0" width="107"/>
+		<column name="경로" visible="true" order="1" width="170"/>
+		<column name="크기" visible="true" order="2" width="100"/>
+		<column name="최종 수정" visible="true" order="3" width="100"/>
+	</item>
 	<item id="NodeList/OracleTableColumn">
 		<column name="컬럼명" visible="true" order="0" width="100"/>
 		<column name="#" visible="true" order="1" width="100"/>
@@ -8,5 +14,14 @@
 		<column name="Not Null" visible="true" order="4" width="100"/>
 		<column name="디폴트" visible="true" order="5" width="100"/>
 		<column name="Comment" visible="true" order="6" width="100"/>
+	</item>
+	<item id="Suggestion/NodeList/OracleTableColumn">
+		<column name="컬럼명" visible="true" order="0" width="100"/>
+		<column name="#" visible="true" order="1" width="38"/>
+		<column name="Type" visible="true" order="2" width="120"/>
+		<column name="Type Mod" visible="false" order="3" width="100"/>
+		<column name="Not Null" visible="true" order="3" width="75"/>
+		<column name="디폴트" visible="true" order="4" width="64"/>
+		<column name="Comment" visible="true" order="5" width="84"/>
 	</item>
 </items>

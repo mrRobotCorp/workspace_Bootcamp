@@ -5,18 +5,18 @@
 	<section name="DBeaver.ActiveWizardDialog.NewConnectionWizard">
 		<item key="DIALOG_X_ORIGIN" value="498"/>
 		<item key="DIALOG_Y_ORIGIN" value="157"/>
-		<item key="DIALOG_WIDTH" value="940"/>
-		<item key="DIALOG_HEIGHT" value="570"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		<item key="DIALOG_WIDTH" value="1137"/>
+		<item key="DIALOG_HEIGHT" value="678"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 	<section name="DriverDownload">
 	</section>
 	<section name="DBeaver.DriverDownloadDialog">
 		<item key="DIALOG_X_ORIGIN" value="208"/>
 		<item key="DIALOG_Y_ORIGIN" value="8"/>
-		<item key="DIALOG_WIDTH" value="525"/>
-		<item key="DIALOG_HEIGHT" value="659"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		<item key="DIALOG_WIDTH" value="613"/>
+		<item key="DIALOG_HEIGHT" value="731"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 	<section name="ResultSetViewer">
 		<section name="presentations">

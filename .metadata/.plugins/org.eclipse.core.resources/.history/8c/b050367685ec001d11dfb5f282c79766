@@ -1,0 +1,41 @@
+package javaexp;
+
+import java.util.Scanner;
+
+public class S3_study {
+
+	public static void main(String[] args) {
+		StringBuffer sb = new StringBuffer("기존 문자");
+		sb.append("append 추가"); // 
+//		sb.insert(2, "insert 추가");
+		
+		System.out.println(sb);
+		//------------------------------------------
+		Scanner sc = new Scanner(System.in);
+		System.out.println("비밀번호를 입력하세요 : ");
+		String pw01 = sc.nextLine();
+		System.out.println("비밀번호 확인 : ");
+		String pw02 = sc.nextLine();
+		
+		try {
+			
+		} catch(PwCheck e) {
+			
+		}
+		
+		
+	}
+
+}
+class PwCheck extends Exception {
+	PwCheck() {
+		super();
+	}
+
+	@Override
+	public String getMessage() {
+		System.out.println("비밀번호 입력 오류");
+		return super.getMessage();
+	}
+	
+}

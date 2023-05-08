@@ -1,0 +1,64 @@
+package javaexp;
+
+import java.util.Scanner;
+
+public class S3_study {
+
+	public static void main(String[] args) {
+		StringBuffer sb = new StringBuffer("기존 문자");
+		sb.append("append 추가"); // 
+//		sb.insert(2, "insert 추가");
+		
+		System.out.println(sb);
+		//------------------------------------------
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("비밀번호를 입력하세요 : ");
+		String pw01 = sc.nextLine();
+		
+//		try {
+//			System.out.print("비밀번호 확인 : ");
+//			String pw02 = sc.nextLine();
+//			if(!pw01.equals(pw02)) {
+//				throw new PwCheck();
+//			}
+//			System.out.println("비밀번호 일치. 입력 완료.");
+//		} catch(PwCheck e) {
+//			System.out.println(e.getMessage());
+//		}
+		
+		// ---------------------------------------------------
+		while(true) {
+			System.out.print("비밀번호 확인 : ");
+			String pw02 = sc.nextLine();
+			try {
+				if(!pw01.equals(pw02)) {
+					throw new PwCheck(pw02);
+				} else {
+					break;
+				}
+			} catch(PwCheck e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		System.out.println("비밀번호 일치. 입력 완료.");
+		
+		
+		
+		
+	}
+
+}
+class PwCheck extends Exception {
+	PwCheck(String pw) {
+		super("" + pw);
+	}
+
+	@Override
+	public String getMessage() {
+		String excep = "입력된 내용 : " + super.getMessage();
+		System.out.println("비밀번호가 일치하지 않습니다.");
+		return excep;
+	}
+	
+}

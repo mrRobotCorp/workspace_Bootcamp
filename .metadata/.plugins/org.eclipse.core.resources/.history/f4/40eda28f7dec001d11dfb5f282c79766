@@ -1,0 +1,13 @@
+package javaexp;
+
+public class S3_study {
+
+	public static void main(String[] args) {
+		StringBuffer sb = new StringBuffer("기존 문자");
+		sb.append("append 추가"); // 
+//		sb.insert(2, "insert 추가");
+		
+		System.out.println(sb);
+	}
+
+}

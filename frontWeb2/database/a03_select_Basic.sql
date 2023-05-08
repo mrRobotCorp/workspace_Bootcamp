@@ -20,6 +20,26 @@ SELECT ename AS name, sal salary, DEPTNO 부서번호,
 		EMPNO "사원 번호", JOB "직책 번호" -- 해당 컬럼 큰 따옴표 안 내용으로 정의되어 출력
 FROM EMP;
 
+-- ex) empno -> no, ename -> 사 원 명, mgr -> 관리자번호 로 표현하여 컬럼 출력
+SELECT empno "no", ename "사 원 명", mgr "관리자번호"
+FROM EMP;
+
+SELECT sal, sal * 2 "2배수", sal/100 "100나누기"
+FROM emp;
+
+SELECT ename || '/' || job "이름과 직책" 
+FROM emp;
+
+-- ex) 사원의 이름은 ### 입니다. 처리하세요....
+SELECT ENAME, '사원의 이름은 ' || ename || '입니다' msg
+FROM EMP;
+
+SELECT ename, sal, sal * 0.2 "보너스(급여의 20%)"
+FROM EMP;
+
+-- ex) 사원의 이름은 @@@ 이고, 급여와 보너스 (급여의 15%)의 합산은 @@@만원이다.
+SELECT ename, sal, '사원의 이름은 ' || ename || '이고, 급여와 보너스 합산은 ' || (sal + sal*0.15) || '만원이다' msg
+FROM emp;
 
 
 

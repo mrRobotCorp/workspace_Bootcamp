@@ -17,12 +17,12 @@ body {
 } 
 
 ::-webkit-scrollbar-thumb {
-    background-color: #00ee04;
+    background-color: #4f4f4f;
     border-radius: 5px;
 } 
 
 ::-webkit-scrollbar-track {
-    background-color: #222;
+    background-color: #bdbdbd;
     z-index: -10; 
 } 
 
@@ -113,3 +113,126 @@ body {
 .a02Pos p:last-child {
     position: relative;
 }
+
+/* ----------------------------------------- */
+.a03 {
+    /* margin: 0 auto; */
+    position: relative;
+    height: 300px;
+}
+.a03 div {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.a03 div:first-child {
+    background-color: #4f4f4f;
+    transition: all .3s;
+}
+
+.a03 div:first-child:hover {
+    z-index: 10;
+    transform: scale(1.3);
+}
+
+.a03 div:nth-child(2) {
+    top: 30px;
+    left: 50px;
+    background-color: #f00;
+}
+
+.a03 div:nth-child(3) {
+    top: 60px;
+    left: 90px;
+    background-color: #f0f;
+}
+
+/* -------------------------------- */
+.a03Ex {
+    height: 300px;
+    position: relative;
+    border: 1px solid #222;
+}
+
+.a03Ex div {
+    position: absolute;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    
+}
+
+.a03Ex div:first-child {
+    background-color: #4f4f4f;
+    transition: all .3s;
+}
+
+.a03Ex div:first-child:hover {
+    z-index: 10;
+    transform: scale(1.3);
+}
+
+.a03Ex div:nth-child(2) {
+    top: 30px;
+    left: 40px;
+    background-color: #fffb00;
+}
+
+.a03Ex div:nth-child(3) {
+    top: 60px;
+    left: 70px;
+    background-color: #f0f;
+}
+/* ---------------------- */
+.a3Ex2 { 
+    position: relative;
+    height: 500px;
+    margin-top: 20px;
+}
+.a3Ex2 img {
+    width: 100px;
+    height: 145px;
+    position: absolute;
+    transition: all .4s;
+    cursor: pointer;
+}
+
+.a3Ex2 img:first-child {
+    top: 0;
+    left: 10px;
+    z-index: 100;
+}
+
+.a3Ex2 img:first-child:hover {
+    top: 40px;
+    left: 50px;
+    transform: scale(1.15);
+}
+
+.a3Ex2 img:nth-child(2) {
+    top: 50px;
+    left: 70px;
+    z-index: 50;
+}
+
+.a3Ex2 img:nth-child(2):hover {
+    top: 90px;
+    left: 100px;
+    transform: scale(1.15);
+}
+
+.a3Ex2 img:nth-child(3) {
+    top: 100px;
+    left: 100px;
+    z-index: 0;
+}
+
+.a3Ex2 img:nth-child(3):hover {
+    top: 140px;
+    left: 140px;
+    transform: scale(1.15);
+}
+
+
+

@@ -9,6 +9,7 @@
 
 body {
     height: 150vh;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -17,7 +18,7 @@ body {
 } 
 
 ::-webkit-scrollbar-thumb {
-    background-color: #4babff;
+    background-color: #22277f;
     border-radius: 5px;
 } 
 
@@ -422,11 +423,204 @@ body {
 
 footer .scrollTop {
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     right: 50px;
     bottom: 30px;
     width: 30px;
     height: 30px;
     border-radius: 30px;
-    border: 2px solid #222;
-
+    border: 1px solid #222;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all .3s;
 }
+
+footer .scrollTop:hover {
+    background-color: #cecece;
+}
+
+/* ----------------------------------- */
+.gnb {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #efefef;
+    list-style-type: disc;
+    /* list-style-image: url(../../a00_img/marker.png); */
+}
+
+.gnb0 {
+    list-style-type: none;
+}
+
+.gnb1 {
+    list-style-type: armenian;
+}
+
+.gnb2 {
+    list-style-type: georgian;
+}
+
+.gnb3 {
+    list-style-type: lower-alpha;
+}
+
+/* -------------------------------------- */
+header {
+    width: 100vw;
+    padding: 20px 0;
+    background-color: #fffec0;
+}
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+header nav #gnb li {
+    display: inline-block;
+    padding: 0 15px;
+    font-size: 14px;
+    border-right: 2px solid #222;
+    list-style: none;
+    transition: all .3s;
+}
+
+header nav #gnb li:last-child {
+    border: none;
+}
+
+header nav #gnb li:hover a {
+    color: #d16100;
+}
+
+#gnb li a {
+    color: #000;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+.serviceAll {
+    /* width: 100vw; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* padding-left: 40px; */
+    background-color: #fff;
+}
+
+#serviceBar, #sSide {
+    display: inline-block;
+}
+#serviceBar li {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 14px;
+    list-style: none;
+    transition: all .3s;
+}
+
+#serviceBar li a {
+    color: #000;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+#sSide li {
+    display: inline-block;
+    padding: 0 6px;
+    font-size: 11px;
+    list-style: none;
+    transition: all .3s;
+}
+
+#sSide li a {
+    color: #000;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+/* -------------------------------------- */
+.a12T {
+    margin: 0 auto;
+    width: 500px;
+    height: 200px;
+    text-align: center;
+    font-size: 13px;
+    border-collapse: collapse;
+}
+
+.a12T .thead {
+    color: #fff;
+    background-color: #222;
+}
+
+.a12T .thead td {
+    height: 30px;
+}
+
+.a12T td {
+    width: 40px;
+    /* height: 50px; */
+    border: 1px solid #222;
+}
+.a12T tr {
+    transition: all .3s;
+}
+
+.a12T tr:hover {
+    color: #fff;
+    background-color: #8783ff;
+}
+
+.a12T tr:nth-child(even) {
+    /* background-color: #9592ff; */
+}
+
+/* -------------------------- */
+.a12h4 {
+    margin: 50px 0 30px 0;
+}
+.a12Ex {
+    margin: 0 auto;
+    width: 500px;
+    /* height: 200px; */
+    text-align: center;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+.a12Ex .exHead {
+    color: #fff;
+    background: url(../../a00_img/colorful.jpg) center center;
+    background-size: cover;
+}
+
+.a12Ex td {
+    width: 50px;
+    height: 40px;
+    border: 1px solid #999;
+}
+
+.a12Ex .exHead td {
+    font-weight: 800;
+    text-shadow: 1px 1px 2px #4f4f4f;
+    border: 1px solid #fff;
+}
+
+.a12Ex tr {
+    transition: all .3s;
+    cursor: pointer;
+}
+.a12Ex tr:hover {
+    background-color: #ffe4cd;
+}
+
+.a12Ex tr:hover td {
+    font-size: 13px;
+    font-weight: 700;
+}
+

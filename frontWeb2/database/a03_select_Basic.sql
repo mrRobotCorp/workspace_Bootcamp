@@ -7,7 +7,8 @@ SELECT deptno, sal
 FROM EMP
 ORDER BY DEPTNO; -- order by 컬럼명. 특정 컬럼 기준으로 정렬. DEPTNO에 따라 오름차순 정렬.
 
-SELECT deptno, avg(sal) msal -- 그룹할 컬럼, 함수명 (컬럼명) deptno를 기준으로 sal의 최대값(max), 최소값(min), 평균값(avg)
+SELECT deptno, 
+			MIN(sal) msal, MAX(sal) mxsal, avg(sal) msal -- 그룹할 컬럼, 함수명 (컬럼명) deptno를 기준으로 sal의 최대값(max), 최소값(min), 평균값(avg)
 FROM EMP
 GROUP BY deptno;
 
@@ -17,7 +18,7 @@ FROM EMP
 ORDER BY sal;
 
 SELECT ename AS name, sal salary, DEPTNO 부서번호,
-		EMPNO "사원 번호", JOB "직책 번호" -- 해당 컬럼 큰 따옴표 안 내용으로 정의되어 출력
+		EMPNO "사원 번호", JOB "직책 번호", sal "#급여@" -- 해당 컬럼 큰 따옴표 안 내용으로 정의되어 출력
 FROM EMP;
 
 -- ex) empno -> no, ename -> 사 원 명, mgr -> 관리자번호 로 표현하여 컬럼 출력
@@ -34,6 +35,12 @@ FROM emp;
 SELECT ENAME, '사원의 이름은 ' || ename || '입니다' msg
 FROM EMP;
 
+SELECT a.*, sal + bonus
+FROM (
+	SELECT ename, sal, sal * 0.2 bonus
+	FROM EMP	
+) a; -- sunbuery 활용
+
 SELECT ename, sal, sal * 0.2 "보너스(급여의 20%)"
 FROM EMP;
 
@@ -41,6 +48,7 @@ FROM EMP;
 SELECT ename, sal, '사원의 이름은 ' || ename || '이고, 급여와 보너스 합산은 ' || (sal + sal*0.15) || '만원이다' msg
 FROM emp;
 
+-- 문자열 안에 연산을 처리할 때는 ()로 우선 연산을 처리해서 사용.
 
 
 

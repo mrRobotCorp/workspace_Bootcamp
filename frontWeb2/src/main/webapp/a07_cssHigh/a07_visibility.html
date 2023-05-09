@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a07_visibility</title>
+    <link rel="stylesheet" href="./css/cssHigh.css">
+</head>
+<body>
+    <div class="a07v">
+        <h3>화면 처리 내용1</h3>
+        <h3 class="a7h31">화면 처리 내용2</h3>
+        <h3>화면 처리 내용3</h3>
+        <h3 class="a7h32">화면 처리 내용4</h3>
+        <h3>화면 처리 내용5</h3>
+    </div>
+
+    <!-- 이미지 폴더에 이미지를 확인하여 사과, 바나나, 망고를 여러 개 출력
+        중간에 사과와 망고를 위 옵션에 의해 안 보이게 처리 -->
+
+    <div class="a7imgAll">
+        <div class="apple">
+            <img src="../a00_img/apple.jpeg">
+        </div>
+        <div class="bnn">
+            <img src="../a00_img/banana.jpeg">
+        </div>
+        <div class="apple">
+            <img src="../a00_img/apple.jpeg">
+        </div>
+        <div class="mango">
+            <img src="../a00_img/mango.jpeg">
+        </div>
+        <div class="bnn">
+            <img src="../a00_img/banana.jpeg">
+        </div>
+        <div class="mango">
+            <img src="../a00_img/mango.jpeg">
+        </div>
+        <div class="bnn">
+            <img src="../a00_img/banana.jpeg">
+        </div>
+    </div>
+
+    <footer>
+        <div class="toTop"></div>
+    </footer>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("scrollTop").onclick = function () {
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            }
+        })
+
+    </script>
+</body>
+</html>

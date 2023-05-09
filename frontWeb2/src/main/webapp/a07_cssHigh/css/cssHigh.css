@@ -15,17 +15,61 @@ body {
 ::-webkit-scrollbar {
     width: 10px;
     padding: 0 5px;
-} 
+}
 
 ::-webkit-scrollbar-thumb {
     background-color: #22277f;
     border-radius: 5px;
-} 
+}
 
 ::-webkit-scrollbar-track {
     background-color: #cacaca;
-    z-index: -10; 
-} 
+    z-index: -10;
+}
+
+/* --------------------------------------- */
+.cursor {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #7c10c9;
+    position: absolute;
+    z-index: 150;
+    top: 0;
+    right: 0;
+    transform: translate(-50%, -50%);
+    transform-origin: 100% 100%;
+    transition: all 0.3s ease;
+    transition-property: background, transform;
+}
+
+.cursor_follower {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    z-index: 120;
+    border: 2px solid #dbdb06;
+    border-radius: 50%;
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.6s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.a19tb td {
+    padding: 20px 25px;
+    transition: all .4s;
+}
+
+.a19tb td:hover {
+    background-color: #000;
+    color: #00f82d;
+}
+
+.a19tb td:active {
+    border-radius: 30px;
+}
+
 
 /* ----------------------------------------------- */
 .a01Dis strong {
@@ -82,7 +126,7 @@ body {
 .a01Ex {
     background: url(../../a00_img/colorful.jpg) center no-repeat;
     background-size: cover;
-} 
+}
 
 .a01Ex strong {
     display: inline-block;
@@ -121,6 +165,7 @@ body {
     position: relative;
     height: 300px;
 }
+
 .a03 div {
     position: absolute;
     width: 100px;
@@ -161,7 +206,7 @@ body {
     z-index: 100;
     width: 50px;
     height: 50px;
-    
+
 }
 
 .a03Ex div:first-child {
@@ -185,12 +230,14 @@ body {
     left: 70px;
     background-color: #f0f;
 }
+
 /* ---------------------- */
-.a3Ex2 { 
+.a3Ex2 {
     position: relative;
     height: 500px;
     margin-top: 20px;
 }
+
 .a3Ex2 img {
     width: 100px;
     height: 145px;
@@ -254,6 +301,7 @@ body {
     height: 50vh;
     border: 1px solid #f0f;
 }
+
 .a04Ex {
     position: fixed;
     padding: 15px 25px;
@@ -265,6 +313,7 @@ body {
     box-shadow: 2px 2px 6px #999;
     transition: all .3s;
 }
+
 .a04Ex:hover {
     background-color: #d7d7dd;
 }
@@ -281,6 +330,7 @@ body {
 .a05 {
     padding: 20px 30px;
 }
+
 .a05 h3 {
     font-size: 18px;
 }
@@ -308,13 +358,14 @@ body {
     margin-top: 200px;
 }
 
-.a7Exall .a7Ex { 
+.a7Exall .a7Ex {
     padding: 20px 30px;
     transition: all .3s;
     cursor: pointer;
     border: 1px solid #bdbdbd;
     font-size: 13px;
 }
+
 .a7Exall .a7Ex:hover {
     /* transform: scale(1.3); */
     font-size: 20px;
@@ -328,6 +379,7 @@ body {
 .a07v .a7h32 {
     display: none;
 }
+
 .a7imgAll {
     margin-top: 50px;
 }
@@ -366,14 +418,17 @@ body {
     overflow-x: hidden;
     background-color: #efefef;
 }
+
 .a08 p {
     width: 500px;
     font-size: 13px;
 }
+
 .a082 {
     width: 200px;
     height: 100px;
 }
+
 .a082 .a8op {
     width: 400px;
     font-size: 11px;
@@ -408,6 +463,7 @@ body {
     background-size: cover;
 
 }
+
 .a8Ex p {
     font-size: 12px;
     font-weight: 800;
@@ -475,11 +531,13 @@ header {
     padding: 20px 0;
     background-color: #fffec0;
 }
+
 header nav {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
+
 header nav #gnb li {
     display: inline-block;
     padding: 0 15px;
@@ -512,9 +570,11 @@ header nav #gnb li:hover a {
     background-color: #fff;
 }
 
-#serviceBar, #sSide {
+#serviceBar,
+#sSide {
     display: inline-block;
 }
+
 #serviceBar li {
     display: inline-block;
     padding: 0 10px;
@@ -567,6 +627,7 @@ header nav #gnb li:hover a {
     /* height: 50px; */
     border: 1px solid #222;
 }
+
 .a12T tr {
     transition: all .3s;
 }
@@ -576,20 +637,17 @@ header nav #gnb li:hover a {
     background-color: #8783ff;
 }
 
-.a12T tr:nth-child(even) {
-    /* background-color: #9592ff; */
-}
-
 /* -------------------------- */
 .a12h4 {
     margin: 50px 0 30px 0;
 }
+
 .a12Ex {
     margin: 0 auto;
     width: 500px;
     /* height: 200px; */
     text-align: center;
-    font-size: 12px;
+    font-size: 11px;
     border-collapse: collapse;
 }
 
@@ -615,12 +673,82 @@ header nav #gnb li:hover a {
     transition: all .3s;
     cursor: pointer;
 }
+
 .a12Ex tr:hover {
     background-color: #ffe4cd;
 }
 
 .a12Ex tr:hover td {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
 }
 
+/* ----------------------------------- */
+
+.loginF fieldset {
+    padding: 20px 10px 10px 10px;
+    width: 40%;
+    text-align: left;
+    font-size: 12px;
+}
+
+.loginF fieldset label {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.loginF fieldset label span {
+    display: inline-block;
+    margin-right: 10px;
+    width: 50px;
+    text-align: right;
+}
+
+.loginF input[type=text],.loginF input[type=password] {
+    width: 150px;
+    padding: 0 10px;
+    color: #22277f;
+    text-align: left;
+}
+
+.loginF input[type=submit] {
+    padding: 0 5px;
+    border-radius: 9px;
+    color: #fff;
+    font-size: 12px;
+    background-color: #22277f;
+}
+
+.loginF input[type=text]:focus {
+    font-size: 15px;
+}
+
+/* --------------------------------- */
+.a15F {
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 12px;
+}
+
+.a15F label span {
+    display: inline-block;
+    width: 50px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.a15F input[type=text],.a15F input[type=email] {
+    width: 150px;
+    padding: 0 10px;
+    color: #22277f;
+    text-align: left;
+    transition: all .3s;
+}
+
+.a15F input[type=text]:hover,.a15F input[type=email]:hover {
+    background-color: #dfe0ff;
+}

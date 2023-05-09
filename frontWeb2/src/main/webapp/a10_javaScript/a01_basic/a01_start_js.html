@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a01</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- 클릭하는 이벤트를 처리하면 call 함수 호출
+        매개변수 this(현재객체 h3)를 전달 -->
+    <h3 class="a01H">js start</h3>
+
+
+    <script type="text/javascript">
+        window.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".a01H").onclick = function() {
+                call(this);
+                console.log("start");
+            }
+
+            function call(e) {
+                // alert("click");
+                e.innerText = "텍스트 변경";
+                e.insertAdjacentHTML('beforeend', `<br>변경 후 텍스트`);
+            }
+            // document.querySelector("")
+        })
+    </script>
+</body>
+</html>

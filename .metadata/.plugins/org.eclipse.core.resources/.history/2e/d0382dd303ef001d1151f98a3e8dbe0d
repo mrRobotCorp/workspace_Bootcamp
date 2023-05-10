@@ -63,7 +63,7 @@ SELECT DISTINCT mgr FROM emp;
 -- 컬럼1과 컬럼2 두 개 모두 비교해서 다른 데이터 로딩
 SELECT DISTINCT job, mgr 
 FROM emp
-ORDER BY job, MGR;
+ORDER BY job, MGR ;
 
 
 

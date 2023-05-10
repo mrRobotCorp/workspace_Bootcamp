@@ -50,30 +50,6 @@ FROM emp;
 
 -- 문자열 안에 연산을 처리할 때는 ()로 우선 연산을 처리해서 사용.
 
-SELECT deptno FROM emp;
--- 중복되는 데이터를 제거하고 출력 할 때 사용되는 distinct
-SELECT DISTINCT deptno FROM emp; 
-SELECT * FROM emp;
-
--- job과 mgr 각각 중복 데이터를 제거한 데이터 내용 리스트 출력
-SELECT DISTINCT job FROM emp;
-SELECT DISTINCT mgr FROM emp;
-
--- distinct 컬럼1, 컬럼2
--- 컬럼1과 컬럼2 두 개 모두 비교해서 다른 데이터 로딩
-SELECT DISTINCT job, mgr 
-FROM emp
-ORDER BY job, MGR;
-
-
-
-
-
-
-
-
-
-
 
 
 

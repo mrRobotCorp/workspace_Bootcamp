@@ -59,18 +59,6 @@ SELECT * FROM emp;
 SELECT DISTINCT job FROM emp;
 SELECT DISTINCT mgr FROM emp;
 
--- distinct 컬럼1, 컬럼2
--- 컬럼1과 컬럼2 두 개 모두 비교해서 다른 데이터 로딩
-SELECT DISTINCT job, mgr 
-FROM emp
-ORDER BY job, MGR;
-
-
-
-
-
-
-
 
 
 

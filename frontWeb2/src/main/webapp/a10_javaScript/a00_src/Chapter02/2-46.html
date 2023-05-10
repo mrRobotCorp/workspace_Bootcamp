@@ -3,12 +3,36 @@
 <head>
     <script>
         // 변수를 선언합니다.
-        var number = Math.sqrt(-3);
-        // 변수를 출력합니다.
-        alert(number);
+        // Math.random
+        // var number = Math.sqrt(-3);
+        // // 변수를 출력합니다.
+        // alert(number); // NaN
+
+        // parseInt() : 숫자형 문자열을 정수로 변경
+        //      casting(소숫점 이하 삭제)까지 처리
+        let dice1 = parseInt(Math.random() * 6 + 1);
+        let dice2 = Math.floor(Math.random() * 6 + 1);
+        alert(dice1 + " : " + dice2);
+
+        // ex) 0 - 100 사이 국어/수학/영어 점수를 임의로 가져와서 총점과 평균 출력
+        window.addEventListener("DOMContentLoaded", function() {
+            let kor = parseInt(Math.random() * 101);
+            let eng = parseInt(Math.random() * 101);
+            let math = parseInt(Math.random() * 101);
+
+            let tot = kor + eng + math;
+            let avg = tot / 3;
+
+            document.querySelector("body").innerHTML = 
+                "국어 점수 : " + kor + "<br>영어 점수 : " + eng + "<br>수학 점수 : " + math +
+                "<br>총점 : " + tot + "<br>평균 : " + avg;
+            
+            // document.querySelector("선택자") : 단일객체
+            // document.querySelectorAll("선택자") : 배열객체
+        })
     </script>
 </head>
 <body>
-
+    <div class="point"></div>
 </body>
 </html>

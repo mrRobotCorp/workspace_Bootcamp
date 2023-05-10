@@ -3,18 +3,42 @@
 <head>
     <script>
         // 1번
-        alert('52 + 273');
-        // 2번
-        alert(52 + 273);
-        // 3번
-        alert('52' + 273);
-        // 4번
-        alert(52 + '273');
-        // 5번
-        alert('52' + '273');
+        // alert('52 + 273'); //52273
+        // // 2번
+        // alert(52 + 273); // 325
+        // // 3번
+        // alert('52' + 273); //52273
+        // // 4번
+        // alert(52 + '273'); // 52273
+        // // 5번
+        // alert('52' + '273'); // 52273
+
+        console.log('20' + '5');
+        console.log('20' - '5');
+        console.log('20' * '5');
+        console.log('20' / '5');
+        console.log('20' % '5');
+
+        // ex) prompt() 두 수를 입력받아, 사칙연산 결과 출력
+        window.addEventListener("DOMContentLoaded", function() {
+            let num01 = prompt("첫 번째 수 입력");
+            let num02 = prompt("두 번째 수 입력");
+    
+            document.querySelector(".txt0").innerText = "합 : " + (Number(num01) + Number(num02));
+            // console.log(typeof "합 : " + (num01 + num02)); // string
+            document.querySelector(".txt1").innerText = "차 : " + (num01 - num02);
+            document.querySelector(".txt2").innerText = "곱 : " + (num01 * num02);
+            document.querySelector(".txt3").innerText = "나누기 : " + (num01 / num02);
+            document.querySelector(".txt4").innerText = "나머지 : " + (num01 % num02);
+        })
+
     </script>
 </head>
 <body>
-
+    <div class="txt0"></div>
+    <div class="txt1"></div>
+    <div class="txt2"></div>
+    <div class="txt3"></div>
+    <div class="txt4"></div>
 </body>
 </html>

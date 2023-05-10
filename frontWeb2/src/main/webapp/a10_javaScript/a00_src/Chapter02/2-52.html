@@ -2,7 +2,25 @@
 <html>
 <head>
     <script>
-        alert(`표현식 273 + 52의 값은 ${52 + 273}입니다...!`);
+        const num01 = 25;
+        // ecma6 이후 버전에서만 지원하는 문자열 처리 방식 ` (백틱)
+        // alert(`표현식 273 + 52의 값은 ${52 + 273}, 변수1 : ${num01}`);
+
+        // ex) 물건명, 가격, 갯수를 변수 선언
+        // ` 이 포함된 prompt 창에서  물건명 : @@ ... 총계 :@@@, 형식으로 출력
+        const prod = prompt("물건명 입력");
+        const price = prompt("가격 입력");
+        const cnt = prompt("갯수 입력");
+
+        const pr = Number(price);
+        const cn = Number(cnt);
+
+        prompt(`
+            물건명 : ${prod}
+            가격 : ${pr}
+            갯수 : ${cn}
+            총계 : ${pr * cn}
+        `);
     </script>
 </head>
 <body>

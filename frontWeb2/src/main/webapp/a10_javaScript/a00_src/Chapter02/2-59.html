@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-        for (var i = 0; i < 3; i++) {
-            // 1초(1000밀리 초) * i초 후에 i를 출력
-            setTimeout(() => {
-                alert(i);
-            }, 1000 * i);
-        }
-    </script>
+    
 </head>
 <body>
 
+    
 </body>
+<script>
+    // for(초기값, 반복조건, 증감연산자)
+    // for (var i = 0; i < 3; i++) {
+    //     // 1초(1000밀리 초) * i초 후에 i를 출력
+    //     setTimeout(() => {
+    //         alert(i);
+    //     }, 1000 * i);
+    // }
+
+    alert("3초 후 실행");
+
+    let show = "";
+    setTimeout(function() {
+        call();
+    }, 3000);
+
+    let call = () => {
+        for(let i=0; i<=10; i++) {
+            show += i + "번째 실행<br>";
+        }
+        document.body.innerHTML = show;
+    }
+
+</script>
 </html>

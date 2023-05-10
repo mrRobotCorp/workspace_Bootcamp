@@ -2,10 +2,16 @@
 <html>
 <head>
     <script>
+        // 모두 true
         alert('' == false);
         alert('' == 0);
         alert(0 == false);
-        alert('273' == 273);
+        alert('273' === 273); // == 는 true, ===는 false
+
+        // js는 데이터유형이 조금은 자동형변환 처리로 자유롭기에
+        // 기본 비교 연산자 (==)도 내용만 같은 true처리
+        // 단 type과 값을 둘 다 비교하는 true 연산자.
+        // ===, !== 
     </script>
 </head>
 <body>

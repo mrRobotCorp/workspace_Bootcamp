@@ -4,7 +4,13 @@
     <script>
         {
             // 스코프 A
+            // 전역 변수로 하단 블럭 안 변수로 사용 가능
+            // {}, if, for, 함수, 객체 모두 적용됨
             var variable = 273;
+
+            // let, const 는 하단 블럭에서 변수로 사용 불가능
+            // let variable = 273;
+            // var variable = 273;
         }
         {
             // 스코프 B

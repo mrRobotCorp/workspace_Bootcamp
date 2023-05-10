@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a02_errTracking</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h2>dd</h2>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script type="text/script" src="../js/script.js"></script> -->
+    <script>
+        console.log("click0");
+
+        let h2ob = document.querySelector("h2");
+        h2ob.onclick = function() {
+            this.innerText = "hi";
+            console.log("click");
+        }
+
+        console.log("click2");
+    </script>
+</body>
+</html>

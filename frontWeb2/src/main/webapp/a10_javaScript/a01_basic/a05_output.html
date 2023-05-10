@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a05</title>
+</head>
+<body>
+    <h3>hi</h3>
+    <h4>hi</h4>
+
+    <script>
+        let h3ob = document.querySelector("h3");
+        let h4ob = document.querySelector("h4");
+
+        h3ob.addEventListener("mouseover", function() {
+            this.innerText = "mr robot";
+            this.style.color = "#00f";
+        })
+
+        console.log("start");
+        let arr = [100, 200, 300];
+        console.log("배열 : " + arr);
+        let obj = {
+            name :"apple",
+            price : 2000 
+        }
+        console.log("객체 : " + obj);
+        // DOM 객체 출력
+        console.log(h3ob); 
+        // h4ob.innerText = "mr robot";
+
+    </script>
+</body>
+</html>

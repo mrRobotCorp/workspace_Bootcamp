@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a07</title>
+    <!-- <link rel="stylesheet" href="../"> -->
+</head>
+<body>
+
+
+    <!-- <script type="text/script" src="../"></script> -->
+    <script>
+        var name0 = "문자열 데이터1"; // '' 홑따옴표도 사용 가능
+        var name1 = "문자열 데이터2";
+        var name2 = 52;
+        var name3 = 51;
+
+        const PI = 3.14;
+        // PI = 5.36;
+        // TypeError: Assignment to constant variable. 에러 발생
+        console.log(PI);
+
+        // ----------------------------------------
+        // var 25num = 30;
+        // var if = 50;
+        call(); // 호이스팅 가능 익명함수(메서드를 변수에 할당하는 방식)는 불가능
+        // 익명함수는 한 번만 사용 할 기능 함수에 속함. 그 외 함수는 재사용 가능성이 있고
+        // 호이스팅이 가능하다는 차이가 있음
+
+        function call() { // 함수
+            console.log("함수 호출");
+        }
+
+        function Person() { // 객체
+            this.name = "abc"; // this.속성을 포함하고 있으면 객체
+        }
+
+        var p01 = new Person();
+        console.log(p01);
+        console.log(p01.name);
+
+
+    </script>
+</body>
+</html>

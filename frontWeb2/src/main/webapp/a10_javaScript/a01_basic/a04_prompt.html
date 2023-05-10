@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a04_prompt</title>
+</head>
+
+<body>
+    <h5 id="name">이름</h5>
+    <h5 id="age">나이</h5>
+    <h5 id="loc">사는 곳</h5>
+
+    <script>
+        // let name = prompt("이름을 입력", "초기값");
+        // console.log("입력된 이름 :" + name);
+
+        // ex) 이름/나이/사는 곳 입력 받아 각각 출력
+        // console.log(type of name) type of 데이터 유형 확인 함수
+        let name = document.querySelector("#name");
+        let age = document.querySelector("#age");
+        let loc = document.querySelector("#loc");
+
+        let nRe = prompt("이름을 입력", "");
+        let aRe = prompt("나이를 입력", "");
+        let lRe = prompt("사는 곳 입력", "");
+
+        var result = function() {
+            if(nRe != "") {
+                name.innerText = "이름 : " + nRe;
+            } else if(nRe == "" || nRe == null) {
+                name.innerText = "입력되지 않음";
+            }
+            if(aRe != "") {
+                age.innerText = "나이 : " + aRe;
+            }
+            if(lRe != "") {
+                loc.innerText = "사는 곳 : " + lRe;
+            }
+        }
+        result();
+    </script>
+</body>
+
+</html>

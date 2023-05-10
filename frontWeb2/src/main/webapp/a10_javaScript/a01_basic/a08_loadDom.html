@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a08</title>
+    <!-- <link rel="stylesheet" href="../"> -->
+</head>
+<body>
+    <div class="insertD"></div>
+    <div class="innerT"></div>
+    <!-- <script type="text/script" src="../"></script> -->
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            let num01 = 30;
+            let num02 = 40;
+
+            let show = "<h3>화면 내용 처리</h3>";
+            show += "<table width = '200pt' height='200pt' border>";
+            show += "<tr><td>hi</td></tr>";
+            show += "<tr><td style='text-align:center'>hi</td></tr>";
+            show += "<tr><td style='text-align:center'>" + num01 + "+" + num02 + "=" + (num01 + num02) +  "</td></tr>";
+            show += "</table>";
+            document.querySelector(".innerT").innerHTML = show;
+
+            document.querySelector('.insertD').insertAdjacentHTML('afterbegin', `
+                <table>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                </table>
+            `)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 문자열을 전달하거나 사용
+        // "" 안  '', '' 안 "" 넣기. 같은 따옴표 사용만 안 하면 뭐..가능..
+        // alert('This is "string"'); // This is "string" 출력
+        // alert("This is 'string'"); // This is 'string' 출력 
+
+        function call(str) {
+            console.log("call() 함수");
+        }
+
+        // ex) user가 "hi"라고 말함
+        // ex) user가 'no'라고 말함
+        // alert()로 로딩
+
+        function alertF() {
+            alert('user1가 "hi"라고 말함');
+            alert('user2가 "no"라고 말함');
+        }
+
+        alertF();
+    </script>
+</head>
+<body>
+    <h1 onclick="call('message')">hi</h1>
+</body>
+</html>

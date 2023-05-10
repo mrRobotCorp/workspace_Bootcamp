@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // BOM vs DOM
+        // browser object model : 윈도우 창
+        window.onload = function () {
+            // 브라우저가 완전히 로딩이 된 후 아래 내용들 실행. 익명함수(한 번만 사용 할 용도)
+            // 변수를 선언합니다.
+            var list = '';
+            // 연산자를 사용합니다.
+            list += '<ul>';
+            list += '    <li>Hello</li>';
+            list += '    <li>JavaScript..!</li>';
+            list += '</ul>';
+            // 문서에 출력합니다.
+            document.body.innerHTML = list;
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

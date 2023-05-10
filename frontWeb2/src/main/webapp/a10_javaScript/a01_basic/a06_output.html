@@ -12,12 +12,15 @@
     <h5>hi</h5>
     <h6>hi</h6>
 
+    <div class="clock"></div>
+
 
     <!-- <script type="text/script" src="../"></script> -->
     <script>
         let h4 = document.querySelector("h4");
         let h5 = document.querySelector("h5");
         let h6 = document.querySelector("h6");
+        let clockDiv = document.querySelector(".clock");
 
         console.log(h4);
         console.log(h5);
@@ -25,16 +28,17 @@
 
         let clock = function() {
             let date = new Date();
-            let hr = date.getHours;
-            let mn = date.getMinutes;
-            let se = date.getSeconds;
-
-            setInterval( function() {
-                document.write(hr + " : " + mn + " : " + se);
-            }) 
+            let hr = date.getHours();
+            let mn = date.getMinutes();
+            let se = date.getSeconds();
+            
+            clockDiv.innerText = hr + " : " + mn + " : " + se;
         }
 
-        // clock();
+        setInterval( function() {
+            clock();
+        });
+
     </script>
 </body>
 </html>

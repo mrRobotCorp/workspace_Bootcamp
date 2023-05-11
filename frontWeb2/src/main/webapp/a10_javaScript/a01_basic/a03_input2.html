@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a03_input</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h4>입력 및 연산 처리</h4>
+    <div>
+        <span>첫 번째 수 : </span>
+        <input type="text" name="num01" value="0">
+    </div>
+    <div>
+        <span>두 번째 수 : </span>
+        <input type="text" name="num02" value="0">
+    </div>
+    <input type="submit" value="합산">
+    <p>합산 결과 출력</p>
+
+    <!-- <script type="text/script" src="../"></script> -->
+    <script>
+        let sub = document.querySelector("[type=submit]");
+
+        sub.onclick = function() {
+            sum();
+        }
+
+        // 내장된 키워드를 호출할 떄는 정상적으로 처리가 안되는 경우가 많으나 변수를 바꿔서
+        // numbering을 추가해서 처리
+        function sum() {
+            let num01 = document.querySelector("[name=num01]");
+            let num02 = document.querySelector("[name=num02]");
+            let result = document.querySelector("p");
+
+            // <input type, name, value : 모두 다 기본 속성
+            // 객체의 참조변수.속성 : 호출
+            // 객체의 참조변수.속성 = 데이터 : 속성에 데이터를 합산
+            // Number(), parseInt(), parseFloat() -> 형변환 함수 
+            // math.floor() : 절삭처리(소숫점 아래 내림)
+
+            // + 연산 "010" + "1234 + "5678";
+            let num1 = Number(num01.value); // + 합산 시에 형변환 필요
+            let num2 = Number(num02.value);
+            let tot = num1 + num2;
+
+            result.innerText = num1 + " + " + num2 + " = " + tot;
+        }
+
+    </script>
+</body>
+</html>

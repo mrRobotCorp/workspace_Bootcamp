@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            // 변수를 선언합니다.
+            var date = new Date();
+            var hour = date.getHours();
+            // if 조건문
+            if (hour < 12) {
+                // "hour < 12"가 참일 때 실행합니다.
+                alert('오전입니다.');
+            }
+            if (hour >= 12) {
+                // "hour >= 12"가 참일 때 실행합니다.
+                alert('오후입니다.');
+            }
+
+            // ex) prompt 창으로 점수를 입력 받아
+            //  70이상이면 합격, 그 외는 불합격 alert()로 출력(형변환X)
+
+            let point = prompt("점수를 입력하세요.", "0");
+            if (point >= 70) {
+                alert("합격");
+            } else {
+                alert("불합격");
+            }
+
+            // ---------------------------
+            let clockDiv = document.querySelector(".clock");
+
+            let clock = function () {
+                let date = new Date();
+                let hr = date.getHours();
+                let mn = date.getMinutes();
+                let se = date.getSeconds();
+
+                clockDiv.innerText = hr + " : " + mn + " : " + se;
+            }
+
+            setInterval(function () {
+                clock();
+            });
+        })
+
+    </script>
+</head>
+
+<body>
+    <div class="clock"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            // 변수를 선언합니다.
+            var date = new Date();
+            var hour = date.getHours();
+            // 중첩 조건문
+            if (hour < 11) {
+                // "hour < 11"이 참일 때 실행합니다.
+                alert('아침 먹을 시간입니다.');
+            } else {
+                // "hour < 11"이 거짓일 때 실행합니다.
+                if (hour < 15) {
+                    // "hour < 15"가 참일 때 실행합니다.
+                    alert('점심 먹을 시간입니다.');
+                } else {
+                    // "hour < 15"가 거짓일 때 실행합니다.
+                    alert('저녁 먹을 시간입니다.');
+                }
+            }
+            // ex) 나이를 prompt로 입력 받아, 
+            // 1) 상위 if문 : 18 이상 -> 성인, 미만이면 미성년
+            // 2) 하위 if문 : 성인일 때 65 이상이면 노인 아니면 청년 / 미성년일 때 13미만이면 어린이, 아니면 청소년
+            let adult = "";
+            let detail = "";
+
+            let age = prompt("나이를 입력", "0");
+
+            if(age >= 18) {
+                adult += "<h4>성인입니다.</h4>";
+                if(age >= 65) {
+                    detail += "<h5>노인</h5>";
+                } else {
+                    detail += "<h5>청년</h5>";
+                }
+            } else {
+                adult += "<h4>미성년입니다.</h4>";
+                if(age < 13) {
+                    detail += "<h5>어린이</h5>";
+                } else {
+                    detail += "<h5>청소년</h5>";
+                }
+            }
+
+            document.querySelector(".result").innerHTML = adult + detail;
+
+        })
+    </script>
+</head>
+<body>
+    <div class="result"></div>
+</body>
+</html>

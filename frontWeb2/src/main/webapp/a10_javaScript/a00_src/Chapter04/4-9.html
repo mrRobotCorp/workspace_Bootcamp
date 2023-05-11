@@ -3,15 +3,40 @@
 <head>
     <script>
         // 변수를 선언합니다.
-        var value = 0;
-        // do while 반복문
-        do {
-            alert(value + '번째 반복문');
-            value++;
-        } while (value < 5)
-    </script> 
+        // var value = 0;
+        // // do while 반복문
+        // do {
+        //     // 조건에 맞지 않더라도 한 번은 수행해야 할 필요가 있을 떄 활용
+        //     alert(value + '번째 반복문');
+        //     value++;
+        // } while (value < 5)
+
+        
+        </script> 
 </head>
 <body>
-
+    
 </body>
+<script>
+    /*
+    ex) 임의로 구슬을 쥐게 하고 (1-5) 홀짝을 입력하여 맞추는 게임. 맞출 때까지 do while 반복 
+    */
+    let rCnt = Math.floor(Math.random() * 5 + 1)
+    let consRst = rCnt % 2 == 0 ? "짝" : "홀";
+    let myCh = "";
+
+    do {
+        myCh = prompt("구슬의 홀 / 짝을 입력하세요", "홀/짝");
+        if(myCh == consRst) {
+            document.body.innerHTML = 
+                `<p>정답. 임의의 숫자는 ${rCnt}. ${consRst}입니다.</p>`;
+        } else {
+        document.body.innerHTML = 
+            `<p>오답. 임의의 숫자는 ${rCnt}. ${consRst}입니다.</p>`;
+        }
+
+    } while ( myCh != consRst );
+
+    
+</script>
 </html>

@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-        // 변수를 선언합니다.
-        var array = [273, 'String', true, function () { }, {}, [273, 103]];
-        // 출력합니다.
-        alert(array);
-    </script>
 </head>
 <body>
 
 </body>
+<script>
+    // 변수를 선언합니다.
+    var array = [273, 'String', true, function () { }, {}, [273, 103]];
+    
+    var body = document.body;
+    body.innerHTML += array + "<br>";
+    array[array.length] = "안녕"; // 배열데이터 index번호를 통해 추가
+    body.innerHTML += array + "<br>";
+    
+    array.push(3000); // 기능 메서드로 추가
+    body.innerHTML += array + "<br>";
+    // delete(array[array.length]); // 특정 index 번호로 데이터 삭제
+
+    body.innerHTML += array.length + "<br>"; // 삭제 기능 메서드 pop() -> 삭제 데이터를 리턴하면서 데이터 제거
+    body.innerHTML += array.pop() + "<br>"; // 삭제 기능 메서드 pop() -> 삭제 데이터를 리턴하면서 데이터 제거
+    body.innerHTML += array + "<br>";
+    // 273,String,true,function () { },[object Object],273,103 출력
+    
+    // ex) 회원명단 리스트를 member로 선언하여 기본 3명을 할당한 후,
+    // 회원을 추가, 삭제 처리. 현재 배열 전체 출력
+    let members = ['Joe', 'Elliot', 'Amy'];
+    body.innerHTML += members + "<br>";
+    members[members.length] = "Taylor";
+
+    members.push("Taylor")
+    body.innerHTML += members.pop() + "<br>";
+    body.innerHTML += members + "<br>";
+    body.innerHTML += members.pop() + "<br>";
+    body.innerHTML += members + "<br>";
+    delete(members[members.length] -1);
+    body.innerHTML += members + "<br>";
+
+</script>
 </html>

@@ -3,10 +3,14 @@
 <head>
     <script>
         // 변수를 선언합니다.
-        var input = prompt('숫자를 입력해주세요.', '');
-        var number = Number(input);
-        // 조건문
-        (number > 0) ? alert('자연수입니다.') : alert('자연수가 아닙니다.');
+        // var input = prompt('숫자를 입력해주세요.', '');
+        // var number = Number(input);
+        // // 조건문
+        // (number > 0) ? alert('자연수입니다.') : alert('자연수가 아닙니다.');
+        let age = Number(prompt("나이를 입력하세요"));
+        // let isAdult = age >= 18 ? "성인" : "미성년";
+        let isAdult = age >= 18 ? "성인" : ( age >= 0? "미성년" : "숫자로 0 이상 입력하세요.");
+        alert("구분 : " + isAdult);    
     </script>
 </head>
 <body>

@@ -1,24 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-        // 변수를 선언합니다.
-        var input = Number(prompt('숫자를 입력하세요.', '숫자'));
-        // 조건문
-        switch (input % 2) {
-            case 0:
-                alert('짝수입니다.');
-                break;
-            case 1:
-                alert('홀수입니다.');
-                break;
-            default:
-                alert('숫자가 아닙니다.');
-                break;
+    <style>
+        .all {
+            margin: 20vh auto 0 auto;
+            text-align: center;
         }
-    </script>
+        .re {
+            text-align: center;
+            font-weight: 800;
+        }
+    </style>
+    
+
+    
 </head>
 <body>
+    <div class="all">
+        <h3>구구단 연습</h3>
+        <h5></h5>
+        <span>정답 입력 : </span>
+        <input type="text" name="indata" value="0" size="3">
+        <input type="submit" value="제출">
+    </div>
+    <div class="re"></div>
 
+    <script>
+        // 변수를 선언합니다.
+        // var input = Number(prompt('숫자를 입력하세요.', '숫자'));
+        // console.log("입력된 데이터 : " + input);
+
+        // // ex) 52 % 2 -> 0
+        // // 조건문
+        // switch (input % 2) { // 나머지 값을 0/1
+        //     case 0:
+        //         alert('짝수입니다.');
+        //         break;
+        //     case 1:
+        //         alert('홀수입니다.');
+        //         break;
+        //     default:
+        //         alert('숫자가 아닙니다.');
+        //         break;
+        // }
+        // let input = null;
+        // let inNum = 0;
+        
+        // ex) 숫자를 입력하지 않을 때는 나누어서 alert창으로 메세지 처리
+        let num01 = Math.floor(Math.random() * 8 + 2);
+        let num02 = Math.floor(Math.random() * 9 + 1);
+        let que = document.querySelector("h5");
+        let ans = num01 * num02;
+
+        input = document.querySelector("[name=indata]");
+        
+        let sub = document.querySelector("[type=submit]");
+        let re = document.querySelector(".re");
+
+        que.innerHTML = num01 + " X " + num02 + " = ?";
+
+        function result() {
+            inNum = Number(input.value);
+            console.log("입력된 답 : " + inNum);
+            console.log("정답 : " + ans);
+            switch (inNum) {
+                case ans:
+                    re.innerHTML = "정답입니다.";
+                    break;
+                case typeof(NaN):
+                    re.innerHTML = "숫자가 아닙니다.";
+                    break;
+                
+                default:
+                    alert("오답입니다.");
+                    break;
+            }
+
+        }
+
+        sub.onclick = function() {
+            result();
+        }
+    </script>
 </body>
 </html>

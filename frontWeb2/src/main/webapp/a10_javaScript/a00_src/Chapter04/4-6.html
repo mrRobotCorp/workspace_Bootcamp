@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-        var a = "abcdefg";
-        alert(a.length);
-        alert(a[0]);
-        alert(a[1]);
-        alert(a[2]);
-        alert(a[3]);
-    </script>
+    
 </head>
 <body>
 
 </body>
+<script>
+    // 문자열 : 문자배열이기에 index로 접근 가능
+    // var a = "abcdefg";
+    // alert(a.length);
+    // alert(a[0]);
+    // alert(a[1]);
+    // alert(a[2]);
+    // alert(a[3]);
+    
+    // ex) himan을 문자열로 선언하고 index를 활용하여 문자열 반대로 출력
+    let str = "himan";
+    
+    for(var i=str.length -1; i >= 0; i--) {
+        document.querySelector("body").innerHTML += str[i];
+        // alert(a[2]);
+    }
+</script>
 </html>

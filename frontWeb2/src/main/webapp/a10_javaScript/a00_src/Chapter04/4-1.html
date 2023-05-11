@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
+</head>
+<body>
+    <h5>  9o o</h5>
+
     <script>
         // 변수를 선언합니다.
         var array = [273, 32, 103, 57, 52];
-    </script>
-</head>
-<body>
+        document.body.innerHTML = array + "<br>";
+        document.body.innerHTML += array[0] + "<br>";
+        document.body.innerHTML += array.length + "<br>";
 
+        // ex) 문자열 배열로 물건명 3개를 선언 할당. 화면에 출력
+        let prod = ["jelly", "cheese", "candy"];
+        document.querySelector("h5").innerHTML = prod;
+        document.querySelector("h5").innerHTML += prod[0] + "<br>";
+        document.querySelector("h5").innerHTML += prod.length + "<br>";
+
+    </script>
 </body>
 </html>

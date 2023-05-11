@@ -3,14 +3,49 @@
 <head>
     <script>
         // 변수를 선언합니다.
-        var score = Number(prompt('학점을 입력하세요.', '학점'));
-        // 조건문
-        if (4.0 < score && score < 4.5) {
-            alert('논리 연산자를 사용해 보았습니다.');
-        }
+        // var score = Number(prompt('학점을 입력하세요.', '학점'));
+        // // 조건문
+        // if (4.0 < score && score < 4.5) {
+        //     alert('논리 연산자를 사용해 보았습니다.');
+        // }
+        window.addEventListener("DOMContentLoaded", function() {
+
+            let sub = document.querySelector("[type=submit]");
+            function login() {
+                let id = document.querySelector("[name=id]");
+                let pw = document.querySelector("[name=pw]");
+    
+                let idData = id.value;
+                let pwData = pw.value;
+    
+                // ex) 위 값을 이용해서 논리연산식 hi/7777 맞으면 alert()로 로그인 성공 그외는 실패
+                if(idData == "hi" && pwData == "7777") {
+                    alert("로그인 성공");
+                    // 특정 페이지 (메인 페이지) 이동
+                    // location.href = "이동 할 페이지";
+                } else {
+                    alert("로그인 실패~");
+                }
+            }
+    
+            sub.onclick = function() {
+                login();
+            }
+        })
+
+
     </script>
 </head>
 <body>
-
+    <h3>로그인</h3>
+    <div>
+        <span>아이디 : </span>
+        <input type="text" name="id">
+    </div>
+    <div>
+        <span>비밀번호 : </span>
+        <input type="password" name="pw">
+    </div>
+    <input type="submit" value="로그인">
 </body>
 </html>

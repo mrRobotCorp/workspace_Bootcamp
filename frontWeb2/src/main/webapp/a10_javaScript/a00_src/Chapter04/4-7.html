@@ -3,15 +3,61 @@
 <head>
     <script>
         // 변수를 선언합니다.
-        var value = 0;
-        // while 반복문
-        while (value < 5) {
-            alert(value + '번째 반복');
-            value++;
-        }
+        // var value = 0;
+        // // while 반복문
+        // while (value < 5) {
+        //     alert(value + '번째 반복');
+        //     value++;
+        // }
     </script>
 </head>
 <body>
 
 </body>
+<script>
+    // let menu = [];
+    // while (true) {
+    //     let addMenu = prompt("주문 할 메뉴를 입력하세요\n중지 시 Q입력");
+        
+    //     if(addMenu != 'Q') {
+    //         menu.push(addMenu); // 메뉴 추가
+    //     } else {
+    //         alert("메뉴 주문 완료");
+    //         break;
+    //     }
+    // }
+
+    // document.body.innerHTML = "<h3>주문 메뉴 리스트</h3>";
+    // document.body.innerHTML += "<h5>" + menu + "</h5>";
+
+    // ex) 학생들의 점수를 입력 받아서 인원, 총점, 평군 출력
+    let stuArr = [];
+    let tot = 0;
+    let cnt = 0;
+
+    while (true) {
+        let stu = Number(prompt("학생의 점수 입력\n-1 입력 시 입력 종료"));
+        
+        // 0 이상 숫자로 입력
+        if(stu >= 0) {
+            cnt++;
+            tot += stu;
+            // -1 입력 반복 종료
+        } else if(stu == -1) {
+            alert("입력 완료");
+            break;
+            // 숫자형 데이터가 아닐 경우
+        } else {
+            alert("데이터를 숫자 0 이상으로 입력하세요.");
+        }
+    }
+
+    document.body.innerHTML = "<h3>학생들의 점수 목록</h3>";
+    document.body.innerHTML += 
+        `<h5>총점 : ${tot}</h5>
+        <h5>평균 : ${tot/cnt}</h5>`;
+
+
+
+</script>
 </html>

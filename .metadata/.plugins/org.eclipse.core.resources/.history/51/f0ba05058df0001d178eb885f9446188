@@ -84,27 +84,6 @@ SELECT *
 FROM emp
 WHERE deptno <> 10 AND DEPTNO != 20;
 
--- sal가 1000에서 2000사이에 있는 사원명과 급여명
-SELECT ename, sal
-FROM emp
-WHERE sal BETWEEN 1000 AND 2000;
-
--- ex) 사원번호가 7600에서 7900사이에 있는 경우와 그렇지 않은 경우
-SELECT EMPNO 
-FROM emp
-WHERE EMPNO BETWEEN 7600 AND 7900;
-
-SELECT EMPNO -- 방법1
-FROM emp
-WHERE NOT(EMPNO BETWEEN 7600 AND 7900);
-
-SELECT * -- 방법2
-FROM emp
-WHERE empno < 7600 OR EMPNO > 7900;
-
-
-
-
 
 
 

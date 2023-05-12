@@ -61,32 +61,6 @@ SELECT  EMPNO "사원번호", mgr "관리자"
 FROM emp
 WHERE MGR IS not NULL;
 
--- 부서번호가 20번이 아닌 데이터를 검색
-SELECT deptno, ename
-FROM emp
-WHERE deptno != 20;
-
-SELECT deptno, ename
-FROM emp
-WHERE not(deptno = 20);
-
--- ex) 부서번호가 10이거나 20번인 경우와 그렇지 않은 경우를 출력
-SELECT *
-FROM emp
-WHERE deptno = 10 OR DEPTNO = 20;
-
-SELECT *
-FROM emp
---WHERE deptno != 10 AND DEPTNO != 20;
-WHERE NOT(deptno = 10 OR DEPTNO = 20);
-
-SELECT *
-FROM emp
-WHERE deptno <> 10 AND DEPTNO != 20;
-
-
-
-
 
 
 

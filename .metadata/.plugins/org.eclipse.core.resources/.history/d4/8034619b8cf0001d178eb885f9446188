@@ -80,10 +80,6 @@ FROM emp
 --WHERE deptno != 10 AND DEPTNO != 20;
 WHERE NOT(deptno = 10 OR DEPTNO = 20);
 
-SELECT *
-FROM emp
-WHERE deptno <> 10 AND DEPTNO != 20;
-
 
 
 

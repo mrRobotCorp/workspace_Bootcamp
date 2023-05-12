@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-        let i = 0;
-        for (const element of [1, 2, 3, 4]) {
-            alert(`${i}번째 요소는 ${element}입니다.`);
-            i++;
-        }
-    </script>
+    
 </head>
 <body>
+    <h5></h5>
+    <table>
 
+    </table>
 </body>
+<script>
+    // let i = 0;
+    // for (const element of [1, 2, 3, 4]) {
+    //     alert(`${i}번째 요소는 ${element}입니다.`);
+    //     i++;
+    // }
+    // let fruits = ["사과", "바나나", "딸기"];
+    // fruits.forEach( function(f, idx) {
+    //     alert(f + " : " + idx); 
+    // })
+
+    // ex) 학생3명의 점수를 forEach구문을 통해 가져와서 순서별로 출력.
+    let stu1 = prompt("학생 1의 점수를 입력하세요");
+    let stu2 = prompt("학생 2의 점수를 입력하세요");
+    let stu3 = prompt("학생 3의 점수를 입력하세요");
+
+    let all = [stu1, stu2, stu3];
+    let tb = document.querySelector("table");
+    let show = "";
+
+    all.forEach( function(s, i) {
+        show += `
+        <tr>
+            <td>학생${i+1}</td>
+            <td>${s}</td>
+        </tr>`
+    })
+    tb.innerHTML += show ;
+</script>
 </html>

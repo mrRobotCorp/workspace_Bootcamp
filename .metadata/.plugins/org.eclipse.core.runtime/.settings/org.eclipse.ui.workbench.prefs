@@ -125,6 +125,7 @@ org.jkiss.dbeaver.sql.resultset.color.lines.selected=105,105,105
 org.jkiss.dbeaver.sql.resultset.color.null.foreground=100,100,100
 org.jkiss.dbeaver.sql.resultset.color.numeric.foreground=192,192,255
 org.jkiss.dbeaver.sql.resultset.color.string.foreground=192,192,192
+org.jkiss.dbeaver.sql.resultset.font=1|Segoe UI|10.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI;
 org.jkiss.dbeaver.txn.color.committed.background=11,60,0
 org.jkiss.dbeaver.txn.color.reverted.background=135,19,5
 org.jkiss.dbeaver.txn.color.transaction.background=4,84,113

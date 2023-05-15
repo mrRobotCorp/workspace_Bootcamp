@@ -15,17 +15,17 @@ SELECT * FROM student01;
 
 -- 테이블 생성 및 데이터 입력
 -- char() : 데이터의 크기가 고정되어 있을 때 활용
-CREATE TABLE prod (
+CREATE TABLE prod01 (
 	psid char(10),
 	pname varchar2(50),
-	price number
+	price NUMBER
 );
 
-INSERT INTO prod VALUES('pa101', 'jelly', 1000);
-INSERT INTO prod VALUES('pa102', 'candy', 500);
-INSERT INTO prod VALUES('pa103', 'milk', 2000);
+INSERT INTO prod01 VALUES('pa101', 'jelly', 1000);
+INSERT INTO prod01 VALUES('pa102', 'candy', 500);
+INSERT INTO prod01 VALUES('pa103', 'milk', 2000);
 
-SELECT * FROM prod;
+SELECT * FROM prod01;
 
 CREATE TABLE MEMBER(
 	id varchar2(50),

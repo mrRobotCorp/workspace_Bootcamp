@@ -1,0 +1,15 @@
+-- 학생 테이블1 학생명과 점수
+CREATE TABLE student01(
+	name varchar2(50),
+	point number
+);
+
+INSERT INTO student01 values('Joe', 70);
+INSERT INTO student01 values('Amy', 80);
+INSERT INTO student01 values('Tom', 90);
+
+SELECT * FROM student01;
+
+-- ex) 구매 물건 정보 테이블 (물건일련번호, 물건명, 판매가격)
+-- ex) 회원정보 테이블 (회원아이디, 회원패스워드, 회원명, 포인트, 권한)
+-- ex) 구매 물건 정보 테이블 (물건일련번호, 물건명, 판매가격)

@@ -1,0 +1,32 @@
+SELECT *
+FROM EMP
+WHERE ENAME LIKE '__A%';
+
+SELECT *
+FROM EMP
+WHERE job LIKE '%A_';
+
+-- 글자 수가 6자리이고 앞에서 3번째 자리에 R이 있는 데이터 검색
+SELECT *
+FROM EMP
+WHERE ENAME LIKE '__R___';
+
+-- ex) 앞에서 4,5번째 자리에 ES를 포함한 직책 검색
+-- ex) 뒤에서 3번째 자리에 M이 포함된 직책 검색
+-- ex) 자리 수가 5자리이고 중간에 I자가 포함된 사원명 검색
+SELECT *
+FROM EMP
+WHERE job LIKE '___ES%';
+
+SELECT ename, ''||HIREDATE "문자열로 캐스팅"
+FROM EMP;
+
+SELECT *
+FROM EMP
+WHERE job LIKE '%M__';
+
+SELECT *
+FROM EMP
+WHERE ENAME LIKE '_____' AND ENAME LIKE '%I%';
+
+

@@ -59,6 +59,12 @@ SELECT hiredate
 FROM EMP
 ORDER BY HIREDATE DESC;
 
+-- ex) 부서번호는 오름차순, 연봉은 내림차순 이중 정렬 기준으로 부서번호 급여 사원명으로 출력
+SELECT deptno, sal, ename
+FROM emp
+ORDER BY DEPTNO, sal DESC;
+
+
 
 
 

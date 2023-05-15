@@ -1,0 +1,4 @@
+-- 학생 테이블1 학생명과 점수
+CREATE TABLE student01(
+
+);

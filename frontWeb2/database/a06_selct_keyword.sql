@@ -81,7 +81,7 @@ AND job LIKE '%MAN'; -- MAN이 끝에 포함되어 있는 데이터
 -- 컬럼명 LIKE '%키워드' : 키워드로 끝나는 데이터
 
 -- ex) first_name, last_name 검색할 때 
--- 		1) 특정한 키워드 포함되는 경우 처리, 2) first/last_name은 특정한 키워드로 시작하는 데이터 검색
+-- 		1) 특정한 키워드 포함되는 경우 처리, 2) first/last_name은 특정한 키워드로 시작하는 데이터 검색 
 --		3) first_name에 'er'로 끝나는 데이터 검색
 SELECT FIRST_NAME, LAST_NAME
 FROM EMPLOYEES
@@ -91,9 +91,14 @@ SELECT FIRST_NAME, LAST_NAME
 FROM EMPLOYEES
 WHERE  FIRST_NAME LIKE '%er';
 
+SELECT *
+FROM emp
+WHERE ename LIKE '%' || 'A' || '%';
 
-
-
+-- ex) a02_memberERD.exerd 생성
+-- 		현재 프로젝트의 회원 정보 테이블을 논리적/물리적 모델로 생성할 것
+SELECT *
+FROM DEPT;
 
 
 

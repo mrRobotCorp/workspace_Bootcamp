@@ -15,13 +15,36 @@
     <h4 onclick="buyP(1000, 2000)">grape</h4>
     <h4 onclick="buyP(1000, 2000, 3000)">cherry</h4>
 
+    <div>
+        <h4>물건 목록</h4>
+        <h5 onclick="prod('orange, coke, apple, sprite')">juice</h5>
+        <h5 onclick="prod('beer, vodka, wine, soju')">alchol</h5>
+        <h5 onclick="prod('popcorn, chips, nacho')">snack</h5>
+        <h5 onclick="prod('wine')">wine</h5>
+    </div>
+
+    <h3></h3>
+
     <script>
         function buyP() {
             // alert(arguments);
+            let arr = [];
             for(let i in arguments) {
-                alert(arguments[i]);
+                arr.push(arguments[i]);
+                // alert(arguments[i]);
             }
+            alert("물건 가격 : " + arr);
         } 
+
+        // ex) 구입하는 물건을 동적으로 전달하여 1-3개 클릭 시 물건명 리스트를 출력
+        function prod() {
+            let plist = [];
+            for(let i in arguments) {
+                plist.push(arguments[i]);
+            }
+            document.querySelector("h3").innerHTML += plist + "<br>";
+
+        }
     </script>
 </body>
 </html>

@@ -20,17 +20,37 @@
 
         // ex) 변수형 함수로 선언, 호출됐을 때 이름을 입력받아 alert()로 출력되는 함수 call02 선언 
         //      코드 전 후로 호출되는 결과 확인
-        
+
         // alert("함수 코드 작성 전 - " + call02);
         // call02();
 
-        let call02 = function() {
-            let name = prompt("이름을 입력하세요");
-            alert("입력된 이름 : " + name);
-        }
+        // let call02 = function() {
+        //     let name = prompt("이름을 입력하세요");
+        //     alert("입력된 이름 : " + name);
+        // }
 
-        alert("함수 코드 작성 후 - " + call02);
-        call02();
+        // alert("함수 코드 작성 후 - " + call02);
+        // call02();
+
+        // 선언적 함수 : function 함수명() {} , 익명함수가 아닌 일반 함수
+        // alert("함수 선언 전 : " + call03());
+        
+        // function call03() {
+        //     return "선언적 함수 호출";    
+        // }
+        
+        // alert("함수 선언 후 : " + call03());
+
+        // ex) call03을 선언적 함수로 선언하여 confirm()이용하여 합격, 불합격 여부boolean으로 return
+        //      선언 전 후로 출력되게 할 것
+        alert("함수 선언 전, 합격여부 : " + call33());
+        
+        function call33() {
+            let con = confirm("합격인가요?")
+            return con;
+        }
+        
+        alert("함수 선언 후, 합격여부 : " + call33());
 
     </script>
 </body>

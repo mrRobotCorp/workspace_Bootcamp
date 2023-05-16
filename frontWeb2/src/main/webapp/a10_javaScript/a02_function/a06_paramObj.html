@@ -20,6 +20,15 @@
         <h4 onclick="func02({name : 'kevin', age : 29})">객체 호출</h4>
         <p class="show"></p>
     </div>
+
+    <div>
+        <h5 onclick="func03( {pname : 'jelly', price: 1500, cnt:3})">물건1</h5>
+        <h5 onclick="func03( {pname : 'candy', price: 1200, cnt:2})">물건2</h5>
+        <h5 onclick="func03( {pname : 'snack', price: 1800, cnt:3})">물건3</h5>
+        <h5 onclick="func03( {pname : 'juice', price: 2000, cnt:1})">물건4</h5>
+        <p class="pList">물건 정보</p><br>
+    </div>
+
     <script>
         function func01(arr) {
             alert("배열 데이터 : " + arr);
@@ -35,6 +44,13 @@
             }
         }
 
+        // ex) json 형태로 물건명, 가격,갯수를 속성/속성값 설정,
+        // func03()에 전달. 해당 데이터들을 for in 구문으로 출력
+        function func03(e) {
+            for (const i in e) {
+                document.querySelector(".pList").innerHTML += i + " : " + e[i] + "<br>";
+            }
+        }
     </script>
 </body>
 </html>

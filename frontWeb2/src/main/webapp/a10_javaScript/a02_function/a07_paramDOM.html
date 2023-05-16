@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a07</title>
+    <style>
+        .h33 { text-align: center; transition: all .4s; position: absolute; top: 0; left: 0; color: #000; cursor: pointer;}
+        h5 { margin-top: 60px; }
+
+        .rain { padding-top: 100px; }
+        .rb { padding: 20px 0; transition: all .4s; cursor: pointer; user-select: none; text-align: left;}
+    </style>
+</head>
+<body>
+    <!-- html 태그를 object화 한 것이 DOM -->
+    <h3 class="h33">DOM 객체 전달</h3> 
+    <h5>다른 객체</h5> 
+
+    <div class="rain">
+        <h3 class="rb">rainbow</h3>
+    </div>
+
+    <script>
+        const h3obj = document.querySelector("h3"); 
+        h3obj.onclick = function(e) {
+            this.innerText = "CLICK!";
+            this.style.position = 'absolute';
+            this.style.top = '20%';
+            this.style.left = '20%';
+            this.style.transform = 'scale(1.2)';
+            this.style.backgroundColor = '#00f';
+            this.style.color = '#fff';
+            this.style.width = '100px';
+
+            for(let p in e) {
+                console.log(p + " : " + e[p]);
+            }
+            document.querySelector("h5").align = "right";
+            document.querySelector("h5").innerHTML = "DOM객체 클릭됨.";
+        }
+
+        // h3   무지개 색상 7가지 리스트화해서 클릭 시 색상 변경
+        const rb = document.querySelector(".rb");
+        let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+        
+        rb.onclick = function(e) {
+            const ran = parseInt(Math.random() * 6);
+            rb.style.backgroundColor = colors[ran];
+            rb.style.color = "#fff";
+            rb.style.textAlign = "center";
+            rb.style.borderRadius = "40px";
+        }
+    </script>
+</body>
+</html>

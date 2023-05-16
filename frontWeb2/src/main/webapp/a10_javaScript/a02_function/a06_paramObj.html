@@ -4,14 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>a0</title>
+    <title>a06</title>
     <!-- <link rel="stylesheet" href="../"> -->
 </head>
 <body>
 
-    <!-- <script type="text/script" src="../"></script> -->
+    <div>
+        <p onclick="func01([100, 200])">객체형 데이터 전달(배열1)</p>
+        <p onclick="func01(['apple', 'banana', 'grape'])">객체형 데이터 전달(배열2)</p>
+        <p onclick="func01(['orange', 'lemon', 'kiwi', 'lime'])">객체형 데이터 전달(배열3)</p>
+        <p onclick="func01([100, 'red', 'pink', 300])">객체형 데이터 전달(배열4)</p>
+    </div>
+
+    <div>
+        <h4 onclick="func02({name : 'kevin', age : 29})">객체 호출</h4>
+        <p class="show"></p>
+    </div>
     <script>
-    
+        function func01(arr) {
+            alert("배열 데이터 : " + arr);
+        }
+
+        function func02(obj) {
+            alert("객체 : " + obj); // object object 출력
+            alert("이름 : " + obj.name + ", 나이 : " + obj.age); //kevin
+            console.log(obj); // name : 'kevin', age : 29 출력
+
+            for(let p in obj) {
+                document.querySelector(".show").innerHTML += p + " : " + obj[p] + "<br>"; 
+            }
+        }
+
     </script>
 </body>
 </html>

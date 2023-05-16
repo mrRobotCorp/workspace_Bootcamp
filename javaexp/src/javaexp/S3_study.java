@@ -10,8 +10,8 @@ public class S3_study {
 		
 		System.out.print("비밀번호를 입력하세요 : ");
 		String pw01 = sc.nextLine();
-		System.out.print("비밀번호 확인 : ");
-		String pw02 = sc.nextLine();
+//		System.out.print("비밀번호 확인 : ");
+//		String pw02 = sc.nextLine();
 //		
 //		try {
 //			if(!pw01.equals(pw02)) {

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a02</title>
+    <!-- <link rel="stylesheet" href="../"> -->
+</head>
+<body>
+    <h5 onclick="call01(3)">매개변수 전달1</h5>
+    <h5 onclick="call01(5)">매개변수 전달2</h5>
+    <h5 onclick="call01(7)">매개변수 전달3</h5>
+    
+    <h6 onclick="call02('take')">매개변수 전달1</h6>
+    <h6 onclick="call02('me')">매개변수 전달1</h6>
+    <h6 onclick="call02('home')">매개변수 전달1</h6>
+
+    <div>
+        <h3 onclick="call03(2000)">candy</h3>
+        <h3 onclick="call03(5000)">jelly</h3>
+        <h3 onclick="call03(6000)">cheese</h3>
+    </div>
+
+    <div>
+        <h5 onclick="member('일반 사용자')">회원1</h5>
+        <h5 onclick="member('슈퍼 유저')">회원2</h5>
+        <h5 onclick="member('관리자')">회원3</h5>
+    </div>
+
+    <!-- ex h3으로 구매 할 물건명을 표현하고 클릭 시 물건의 가격을
+            alert()로 표현 -->
+
+    <!-- 회원명으로 리스트가 있고 클릭 시 해당 회원의 
+        권한(관리자, 일반사용자, 슈퍼유저)을 alert로 출력 -->
+    <script>
+        function call01(e) {
+            alert("숫자 : " + e);
+        }
+
+        function call02(e) {
+            alert("문자 : " + e);
+        }
+
+        function call03(e) {
+            alert("물건의 가격은 " + e + " 원");
+        }
+
+        function member(e) {
+            alert("회원의 권한은 " + e + " 입니다.");
+        }
+        
+    </script>
+</body>
+</html>

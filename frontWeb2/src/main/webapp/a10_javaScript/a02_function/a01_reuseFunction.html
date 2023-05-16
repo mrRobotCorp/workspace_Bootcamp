@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a01</title>
+    <!-- <link rel="stylesheet" href="../"> -->
+</head>
+<body>
+    <h3 style="cursor:pointer">배경 색상 변경</h3>
+    <h5 style="cursor:pointer">클릭 시 숫자 증가</h5>
+    <!-- <script type="text/script" src="../"></script> -->
+    <script>
+        // 호출할 때마다 화면의 배경색상을 바꾸기
+        let colors = ["#888", "#d7d7d7", "#00f", "#f0f"];
+        let bd = document.querySelector("body");
+        
+        function chColor() {
+            alert("배경 색상 변경");
+            bd.style.backgroundColor = colors[parseInt(Math.random() * 4)];
+        }
+
+        document.querySelector("h3").onclick = function() {
+            chColor();
+        }
+
+        // 전역변수 tot 선언, 함수를 선언해서 클릭 시 마다 1부터 누적 출력
+        let tot = 0;
+        let cnt = 0;
+        let h5obj = document.querySelector("h5");
+
+        function plus() {
+            cnt++;
+            tot += cnt;
+            h5obj.innerText = "누적 합산 결과 : " + tot;
+        }
+
+        h5obj.onclick = function() {
+            plus();
+        }
+
+    </script>
+</body>
+</html>

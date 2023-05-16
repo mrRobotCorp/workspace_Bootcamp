@@ -11,7 +11,27 @@
 
     <!-- <script type="text/script" src="../"></script> -->
     <script>
-    
+        // alert("익명함수 호이스팅 : " + call01); // 변수에 함수를 넣은 익명함수이므로 호이스팅X. undefined 실행에러
+        // let call01 = function() {
+        //     alert("변수형 함수 호출");
+        // }
+        // alert("함수명 : " + call01); // 코드 내용을 텍스트 형태로 모두 출력
+        // call01(); // 실행 내용 컴파일하여 실행
+
+        // ex) 변수형 함수로 선언, 호출됐을 때 이름을 입력받아 alert()로 출력되는 함수 call02 선언 
+        //      코드 전 후로 호출되는 결과 확인
+        
+        // alert("함수 코드 작성 전 - " + call02);
+        // call02();
+
+        let call02 = function() {
+            let name = prompt("이름을 입력하세요");
+            alert("입력된 이름 : " + name);
+        }
+
+        alert("함수 코드 작성 후 - " + call02);
+        call02();
+
     </script>
 </body>
 </html>

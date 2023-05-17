@@ -41,6 +41,14 @@
         span:hover {
             background-color: #c5c5ff;
         }
+
+        .sq {
+            width: 100px;
+            height: 100px;
+            background-color: #3e3e93;
+            transition: all .3s;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -130,6 +138,13 @@
         <p class="memShow">회원 정보 출력</p>
     </div>
 
+    <hr>
+    <div>
+        <h4>DOM 객체 속성 변경</h4>
+        <div class="sq"></div>
+    </div>
+    <hr>
+
     <script>
         let cnt = 0;
         let obj1 = document.querySelector(".ex01");
@@ -192,6 +207,13 @@
                 tot += pt;
             });
             alert("총점 : " + tot + ", 평균 : " + (tot/pts.length));
+        }
+
+        let sq = document.querySelector(".sq");
+        sq.onclick = function() {
+            this.style.borderRadius = "50px";
+            this.style.transform = "rotate(60deg)";
+            this.style.marginLeft = "50px";
         }
 
 

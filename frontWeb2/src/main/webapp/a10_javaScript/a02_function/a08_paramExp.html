@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a08</title>
+    <link rel="stylesheet" href="../css/style.css">
+    </link>
+    <style>
+        .tb04 {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .tb04 thead td {
+            color: #0d0d80;
+            font-weight: 600;
+            border-top: 1px solid #3e3e93;
+        }
+
+        .tb04 td {
+            width: 70px;
+            height: 35px;
+            border-bottom: 1px solid #3e3e93;
+        }
+
+        span {
+            display: inline-block;
+            margin: 10px 2px;
+            padding: 5px 10px;
+            color: #0d0d80;
+            border: 1px solid #0d0d80;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all .3s ease-in;
+        }
+
+        span:hover {
+            background-color: #c5c5ff;
+        }
+    </style>
+</head>
+
+<body class="a08">
+    <!-- 
+매개변수 정리 문제
+아래 문제들을 h2의 타이틀 내용 클릭 시 처리되게.
+
+1. 매개변수의 갯수
+    1) 없는 경우 - 안녕하세요 출력, 카운트 증가 출력 (전역변수 활용)
+    2) 1개인 경우 - 등록한 사원 번호 출력 (매개변수 - 사원번호)
+                    클릭 시마다 가격 총액 계산(매개변수-가격, 전역변수-총액)
+    3) 2개 이상인 경우  - 총계 계산(가격, 갯수 출력)
+    4) 가변적인 경우     
+        arguments 활용 - 학생의 점수 1-3개를 각각 호출   
+        … 변수명 활용 - 등록된 회원 아이디 1개-3개 각각 호출
+    
+2. 매개변수의 유형
+    1) 배열인 경우
+    2) 객체인 경우
+    3) DOM인 경우
+    -->
+
+    <h5 class="ex01">ex01 클릭</h5>
+
+    <hr>
+
+    <h4>사원번호 출력</h4>
+    <span onclick="ex02(1001)">사원1</span>
+    <span onclick="ex02(1002)">사원2</span>
+    <span onclick="ex02(1003)">사원3</span>
+    <ul class="empno"></ul>
+
+    <hr>
+    <div>
+        <h4>가격 총액 계산</h4>
+        <span onclick="ex03(2000)">mango</span>
+        <span onclick="ex03(1500)">apple</span>
+        <span onclick="ex03(3500)">grape</span>
+        <strong>총액 : </strong>
+        <strong class="totAll"></strong>
+    </div>
+
+    <hr>
+
+    <div>
+        <h4>물건 리스트</h4>
+        <span onclick="ex04(3000, 2)">milk</span>
+        <span onclick="ex04(5000, 2)">egg</span>
+        <span onclick="ex04(8000, 1)">wine</span>
+        <span onclick="ex04(1200, 4)">coke</span>
+        <span onclick="ex04(1500, 3)">snack</span>
+
+        <table class="tb04">
+            <thead>
+                <tr>
+                    <td>no</td>
+                    <td>가격</td>
+                    <td>갯수</td>
+                    <td>총액</td>
+                </tr>
+            </thead>
+            <tbody class="ex04bd">
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+
+    <div>
+        <h4>학생 점수</h4>
+        <span onclick="ex05(89)">학생1</span>
+        <span onclick="ex05(42, 88)">학생2</span>
+        <span onclick="ex05(78, 98, 84)">학생3</span>
+        <span onclick="call(78, 98, 84)">학생4 (forEach 평균)</span>
+        <p class="ptShow"></p>
+    </div>
+
+    <hr>
+
+    <div>
+        <h4>회원 정보</h4>
+        <span onclick="ex06('abc')">회원1</span>
+        <span onclick="ex06('efg', 'hij')">회원2</span>
+        <span onclick="ex06('klm', 'nop', 'rst')">회원3</span>
+
+        <p class="memShow">회원 정보 출력</p>
+    </div>
+
+    <script>
+        let cnt = 0;
+        let obj1 = document.querySelector(".ex01");
+
+        function ex01() {
+            cnt++;
+            obj1.innerHTML = "안녕하세요, " + cnt;
+        }
+
+        obj1.onclick = function () {
+            ex01();
+        }
+
+        function ex02(num) {
+            document.querySelector(".empno").innerHTML += `<li>${num}</li>`;
+        }
+
+        let tot = 0;
+        function ex03(price) {
+            tot += price;
+            document.querySelector(".totAll").innerHTML = tot;
+        }
+
+        let tbd4 = document.querySelector(".ex04bd");
+        let tot04 = 0;
+        let cnt04 = 0;
+        function ex04(price, c) {
+            cnt04++;
+            tot = price * c;
+            tbd4.innerHTML += `
+                <tr>
+                    <td>${cnt04}</td>
+                    <td>${price}</td>
+                    <td>${c}</td>
+                    <td>${tot}</td>
+                </tr>
+            `;
+        }
+
+        let ptShow = document.querySelector(".ptShow");
+        function ex05() {
+            let arr05 = [];
+            for (let i in arguments) {
+                arr05.push(arguments[i]);
+            }
+            ptShow.innerHTML += arr05 + "<br>";
+        }
+
+        let memShow = document.querySelector(".memShow");
+
+        function ex06(...arr) {
+            for (let i in arr) {
+                memShow.innerHTML += `<p>학생${i+1}의 아이디 : ${arr} </p>`;
+            }
+        }
+
+        function call(...pts) {
+            let tot =0;
+            pts.forEach(function(pt) {
+                tot += pt;
+            });
+            alert("총점 : " + tot + ", 평균 : " + (tot/pts.length));
+        }
+
+
+    </script>
+</body>
+
+</html>

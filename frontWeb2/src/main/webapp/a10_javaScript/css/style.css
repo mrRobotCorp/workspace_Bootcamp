@@ -10,3 +10,16 @@
     border: 1px solid #999 ;
     cursor: pointer;
 }
+
+hr {
+    margin: 20px 0;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.a08 {
+    margin: 0 auto;
+    width: 80%;
+}

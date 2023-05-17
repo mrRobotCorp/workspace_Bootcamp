@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <link>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a13</title>
+    <!-- <link rel="stylesheet" href="../"> -->
+    <link rel="stylesheet" href="../../a00_com/bg.css"></link>
+    <style>
+        .exh3 { 
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h4 onclick="call01({name:'Sam', age:50})">JSON 객체 호출 처리</h4>
+    <h4 onclick="call04(this)" class="domH4">DOM 객체 호출 처리</h4> 
+
+    <div>
+        <h5 onclick="exFunc({food:'pizza', price:15900})">주문 내용</h5>
+    </div>
+
+    <div>
+        <h4 class="bus" onclick="exBus({num:5528, rt:'sadang', p:18})">버스 정보</h4>
+        <p class="busShow"></p>
+    </div>
+
+    <hr>
+    <div>
+        <h3 class="exh3" onclick="exh3(this)">속성 변경</h3>
+    </div>
+
+    <script>
+        function call01(e) {
+            alert(e.name + " : " + e.age);
+        }
+
+        function exFunc(e) {
+            alert("주문 음식 : " + e.food + " , 가격 : " + e.price);
+        }
+        // ex) 클릭 시 json 객체로 음식명과 가격을 전달하고 해당 내용 alert()로 출력
+        // json 객체로 버스의 번호, 구간, 승객수를 속성/속성값으로 설정. 
+        // 클릭 시 해당 속성을 출력
+        let busShow = document.querySelector(".busShow");
+
+        function exBus(e) {
+            busShow.innerHTML = `버스 번호 : ${e.num}, 운행구간 : ${e.rt}, 승객 수 : ${e.p}` ;
+        }
+
+        function call04(e) {
+            alert(e.innerText); // DOM객체 전송, DOM 객체의 출력 속성을 처리. 해당 객체의 텍스트 내용 출력
+            e.innerText = "change";
+            e.align = "center";
+            // 기본 속성 적용 <h2 align='center'></h2> -> e.align = "center";
+        }
+
+        function exh3(e) {
+            e.innerHTML = "hello friend";
+            e.align = 'center';
+            e.style.backgroundColor = 'navy';
+            e.style.color = '#fff';
+            e.setAttribute('class', 'bg1');
+        }
+
+        // h3를 클릭 시 안녕하세요 텍스트 변경, 정렬 오른쪽, 배경, 글자색 처리
+
+    </script>
+</body>
+</html>

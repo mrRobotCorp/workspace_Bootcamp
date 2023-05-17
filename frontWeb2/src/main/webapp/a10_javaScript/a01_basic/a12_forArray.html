@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a12</title>
+    <!-- <link rel="stylesheet" href="../"> -->
+</head>
+<body>
+    <div>
+        <h5>과일 출력</h5>
+        <span class="fShow"></span>
+    </div>
+    <hr>
+    <div>
+        <h5 class="ptShow">점수 출력</h5>
+        <h6 class="">국어 점수</h6>
+        <h6 class="">영어 점수</h6>
+        <h6 class="">수학 점수</h6>
+    </div>
+    <script>
+        let arr = [100, 200, 300];
+        // for(let n of arr) {
+        //     alert(n);
+        // }
+
+        // for(let i in arr) {
+        //     alert(i + " : " + arr[i]);
+        //     // '0' + 1 = 01, '1' + 1 = 11 (문자열로 인식)
+        // }
+
+        // ex) 배열로 좋아하는 과일 선언, for in 구문 출력
+        let fruit = ['apple', 'grape', 'lime', 'lemon', 'mango'];
+        for (const i in fruit) {
+            document.querySelector(".fShow").innerHTML += `<p>
+                ${parseInt(i) + 1}. ${fruit[i]}</p>
+            `;
+        }
+
+        // 숫자형 index, 단위 데이터를 한 번에 가져오는 방법
+        // 배열명.forEach(익명함수(단위객체, index) {} )
+        fruit.forEach( function(d) {
+            // alert("forEach : " + d);
+        });
+        fruit.forEach( function(d, i) {
+            // alert("data : " + d + " , index : " + (i+1));
+        });
+        fruit.forEach( function(d, i, arr) {
+            // alert("data : " + d + " , index : " + (i+1) + " , all : " + arr);
+        });
+
+        // ex) 국어, 영어, 수학 점수를 배열로 선언, 해당 점수를 forEach()로 순서번호와 같이 출력
+        let subj = ['국어', '영어', '수학'];
+        let kor = [90, 56, 96];
+        let eng = [90, 56, 96];
+        let math = [90, 56, 96];
+
+        let ptShow = document.querySelectorAll(".ptShow");
+        ptShow.onlick = function() {
+            kor.forEach( function(d, i) {
+                h6arr[i].innerHTML += `<span>
+                    ${i+1}번. ${subj[i]} 점수 : ${d}</span>
+                `;
+            });
+        }
+
+        h6arr[h6arr.length]
+
+
+
+    </script>
+</body>
+</html>

@@ -13,13 +13,19 @@
         alert()로 출력. 추가 속성으로 disRatio()로 할인율 지정. 출력
     -->
     <div>
-        <h4>물건 리스트</h4>
-        <span onclick="prod()">juice</span>
+        <h4>물건 정보</h4>
 
     </div>
     <script>
+        let p = { name:'apple', price: 2000, cnt:2};
+
         function prod(name, price, cnt) {
-            alert("물건명 : " + name + ", 가격 : " + price + "갯수 : " + cnt);
+            p.disRatio = 0.2
+            alert("물건명 : " + p.name + ", 가격 : " + p.price + ", 갯수 : " + p.cnt + ", 할인율 : " + p.disRatio);
+        }
+
+        document.querySelector("h4").onclick = function() {
+            prod();
         }
     </script>
 </body>

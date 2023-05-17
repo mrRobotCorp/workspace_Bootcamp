@@ -1,0 +1,3 @@
+-- 문자함수 : 문자 데이터를 입력하여 문자나 숫자를 결과로 반환하는 함수
+SELECT ename, INITCAP(ename), job, INITCAP(job)  
+FROM emp;

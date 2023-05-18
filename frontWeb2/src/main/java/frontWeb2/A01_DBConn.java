@@ -25,10 +25,12 @@ public class A01_DBConn {
 		
 	}
 	
+	// DB.java라는 클래스로 연동 처리 설정
 	
 	public static void main(String[] args) {
 		try {
 			setConn();
+			DB.con(); 
 		} catch (SQLException e) {
 			System.out.println("SQL 예외 발생" + e.getMessage());
 		}

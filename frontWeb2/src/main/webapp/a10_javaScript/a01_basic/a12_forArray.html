@@ -30,6 +30,14 @@
         //     // '0' + 1 = 01, '1' + 1 = 11 (문자열로 인식)
         // }
 
+        /*
+        cf 객체와 비교 이해
+        for(let pro in obj) {
+            pro : 속성;
+            obj[pro] : 속성값;
+        }
+        */
+
         // ex) 배열로 좋아하는 과일 선언, for in 구문 출력
         let fruit = ['apple', 'grape', 'lime', 'lemon', 'mango'];
         for (const i in fruit) {
@@ -37,6 +45,10 @@
                 ${parseInt(i) + 1}. ${fruit[i]}</p>
             `;
         }
+
+        // fruit.forEach((data, i) => {
+        //     alert();
+        // })
 
         // 숫자형 index, 단위 데이터를 한 번에 가져오는 방법
         // 배열명.forEach(익명함수(단위객체, index) {} )
@@ -50,6 +62,7 @@
             // alert("data : " + d + " , index : " + (i+1) + " , all : " + arr);
         });
 
+        // 배열, for문, index, DOM(여러 개) 복합 예제.
         // ex) 국어, 영어, 수학 점수를 배열로 선언, 해당 점수를 forEach()로 순서번호와 같이 출력
         let subj = ['국어', '영어', '수학'];
         let kor = [90, 56, 96];

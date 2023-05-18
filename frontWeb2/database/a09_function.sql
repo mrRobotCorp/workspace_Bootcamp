@@ -17,6 +17,37 @@ FROM EMPLOYEES;
 
 -- ex) job_id는 소문자,  email은 소문자, first_name은 대문자로 변환하여 
 -- 		직책 ##인 @@@의 이메일은 &&& 입니다. <- 형식으로 출력
-SELECT '직책' || LOWER(job_id) || '인 ' || UPPER(first_name) || '의 이메일은 '
+SELECT '직책 ' || LOWER(job_id) || '인 ' || UPPER(first_name) || '의 이메일은 '
 		|| LOWER(EMAIL) || '입니다.' 	"result"
 FROM EMPLOYEES;
+
+-- 검색 시, 대소문자 입력 상관없이 검색 처리해야 할 경우
+-- ex) first_name이 대소문자 상관없이 키워드 검색 처리
+-- 1) 컬럼의 데이터 대문자 or소문자로 한 타입으로 모두 전환
+-- 2) 대문자 변환 -> 키워드도 대문자로 변경, 소문자 변환 -> 키워드도 소문자로 변경
+SELECT FIRST_NAME, LAST_NAME, EMAIL, JOB_ID,
+		upper(FIRST_NAME) 이름1, LOWER(FIRST_NAME) 이름2
+FROM EMPLOYEES ;
+
+-- first_name을 대소문자 관계 없이 키워드 검색
+SELECT LOWER(FIRST_NAME) 이름,  e.*
+FROM EMPLOYEES e
+WHERE LOWER(FIRST_NAME) LIKE '%'|| LOWER('steVen')  ||'%';
+
+SELECT *
+FROM EMPLOYEES e;
+
+-- email과 job_id이 대소문자 관계없이 검색되게 처리.
+SELECT email 이메일, job_id 직책id, e.* -- 추가 컬럼, e.*
+FROM EMPLOYEES e
+WHERE EMAIL LIKE '%' || UPPER('o')  || '%' 
+AND LOWER(JOB_ID)  LIKE  '%' || LOWER('A')  || '%';
+
+
+
+
+
+
+
+
+

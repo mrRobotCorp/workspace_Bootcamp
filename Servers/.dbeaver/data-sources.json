@@ -18,7 +18,10 @@
 					"@dbeaver-connection-type@": "BASIC",
 					"@dbeaver-sid-service@": "SERVICE"
 				},
-				"auth-model": "oracle_native"
+				"auth-model": "oracle_native",
+				"bootstrap": {
+					"autocommit": false
+				}
 			}
 		}
 	},

@@ -1,5 +1,4 @@
 INDEX VERSION 1.132+E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.jdt.core
-1487672429.index
 250086584.index
 2757166185.index
 106980839.index

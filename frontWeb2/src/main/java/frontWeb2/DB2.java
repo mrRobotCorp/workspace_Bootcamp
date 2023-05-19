@@ -26,9 +26,11 @@ public class DB2 {
 		} catch (ClassNotFoundException e) {
 			System.out.println(e.getMessage());
 		}
-		// 2. 연결 정보 처리
+		// 2. 연결 정보 처리(Connection) 그외 DB 처리를 포함해서
+		// 예외를 처리해야겠기에 예외를 위임 처리함.
 		String info = "jdbc:oracle:thin:@localhost:1521:xe"; // 접속정보
 		con = DriverManager.getConnection(info, "scott", "tiger");
+		System.out.println("DB 접속 성공");
 		return con;
 	}
 	// 자원 해제 예외 처리
@@ -54,10 +56,17 @@ public class DB2 {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		System.out.println("자원 해제 성공~");
 	}
 
 	public static void main(String[] args) {
-
+		try {
+			con();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			close(null, null, null);
+		}
 	}
 
 }

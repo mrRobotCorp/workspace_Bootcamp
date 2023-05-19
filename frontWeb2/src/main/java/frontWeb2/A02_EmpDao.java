@@ -27,6 +27,8 @@ public class A02_EmpDao {
 			// 대화할 수 있는 개체는 연결(con)에 의해 생성
 			stmt = con.createStatement();
 			// 결과 (ResultSet)
+			// Statement 객체가 가지고 있는executeQuery() 메서드를 통해
+			// ResultSet 객체를 생성
 			rs = stmt.executeQuery(sql);
 			// 행단위로 이동. 다음 행이 없을 때까지 실행
 			int row = 1;
@@ -36,8 +38,12 @@ public class A02_EmpDao {
 				System.out.print( "\t" + rs.getInt("empno"));
 				// ex) 사원명과 관리자 번호, 급여 호출
 				System.out.print( "\t" + rs.getString("ename"));
+				System.out.print( "\t" + rs.getString("job"));
 				System.out.print( "\t" + rs.getInt("mgr"));
-				System.out.println( "\t" + rs.getInt("sal"));
+				System.out.print( "\t" + rs.getDate("hiredate"));
+				System.out.print( "\t" + rs.getDouble("sal"));
+				System.out.print( "\t" + rs.getDouble("comm"));
+				System.out.print( "\t" + rs.getInt("deptno"));
 			}
 			/*
 			rs.next() : 반복을 통해서 행단위로 커서를 위치시킴
@@ -50,11 +56,43 @@ public class A02_EmpDao {
 			*/
 			
 			
-			// 자원해제
+			// 자원해제 : 역순위
+			rs.close();
+			stmt.close();
+			con.close();
 
 			
 		} catch (SQLException e) {
 			System.out.println("DB 처리 예외 : " + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("공통 예외 : " + e.getMessage());
+		} finally {
+			// 해제 전에 예외가 발생한 것을 처리
+			try {
+				if(rs!=null) {
+					rs.close();						
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			try {
+				if(stmt!=null) {
+					stmt.close();						
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			try {
+				if(con!=null) {
+					con.close();						
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			} finally {
+				// 해제되지 않은 자원해제 처리
+				DB.close(rs, stmt, con);
+			}
+			
 		}
 		
 		

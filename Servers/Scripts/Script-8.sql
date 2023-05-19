@@ -1,0 +1,5 @@
+SELECT * FROM dept;
+SELECT * FROM emp02;
+CREATE TABLE dept01
+AS SELECT * FROM dept;
+SELECT  * FROM dept01;

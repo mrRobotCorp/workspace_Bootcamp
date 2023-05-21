@@ -17,5 +17,5 @@ CREATE TABLE grab_product(
 	pro_addrs varchar2(100)	
 );
 
-SELECT * FROM grab_member;
-DROP TABLE GRAB_MEMBER;
+SELECT * FROM grab_product;
+DROP TABLE grab_product;

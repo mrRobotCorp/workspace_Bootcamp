@@ -1,4 +1,4 @@
-package grab.project_Grab;
+package project_Grab;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

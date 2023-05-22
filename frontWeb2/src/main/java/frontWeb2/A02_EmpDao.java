@@ -238,6 +238,9 @@ public class A02_EmpDao {
 		return emp;
 	}
 
+	// A03_Dept -> select * from dept01 where deptno = 10
+	// 부서번호 별로 부서정보 가져오기
+	
 	public static void main(String[] args) {
 		A02_EmpDao dao = new A02_EmpDao();
 		dao.empListAll();
@@ -253,7 +256,13 @@ public class A02_EmpDao {
 //		int deptno = sc.nextInt();
 //		System.out.println(deptno + "번 부서의 사원건수 : " + dao.getDeptCount(deptno));
 		
-		System.out.println("급여 : " + dao.getEmpnoSal(7499));
+//		System.out.println("급여 : " + dao.getEmpnoSal(7499));
+		
+		Emp e = dao.getEmp(7499);
+		System.out.println("사원번호 7499");
+		System.out.println(e.getEname()); // ALLEN
+		System.out.println(e.getJob()); // SALESMAN
+		System.out.println(e.getDeptno()); // 30
 		
 	}
 

@@ -4,7 +4,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Scanner;
+
+import frontWeb2.vo.Deptno;
 
 public class A03_DeptDao {
 	
@@ -95,14 +96,53 @@ public class A03_DeptDao {
 			System.out.println(e.getMessage());
 		}
 	}
-
+	
+	public Deptno getDeptno(int deptno) {
+		Deptno dtno = null;
+		String sql = "select * \r\n"
+				+ "from dept01 \r\n"
+				+ "where deptno = " + deptno;
+		
+		try {
+			con = DB.con();
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			if(rs.next()) {
+				// select * 의 순서대로 컬럼, 순서를 사용
+				dtno = new Deptno(
+					rs.getInt("deptno"),		
+					rs.getString("dname"),		
+					rs.getString("loc")		
+				);
+			}
+			
+			rs.close();
+			stmt.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			System.out.println("DB 예외 : " + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("일반 예외 :" + e.getMessage());
+		} finally {
+			DB.close(rs, stmt, con);
+		}
+		return dtno;
+	}
+ 
 	public static void main(String[] args) {
 		A03_DeptDao dao = new A03_DeptDao();
 //		dao.showDeptList();
-		Scanner sc = new Scanner(System.in);
-		System.out.print("부서명으로 검색 : ");
-		String deno = sc.nextLine();
-		dao.param(deno);
+		
+//		Scanner sc = new Scanner(System.in);
+//		System.out.print("부서명으로 검색 : ");
+//		String deno = sc.nextLine();
+//		dao.param(deno);
+		
+		Deptno dtno = dao.getDeptno(10);
+		System.out.println(dtno.getDeptno()); 
+		System.out.println(dtno.getDname());
+		System.out.println(dtno.getLoc());
 	}
 
 }

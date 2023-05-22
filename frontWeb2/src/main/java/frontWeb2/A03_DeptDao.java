@@ -110,12 +110,11 @@ public class A03_DeptDao {
 			if(rs.next()) {
 				// select * 의 순서대로 컬럼, 순서를 사용
 				dtno = new Deptno(
-					rs.getInt("deptno"),		
-					rs.getString("dname"),		
-					rs.getString("loc")		
+					rs.getInt(1),		
+					rs.getString(2),		
+					rs.getString(3)		
 				);
 			}
-			
 			rs.close();
 			stmt.close();
 			con.close();

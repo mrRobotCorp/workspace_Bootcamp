@@ -15,3 +15,18 @@ SELECT * FROM emp02;
 SELECT COUNT(*) cnt -- 그룹 함수로 데이터의 건수
 FROM EMP02
 WHERE deptno = 10;
+
+SELECT sal
+FROM EMP02
+WHERE EMPNO = 7499;
+
+select *
+from emp02
+where empno = 7499;
+
+
+select * 
+from dept01 
+where deptno = 10;
+
+SELECT * FROM dept01;

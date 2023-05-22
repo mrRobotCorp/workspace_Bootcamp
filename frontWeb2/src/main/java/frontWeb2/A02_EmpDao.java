@@ -399,6 +399,7 @@ public class A02_EmpDao {
 			System.out.print(l.getCtryId() + "\t");
 			System.out.print(l.getStrAddrs() + "\t");
 			System.out.print(l.getCity() + "\t");
+			System.out.print(l.getPstCode() + "\t");
 			System.out.println(l.getLocId());
 		}
 		

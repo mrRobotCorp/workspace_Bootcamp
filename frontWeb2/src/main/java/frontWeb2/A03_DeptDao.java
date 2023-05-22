@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 public class A03_DeptDao {
 	
@@ -67,11 +68,41 @@ public class A03_DeptDao {
 			}
 		}
 		// 4. 실행결과
+		
+	}
+	
+	public void param(int deptno) {
+		String sql = "SELECT * FROM emp02\r\n"
+				+ "WHERE DEPTNO \r\n"
+				+ "LIKE '%' || " + deptno + " || '%'";
+		
+		try {
+			con = DB.con();
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				System.out.print(rs.getInt("empno") + "\t");
+				System.out.print(rs.getString("ename") + "\t");
+				System.out.println(rs.getInt("deptno"));
+			}
+			
+			rs.close();
+			stmt.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	public static void main(String[] args) {
 		A03_DeptDao dao = new A03_DeptDao();
-		dao.showDeptList();
+//		dao.showDeptList();
+		Scanner sc = new Scanner(System.in);
+		System.out.print("부서 번호를 입력 : ");
+		int deno = sc.nextInt();
+		dao.param(deno);
 	}
 
 }

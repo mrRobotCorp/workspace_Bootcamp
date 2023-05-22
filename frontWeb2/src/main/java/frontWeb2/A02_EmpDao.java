@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 public class A02_EmpDao {
 	// 1. 필드선언(핵심 내장 객체)
@@ -43,7 +44,7 @@ public class A02_EmpDao {
 				System.out.print( "\t" + rs.getDate("hiredate"));
 				System.out.print( "\t" + rs.getDouble("sal"));
 				System.out.print( "\t" + rs.getDouble("comm"));
-				System.out.print( "\t" + rs.getInt("deptno"));
+				System.out.println( "\t" + rs.getInt("deptno"));
 			}
 			/*
 			rs.next() : 반복을 통해서 행단위로 커서를 위치시킴
@@ -97,11 +98,56 @@ public class A02_EmpDao {
 		
 	}
 	
+	public void paramEmp(String ename) {
+		System.out.println("트래킹 0. 메서드 호출");
+		
+		String sql = "SELECT * FROM emp02\r\n"
+				+ "WHERE ename \r\n"
+				+ "LIKE '%' || '" + ename + "' || '%'";
+		
+		System.out.println("트래킹 1. 매개변수 : " + ename);
+		// 출력되는 해당 내용 sql 편집기에 복붙해서 나오는지 확인할 수 O.
+		System.out.println("트래킹 2. sql: " + sql); 
+		
+		try {
+			// 1. 연결(예외처리)
+			con = DB.con();
+			// 2. 대화
+			stmt = con.createStatement();
+			// 3. 결과
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) { // 행단위 이동 커서
+				// 열단위 호출 rs.get유형("컬럼명")
+				System.out.print(rs.getInt("empno") + "\t");
+				System.out.print(rs.getString("ename") + "\t");
+				System.out.println(rs.getDouble("sal"));
+			}
+			// 4. 자원해제
+			rs.close();
+			stmt.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} catch(Exception e) {
+			System.out.println("일반 예외 : " + e.getMessage());
+		} finally {
+			DB.close(rs, stmt, con);
+		}
+		
+		
+	}
 	
+	// A03_##.java 에서 부서명을 키워드 검색 처리
 
 	public static void main(String[] args) {
 		A02_EmpDao dao = new A02_EmpDao();
 		dao.empListAll();
+		Scanner sc = new Scanner(System.in);
+		System.out.print("사원명을 입력하세요 : ");
+		String schEname = sc.nextLine();
+		dao.paramEmp(schEname);
 
 	}
 

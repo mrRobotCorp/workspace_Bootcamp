@@ -111,6 +111,3 @@ WHERE empno < 7600 OR EMPNO > 7900;
 
 
 
-
-
-

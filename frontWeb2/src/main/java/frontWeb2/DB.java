@@ -31,10 +31,19 @@ public class DB {
 	};
 	
 	public static void close(ResultSet rs, Statement stmt, Connection con) {
+		// rs.close()에 의하거나 다른 예외로 예외가 나왔을 때는 아래 내용을 강제 자원해제
+		// api에 지원하는 안정적인 자원해제 방법
 		// 해제 전에 예외가 발생한 것을 처리
+		if(rs != null) rs = null; // 강제로 null 처리
+		if(stmt != null) stmt = null; // 강제로 null 처리
+		if(con != null) con = null; // 강제로 null 처리
+		
+		/*
 		try {
 			if(rs!=null) {
-				rs.close();						
+				rs.close();	
+			// 위 rs.close() 가 없이 close()가 작동 문제로 예외가 발생했을 때는
+			// rs의 자원은 영원히 예외 발생하지 않으면
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -53,6 +62,7 @@ public class DB {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		*/
 	}
 
 }

@@ -20,7 +20,7 @@ public class A03_DeptDao {
 		
 		try {
 			// 3. 대화처리
-			con = DB2.con();
+			con = DB.con();
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			
@@ -71,10 +71,10 @@ public class A03_DeptDao {
 		
 	}
 	
-	public void param(int deptno) {
-		String sql = "SELECT * FROM emp02\r\n"
-				+ "WHERE DEPTNO \r\n"
-				+ "LIKE '%' || " + deptno + " || '%'";
+	public void param(String dname) {
+		String sql = "SELECT * FROM dept01\r\n"
+				+ "WHERE dname \r\n"
+				+ "LIKE '%' || '" + dname + "' || '%'";
 		
 		try {
 			con = DB.con();
@@ -82,9 +82,9 @@ public class A03_DeptDao {
 			rs = stmt.executeQuery(sql);
 			
 			while(rs.next()) {
-				System.out.print(rs.getInt("empno") + "\t");
-				System.out.print(rs.getString("ename") + "\t");
-				System.out.println(rs.getInt("deptno"));
+				System.out.print(rs.getInt("deptno") + "\t");
+				System.out.print(rs.getString("dname") + "\t");
+				System.out.println(rs.getString("loc"));
 			}
 			
 			rs.close();
@@ -100,8 +100,8 @@ public class A03_DeptDao {
 		A03_DeptDao dao = new A03_DeptDao();
 //		dao.showDeptList();
 		Scanner sc = new Scanner(System.in);
-		System.out.print("부서 번호를 입력 : ");
-		int deno = sc.nextInt();
+		System.out.print("부서명으로 검색 : ");
+		String deno = sc.nextLine();
 		dao.param(deno);
 	}
 

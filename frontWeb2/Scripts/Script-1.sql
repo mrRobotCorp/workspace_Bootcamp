@@ -30,3 +30,18 @@ from dept01
 where deptno = 10;
 
 SELECT * FROM dept01;
+
+SELECT * FROM EMPLOYEES e ;
+
+SELECT * FROM DEPARTMENTS d ;
+
+SELECT * FROM JOBS j ;
+
+SELECT *
+FROM JOBS
+WHERE JOB_ID = 'AD_PRES';
+
+SELECT *
+FROM EMP02
+WHERE ename LIKE '%' || '' || '%'
+AND job LIKE '%' || '' || '%';

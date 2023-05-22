@@ -12,6 +12,16 @@ public class Emp {
 	private Double comm;
 	private int deptno;
 	
+	public Emp() {
+		// TODO Auto-generated constructor stub
+	}
+
+	// 검색 시 필요한 ename, job
+	public Emp(String ename, String job) {
+		this.ename = ename;
+		this.job = job;
+	}
+	
 	public Emp(int empno, String ename, String job, int mgr, Date hiredate, Double sal, Double comm, int deptno) {
 		this.empno = empno;
 		this.ename = ename;

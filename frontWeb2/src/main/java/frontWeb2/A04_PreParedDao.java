@@ -11,6 +11,7 @@ import java.util.Map;
 
 import frontWeb2.vo.Employee;
 import frontWeb2.vo.JobHistory;
+import frontWeb2.vo.Jobs;
 
 public class A04_PreParedDao {
 
@@ -115,6 +116,43 @@ public class A04_PreParedDao {
 		return jlist;
 	}
 	
+	public List<Jobs> getJobs(Map<String, String> sch) {
+		List<Jobs> jbList = new ArrayList<>();
+		String sql = "SELECT *\r\n"
+				+ "FROM JOBS\r\n"
+				+ "WHERE JOB_TITLE LIKE '%' || ? || '%'\r\n"
+				+ "AND MIN_SALARY BETWEEN ? AND ?";
+		
+		try {
+			con = DB.con();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, sch.get("jtitle"));
+			pstmt.setInt(2, Integer.parseInt(sch.get("minSal")));
+			pstmt.setInt(3, Integer.parseInt(sch.get("maxSal")));
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				jbList.add(new Jobs(
+						rs.getString("job_id"),
+						rs.getString("job_title"),
+						rs.getInt("min_salary"),
+						rs.getInt("max_salary")
+					));
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} catch	(Exception e) {
+			System.out.println(e.getMessage());			
+		} finally {
+			DB.close(rs, pstmt, con);
+		}
+		
+		return jbList;
+	}
+	
 	public static void main(String[] args) {
 		A04_PreParedDao dao = new A04_PreParedDao();
 		
@@ -132,19 +170,33 @@ public class A04_PreParedDao {
 //			System.out.println(e.getDepartment_id());
 //		}
 		
-		Map<String, String> sch = new HashMap<String, String>();
-		sch.put("job", "A");
-		sch.put("minId", "10");
-		sch.put("maxId", "120");
-		
-		for(JobHistory j:dao.getJobList(sch)) {
-			System.out.print(j.getEmployee_id() + "\t");
-			System.out.print(j.getStart_date() + "\t");
-			System.out.print(j.getEnd_date() + "\t");
-			System.out.print(j.getJob_id() + "\t");
-			System.out.println(j.getDepartment_id());
-		}
+//		Map<String, String> sch = new HashMap<String, String>();
+//		sch.put("job", "A");
+//		sch.put("minId", "10");
+//		sch.put("maxId", "120");
+//		
+//		for(JobHistory j:dao.getJobList(sch)) {
+//			System.out.print(j.getEmployee_id() + "\t");
+//			System.out.print(j.getStart_date() + "\t");
+//			System.out.print(j.getEnd_date() + "\t");
+//			System.out.print(j.getJob_id() + "\t");
+//			System.out.println(j.getDepartment_id());
+//		}
 
+		Map<String, String> sch = new HashMap<String, String>();
+		sch.put("jtitle", "S");
+		sch.put("minSal", "1000");
+		sch.put("maxSal", "10000");
+		
+		for(Jobs j:dao.getJobs(sch)) {
+			System.out.print(j.getJob_id() + "\t");
+			System.out.print(j.getJob_title() + "\t");
+			System.out.print(j.getMin_salary() + "\t");
+			System.out.println(j.getMax_salary());
+		}
+		
+		
+		
 	}
 
 }

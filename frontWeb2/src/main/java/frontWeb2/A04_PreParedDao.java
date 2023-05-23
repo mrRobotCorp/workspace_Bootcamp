@@ -13,6 +13,7 @@ import frontWeb2.vo.Emp;
 import frontWeb2.vo.Employee;
 import frontWeb2.vo.JobHistory;
 import frontWeb2.vo.Jobs;
+import frontWeb2.vo.Loc;
 
 public class A04_PreParedDao {
 
@@ -199,7 +200,8 @@ public class A04_PreParedDao {
 	
 	}
 	
-	public void insertDep(Departments dep) {
+	public int insertDep(Departments dep) {
+		int isInsert= 0;
 		String sql = "INSERT INTO DEPARTMENTS10 values(?, ?, ?, ?)";
 		
 		try {
@@ -213,8 +215,11 @@ public class A04_PreParedDao {
 			pstmt.setInt(3, dep.getManager_id());
 			pstmt.setDouble(4, dep.getLoc_id());
 			
-			System.out.println(pstmt.executeUpdate());
+			isInsert =  pstmt.executeUpdate();
 			con.commit(); 
+			if(isInsert == 1) {
+				System.out.println("등록 성공");
+			}
 			
 			pstmt.close();
 			con.close();
@@ -231,10 +236,107 @@ public class A04_PreParedDao {
 		} finally {
 			DB.close(rs, pstmt, con);
 		}
+		
+		return isInsert;
 	}
 	
 	
 	
+	public void updateEmp(Emp upt) {
+		String sql = "UPDATE emp02\r\n"
+				+ "	SET ENAME = ?,\r\n"
+				+ "		job = ?,\r\n"
+				+ "		sal = ?,\r\n"
+				+ "		HIREDATE = to_date(?, 'YYYY/MM/DD')\r\n"
+				+ "	WHERE empno = ?";
+		try {
+			con = DB.con();
+			// 자동 commit 방지
+			con.setAutoCommit(false);
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, upt.getEname());
+			pstmt.setString(2, upt.getJob());
+			pstmt.setDouble(3, upt.getSal());
+			pstmt.setString(4, upt.getHiredateS());
+			pstmt.setInt(5, upt.getEmpno());
+			
+			int isUpt = pstmt.executeUpdate();
+			con.commit(); // 입력 시 확정 commit
+			
+			pstmt.close();
+			con.close();
+			
+			if(isUpt == 1) System.out.println("수정 성공");
+			
+		} catch (SQLException e) {
+			System.out.println("DB : " + e.getMessage());
+			
+			try {
+				con.rollback(); // 잘못 입력 시 rollback 복구 처리
+			} catch (SQLException e1) {
+				System.out.println(e.getMessage());
+			}
+			
+		} catch(Exception e) {
+			System.out.println("일반" + e.getMessage());
+		} finally {
+			DB.close(rs, pstmt, con);
+		}
+	
+	}
+
+	public int updateLoc(Loc loc) {
+		String sql = "UPDATE LOCATIONS10\r\n"
+				+ "	SET street_address = ?, \r\n"
+				+ "		postal_code = ?,\r\n"
+				+ "		city = ?,\r\n"
+				+ "		state_province = ?,\r\n"
+				+ "		country_id = ?\r\n"
+				+ "	WHERE location_id = ?";
+		int isUpt = 0;
+		
+		try {
+			con = DB.con();
+			// 자동 commit 방지
+			con.setAutoCommit(false);
+			
+			pstmt = con.prepareStatement(sql);
+			
+			// int locId, String strAddrs, String pstCode, String city, String stPro, String ctryId
+			pstmt.setString(1, loc.getStrAddrs());
+			pstmt.setString(2, loc.getPstCode());
+			pstmt.setString(3, loc.getCity());
+			pstmt.setString(4, loc.getStPro());
+			pstmt.setString(5, loc.getCtryId());
+			pstmt.setInt(6, loc.getLocId());
+			
+			isUpt = pstmt.executeUpdate();
+			con.commit(); // 입력 시 확정 commit
+			if(isUpt == 1) System.out.println("수정 완료");
+			
+			pstmt.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			System.out.println("DB : " + e.getMessage());
+			
+			try {
+				con.rollback(); // 잘못 입력 시 rollback 복구 처리
+			} catch (SQLException e1) {
+				System.out.println(e.getMessage());
+			}
+			
+		} catch(Exception e) {
+			System.out.println("일반" + e.getMessage());
+		} finally {
+			DB.close(rs, pstmt, con);
+		}
+	
+		return isUpt;
+	}
+
 	public static void main(String[] args) {
 		A04_PreParedDao dao = new A04_PreParedDao();
 		
@@ -282,11 +384,24 @@ public class A04_PreParedDao {
 //		Emp ins = new Emp(1005, "Harry", "인턴", 7902, "2023-05-23", 7000.0, 1000.0, 30);
 //		dao.insertEmp(ins);
 		
-		// int d_id, String d_name, int manager_id, double loc_id
-		Departments dep = new Departments(15, "front-end programming", 101, 1900);
-		dao.insertDep(dep);
+//		Departments dep = new Departments(15, "front-end programming", 101, 1900);
+//		dao.insertDep(dep);
+
+		// int empno, String ename, String job, String hiredateS, Double sal
+//		dao.updateEmp(new Emp(7499, "James(upt)", "대리", "2023/06/01", 5000.0 ));
 		
-		
+		/*
+		UPDATE LOCATIONS10
+			SET street_address = '종로 1가', 
+				postal_code = '456789',
+				city = 'seoul',
+				state_province = 'guro',
+				country_id = 'SE'
+			WHERE location_id = 1000;
+
+		*/
+		// int locId, String strAddrs, String pstCode, String city, String stPro, String ctryId
+		dao.updateLoc(new Loc(1100, "종로 2가", "123456", "seoul", "sadang", "SD"));
 		
 		
 		

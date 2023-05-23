@@ -15,6 +15,15 @@ public class Emp {
 		return hiredateS;
 	}
 
+	// 수정을 위한 생성자
+	public Emp(int empno, String ename, String job, String hiredateS, Double sal) {
+		this.empno = empno;
+		this.ename = ename;
+		this.job = job;
+		this.hiredateS = hiredateS;
+		this.sal = sal;
+	}
+
 	public void setHiredateS(String hiredateS) {
 		this.hiredateS = hiredateS;
 	}

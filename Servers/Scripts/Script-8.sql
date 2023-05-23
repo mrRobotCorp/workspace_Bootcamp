@@ -53,6 +53,62 @@ SELECT * FROM emp02 ORDER BY EMPNO ;
 
 SELECT * FROM DEPARTMENTS;
 
+CREATE TABLE DEPARTMENTS10
+AS SELECT * FROM DEPARTMENTS;
 
+SELECT * FROM DEPARTMENTS10;
+/*
+private int d_id;
+private String d_name;
+private int manager_id;
+private double loc_id;
+*/
+--INSERT INTO DEPARTMENTS10 values(?, ?, ?, ?);
+
+SELECT * FROM DEPARTMENTS10
+ORDER BY department_id asc;
+
+UPDATE emp02
+	SET ENAME = 'Kevin(upt)',
+		job = '사원',
+		sal = 4000,
+		HIREDATE = to_date('2023/05/01', 'YYYY/MM/DD')
+	WHERE empno = 7369;
+
+/*
+
+UPDATE emp02
+	SET ENAME = 'James(upt)',
+		job = '대리',
+		sal = 5900,
+		HIREDATE = to_date(?, 'YYYY/MM/DD')
+	WHERE empno = 7369;
+**/
+
+SELECT * FROM EMP02 e ;
+
+CREATE TABLE LOCATIONS10
+AS SELECT * FROM LOCATIONS;
+
+SELECT * FROM LOCATIONS10;
+
+UPDATE LOCATIONS10
+	SET street_address = '종로 1가', 
+		postal_code = '456789',
+		city = 'seoul',
+		state_province = 'guro',
+		country_id = 'SE'
+	WHERE location_id = 1000;
+
+/*
+UPDATE LOCATIONS10
+	SET street_address = '종로 1가', 
+		postal_code = '456789',
+		city = 'seoul',
+		state_province = 'guro',
+		country_id = 'SE'
+	WHERE location_id = 1000;
+
+*/
 
 

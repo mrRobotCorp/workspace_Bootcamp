@@ -100,6 +100,13 @@ UPDATE LOCATIONS10
 		country_id = 'SE'
 	WHERE location_id = 1000;
 
+DELETE 
+FROM LOCATIONS10
+WHERE location_id = 1500;
+
+SELECT * FROM LOCATIONS10;
+
+
 /*
 UPDATE LOCATIONS10
 	SET street_address = '종로 1가', 

@@ -337,6 +337,46 @@ public class A04_PreParedDao {
 		return isUpt;
 	}
 
+	public int deleteLoc(int locId) {
+		String sql = "DELETE \r\n"
+				+ "FROM LOCATIONS10\r\n"
+				+ "WHERE location_id = ?";
+		int isDelete = 0;
+		
+		try {
+			con = DB.con();
+			// 자동 commit 방지
+			con.setAutoCommit(false);
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, locId);
+			
+			isDelete = pstmt.executeUpdate();
+			con.commit(); // 입력 시 확정 commit
+			if(isDelete == 1) System.out.println("삭제 완료");
+			
+			pstmt.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			System.out.println("DB : " + e.getMessage());
+			
+			try {
+				con.rollback(); // 잘못 입력 시 rollback 복구 처리
+			} catch (SQLException e1) {
+				System.out.println(e.getMessage());
+			}
+			
+		} catch(Exception e) {
+			System.out.println("일반" + e.getMessage());
+		} finally {
+			DB.close(rs, pstmt, con);
+		}
+	
+		return isDelete;
+	}
+
 	public static void main(String[] args) {
 		A04_PreParedDao dao = new A04_PreParedDao();
 		
@@ -379,29 +419,18 @@ public class A04_PreParedDao {
 //			System.out.println(j.getMax_salary());
 //		}
 		
-		// INSERT INTO EMP02 values(1003, 'Sam', 'manager', 7900, sysdate, 3500, 300, 10);
-		// int empno, String ename, String job, int mgr, String hiredateS, Double sal, Double comm, int deptno
 //		Emp ins = new Emp(1005, "Harry", "인턴", 7902, "2023-05-23", 7000.0, 1000.0, 30);
 //		dao.insertEmp(ins);
 		
 //		Departments dep = new Departments(15, "front-end programming", 101, 1900);
 //		dao.insertDep(dep);
 
-		// int empno, String ename, String job, String hiredateS, Double sal
 //		dao.updateEmp(new Emp(7499, "James(upt)", "대리", "2023/06/01", 5000.0 ));
 		
-		/*
-		UPDATE LOCATIONS10
-			SET street_address = '종로 1가', 
-				postal_code = '456789',
-				city = 'seoul',
-				state_province = 'guro',
-				country_id = 'SE'
-			WHERE location_id = 1000;
-
-		*/
-		// int locId, String strAddrs, String pstCode, String city, String stPro, String ctryId
-		dao.updateLoc(new Loc(1100, "종로 2가", "123456", "seoul", "sadang", "SD"));
+		// 1100이 수정 할 위치. loc_id가 1100인 데이터를 뒤 내용으로 update
+//		dao.updateLoc(new Loc(1100, "종로 2가", "123456", "seoul", "sadang", "SD"));
+		
+		dao.deleteLoc(1000);
 		
 		
 		

@@ -8,8 +8,28 @@ public class Emp {
 	private String job;
 	private int mgr;
 	private Date hiredate; // java.util.Date로 임포트 할 것. sql 아님
+	private String hiredateS;
 	private Double sal;
+	
+	public String getHiredateS() {
+		return hiredateS;
+	}
+
+	public void setHiredateS(String hiredateS) {
+		this.hiredateS = hiredateS;
+	}
 	private Double comm;
+	
+	public Emp(int empno, String ename, String job, int mgr, String hiredateS, Double sal, Double comm, int deptno) {
+		this.empno = empno;
+		this.ename = ename;
+		this.job = job;
+		this.mgr = mgr;
+		this.hiredateS = hiredateS;
+		this.sal = sal;
+		this.comm = comm;
+		this.deptno = deptno;
+	}
 	private int deptno;
 	
 	public Emp() {

@@ -5,10 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import frontWeb2.vo.Departments;
+import frontWeb2.vo.Emp;
 import frontWeb2.vo.Employee;
 import frontWeb2.vo.JobHistory;
 import frontWeb2.vo.Jobs;
@@ -142,6 +143,10 @@ public class A04_PreParedDao {
 					));
 			}
 			
+			rs.close();
+			pstmt.close();
+			con.close();
+			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		} catch	(Exception e) {
@@ -152,6 +157,83 @@ public class A04_PreParedDao {
 		
 		return jbList;
 	}
+	
+	public void insertEmp(Emp ins) {
+		String sql = "INSERT INTO EMP02 values(?, ?, ?, ?, to_date(?, 'YYYY-MM-DD'), ?, ?, ?)";
+		try {
+			con = DB.con();
+			// 자동 commit 방지
+			con.setAutoCommit(false);
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, ins.getEmpno());
+			pstmt.setString(2, ins.getEname());
+			pstmt.setString(3, ins.getJob());
+			pstmt.setInt(4, ins.getMgr());
+			pstmt.setString(5, ins.getHiredateS());
+			pstmt.setDouble(6,ins.getSal());
+			pstmt.setDouble(7, ins.getComm());
+			pstmt.setInt(8, ins.getDeptno());
+			
+			System.out.println(pstmt.executeUpdate());
+			con.commit(); // 입력 시 확정 commit
+			
+			pstmt.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			System.out.println("DB : " + e.getMessage());
+			
+			try {
+				con.rollback(); // 잘못 입력 시 rollback 복구 처리
+			} catch (SQLException e1) {
+				System.out.println(e.getMessage());
+			}
+			
+		} catch(Exception e) {
+			System.out.println("일반" + e.getMessage());
+		} finally {
+			DB.close(rs, pstmt, con);
+		}
+	
+	}
+	
+	public void insertDep(Departments dep) {
+		String sql = "INSERT INTO DEPARTMENTS10 values(?, ?, ?, ?)";
+		
+		try {
+			con = DB.con();
+			con.setAutoCommit(false);
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, dep.getD_id());
+			pstmt.setString(2, dep.getD_name());
+			pstmt.setInt(3, dep.getManager_id());
+			pstmt.setDouble(4, dep.getLoc_id());
+			
+			System.out.println(pstmt.executeUpdate());
+			con.commit(); 
+			
+			pstmt.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				System.out.println(e.getMessage());
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());			
+		} finally {
+			DB.close(rs, pstmt, con);
+		}
+	}
+	
+	
 	
 	public static void main(String[] args) {
 		A04_PreParedDao dao = new A04_PreParedDao();
@@ -183,17 +265,28 @@ public class A04_PreParedDao {
 //			System.out.println(j.getDepartment_id());
 //		}
 
-		Map<String, String> sch = new HashMap<String, String>();
-		sch.put("jtitle", "S");
-		sch.put("minSal", "1000");
-		sch.put("maxSal", "10000");
+//		Map<String, String> sch = new HashMap<String, String>();
+//		sch.put("jtitle", "S");
+//		sch.put("minSal", "1000");
+//		sch.put("maxSal", "10000");
+//		
+//		for(Jobs j:dao.getJobs(sch)) {
+//			System.out.print(j.getJob_id() + "\t");
+//			System.out.print(j.getJob_title() + "\t");
+//			System.out.print(j.getMin_salary() + "\t");
+//			System.out.println(j.getMax_salary());
+//		}
 		
-		for(Jobs j:dao.getJobs(sch)) {
-			System.out.print(j.getJob_id() + "\t");
-			System.out.print(j.getJob_title() + "\t");
-			System.out.print(j.getMin_salary() + "\t");
-			System.out.println(j.getMax_salary());
-		}
+		// INSERT INTO EMP02 values(1003, 'Sam', 'manager', 7900, sysdate, 3500, 300, 10);
+		// int empno, String ename, String job, int mgr, String hiredateS, Double sal, Double comm, int deptno
+//		Emp ins = new Emp(1005, "Harry", "인턴", 7902, "2023-05-23", 7000.0, 1000.0, 30);
+//		dao.insertEmp(ins);
+		
+		// int d_id, String d_name, int manager_id, double loc_id
+		Departments dep = new Departments(15, "front-end programming", 101, 1900);
+		dao.insertDep(dep);
+		
+		
 		
 		
 		

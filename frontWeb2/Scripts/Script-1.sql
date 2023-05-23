@@ -45,3 +45,9 @@ SELECT *
 FROM EMP02
 WHERE ename LIKE '%' || '' || '%'
 AND job LIKE '%' || '' || '%';
+
+
+SELECT  * 
+FROM LOCATIONS
+WHERE STREET_ADDRESS LIKE '%' || 'u' || '%'
+AND city LIKE '%' || 'o' || '%';

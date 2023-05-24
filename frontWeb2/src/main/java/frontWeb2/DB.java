@@ -30,6 +30,16 @@ public class DB {
 		return con;
 	};
 	
+	public static void rollback(Connection con) {
+        if (con != null) {
+            try {
+                con.rollback();
+            } catch (SQLException e) {
+                System.out.println("롤백 예외: " + e.getMessage());
+            }
+        }
+    }
+	
 	public static void close(ResultSet rs, Statement stmt, Connection con) {
 		// rs.close()에 의하거나 다른 예외로 예외가 나왔을 때는 아래 내용을 강제 자원해제
 		// api에 지원하는 안정적인 자원해제 방법

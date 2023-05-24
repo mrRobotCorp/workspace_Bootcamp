@@ -21,7 +21,46 @@ public class A04_PreParedDao {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	public List<Employee> getEmpList(Map<String, String> sch) {
+	public List<Employee> getEmpList1(Map<String, String> sch) {
+        List<Employee> elist = new ArrayList<>();
+        String sql = "SELECT * FROM EMPLOYEES WHERE UPPER(FIRST_NAME || last_name) LIKE UPPER(?) AND salary BETWEEN ? AND ?";
+        try {
+            con = DB.con();
+            // 초기에 sql을 넘기면서 pstmt 객체 생성
+ 			pstmt = con.prepareStatement(sql);
+ 			
+ 			// pstmt.set데이터유형 (순서는 1부터, 입력 할 데이터)
+            pstmt.setString(1, "%" + sch.get("name") + "%");
+            pstmt.setDouble(2, Double.parseDouble(sch.get("minSal")));
+            pstmt.setDouble(3, Double.parseDouble(sch.get("maxSal")));
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                elist.add(new Employee(
+                        rs.getInt("employee_id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getString("email"),
+                        rs.getString("phone_number"),
+                        rs.getDate("hire_date"),
+                        rs.getString("job_id"),
+                        rs.getDouble("salary"),
+                        rs.getDouble("commission_pct"),
+                        rs.getInt("manager_id"),
+                        rs.getInt("department_id")
+                ));
+            }
+        } catch (SQLException e) {
+            System.out.println("DB 관련 오류: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("일반 오류: " + e.getMessage());
+        } finally {
+            DB.close(rs, pstmt, con);
+        }
+        return elist;
+    }
+	
+	public List<Employee> getEmpList2(Map<String, String> sch) {
 		List<Employee> elist = new ArrayList<Employee>();
 
 		String sql = "SELECT * FROM EMPLOYEES "
@@ -118,46 +157,34 @@ public class A04_PreParedDao {
 		return jlist;
 	}
 	
-	public List<Jobs> getJobs(Map<String, String> sch) {
-		List<Jobs> jbList = new ArrayList<>();
-		String sql = "SELECT *\r\n"
-				+ "FROM JOBS\r\n"
-				+ "WHERE JOB_TITLE LIKE '%' || ? || '%'\r\n"
-				+ "AND MIN_SALARY BETWEEN ? AND ?";
-		
-		try {
-			con = DB.con();
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setString(1, sch.get("jtitle"));
-			pstmt.setInt(2, Integer.parseInt(sch.get("minSal")));
-			pstmt.setInt(3, Integer.parseInt(sch.get("maxSal")));
-			
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				jbList.add(new Jobs(
-						rs.getString("job_id"),
-						rs.getString("job_title"),
-						rs.getInt("min_salary"),
-						rs.getInt("max_salary")
-					));
-			}
-			
-			rs.close();
-			pstmt.close();
-			con.close();
-			
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		} catch	(Exception e) {
-			System.out.println(e.getMessage());			
-		} finally {
-			DB.close(rs, pstmt, con);
-		}
-		
-		return jbList;
-	}
+	public List<Jobs> getJob(Map<String, String> sch) {
+        List<Jobs> jobList = new ArrayList<>();
+        String sql = "SELECT * FROM jobs WHERE UPPER(job_title) LIKE UPPER(?) AND MIN_SALARY BETWEEN ? AND ?";
+        try {
+            con = DB.con();
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, "%" + sch.get("title") + "%");
+            pstmt.setInt(2, Integer.parseInt(sch.get("min_sal1")));
+            pstmt.setInt(3, Integer.parseInt(sch.get("min_sal2")));
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                jobList.add(new Jobs(
+                        rs.getString("job_id"),
+                        rs.getString("job_title"),
+                        rs.getInt("min_salary"),
+                        rs.getInt("max_salary")
+                ));
+            }
+        } catch (SQLException e) {
+            System.out.println("DB 예외: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("일반 예외: " + e.getMessage());
+        } finally {
+            DB.close(rs, pstmt, con);
+        }
+        return jobList;
+    }
 	
 	public void insertEmp(Emp ins) {
 		String sql = "INSERT INTO EMP02 values(?, ?, ?, ?, to_date(?, 'YYYY-MM-DD'), ?, ?, ?)";

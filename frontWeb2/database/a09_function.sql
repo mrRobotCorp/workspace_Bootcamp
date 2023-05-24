@@ -53,7 +53,23 @@ SELECT 'KING' name, lengthb('KING') "이름(byte)",
 		LENGTH('KING') "이름(글자수)"
 FROM dual; 
 
+-- ex) 사원 테이블에서 사원명과 직책의 글자 수를 표현
+--		직책의 글자갯수가 6이상인 데이터만 출력
+SELECT ename, job
+FROM EMP02
+WHERE LENGTH(job) >= 6;
 
+SELECT empno, ename, job, concat(ename, job) "이름과 직책"
+FROM EMP02;
+
+SELECT substr('sql*plus', 5, 4) "데이터" FROM dual;
+
+-- ex) 사원명과 사원번호를 이어서 표현하거, 직책은 2번쨰부터 3글자 추출 출력
+SELECT CONCAT(ename, empno) "사원과 사원번호",
+		substr(job, 2, 3) "부분 글자"
+FROM EMP02;
+
+SELECT * FROM EMP02;
 
 
 

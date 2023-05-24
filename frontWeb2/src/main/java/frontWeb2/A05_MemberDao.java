@@ -70,8 +70,8 @@ public class A05_MemberDao {
 			
 			isIns =  pstmt.executeUpdate();
 			
-			con.commit(); 
 			if(isIns == 1) {
+				con.commit(); 
 				System.out.println("등록 성공");
 			}
 			
@@ -91,5 +91,14 @@ public class A05_MemberDao {
 			DB.close(rs, pstmt, con);
 		}
 	}
+	
+	public static void main(String[] args) {
+		// (String id, String pass, String name, int point, String auth)
+		Member mem = new Member("pieceOfpeace", "0000", "Dalyne", 2000, "사용자");
+		A05_MemberDao dao = new A05_MemberDao();
+		dao.InsertMem(mem);
+	
+	}
+	
 
 }

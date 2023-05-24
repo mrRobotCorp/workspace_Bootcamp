@@ -186,6 +186,7 @@ public class A04_PreParedDao {
         return jobList;
     }
 	
+	// void, int(리턴 필요한 데이터 유형 표시) 다르게 선언하는지
 	public void insertEmp(Emp ins) {
 		String sql = "INSERT INTO EMP02 values(?, ?, ?, ?, to_date(?, 'YYYY-MM-DD'), ?, ?, ?)";
 		try {

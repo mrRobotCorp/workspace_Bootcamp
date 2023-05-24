@@ -46,7 +46,7 @@ public class B01_ShoppingMall {
 		Scanner sc = new Scanner(System.in);
 		
 		while(true) {
-			System.out.println("회원가입 시작");
+			System.out.println("-- 회원가입 시작-- ");
 			System.out.print("아이디를 입력 : ");
 			String id = sc.nextLine();
 			System.out.print("비밀번호를 입력 : ");
@@ -65,11 +65,15 @@ public class B01_ShoppingMall {
 			System.out.print("이름을 입력 : ");
 			String name = sc.nextLine();	
 			
-			Member mem = new Member(id, pass, name, 1001, "관리자", "");
+			Member mem = new Member(id, pass, name, 1001, "관리자");
 			dao.InsertMem(mem);
 			
 			System.out.println("회원가입 종료");
-			break;
+			System.out.print("회원가입을 다시 진행하시겠습니까? (Y/N) -> ");
+			String isYN = sc.nextLine();
+			if(!isYN.equals("Y")) {
+				break;
+			}
 			
 		}
 

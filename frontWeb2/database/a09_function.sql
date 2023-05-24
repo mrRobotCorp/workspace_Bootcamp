@@ -36,12 +36,24 @@ WHERE LOWER(FIRST_NAME) LIKE '%'|| LOWER('steVen')  ||'%';
 
 SELECT *
 FROM EMPLOYEES e;
-
+----------------------------------------------------------
 -- email과 job_id이 대소문자 관계없이 검색되게 처리.
 SELECT email 이메일, job_id 직책id, e.* -- 추가 컬럼, e.*
 FROM EMPLOYEES e
-WHERE EMAIL LIKE '%' || UPPER('o')  || '%' 
-AND LOWER(JOB_ID)  LIKE  '%' || LOWER('A')  || '%';
+WHERE EMAIL LIKE UPPER('%o%') 
+AND LOWER(JOB_ID)  LIKE LOWER('%A%');
+
+SELECT ename, LENGTH(ename) "문자길이", 
+		LENGTHB(ename) "byte수",
+		job, length(job) "문자길이", 
+		LENGTHB(job) "byte수"
+FROM EMP02;
+
+SELECT 'KING' name, lengthb('KING') "이름(byte)",
+		LENGTH('KING') "이름(글자수)"
+FROM dual; 
+
+
 
 
 

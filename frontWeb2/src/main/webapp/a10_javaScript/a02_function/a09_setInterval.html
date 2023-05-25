@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a09</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h3>hello friend</h3>
+
+    <script>
+        let h3ob = document.querySelector("h3");
+
+        // let set01 = setInterval( () => {
+        //     alert("3초 후에 수행될 내용");
+        //     // 3초 후에 수행했기에 h2객체 DOM인식
+        //     h3ob.innerText = "변경(3초 후)";
+        //     clearInterval(set01);
+        // }, 3000);
+
+        let cnt = 1;
+
+        let clr = ["red", "yellow", "blue", "green"];
+        let numM = parseInt(Math.random() * 4);
+
+        let in01 = setInterval(function() {
+            // 1초마다 수행 할 내용
+            h3ob.innerText = "카운트 업 : " + (cnt++);
+            if(cnt == 11) {
+                clearInterval(in01);
+            }
+        }, 500);
+
+        
+
+    </script>
+</body>
+</html>

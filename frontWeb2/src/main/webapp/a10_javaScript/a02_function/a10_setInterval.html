@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a10</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body> 
+    <h3></h3>
+    <h3></h3>
+    <h3></h3>
+    <h3></h3>
+    <h3></h3>
+    <h3></h3>
+    <h3></h3>
+    <!-- ex) h3를 7개 선언, 시작하고 h3 첫번째부터 하나씩 안녕하세요 표시 -->
+    <!-- <script type="text/script" src="../"></script> -->
+    <script>
+        
+        let idx = 0;
+
+        let clr = ["red", "yellow", "blue", "green"];
+
+        let set01 = setInterval( () => {
+            let h3ob = document.querySelectorAll("h3");
+            h3ob[idx++].innerHTML = idx + ": hi";
+            h3ob[idx++].style.color = clr[idx];
+
+            if(idx == 8) {
+                alert("종료");
+                clearInterval(set01);
+            }
+        }, 700)
+
+        
+    </script>
+</body>
+</html>

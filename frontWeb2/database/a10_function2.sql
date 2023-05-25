@@ -75,6 +75,62 @@ SELECT job, INSTR(job, 'ALE') 검색위치,
 FROM EMP
 WHERE job = 'SALESMAN';
 
+-------------------------------------------------------
+
+-- 1. EMP 테이블에서 사원명(ename)을 대문자로 출력하세요.
+SELECT upper(ename)
+FROM emp;
+
+-- 2. EMPLOYEES 테이블에서 사원번호(empno)가 100인 데이터의 이메일(email)을 소문자로 출력하세요.
+SELECT EMPLOYEE_ID , lower(email)
+FROM EMPLOYEES
+WHERE EMPLOYEE_ID  = 100;
+
+-- 3. EMP 테이블에서 사원명(ename)과 부서명(deptno)을 연결한 결과를 출력하세요. 결과 컬럼 이름은 "이름/부서"로 지정하세요.
+SELECT CONCAT(ename || '/', deptno) "이름/부서번호"
+FROM emp;
+
+-- 4. EMP 테이블에서 직원명(ename)과 입사일(hire_date)을 연결한 결과를 출력하세요. 결과 컬럼 이름은 "이름/입사일"로 지정하세요.
+SELECT ename, HIREDATE,
+	to_char(HIREDATE, 'YYYY/MM/DD') "변경 날짜 형식",
+	CONCAT(ename||'/', to_char(HIREDATE, 'YYYY/MM/DD')) "이름/입사일"
+FROM EMP;
+
+-- 5. EMP 테이블에서 입사일(hire_date)이 1981년인 데이터의 사원명(ename)과 입사일(hire_date)을 출력하세요.
+SELECT ename, hiredate, '' || HIREDATE  입사일2
+FROM emp
+WHERE HIREDATE LIKE '%81%';
+SELECT * FROM emp;
+
+-- 6. EMPLOYEES 테이블에서 사원번호(empno)가 200 또는 300인 데이터의 이메일(email)과 직무(job_id)를 출력하세요.
+SELECT email, job_id
+FROM EMPLOYEES
+--WHERE EMPLOYEE_ID  = 200 OR EMPLOYEE_ID = 300;
+WHERE EMPLOYEE_ID  in(200, 300);
+-- 컬럼명 in(데이터1, 데이터2, 데이터3) 해당 데이터를 or 기준으로 검색
+
+SELECT * FROM EMPLOYEES ;
+
+-- 7. EMP 테이블에서 직원명(ename)을 출력하되, 이름의 앞뒤에 있는 공백을 제거한 결과를 출력하세요.
+SELECT trim(' ' FROM ename)
+FROM emp;
+
+-- 8. EMPLOYEES 테이블에서 이메일(email)에 "J"가 포함된 데이터의 사원명(ename)과 이메일(email)을 출력하세요.
+SELECT FIRST_NAME, email
+FROM EMPLOYEES
+--WHERE INSTR(email, 'J') > 0; 
+WHERE email LIKE '%J%';
+
+
+
+
+
+
+
+
+
+
+
 
 
 

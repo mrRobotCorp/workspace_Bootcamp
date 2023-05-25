@@ -46,5 +46,66 @@ SELECT floor(floor(MONTHS_BETWEEN(sysdate+2000, SYSDATE)) / 12) || '년 '
 	|| MOD(floor(MONTHS_BETWEEN(SYSDATE+2000 , SYSDATE)), 12)  || '개월 근무' "근무일수"
 FROM dual;
 
+---------------------------------------------------
+SELECT SYSDATE 오늘, ADD_MONTHS(SYSDATE, 4) "4개월 후",
+		ADD_MONTHS(SYSDATE, -1) "1개월 전" 
+FROM dual;
+
+-- ex) 사원 정보를 기준으로 사원명, 입사일, 인턴기간(3개월)
+--		입사 10년 기념일, 입사 20년 기념일, 출력
+SELECT ename, hiredate,
+		ADD_MONTHS(HIREDATE, 3) "인턴만료일",
+		ADD_MONTHS(HIREDATE, 12*10) "입사 10년", 
+		ADD_MONTHS(HIREDATE, 12*20) "입사 20년" 
+FROM emp;
+
+-- 다가 올 가장 빠른 요일의 날짜 : next_day
+-- 오늘 이후 가장 빠른 수요일
+SELECT NEXT_DAY(SYSDATE, '수') "가장 빠른 수요일"
+FROM dual;
+
+-- ex) 입사 후, 첫 주말(토요일) 날짜 출력
+SELECT NEXT_day(hiredate, '토') "첫 주말"
+FROM emp;
+
+-- ex) 입사 후 세 번째 되는 일요일의 날짜 출력
+SELECT HIREDATE,
+		NEXT_DAY(next_day(NEXT_DAY(hiredate, '일'), '일'), '일') "3번째 일요일"
+FROM emp;
+
+SELECT LAST_DAY(SYSDATE) "이번 달 마지막 날짜",
+		LAST_DAY(SYSDATE) + 1 "다음 달의 첫 날",
+		-- 이번 달에서 +1 -1 을 해서 이번 달로 다시 돌아온 후 첫 날로 출력
+		ADD_MONTHS(LAST_DAY(SYSDATE) + 1, -1) "이번 달의 첫 날" 
+FROM dual;
+
+-- 사원명과 급여일1(그달 종료일 - 10일전), 급여일2 (다음달 10)로 
+--	해당 사원의 첫 급여일 1, 2 출력
+SELECT ename, HIREDATE,
+		LAST_DAY(HIREDATE) - 10 "급여일1",
+		add_months(LAST_DAY(HIREDATE) + 10, 1) "보너스일"
+FROM emp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		

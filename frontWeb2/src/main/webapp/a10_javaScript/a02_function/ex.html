@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a0</title>
+    <!-- <link rel="stylesheet" href="../"> -->
+</head>
+<body>
+
+    <!-- <script type="text/script" src="../"></script> -->
+    <script>
+        // 1. 문제: "7.8abc"에서 실수부만 추출하여 숫자로 변환하고 이를 제곱하는 코드를 작성하세요.
+        // 2. 문제: 일정 시간 간격으로 화면에 "Loading..." 메시지를 출력한 후 5번 출력하면 중지되도록 하는 코드를 작성하세요.
+        let num01 = parseFloat("7.8abc");
+        alert(num01);
+        alert(num01 * num01);
+
+        let cnt = 0;
+        let set01 = setInterval( function() {
+            cnt++;
+            document.querySelector("body").innerText += "Loading..."; 
+            if(cnt == 5) {
+                clearInterval(set01);
+            }
+        }, 800);
+
+        console.log(typeof(Number("3.5") + Number("2")));
+        console.log("7" + "5");
+        console.log(typeof("7" + "5"));
+        console.log(Number("3000원") + Number("2000원"));
+    </script>
+</body>
+</html>

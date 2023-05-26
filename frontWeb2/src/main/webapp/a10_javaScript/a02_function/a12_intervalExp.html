@@ -53,35 +53,48 @@
         let stBtn = document.querySelector(".start");
         let conTxt = document.querySelector(".conTxt");
         let tdArr = document.querySelectorAll(".a12T td");
-        let i = 1;
+        let i = 0;
         let show = "";
-        let cnt = 0;
+        let i2 = 0;
 
         function start() {
-
             let set01 = setInterval( () => {
-                i++;
-                tdArr.forEach( (e) => {
-                    e.innerText += show;
-                })
                 conTxt.innerHTML += i++;
 
                 if(i % 10 != 0 && i%10%3 == 0) {
                     show = "짝";
                 } else {
-                    show = cnt;
+                    show = i;
                 }
                 conTxt.innerHTML = show;
-                tdArr[cnt].innerHTML = show;
 
                 if( i == 20) {
                     clearInterval(set01);
                 }
-            }, 600);
+            }, 800);
+        }
+
+        function start02() {
+            let set02 = setInterval( () => {
+
+                if((i2 + 1) %10 != 0 && (i2+ 1) %10 %3 == 0 ) {
+                    show= "짝";
+                } else {
+                    show = i2 + 1;
+                }
+
+                tdArr[i2++].innerHTML = show;
+                
+                if(i2 == 16 ) {
+                    alert("종료");
+                    clearInterval(set02);
+                }
+            }, 800);
         }
 
         stBtn.onclick = function() {
             start();
+            start02();
         }
 
     </script>

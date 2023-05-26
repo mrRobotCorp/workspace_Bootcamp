@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a0</title>
+    <!-- <link rel="stylesheet" href="../"> -->
+</head>
+<body>
+    <h3>코드를 입력하세요</h3>
+    <textarea cols="20" rows="10" id="code01"></textarea>
+    <input type="button" value="실행" onclick="exeCode()">
+    <input type="button" value="코드삭제" onclick="erase()">
+
+    <div class="cal">
+        <textarea cols="20" rows="10" id="inp"></textarea>
+        <input type="button" value="계산" onclick="calcu()">
+        <h5 class="result"></h5>
+    </div>
+    <!-- <script type="text/script" src="../"></script> -->
+    <!-- ex) input에 입력한 내용(연산식)을 합산눌렀을 때 계산 결과가
+            아래에 입력된 내용과 함께 출력되게 할 것
+            [ 3 * 3 + 5] [계산]
+            -> 3 * 3 + 5 = 14
+    -->
+    <script>
+        function exeCode() {
+            let code01 = document.querySelector("#code01");
+            eval("코드 실행 : " + code01.value);
+        }
+
+        function erase() {
+            code01.value = "";
+        }
+
+        function calcu() {
+            let result = document.querySelector(".result");
+            let inp = document.querySelector("#inp");
+            result.innerHTML = eval(inp.value);
+        }
+    </script>
+</body>
+</html>

@@ -55,7 +55,12 @@ table {
     margin: 0 auto;
 }
 
+.a12T {
+    margin: 0 auto;
+}
 .a12T td {
     border: 1px solid #999;
     transition: all .3s;
+    width: 100px;
+    height: 100px;
 }

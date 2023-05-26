@@ -64,3 +64,31 @@ table {
     width: 100px;
     height: 100px;
 }
+
+.a16T {
+    margin: 0 auto;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+}
+
+.a16T .tdhead {
+    height: 20%;
+    padding: 20px;
+    text-align: right;
+}
+
+.a16T td {
+    border: 1px solid #999;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.a16T td:hover {
+    background-color: #e3e3e3;
+}
+
+.a16T td:active {
+    background-color: #f1e898;
+
+}

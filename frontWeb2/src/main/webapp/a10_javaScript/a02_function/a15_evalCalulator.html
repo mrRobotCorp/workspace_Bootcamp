@@ -14,7 +14,7 @@
     <input type="button" value="코드삭제" onclick="erase()">
 
     <div class="cal">
-        <textarea cols="20" rows="10" id="inp"></textarea>
+        <input id="inp"></input>
         <input type="button" value="계산" onclick="calcu()">
         <h5 class="result"></h5>
     </div>
@@ -35,9 +35,15 @@
         }
 
         function calcu() {
+            // <input id = "calcu"  value ="">
             let result = document.querySelector(".result");
             let inp = document.querySelector("#inp");
-            result.innerHTML = eval(inp.value);
+            // 해당 내용 입력 후 함수 호출 시 내용 출력
+            result.innerHTML = inp.value + " = " + eval(inp.value);
+            // DOM 객체를 호출하고, 가지고 있는 속성 value 통해서 입력값 가져올 수 있음
+            // innerText 출력을 나타내는 속성
+            inp.value = "";
+            inp.focus();
         }
     </script>
 </body>

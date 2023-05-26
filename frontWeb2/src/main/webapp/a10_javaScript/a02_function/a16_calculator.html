@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a16</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h3 style="text-align: center;">계산기</h3>
+    <table class="a16T">
+        <tr>
+            <td colspan="4" class="tdhead"></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>+</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>*</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>0</td>
+            <td>=</td>
+            <td>/</td>
+        </tr>
+    </table>
+    <!-- <script type="text/script" src="../"></script> -->
+    <script>
+        let tdArr = document.querySelectorAll(".a16T td");
+
+        tdArr.forEach( function(e) {
+            e.onclick = function() {
+                if(this.innerText == '=') {
+                    // 해당 레이블로 출력
+                    tdArr[0].innerText = eval(tdArr[0].innerText);
+
+                } else if(this.innerText == 'C') {
+                    tdArr[0].innerText = "";
+                    
+                } else {
+                    if(tdArr[0].innerText == '0') {
+                        tdArr[0].innerText = this.innerText;
+                    } else{
+                        tdArr[0].innerText += this.innerText;
+                    }
+                }
+
+            }
+        })
+
+        
+    </script>
+</body>
+</html>

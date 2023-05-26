@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>a10</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../a00_com/bg.css">
 </head>
 <body> 
     <h3></h3>
@@ -17,22 +18,73 @@
     <h3></h3>
     <!-- ex) h3를 7개 선언, 시작하고 h3 첫번째부터 하나씩 안녕하세요 표시 -->
     <!-- <script type="text/script" src="../"></script> -->
+    <div>
+        <h3 class="clickh3">setInterval 연습</h3>
+        <table class="a10T">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
     <script>
-        
-        let idx = 0;
+        let cExp = document.querySelector(".clickh3");
+        // td의 모든 내용을 객체로 정의
 
-        let clr = ["red", "yellow", "blue", "green"];
+        cExp.onclick = function() {
+            let tdArr = document.querySelectorAll(".a10T td");
 
-        let set01 = setInterval( () => {
-            let h3ob = document.querySelectorAll("h3");
-            h3ob[idx++].innerHTML = idx + ": hi";
-            h3ob[idx++].style.color = clr[idx];
+            // setInterval(반복 할 함수, 반복 시간 단위)
+            let int01 = setInterval(() => {
+                // 배열.forEach()
+                // 해당 DOM 객체의 모든 내용의 배경 색상 변경
+                tdArr.forEach(function(e) {
+                    // e.style.backgroundColor = "#0f0";
+                    e.setAttribute("class", "bg4");
+                });
 
-            if(idx == 8) {
-                alert("종료");
-                clearInterval(set01);
-            }
-        }, 700)
+                // Math.floor() : 실수 데이터의 절삭 처리
+                // Math.random() * 경우의 수 9가지 0-8
+                // 테이블의 td cell을 index로 지정하여 임의로 색상 처리
+                let rInx = parseInt(Math.random() * 9);
+                tdArr[rInx].removeAttribute("class");
+                tdArr[rInx].style.backgroundColor = "white";
+                tdArr[rInx].onclick = function() {
+                    alert("종료");
+                    // 클릭 시 
+                    clearInterval(int01);
+                }
+
+            }, 700);
+
+        }
+
+        // let idx = 0;
+
+        // let clr = ["red", "yellow", "blue", "green"];
+
+        // let set01 = setInterval( () => {
+        //     let h3ob = document.querySelectorAll("h3");
+        //     h3ob[idx++].innerHTML = idx + ": hi";
+        //     h3ob[idx++].style.color = clr[idx];
+
+        //     if(idx == 8) {
+        //         alert("종료");
+        //         clearInterval(set01);
+        //     }
+        // }, 700)
 
         
     </script>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a11</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../a00_com/bg.css">
+
+    <!-- ex) table 1*5 생성 
+        h2 클릭 시 cell 배경 색상이 1-5번까지 있고 갔다가 왔다..? 뭔 소리고
+
+    -->
+</head>
+<body>
+    <h3 class="start">start</h3>
+    <h3 class="stop">stop</h3>
+
+    <table class="a11T">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <!-- <script type="text/script" src="../"></script> -->
+    <script>
+        let st = document.querySelector(".start");
+        let stop = document.querySelector(".stop");
+        let set01 = null;
+        let i = 0;
+        
+
+        function start() {
+            let tdArr = document.querySelectorAll(".a11T td");
+            tdArr[i].style.backgroundColor =  "white";
+            let isFoward = true;
+            
+            set01 = setInterval( () => {
+
+                tdArr.forEach((e) => {
+                    e.setAttribute("class", "bg3");
+                })
+
+                if(i == 0) {
+                    isFoward = true;
+                }
+
+                if(i == 4) {
+                    isFoward = false;
+                }
+
+                if(isFoward == true) {
+                    i++;
+                } else {
+                    i--;
+                }
+
+                tdArr[i].style.backgroundColor =  "white";
+                tdArr[i].removeAttribute("class");
+                // 색상이 차례로 이동하려면 증감연산자를 index4, 0일 때 변환해줘야 함
+                // index로 판별하면 증감 처리 기준을 변경하지 못하기에 변수를 정해줘야 함
+                // go(증가 조건 true, 감소조건 - false)
+
+            }, 800);
+        }
+
+        st.onclick = function() {
+            start();
+            
+        }
+        
+        function end() {
+            alert("종료");
+            clearInterval(set01);
+        }
+
+        stop.onclick = function() {
+            console.log("stop");
+            end();
+        }
+
+
+
+
+    </script>
+</body>
+</html>

@@ -19,7 +19,43 @@ table {
     border-collapse: collapse;
 }
 
+.clickh3 { 
+    cursor: pointer;
+}
+
 .a08 {
     margin: 0 auto;
     width: 80%;
+}
+
+.a10T {
+    width: 400px;
+    height: 400px;
+}
+.a10T td {
+    border: 1px solid #999;
+    transition: all .3s;
+}
+
+.a11T {
+    width: 70%;
+    height: 100px;
+}
+
+.a11T td{
+    border: 1px solid #999;
+    transition: all .3s;
+    
+}
+.start, .stop {
+    cursor: pointer;
+}
+.a12All {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.a12T td {
+    border: 1px solid #999;
+    transition: all .3s;
 }

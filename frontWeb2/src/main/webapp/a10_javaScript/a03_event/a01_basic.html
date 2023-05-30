@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a01</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <h3 class="h301">기본 이벤트 처리</h3>
+    <h3 class="h302">매개변수 전달 이벤트</h3>
+    <h3 class="h303">다른 요소 객체 변경 이벤트</h3>
+
+    <div>
+        <h4>변경 내용</h4>
+        <div>
+            <span>첫 번째 수 :</span>
+            <input type="text" name="num01">
+        </div>
+        <div>
+            <span>두 번째 수 :</span>
+            <input type="text" name="num02">
+        </div>
+    </div>
+
+    <div>
+        <input type="text" name="dice">
+        <button class="dBtn">주사위 번호 출력</button>
+    </div>
+
+    <h3 class="h304">변수 이벤트</h3>
+    <h3 class="h305">정의된 이벤트 핸들러</h3>
+
+
+    <h3 class="h306">DOM 객체 스타일 변경</h3>
+
+    <h3 class="h307">DOM 객체 스타일 변경-all</h3>
+    <h3 class="h307">DOM 객체 스타일 변경-all</h3>
+
+
+    <script>
+        // 같은 클래스 여러 개를 querySelector로 처리하면 최상단 1개만 적용됨
+        // querySelectorAll 로 처리해야 함
+        let h301 = document.querySelector(".h301");
+        let h302 = document.querySelector(".h302");
+        let h303 = document.querySelector(".h303");
+        let h304 = document.querySelector(".h304");
+        let h305 = document.querySelector(".h305");
+        let h306 = document.querySelector(".h306");
+        let h307 = document.querySelectorAll(".h307");
+        // ex) 버튼 클릭 시 1-6번 주사위가 임의로 출력되게 설정
+        let num01 = document.querySelector("[name=num01]");
+        let num02 = document.querySelector("[name=num02]");
+        num01.value = Math.floor(Math.random() * 10 + 1);
+        num02.value = Math.floor(Math.random() * 10 + 1);
+
+        
+        function call01() {
+            alert("hello friend");
+        }
+
+        function call02(e) {
+            e.innerText = "객체 전달(매개변수)";
+            e.style.color = "#fff";
+            e.style.backgroundColor = "#00f";
+        }
+
+        function call03() {
+            h303.innerText = "text change";
+        }
+
+        function call04() {
+            // alert("정의된 이벤트 핸들러");
+            h305.style.backgroundColor = "#0f0";
+            h305.style.color = "#fff";
+        }
+
+        // 이벤트 핸들러 함수가 재활용 할 수 있게 하기 위해
+        h301.onclick = call01;
+
+        h302.onclick = () => {
+            call02(h302);
+        }
+
+        h303.onclick = () => {
+            call03();
+        }
+
+        h305.onclick = () => {
+            call04();
+        }
+
+        let btn = document.querySelector(".dBtn");
+        let diceT = document.querySelector("[name=dice]");
+
+        btn.onclick = function() {
+            diceT.value = Math.floor(Math.random() * 6 + 1 );
+        }
+
+        // DOM 객체.onclick = function() {} 함수명이 없는 익명 이벤트 핸들러 함수(익명함수)
+        h304.onclick = function() {
+            // this: 이벤트 핸들러를 호출
+            this.innerHTML = "변수에 이벤트 핸들러 할당처리";
+            this.style.color = "#fff";
+            this.style.backgroundColor = "#00f";
+        }
+
+        // ex) DOM에 속성으로 클래스를 선언해서 객체 호출
+        // 해당 DOM 객체를 상단에 정의한 함수 할당 - 테두리 굵기 변경
+
+        function call05() {
+            h306.style.color = "#ff4d47";
+            h306.style.marginTop = "40px";
+            h306.style.border = "2px solid #ff4d47";
+            h306.style.borderRadius = "30px";
+        }
+
+        h306.onclick = () => {
+            call05();
+        }
+
+        h306.addEventListener("mouseover", function() {
+            this.innerText = "click";
+        });
+
+        h306.addEventListener("mouseleave", function() {
+            this.innerText = "DOM 객체 스타일 변경";
+        });
+
+        h307.forEach( function(e) {
+            e.onclick = function() {
+                this.innerHTML = "같은 클래스 내용 변경";
+            }
+        })
+
+    </script>
+</body>
+</html>

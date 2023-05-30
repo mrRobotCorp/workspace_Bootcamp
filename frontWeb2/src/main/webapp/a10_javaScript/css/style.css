@@ -117,14 +117,35 @@ table {
     transition: all .3s;
 }
 
-@keyframes showTop {
-    0% {
-        margin-top: 0;
-        opacity: 0;
-    }
+.dBtn {
+    color: #ff4d47;
+    padding: 5px 12px;
+    border: 2px solid #ff4d47;
+    border-radius: 15px;
+    background-color: #fff;
+    cursor: pointer;
+}
 
-    100% {
-        margin-top: 30px;
-        opacity: 1;
-    }
+input[name="dice"] {
+    width: 40px;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.h306 {
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.kTable{
+    width: 400px;
+    height: 400px;
+    border-collapse: collapse;
+}
+
+.kTable td {
+    border: 1px solid #999;
 }

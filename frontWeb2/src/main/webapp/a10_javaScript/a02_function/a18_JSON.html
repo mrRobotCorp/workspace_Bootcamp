@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>a18</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .ob04, .ob05 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,6 +20,9 @@
 
     <h4 class="ob02">물건정보 객체를 문자열로 바꿔서 출력</h4>
     <h5 class="ob03"></h5>
+
+    <h5 class="ob04">영화 정보 출력</h5>
+    <h6 class="ob05"></h6>
 
     <!-- <script type="text/script" src="../"></script> -->
     <script>
@@ -45,7 +53,28 @@
 
         chOb01();
 
-        // h4 클릭 시 물건정보 json 선언하고 문자열로 바꿔 h5에 출력
+        let ob04 = document.querySelector(".ob04");
+        let ob05 = document.querySelector(".ob05");
+
+        function chOb02() {
+            // 좋아하는 영화 제목과 관객수 문자열 json 데이터에 선언
+            // 객체로 변환 후 h6에 출력
+            let movie = `[ {"title" : "close", "point" : 300},
+            {"title" : "triangle of sadness", "point" : 500},
+            {"title" : "the worst person in the world", "point" : 600}
+            ]`;
+
+            let mInfo = JSON.parse(movie);
+            for(let i=0; i<3; i++) {
+                ob05.innerHTML += "영화 제목 : " + mInfo[i].title + " &nbsp;박스오피스 성적 : " + mInfo[i].point +  "<br>";
+
+            }
+        }
+
+        ob04.onclick = function() {
+            chOb02();
+        }
+
     </script>
 </body>
 </html>

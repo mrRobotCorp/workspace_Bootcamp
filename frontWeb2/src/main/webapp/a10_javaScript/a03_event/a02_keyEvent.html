@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a02</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h3 class="h301">타이틀</h3>
+
+    <table class="kTable">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+
+    <script>
+        window.onload = function() {
+
+            let h301 = document.querySelector(".h301");
+            let tdArr = document.querySelectorAll(".kTable td");
+            let idx = 0;
+            let idx2 = idx-1;
+            h301.align = "center"; 
+
+            tdArr.forEach( function(ob, i) {
+                ob.style.textAlign = "center";
+                ob.style.fontSize = "20px";
+                ob.innerText = i + 1;
+            });
+
+            this.onkeyup = function() {
+                h301.innerHTML = "키 코드 값 : " + event.keyCode;
+                // tdArr[idx++].style.backgroundColor = "#0f0";
+                
+                if(event.keyCode == 97) {
+                    tdArr[4].style.backgroundColor = "#00f";
+                }
+                
+                // 기본 배경색 초기화
+                tdArr.forEach( function(td, i) {
+                    td.style.backgroundColor = "#fff";
+                });
+
+                if(event.keyCode == 39) {
+                    tdArr[idx++].style.backgroundColor = "#0f0";
+                }
+
+                if(event.keyCode == 37) {
+                    tdArr[idx--].style.backgroundColor = "#0f0";
+                }
+            };
+
+            // this.onkeydown = function() {
+            //     if(even.keyCode == 37) {
+            //         tdArr[3].style.backgroundColor = "#0f0";
+            //     }
+            //     if(even.keyCode == 38) {
+            //         tdArr[1].style.backgroundColor = "#0f0";
+            //     }
+            //     if(even.keyCode == 39) {
+            //         tdArr[5].style.backgroundColor = "#0f0";
+            //     }
+            // }
+
+            
+
+
+
+        }
+    </script>
+</body>
+</html>

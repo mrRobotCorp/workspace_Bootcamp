@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a3</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h3>회원 등록</h3>
+
+    <form onsubmit="return sendDate()">
+        <div>
+            <span>이름 : </span>
+            <input type="text" name="name" value="">
+        </div>
+        <div>
+            <span>나이 : </span>
+            <input type="text" name="age" value="">
+        </div>
+        <input type="submit">
+    </form>
+
+    <script>
+        function sendDate() {
+            // alert("서버 전송 전 마지막 점검");
+            let nameOb = document.querySelector("[name = name]");
+            let ageOb = document.querySelector("[name = age]");
+            // 입력 값이 없을 때
+            if(nameOb.value == "") {
+                alert("이름이 입력되지 않았음");
+                // nameOb에 커서가 올라간 상태로 자동 설정
+                nameOb.focus();
+                return false;
+            }
+
+            if(ageOb.value == "") {
+                ageOb.focus();
+                return false;
+            }
+            // ?name = 입력 값 <- 으로 전송 처리
+        }
+    </script>
+</body>
+</html>

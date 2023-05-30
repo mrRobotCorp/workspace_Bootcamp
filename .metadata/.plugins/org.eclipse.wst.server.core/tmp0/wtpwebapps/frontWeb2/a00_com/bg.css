@@ -30,9 +30,37 @@
 	0% {
 		background-position: 0% 50%;
 	}
+
 	50% {
 		background-position: 100% 50%;
 	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* -------------------------------------------------- */
+.bgChange {
+	-webkit-animation: bg-left 4s both;
+	animation: bg-left 4s both;
+}
+
+@-webkit-keyframes bg-left {
+	0% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes bg-left {
+	0% {
+		background-position: 100% 50%;
+	}
+
 	100% {
 		background-position: 0% 50%;
 	}

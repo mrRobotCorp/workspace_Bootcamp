@@ -27,3 +27,50 @@
     background-color: #000;
     border-top: 2px solid #fff;
 }
+
+.a07Div {
+    width: 50%;
+    height: 300px;
+    padding: 20px 30px;
+    color: #fff;
+    background-color: #000;
+    background-size: 200px 200px;
+    background-image: url(../a06_cssMiddle/media/spongebob.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+::selection {
+    color: #ffff6b;
+    background-color: #ff6b6b;
+}
+
+.a07Div p {
+    font-size: 14px;
+}
+
+.a07Ex {
+    width: 50%;
+    height: 300px;
+    background: url(../a06_cssMiddle/media/person01.jpeg) center center no-repeat #d8ce8f;
+    background-size: contain;
+}
+
+.a08S {
+    box-shadow: 3px 5px 13px #999;
+}
+
+.a08S h3 {
+    text-shadow: 2px 2px 3px #d4ff00;
+}
+
+.a08Ex {
+    background-color: #000;
+    padding: 20px 0;
+    box-shadow: 3px 3px 5px #00f;
+}
+
+.a08Ex h3 {
+    color: #fff;
+    text-shadow: 2px 2px 10px #eaff00;
+}

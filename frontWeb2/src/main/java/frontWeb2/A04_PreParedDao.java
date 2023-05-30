@@ -21,7 +21,7 @@ public class A04_PreParedDao {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	public List<Employee> getEmpList1(Map<String, String> sch) {
+	public List<Employee> getEmpList(Map<String, String> sch) {
         List<Employee> elist = new ArrayList<>();
         String sql = "SELECT * FROM EMPLOYEES WHERE UPPER(FIRST_NAME || last_name) LIKE UPPER(?) AND salary BETWEEN ? AND ?";
         try {

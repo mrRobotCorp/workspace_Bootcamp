@@ -1,5 +1,5 @@
 package frontWeb2;
-
+// frontWeb2 A05_MemberDao
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

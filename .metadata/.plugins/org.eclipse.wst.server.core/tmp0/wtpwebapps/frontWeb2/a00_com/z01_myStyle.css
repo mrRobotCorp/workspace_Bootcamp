@@ -132,3 +132,43 @@ input [type=submit] { background-color: #fff; float: right;}
 input [type=submit]:hover { background-color: #675d05; }
 
 .align { position: absolute; top: 0; left: 43%; text-align: center;}
+
+/* ------------------------------------------------ */
+.a20 h3 { padding: 20px 30px; transition: all .3s; cursor: pointer;}
+.a20 h3:first-child:hover { color:#00f82d; background-color: #000; }
+.a20 h3:nth-child(2):hover { color:#f83e00; background-color: #000; }
+.a20 h3:nth-child(3):hover { color:#fff700; background-color: #000; }
+.a20 h3:nth-child(4):hover { color:#00f82d; background-color: #000; }
+.a20 h3:last-child:hover { color:#00f82d; background-color: #000; }
+
+.a20 h3:first-child:active { color: #ffe600; background-color: #212121; border-radius: 30px; }
+.a20 h3:nth-child(2):active { color: #ffe600; background-color: #212121; border-radius: 30px; }
+.a20 h3:nth-child(3):active { color: #ffe600; background-color: #212121; border-radius: 30px; }
+.a20 h3:nth-child(4):active { color: #ffe600; background-color: #212121; border-radius: 30px; }
+.a20 h3:last-child:active { color: #ffe600; background-color: #212121; border-radius: 30px; }
+
+.a20Form input:focus { color: #fff5dc; background-color: #87b1ff;}
+
+/* ------------------------------------------------------------- */
+
+.a21Form table { text-align: center; height: 200px; border-collapse: collapse; }
+.a21Form table .tHead { color: #fff; background-color: #222; border-right: 1px solid #fff; font-weight: 900; font-size: 14px;}
+.a21Form table td { padding: 10px 20px; border: 1px solid #333; transition: all .3s; }
+.a21Form table td:hover { background-color: #cccccc;}
+.a21Form .stu::first-letter { color: #0059ff; font-size: 25px; }
+.a21Form input[type=text] { padding: 10px 15px; text-align: right;}
+.a21Form input:focus { color: #000; background-color: #ffcb96; }
+
+/* -------------------------------------------------------------------- */
+.a22 h2:first-child { color: #6600ff; }
+.a22 h2:nth-child(2) { color: #a0d100; }
+.a22 h2:nth-child(3n) { color: #ff00b7; }
+
+/* ------------------------------------------------------ */
+.a22Tb { border-collapse: collapse; }
+.a22Tb tr:nth-child(even) { background-color: #fbffb8; }
+.a22Tb tr:nth-child(odd) { background-color: #d8c6ff;}
+
+.a22Tb tr td { width: 80px; height: 80px; border: 1px solid #000; text-align: center; transition: all .3s; }
+.a22Tb tr td:nth-child(3n) { font-size: 25px; }
+.a22Tb tr td:nth-child(3n):hover { background-color: #b18dff; border-radius: 30px; }

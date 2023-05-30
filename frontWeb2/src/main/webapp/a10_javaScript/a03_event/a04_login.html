@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a04</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="a04Log">
+        <form action="a05_result.jsp" onsubmit="return chVal()">
+            <div>
+                <span>아이디 : </span>
+                <input type="text" name="id">
+            </div>
+            <div>
+                <span>비밀번호 : </span>
+                <input type="password" name="pw">
+            </div>
+            <input type="submit" value="로그인">
+        </form>
+    </div>
+    
+    <script>
+        let id = document.querySelector("[name = id]");
+        let pw = document.querySelector("[name = pw]");
+
+        function chVal() {
+
+            if(id.value == "" || pw.value == "") {
+                alert("입력되지 않은 값이 있습니다.");
+            }
+            if(id.value == "") {
+                id.focus();
+                return false;
+            }
+            if(pw.value == "") {
+                pw.focus();
+                return false;
+            }
+        }
+
+        
+
+    </script>
+</body>
+</html>

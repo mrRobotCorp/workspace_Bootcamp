@@ -34,6 +34,8 @@ SELECT LOWER(FIRST_NAME) 이름,  e.*
 FROM EMPLOYEES e
 WHERE LOWER(FIRST_NAME) LIKE '%'|| LOWER('steVen')  ||'%';
 
+-- 실제 Dao 처리 시, pstmt 에는 pstmt.setString(1, "%" + emp.getFrist_name() + "%")
+
 SELECT *
 FROM EMPLOYEES e;
 ----------------------------------------------------------
@@ -70,6 +72,8 @@ SELECT CONCAT(ename, empno) "사원과 사원번호",
 FROM EMP02;
 
 SELECT * FROM EMP02;
+
+
 
 
 

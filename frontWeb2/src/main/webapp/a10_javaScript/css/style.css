@@ -92,3 +92,39 @@ table {
     background-color: #f1e898;
 
 }
+
+.toolAll {
+    position: relative;
+    /* display: inline-block; */
+    margin: 0 auto;
+}
+.ob01, .ob02, .ob03 {
+    text-align: center;
+    transition: all .3s;
+}
+
+.ob03.ani {
+    animation: showTop .3s;
+}
+
+.tip {
+    position: absolute;
+    top: -50px;
+    left: 42%;
+    padding: 10px 20px;
+    background-color: #999;
+    display: none;
+    transition: all .3s;
+}
+
+@keyframes showTop {
+    0% {
+        margin-top: 0;
+        opacity: 0;
+    }
+
+    100% {
+        margin-top: 30px;
+        opacity: 1;
+    }
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a17</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <h3 class="ob01"></h3>
+
+    <div class="toolAll">
+        <h4 class="ob02"></h4>
+        <p class="tip">선수의 기록입니다</p>
+    </div>
+    
+
+
+    <script>
+        // ajax로 데이터 전달을 할 때는 하단 문자열로 작성해야 함.단, js 상에서는 문자열 처리 안됨.
+        let p01 = `{"name" : "Amy", "age" : 25}`;
+        let p02 = {"name" : "coffee", "price" : 2500};
+        let ob01 = document.querySelector(".ob01");
+        let p011 = eval("(" + p01 + ")");
+
+        // eval 함수에 의해서 문자열 -> 객체로 변환 처리
+        // eval ( ({"name" : "Amy", "age" : 25}) )
+        ob01.innerText += p011 + "\n";
+        ob01.innerText += p011.name + ", " + p011.age + "\n";
+        ob01.innerText += p01.age + "\n";
+        ob01.innerText += p02.name + "\n";
+        ob01.innerText += p02.price + "\n";
+        ob01.innerText += typeof(p01.age) + "\n";
+        ob01.innerText += typeof(p02.price);
+
+        /*
+        ex) { } json 문자열 선언 규칙에 의해서 선수명 선수기록을 속성과 속성명으로 선언/
+        출력 및 eval에 의해 객체 변환 하여 객체.속성으로 접근 출력
+        */
+
+        let player = `{ "name" : "taylor", "point" : "0.324"}`;
+        let pInfo = eval("(" + player + ")");
+        let ob02 = document.querySelector(".ob02");
+        let tip = document.querySelector(".tip");
+
+        ob02.innerText += "선수의 이름 : " + pInfo.name + "\n";
+        ob02.innerText += "선수의 기록 : " + pInfo.point;
+
+        ob02.addEventListener("mouseover", function() {
+            this.style.color = "#0f0";
+            this.style.fontSize = "18px";
+            tip.style.display = "inline-block";
+        });
+        
+        ob02.addEventListener("mouseleave", function() {
+            this.style.color = "#000";
+            this.style.fontSize = "16px";
+            tip.style.display = "none";
+        });
+
+        
+
+
+    </script>
+</body>
+</html>

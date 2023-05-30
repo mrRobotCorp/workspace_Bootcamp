@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a18</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <h3 class="ob01" onclick="chStr()">문자열로 변환</h3>
+    <h3 class="ob01">객체로 변환</h3>
+
+
+    <h4 class="ob02">물건정보 객체를 문자열로 바꿔서 출력</h4>
+    <h5 class="ob03"></h5>
+
+    <!-- <script type="text/script" src="../"></script> -->
+    <script>
+        function chStr() {
+            let p01 = { name : "Amy", age : 30};
+            let ob01 = document.querySelectorAll(".ob01");
+            ob01[0].innerText = JSON.stringify(p01);
+        }
+
+        let ob02 = document.querySelector(".ob02");
+        let ob03 = document.querySelector(".ob03");
+
+        ob02.onclick = function() {
+            let prod = { name: "coffee", price : 1600, cnt:2};
+            ob03.innerText = JSON.stringify(prod);
+
+        }
+
+        function chOb01() {
+            let strOb = `[{"empno" : 7780, "ename" : "Amy"},
+                            {"empno" : 7890, "ename" : "Joe"}                    
+        ]`;
+            console.log(strOb + typeof(strOb));
+            let obj = JSON.parse(strOb);
+            let ob01 = document.querySelectorAll(".ob01");
+            ob01[1].innerText = obj + " : 타입 " + typeof(obj) + " : " + obj[0].empno;
+        }
+
+        chOb01();
+
+        // h4 클릭 시 물건정보 json 선언하고 문자열로 바꿔 h5에 출력
+    </script>
+</body>
+</html>

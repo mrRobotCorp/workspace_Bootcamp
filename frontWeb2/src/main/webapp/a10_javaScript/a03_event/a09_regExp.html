@@ -9,9 +9,74 @@
 </head>
 <body>
 
-    
+    <div>
+        <span>전화번호 : </span>
+        <input type="text" name="phone">
+        <p id="pValid"></p>
+    </div>
+
+    <div>
+        <span>확인 할 회원 : </span>
+        <input type="text" name="member">
+        <p id="memValid"></p>
+    </div>
+
+
     <script>
-    
+        let ph = document.querySelector("[name=phone]");
+        let mem = document.querySelector("[name=member]");
+        let pValid = document.querySelector("#pValid");
+        let mValid = document.querySelector("#memValid");
+
+        ph.onkeyup = function() {
+            // 전화번호의 정규식 유효 패턴
+            // 전화번호가 3자리 3-4자리 4자리 숫자로 구성되게 처리
+            let phPattern = /^\d{3}-\d{3,4}-\d{4}/;
+            // 해당 패턴에 맞게 입력하면
+            if(phPattern.test(this.value)) {
+                pValid.innerHTML = "유효한 전화번호입니다.";
+            } else {
+                pValid.innerHTML = "전화번호(nnn-nnnn-nnnn) 형식에 맞춰 입력해주세요.";
+            }
+        }
+
+        // 1. test() : 일치여부에 따른 boolean 데이터 처리
+        let pattern = /apple/;
+        let str = "I have an apple.";
+        console.log("-- test() --");
+        console.log(pattern.test(str));
+        
+        if(pattern.test(str)) {
+            console.log("apple O");
+        } else {
+            console.log("apple X");
+        }
+
+        // ex) 정규식 test 메서드 활용. 회원 이름에 himan 입력되면 등록한 회원은 있습니다 출력
+        // 아니면 없습니다 출력
+        
+        mem.onkeyup = function() {
+            let memPt = /himan/;
+            let mvalue = mem.value;
+
+            if(memPt.test(mvalue)) {
+                mValid.innerHTML = "등록한 회원이 있습니다.";
+                this.style.backgroundColor = "#fff"
+            } else {
+                mValid.innerHTML = "등록한 회원이 없습니다.";
+                this.style.backgroundColor = "#ff4d47"
+            }
+        }
+
+        // 2. exec() : 일정한 문자열을 검색하는 메서드
+        // 패턴/i : 대소문자 구분없이 처리해줌
+        let pattern2 = /apple/i;
+        let str2 = "I have an apple, Apple is mine.";
+        let result = pattern2.exec(str2);
+
+        console.log("-- exec() --");
+        console.log("결과 : " + result);
+
     </script>
 </body>
 </html>

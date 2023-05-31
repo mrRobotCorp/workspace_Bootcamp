@@ -26,6 +26,7 @@
 	
 	<script>
 		// java -> js 로 전환
+		// java + html -> 네트워크 -> html + js
 		let isSuccess = <%=isSuccess%>; 
 		if(isSuccess) {
 			alert("로그인 성공");

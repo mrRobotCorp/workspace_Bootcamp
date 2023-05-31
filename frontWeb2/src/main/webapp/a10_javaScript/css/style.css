@@ -159,3 +159,34 @@ input[name="dice"] {
     padding: 20px;
     border: 1px solid #999;
 }
+
+.txtLimit {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.txtLimit h4 {
+    margin-bottom: 10px;
+}
+
+.txtLimit textarea {
+    width: 35%;
+    height: 60px;
+    border-radius: 20px;
+    padding: 10px 15px;
+}
+
+.txtLimit textarea:focus {
+    background-color: #ff5d5713;
+    outline: 2px solid #ff4d47;
+}
+
+.idAll {
+    margin: 30px 20% 0 20%;
+    text-align: center;
+}
+
+.idAll .notice {
+    color: #ca2b25;
+    font-size: 14px;
+}

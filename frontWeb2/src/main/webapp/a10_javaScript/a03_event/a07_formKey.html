@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a07</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        h3 { text-align: center;}
+        form { display: inline-block; margin: 0 30%; }
+    </style>
+</head>
+<body>
+    <h3>form 하위 요소 key 이벤트 처리</h3>
+    <form>
+        <div>
+            <span>이름 : </span>
+            <input type="text" name="name">
+        </div>
+        <span id="validId"></span>
+        <input type="submit" value="전송"></input>
+    </form>
+
+    <div class="txtLimit">
+        <h4>글자 수 제한</h4>
+        <textarea name="content" class="txtar"></textarea>
+        <p class="valTxt"></p>
+    </div>
+
+    <div class="idAll">
+        <h4>아이디 입력 체크</h4>
+        <div>
+            <span>아이디 입력 : </span>
+            <input type="text" name="id">
+        </div>
+        <p class="chId"></p>
+    </div>
+
+
+    <script>
+        let nameOb = document.querySelector("[name=name]");
+        let idOb = document.querySelector("[name=id]");
+        let txtar = document.querySelector(".txtar");
+        
+
+        // 이름 항목에 입력된 글자수를 키 입력 시마다 출력 설정
+        // DOM 객체.onkeyup -> 해당 객체에 키 입력 시마다 처리되는 이벤트
+        // 하단은 해당 이벤트에 익명 함수인 이벤트 핸들러 함수를 할당
+        nameOb.onkeyup = function() {
+            let valId = document.querySelector("#validId");
+            // java length -> 객체.length() / js length -> 객체.length
+            valId.innerHTML = "입력 글자 수 : " + nameOb.value.length + " 자";
+        }
+        
+        // textarea를 만들고 @@/20자 표기하여 출력, 제한 글자 수 처리
+        txtar.onkeyup = function() {
+            let valTxt = document.querySelector(".valTxt");
+            let txtlg = txtar.value.length;
+            valTxt.innerHTML = txtlg + " / 20자";
+            
+            if(txtlg > 20) {
+                alert("20자까지 입력가능합니다.");
+                this.value = "";
+                valTxt.innerHTML = 0 + " / 20자";
+                this.focus();
+            }
+        }
+        // ex) 아이디 입력 : [  ] (span) 입력 시 글자수 8-16자가 아니면
+        // 8-16자를 입력해주세요  출력. 배경 색상 변경
+
+        idOb.onkeyup = function() {
+            let chId = document.querySelector(".chId");
+            let idlg = idOb.value.length;
+
+            chId.innerHTML = "입력 글자 수 : " + idlg;
+
+            if(idlg < 8 || idlg > 16) {
+                this.style.backgroundColor = "#ff5d5746";
+                chId.innerHTML += "<br><span class='notice'>※ 8-16자를 입력해주세요<span>";
+            } else {
+                this.style.backgroundColor = "#fff";
+            }
+
+        }
+
+
+    </script>
+</body>
+</html>

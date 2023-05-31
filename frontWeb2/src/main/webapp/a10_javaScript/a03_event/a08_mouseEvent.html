@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a08</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .event { width: 200px; height: 200px; border: 1px solid #999; text-align: center;}
+    </style>
+</head>
+<body>
+
+    <div class="event">
+    </div>
+
+    <div class="pList">
+        <div>
+            <span>물건 등록 : </span>
+            <input type="text" name="pname">
+        </div>
+        <ul class="add"></ul>
+    </div>
+
+
+    <script>
+        let eobj = document.querySelector(".event");
+        let plist = document.querySelector(".pList");
+        let add = document.querySelector(".add");
+        let pname = document.querySelector("[name=pname]");
+
+
+        eobj.onmouseover = function() {
+            this.style.backgroundColor = "#222";
+            this.style.color = "#fff";
+            this.innerHTML = "마우스오버 이벤트(onmouseover)";
+        }
+
+        eobj.onmouseout = function() {
+            this.style.backgroundColor = "#ff4d47";
+            this.style.color = "#222";
+            this.innerHTML = "마우스아웃 이벤트(onmouseout)";
+        }
+
+        eobj.ondblclick = function() {
+            this.style.backgroundColor = "#00f";
+            this.style.color = "#fff";
+            this.innerHTML = "더블클릭 이벤트(ondblclick)";
+        }
+        
+        pname.onmouseover = function() {
+            this.style.backgroundColor = "#ff4d47";
+        }
+
+        pname.onmouseout = function() {
+            this.style.backgroundColor = "#999";
+        }
+
+        pname.ondblclick = function() {
+            this.style.backgroundColor = "#999";
+            add.innerHTML += `<li>등록 물건 : ${this.value}</li>`
+            this.value = "";
+            this.focus();
+        }
+
+        // 물건 등록 : [ ] - 마우스오버/아웃에 따라 배경색 변경 
+        // 입력 후 더블 크릭 시 리스트 하단에 @@@ 
+
+        /*
+        1. 화면 구성
+        2. DOM 객체 메모리 로딩(선언)
+        3. 대상 DOM 객체 이벤트 선언
+        4. 이벤트에 의해 처리될 내용 코드 구현
+        */
+    </script>
+</body>
+</html>

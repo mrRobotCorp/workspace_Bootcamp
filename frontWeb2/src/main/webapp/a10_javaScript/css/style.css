@@ -190,3 +190,23 @@ input[name="dice"] {
     color: #ca2b25;
     font-size: 14px;
 }
+
+.schJava {
+    margin-top: 50px;
+}
+
+.schJava textarea {
+    width: 50%;
+    height: 100px;
+}
+
+.schJava .sch {
+    background-color: #fff;
+    padding: 5px 8px;
+    border: 1px solid #555;
+    border-radius: 10px;
+    transition: all .3s;
+}
+.schJava .sch:hover {
+    background-color: #d4d4d4;
+}

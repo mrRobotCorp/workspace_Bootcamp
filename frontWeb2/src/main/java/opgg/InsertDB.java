@@ -32,6 +32,8 @@ public class InsertDB {
 		String userId = "";
 		int gHisNum = 1;
 		int gIdNum = 0;
+		int hour = 1;
+		int day = 0;
 		String sTime = "";
 		String eTime = "";
 		while(true) {
@@ -39,10 +41,15 @@ public class InsertDB {
 			Collections.shuffle(user);
 			Collections.shuffle(isWin);
 			
+			hour++;
 			gIdNum++;
+			if(hour==25) {
+				hour = 2;
+				day++;
+			}
+			sTime = "sysdate"+"+"+(hour-1)+"/24+"+day;
+			eTime = "sysdate"+"+"+hour+"/24+"+day;
 
-			sTime = "sysdate"+"+"+gIdNum+"/24";
-			eTime = "sysdate"+"+"+(gIdNum+1)+"/24";
 			
 			int gId = (int)(Math.random()*4);
 			String gameId = gameMode[gId]+"-"+gIdNum;
@@ -77,7 +84,7 @@ public class InsertDB {
 				}
 				break;
 			}
-			if(gIdNum==5) {
+			if(gIdNum==48) {
 				break;
 			}
 		}

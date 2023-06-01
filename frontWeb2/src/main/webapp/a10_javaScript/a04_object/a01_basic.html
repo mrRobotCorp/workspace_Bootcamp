@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a01</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <h4>객체 생성</h4>
+    <p class="show01"></p>
+
+    <h3>함수형 객체</h3>
+    <table class="proShow">
+        <thead>
+            <tr>
+                <th>물건명</th>
+                <th>가격</th>
+                <th>갯수</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div class="prodList">
+        <div>
+            <span>물건명 : </span>
+            <input type="text" name="pname">
+        </div>
+        <div>
+            <span>가격 : </span>
+            <input type="text" name="price">
+        </div>
+        <div>
+            <span>갯수 : </span>
+            <input type="text" name="cnt">
+        </div>
+        <input type="button" name="pBtn">
+    </div>
+
+    <script>
+        function Person(name, age, loc) {
+            this.name = name;
+            this.age = age;
+            this.loc = loc;
+
+            this.show = function () { // 메서드
+                let prn = "<p>이름 : " + this.name + ", "
+                prn += "나이 : " + this.age + ", "
+                prn += "사는 곳 : " + this.loc + "</p>"
+                document.querySelector('.show01').innerHTML += prn;
+            };
+
+        }
+
+        let p01 = new Person("Amy", 25, "seoul");
+        p01.show();
+        let p02 = new Person("Joe", 29, "busan");
+        p02.show();
+
+        // ex) Product 함수형 객체를 선언하고 물건명, 가격, 갯수를 생성자
+        let pshow = document.querySelector(".proShow tbody");
+        let no = 1;
+        function Product(pname, price) {
+            this.pname = pname;
+            this.price = price;
+            this.buy = function(cnt){
+                // 상단에 선언하지 않더라도
+                // this를 사용하면 field가 된다.
+                this.cnt = cnt
+            }
+
+            this.infoS = function() {
+                pshow.insertAdjacentHTML("afterbegin", `
+                    <tr>
+                        <td>${no++}</td>
+                        <td>${this.pname}</td>
+                        <td>${this.price}</td>
+                        <td>${this.cnt}</td>
+                    </tr>
+                `);
+            };
+        }
+
+        let prod01 = new Product("jelly", 1500);
+        prod01.buy(3);
+        prod01.infoS();
+        let prod02 = new Product("candy", 2000);
+        prod01.buy(3);
+        prod02.infoS();
+
+        function buy() {
+            alert("함수 호출");
+            let pnameOb = document.querySelector("[name=pname]");
+            let prOb = document.querySelector("[name=price]");
+            let cntOb = document.querySelector("[name=cnt]");
+
+            let p01 = new Product(pnameOb.value, prOb.value, cnt.value);
+            p01.buy(cntOb.value);
+            p01.show();
+
+            pnameOb.value = "";
+            prOb.value = "";
+            cnt.value = "";
+            pnameOb.focus();
+        }
+
+        let pBtn = document.querySelector(".pBtn");
+        pBtn.onclick = function() {
+            buy();
+        }
+
+    </script>
+</body>
+
+</html>

@@ -4,14 +4,122 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>a0</title>
+    <title>a10</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body { text-align: center; }
+    </style>
 </head>
 <body>
-
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
+    <h3>title</h3>
 
     <script>
-    
+        let h3ob = document.querySelectorAll("h3");
+        // ap 사이에 글자 한 자가 꼭 들어가는 경우만 매칭
+        let pattern01 = /a.p/;
+        let str01 = "apple";
+        h3ob[0].innerHTML = str01 + " : " + pattern01.test(str01); // true
+        let str02 = "ap";
+        h3ob[1].innerHTML = str02 + " : " + pattern01.test(str02); // false
+        let str03 = "abp";
+        h3ob[2].innerHTML = str03 + " : " + pattern01.test(str03); // true
+        let str04 = "apap";
+        h3ob[3].innerHTML = str04 + " : " + pattern01.test(str04); // false
+        
+        let pattern02 = /ca*t/; // ca와 t 사이에 0개 이상 매칭 됐을 때 boolean 반환
+        let i = 4;
+        h3ob[i++].innerHTML = "<hr>패턴 -> " + pattern02;
+        // * : 0 이상 매칭
+        let str05 = "ct";
+        h3ob[i++].innerHTML = str05 + " : " + pattern02.test(str05);
+        let str06 = "cat";
+        h3ob[i++].innerHTML = str06 + " : " + pattern02.test(str06);
+        let str07 = "ckt";
+        h3ob[i++].innerHTML = str07 + " : " + pattern02.test(str07);
+        let str08 = "caaat";
+        h3ob[i++].innerHTML = str08 + " : " + pattern02.test(str08);
+
+        // + : 1개 이상 반복 매칭
+        let pattern03 = /ca+t/;
+        h3ob[i++].innerHTML = "<hr>패턴 -> " + pattern03;
+        let str09 = "ct";
+        h3ob[i++].innerHTML = str09 + " : " + pattern03.test(str09);
+        let str10 = "cat";
+        h3ob[i++].innerHTML = str10 + " : " + pattern03.test(str10);
+        let str11 = "catt";
+        h3ob[i++].innerHTML = str11 + " : " + pattern03.test(str11);
+
+        // ^문자 : 시작하는 문자 매칭
+        let pattern04 = /^a/;
+        h3ob[i++].innerHTML = "<hr>패턴 -> " + pattern04;
+        let str12 = "apple";
+        h3ob[i++].innerHTML = str12 + " : " + pattern04.test(str12);
+        let str13 = "air";
+        h3ob[i++].innerHTML = str13 + " : " + pattern04.test(str13);
+        let str14 = "banana";
+        h3ob[i++].innerHTML = str14 + " : " + pattern04.test(str14);
+
+        // \ : 역슬래시 해당 코드값과 구분되어 표시
+        let pattern05 = /c\.t/; // c.t -> c와 t 사이에 문자가 1개 꼭 있어야 함 -> 특수문자를 \로 지정
+        h3ob[i++].innerHTML = "<hr>패턴 -> " + pattern05;
+        let str15 = "c.t";
+        h3ob[i++].innerHTML = str15 + " : " + pattern05.test(str15);
+        let str16 = "cat";
+        h3ob[i++].innerHTML = str16 + " : " + pattern05.test(str16);
+        let str17 = "cut";
+        h3ob[i++].innerHTML = str17 + " : " + pattern05.test(str17);
+
+        // [] : 문자 클래스에 포함되어 있는 문자가 있을 때
+        let pattern06 = /[aeiou]/; 
+        h3ob[i++].innerHTML = "<hr>패턴 -> " + pattern06;
+        let str18 = "apple";
+        h3ob[i++].innerHTML = str18 + " : " + pattern06.test(str18);
+        let str19 = "skrr";
+        h3ob[i++].innerHTML = str19 + " : " + pattern06.test(str19);
+        let str20 = "banana";
+        h3ob[i++].innerHTML = str20 + " : " + pattern06.test(str20);
+
+        // {} : 수량을 표현할 때 매칭
+        let pattern07 = /\d{3}/; // d는 숫자형을 의미. 숫자형으로 3자리 이상을 매칭
+        h3ob[i++].innerHTML = "<hr>패턴 -> " + pattern07;
+        let str21 = "4e5";
+        h3ob[i++].innerHTML = str21 + " : " + pattern07.test(str21);
+        let str22 = "12";
+        h3ob[i++].innerHTML = str22 + " : " + pattern07.test(str22);
+        let str23 = "3432";
+        h3ob[i++].innerHTML = str23 + " : " + pattern07.test(str23);
+
+        
+
     </script>
 </body>
 </html>

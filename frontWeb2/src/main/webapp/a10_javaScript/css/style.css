@@ -210,3 +210,13 @@ input[name="dice"] {
 .schJava .sch:hover {
     background-color: #d4d4d4;
 }
+
+.proShow {
+    text-align: center;
+    width: 40%;
+}
+
+.jsonFru {
+    margin-top: 30px;
+    text-align: center;
+}

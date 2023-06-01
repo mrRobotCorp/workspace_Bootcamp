@@ -14,9 +14,24 @@
 
     <div class="jsonFru">
         <h3>과일 객체</h3>
+        <p class="fShow"></p>
         <h4 class="finfo"></h4>
         <h4 class="finfo"></h4>
         <h4 class="finfo"></h4>
+    </div>
+    <hr>
+    <div>
+        <h3 style="text-align: center;">사원정보</h3>
+        <table class="empT">
+            <thead>
+                <tr>
+                    <th>사원번호</th>
+                    <th>사원명</th>
+                    <th>급여</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
 
     <script>
@@ -36,8 +51,28 @@
         let finfo = document.querySelectorAll(".finfo");
         finfo[0].innerHTML = arr2[0].fname + "의 가격은 " + arr2[0].price;
         finfo[1].innerHTML = arr2[1].fname + "의 가격은 " + arr2[1].price;
+        
+        let fShow = document.querySelector(".fShow");
+        for(let i=0; i<arr2.length; i++) {
+            fShow.innerHTML += (i+1) + ") " + arr2[i].fname + "의 가격은 " + arr2[i].price + "<br>";
+        }
 
+        // ex) json 배열로 사원 객체 배열로 사원정보 3개를 만들고 위 테이블 list 정보에 출력
+        let emp = document.querySelector(".empT tbody");
+        let empList = [];
+        empList[0] = {eno:101, ename:"Joy", sal:4000};
+        empList[1] = {eno:102, ename:"Dalyne", sal:5000};
+        empList[2] = {eno:103, ename:"Irene", sal:4500};
 
+        for(let i=0; i<empList.length; i++) {
+            emp.insertAdjacentHTML("afterbegin", `
+                <tr>
+                    <td>${empList[i].eno}</td>
+                    <td>${empList[i].ename}</td>
+                    <td>${empList[i].sal}</td>
+                </tr>
+            `);
+        }
     </script>
 </body>
 </html>

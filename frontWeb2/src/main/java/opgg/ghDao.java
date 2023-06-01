@@ -42,8 +42,8 @@ public class ghDao {
             		rs.getInt("assist"),
             		rs.getString("kda"), 
             		rs.getString("isWin"), 
-            		rs.getDate("start_time"), 
-            		rs.getDate("end_time")
+            		rs.getTimestamp("start_time"), 
+            		rs.getTimestamp("end_time")
     		));
          }       
          

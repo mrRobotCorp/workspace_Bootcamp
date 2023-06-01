@@ -1,4 +1,4 @@
-package frontWeb.project_opgg;
+package opgg;
 
 import java.util.ArrayList;
 import java.util.Collections;

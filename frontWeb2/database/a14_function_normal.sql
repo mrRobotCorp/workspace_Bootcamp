@@ -85,7 +85,19 @@ SELECT ename, job, sal,
 		END 보너스포함
 FROM emp;
 
-SELECT DISTINCT job FROM emp;
+SELECT ename, job, sal, per,
+		floor(per*100) || '%' "%",
+		FLOOR(sal*per) 보너스 
+FROM (
+	SELECT ename, job, sal,
+			CASE WHEN job = 'CLERK' THEN 0.05
+				WHEN job = 'PRESIDENT' THEN 0.1
+				WHEN job = 'MANAGER' THEN 0.17
+				WHEN job = 'ANALYST' THEN 0.2
+				ELSE 0
+			END per
+FROM emp
+);
 
 -- ex) 위 ex1을 switch case문 형태로 변환
 SELECT ename, job, sal,
@@ -110,7 +122,51 @@ SELECT ename, sal,
 		END 등급
 FROM emp;
 
+-- 부서번호에 따른 보너스 처리
+SELECT ename, deptno, 
+	CASE deptno
+		WHEN 10 THEN sal * 0.2
+		WHEN 20 THEN sal * 0.5
+		WHEN 30 THEN sal * 0.7
+		ELSE sal * 1.2
+	END 보너스
+FROM emp;
 		
+SELECT sign(-5), -- -1 
+		sign(0), -- 0
+		sign(7) -- 1
+FROM dual;
+		
+-- 급여가 3000 이상인 경우와 그렇지 않은 경우
+SELECT sal, sign(sal - 3000) RESULT
+FROM emp;
+
+-- decode 함수와 함께 혼합해서 원하는 데이터 처리
+-- ex) decode와 sign을 활용해서 2000이상인 경우와 그렇지 않은 경우를 구분해서
+-- 2000미만 - 보너스 대상자, 2000이상 - 보너스 대상자 아님 표시
+SELECT ename, sal,
+	DECODE( SIGN(sal - 2000), -1, '보너스 대상자',
+							1, '보너스 대상자 아님') "보너스 여부"
+FROM emp;
+
+SELECT EXTRACT(YEAR FROM sysdate) "이번년도", -- 숫자형이라 2,023 출력
+		EXTRACT(Month FROM sysdate) "이번년도", -- 6
+		EXTRACT(day FROM sysdate) "이번년도" -- 2
+FROM dual;
+
+-- ex) employee의 hire_date를 이용해서 숫자형으로 연도, 월, 일 뽑기
+-- sign, decode와 혼합해서 2005년 이후 입사자 여부 출력
+SELECT first_name, hire_date,
+	extract(YEAR FROM hire_date) "연도",
+	extract(MONTH FROM hire_date) "월",
+	extract(day FROM hire_date) "일",
+	decode(sign(extract(YEAR FROM hire_date) - 2005), -1, '2005이전',
+													1, '2005이후',
+													0, '2005연도') "입사연도구분"
+FROM EMPLOYEES;
+
+
+
 
 		
 

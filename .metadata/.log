@@ -6140,3 +6140,309 @@ org.eclipse.core.runtime.AssertionFailedException: assertion failed:
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-02 16:22:31.307
+!MESSAGE SQL Error [909] [42000]: ORA-00909: invalid number of arguments
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-02 16:22:31.307
+!MESSAGE Error : 909, Position : 305, Sql = -- ex) employee의 hire_date를 이용해서 숫자형으로 연도, 월, 일 뽑기
+-- sign, decode와 혼합해서 2005년 이후 입사자 여부 출력
+SELECT ename, hiredate,
+	extract(YEAR FROM hiredate) "연도",
+	extract(MONTH FROM hiredate) "월",
+	extract(day FROM hiredate) "일",
+	decode(sign(extract(YEAR FROM hiredate), 2005), -1, '2005이전',
+													1, '2005이후') "입사연도구분"
+FROM emp, OriginalSql = -- ex) employee의 hire_date를 이용해서 숫자형으로 연도, 월, 일 뽑기
+-- sign, decode와 혼합해서 2005년 이후 입사자 여부 출력
+SELECT ename, hiredate,
+	extract(YEAR FROM hiredate) "연도",
+	extract(MONTH FROM hiredate) "월",
+	extract(day FROM hiredate) "일",
+	decode(sign(extract(YEAR FROM hiredate), 2005), -1, '2005이전',
+													1, '2005이후') "입사연도구분"
+FROM emp, Error Msg = ORA-00909: invalid number of arguments
+
+!STACK 0
+Error : 909, Position : 305, Sql = -- ex) employee의 hire_date를 이용해서 숫자형으로 연도, 월, 일 뽑기
+-- sign, decode와 혼합해서 2005년 이후 입사자 여부 출력
+SELECT ename, hiredate,
+	extract(YEAR FROM hiredate) "연도",
+	extract(MONTH FROM hiredate) "월",
+	extract(day FROM hiredate) "일",
+	decode(sign(extract(YEAR FROM hiredate), 2005), -1, '2005이전',
+													1, '2005이후') "입사연도구분"
+FROM emp, OriginalSql = -- ex) employee의 hire_date를 이용해서 숫자형으로 연도, 월, 일 뽑기
+-- sign, decode와 혼합해서 2005년 이후 입사자 여부 출력
+SELECT ename, hiredate,
+	extract(YEAR FROM hiredate) "연도",
+	extract(MONTH FROM hiredate) "월",
+	extract(day FROM hiredate) "일",
+	decode(sign(extract(YEAR FROM hiredate), 2005), -1, '2005이전',
+													1, '2005이후') "입사연도구분"
+FROM emp, Error Msg = ORA-00909: invalid number of arguments
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-02 16:22:48.547
+!MESSAGE SQL Error [909] [42000]: ORA-00909: invalid number of arguments
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-02 16:22:48.547
+!MESSAGE Error : 909, Position : 305, Sql = -- ex) employee의 hire_date를 이용해서 숫자형으로 연도, 월, 일 뽑기
+-- sign, decode와 혼합해서 2005년 이후 입사자 여부 출력
+SELECT ename, hiredate,
+	extract(YEAR FROM hiredate) "연도",
+	extract(MONTH FROM hiredate) "월",
+	extract(day FROM hiredate) "일",
+	decode(sign(extract(YEAR FROM hiredate), 2005), -1, '이전',
+													1, '이후') "입사연도구분"
+FROM emp, OriginalSql = -- ex) employee의 hire_date를 이용해서 숫자형으로 연도, 월, 일 뽑기
+-- sign, decode와 혼합해서 2005년 이후 입사자 여부 출력
+SELECT ename, hiredate,
+	extract(YEAR FROM hiredate) "연도",
+	extract(MONTH FROM hiredate) "월",
+	extract(day FROM hiredate) "일",
+	decode(sign(extract(YEAR FROM hiredate), 2005), -1, '이전',
+													1, '이후') "입사연도구분"
+FROM emp, Error Msg = ORA-00909: invalid number of arguments
+
+!STACK 0
+Error : 909, Position : 305, Sql = -- ex) employee의 hire_date를 이용해서 숫자형으로 연도, 월, 일 뽑기
+-- sign, decode와 혼합해서 2005년 이후 입사자 여부 출력
+SELECT ename, hiredate,
+	extract(YEAR FROM hiredate) "연도",
+	extract(MONTH FROM hiredate) "월",
+	extract(day FROM hiredate) "일",
+	decode(sign(extract(YEAR FROM hiredate), 2005), -1, '이전',
+													1, '이후') "입사연도구분"
+FROM emp, OriginalSql = -- ex) employee의 hire_date를 이용해서 숫자형으로 연도, 월, 일 뽑기
+-- sign, decode와 혼합해서 2005년 이후 입사자 여부 출력
+SELECT ename, hiredate,
+	extract(YEAR FROM hiredate) "연도",
+	extract(MONTH FROM hiredate) "월",
+	extract(day FROM hiredate) "일",
+	decode(sign(extract(YEAR FROM hiredate), 2005), -1, '이전',
+													1, '이후') "입사연도구분"
+FROM emp, Error Msg = ORA-00909: invalid number of arguments
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-02 16:28:05.509
+!MESSAGE SQL Error [904] [42000]: ORA-00904: "ENAME": invalid identifier
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-02 16:28:05.509
+!MESSAGE Error : 904, Position : 165, Sql = -- ex) employee의 hire_date를 이용해서 숫자형으로 연도, 월, 일 뽑기
+-- sign, decode와 혼합해서 2005년 이후 입사자 여부 출력
+SELECT ename, hire_date,
+	extract(YEAR FROM hire_date) "연도",
+	extract(MONTH FROM hire_date) "월",
+	extract(day FROM hire_date) "일",
+	decode(sign(extract(YEAR FROM hire_date) - 2005), -1, '2005이전',
+													1, '2005이후') "입사연도구분"
+FROM EMPLOYEES, OriginalSql = -- ex) employee의 hire_date를 이용해서 숫자형으로 연도, 월, 일 뽑기
+-- sign, decode와 혼합해서 2005년 이후 입사자 여부 출력
+SELECT ename, hire_date,
+	extract(YEAR FROM hire_date) "연도",
+	extract(MONTH FROM hire_date) "월",
+	extract(day FROM hire_date) "일",
+	decode(sign(extract(YEAR FROM hire_date) - 2005), -1, '2005이전',
+													1, '2005이후') "입사연도구분"
+FROM EMPLOYEES, Error Msg = ORA-00904: "ENAME": invalid identifier
+
+!STACK 0
+Error : 904, Position : 165, Sql = -- ex) employee의 hire_date를 이용해서 숫자형으로 연도, 월, 일 뽑기
+-- sign, decode와 혼합해서 2005년 이후 입사자 여부 출력
+SELECT ename, hire_date,
+	extract(YEAR FROM hire_date) "연도",
+	extract(MONTH FROM hire_date) "월",
+	extract(day FROM hire_date) "일",
+	decode(sign(extract(YEAR FROM hire_date) - 2005), -1, '2005이전',
+													1, '2005이후') "입사연도구분"
+FROM EMPLOYEES, OriginalSql = -- ex) employee의 hire_date를 이용해서 숫자형으로 연도, 월, 일 뽑기
+-- sign, decode와 혼합해서 2005년 이후 입사자 여부 출력
+SELECT ename, hire_date,
+	extract(YEAR FROM hire_date) "연도",
+	extract(MONTH FROM hire_date) "월",
+	extract(day FROM hire_date) "일",
+	decode(sign(extract(YEAR FROM hire_date) - 2005), -1, '2005이전',
+													1, '2005이후') "입사연도구분"
+FROM EMPLOYEES, Error Msg = ORA-00904: "ENAME": invalid identifier
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.ui.ide 4 4 2023-06-02 16:34:57.057
+!MESSAGE Not properly disposed SWT resource
+!STACK 0
+java.lang.Error: SWT Resource was not properly disposed
+	at org.eclipse.swt.graphics.Resource.initNonDisposeTracking(Resource.java:172)
+	at org.eclipse.swt.graphics.Resource.<init>(Resource.java:120)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:713)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:341)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:290)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:268)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getCompositeIcon(DBeaverIcons.java:170)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getIconDescriptor(DBeaverIcons.java:122)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getImage(DBeaverIcons.java:94)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.refreshEditorIconAndTitle(SQLEditor.java:2865)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.onDataSourceChange(SQLEditor.java:2781)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.lambda$27(SQLEditor.java:3010)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-02 16:46:03.710
+!MESSAGE SQL Error [936] [42000]: ORA-00936: missing expression
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-02 16:46:03.710
+!MESSAGE Error : 936, Position : 75, Sql = SELECT deptno, COUNT(sal) 건수, MAX(sal) 최대값, MIN(sal) 최소값,
+FROM EMP
+GROUP BY DEPTNO, OriginalSql = SELECT deptno, COUNT(sal) 건수, MAX(sal) 최대값, MIN(sal) 최소값,
+FROM EMP
+GROUP BY DEPTNO, Error Msg = ORA-00936: missing expression
+
+!STACK 0
+Error : 936, Position : 75, Sql = SELECT deptno, COUNT(sal) 건수, MAX(sal) 최대값, MIN(sal) 최소값,
+FROM EMP
+GROUP BY DEPTNO, OriginalSql = SELECT deptno, COUNT(sal) 건수, MAX(sal) 최대값, MIN(sal) 최소값,
+FROM EMP
+GROUP BY DEPTNO, Error Msg = ORA-00936: missing expression
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

@@ -1,8 +1,8 @@
-package opgg;
+package project.opgg;
 
 import java.sql.*;
 
-import opgg.VO.Champion;
+import project.opgg.VO.*;
 
 public class ChampionDao {
 	private Connection con;

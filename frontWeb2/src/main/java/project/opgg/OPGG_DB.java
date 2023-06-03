@@ -1,4 +1,4 @@
-package opgg;
+package project.opgg;
 
 import java.sql.*;
 

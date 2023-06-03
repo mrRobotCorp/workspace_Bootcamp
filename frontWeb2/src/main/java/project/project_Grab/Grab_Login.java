@@ -1,4 +1,4 @@
-package project_Grab;
+package project.project_Grab;
 
 import java.util.Scanner;
 // 날짜 : 0514_17:20

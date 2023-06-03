@@ -1,4 +1,4 @@
-package opgg.VO;
+package project.opgg.VO;
 
 import java.util.List;
 import java.util.Map;

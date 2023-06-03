@@ -1,4 +1,4 @@
-package opgg.VO;
+package project.opgg.VO;
 
 public class Item {
 	

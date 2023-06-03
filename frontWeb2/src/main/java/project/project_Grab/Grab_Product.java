@@ -1,4 +1,4 @@
-package project_Grab;
+package project.project_Grab;
 
 import java.util.Map;
 import java.util.Scanner;

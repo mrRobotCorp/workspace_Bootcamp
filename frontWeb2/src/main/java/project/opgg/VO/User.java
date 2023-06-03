@@ -1,4 +1,4 @@
-package opgg.VO;
+package project.opgg.VO;
 
 public class User {
 	private String userId;

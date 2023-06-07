@@ -9750,3 +9750,1440 @@ Binding(CTRL+F3,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.jkiss.dbeaver.ui.perspective,,,system)
+
+!ENTRY org.eclipse.jface 2 0 2023-06-07 11:03:31.766
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-06-07 11:03:31.766
+!MESSAGE A conflict occurred for F3:
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.open.editor,Open Declaration,
+		Open an editor on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.edit.text.java.open.editor"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.open.file.from.source,Open Selection,
+		Open an editor on the selected link,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.wst.sse.ui.open.file.from.source"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+Binding(F3,
+	ParameterizedCommand(Command(org.jkiss.dbeaver.core.sql.editor.open,SQL 편집기,
+		SQL 편집기 열기 (기존 편집기 또는 새로 열기),
+		Category(org.jkiss.dbeaver.core.database,데이터베이스 연결,데이터베이스 연결 명령어,true),
+		WorkbenchHandlerServiceHandler("org.jkiss.dbeaver.core.sql.editor.open"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.jkiss.dbeaver.ui.perspective,,,system)
+
+!ENTRY org.eclipse.ui.ide 4 4 2023-06-07 11:09:32.255
+!MESSAGE Not properly disposed SWT resource
+!STACK 0
+java.lang.Error: SWT Resource was not properly disposed
+	at org.eclipse.swt.graphics.Resource.initNonDisposeTracking(Resource.java:172)
+	at org.eclipse.swt.graphics.Resource.<init>(Resource.java:120)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:713)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:341)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:290)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:268)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getCompositeIcon(DBeaverIcons.java:170)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getIconDescriptor(DBeaverIcons.java:122)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getImage(DBeaverIcons.java:94)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.refreshEditorIconAndTitle(SQLEditor.java:2865)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.onDataSourceChange(SQLEditor.java:2781)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.lambda$27(SQLEditor.java:3010)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:12:04.423
+!MESSAGE SQL Error [937] [42000]: ORA-00937: not a single-group group function
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:12:04.423
+!MESSAGE Error : 937, Position : 72, Sql = -- ex) 사원 정보에서 부서별로 평균 급여를 확인
+SELECT deptno, ROUND( AVG(sal), 1) 평균급여 
+FROM EMP, OriginalSql = -- ex) 사원 정보에서 부서별로 평균 급여를 확인
+SELECT deptno, ROUND( AVG(sal), 1) 평균급여 
+FROM EMP, Error Msg = ORA-00937: not a single-group group function
+
+!STACK 0
+Error : 937, Position : 72, Sql = -- ex) 사원 정보에서 부서별로 평균 급여를 확인
+SELECT deptno, ROUND( AVG(sal), 1) 평균급여 
+FROM EMP, OriginalSql = -- ex) 사원 정보에서 부서별로 평균 급여를 확인
+SELECT deptno, ROUND( AVG(sal), 1) 평균급여 
+FROM EMP, Error Msg = ORA-00937: not a single-group group function
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:16:51.602
+!MESSAGE SQL Error [979] [42000]: ORA-00979: not a GROUP BY expression
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:16:51.602
+!MESSAGE Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, hiredate
+FROM emp
+GROUP BY job
+ORDER BY HIREDATE, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, hiredate
+FROM emp
+GROUP BY job
+ORDER BY HIREDATE, Error Msg = ORA-00979: not a GROUP BY expression
+
+!STACK 0
+Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, hiredate
+FROM emp
+GROUP BY job
+ORDER BY HIREDATE, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, hiredate
+FROM emp
+GROUP BY job
+ORDER BY HIREDATE, Error Msg = ORA-00979: not a GROUP BY expression
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:17:14.485
+!MESSAGE SQL Error [979] [42000]: ORA-00979: not a GROUP BY expression
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:17:14.485
+!MESSAGE Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, hiredate
+FROM emp
+GROUP BY job
+ORDER BY HIREDATE, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, hiredate
+FROM emp
+GROUP BY job
+ORDER BY HIREDATE, Error Msg = ORA-00979: not a GROUP BY expression
+
+!STACK 0
+Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, hiredate
+FROM emp
+GROUP BY job
+ORDER BY HIREDATE, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, hiredate
+FROM emp
+GROUP BY job
+ORDER BY HIREDATE, Error Msg = ORA-00979: not a GROUP BY expression
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:17:24.455
+!MESSAGE SQL Error [979] [42000]: ORA-00979: not a GROUP BY expression
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:17:24.455
+!MESSAGE Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, hiredate, job
+FROM emp
+GROUP BY job
+ORDER BY HIREDATE, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, hiredate, job
+FROM emp
+GROUP BY job
+ORDER BY HIREDATE, Error Msg = ORA-00979: not a GROUP BY expression
+
+!STACK 0
+Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, hiredate, job
+FROM emp
+GROUP BY job
+ORDER BY HIREDATE, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, hiredate, job
+FROM emp
+GROUP BY job
+ORDER BY HIREDATE, Error Msg = ORA-00979: not a GROUP BY expression
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:19:43.562
+!MESSAGE SQL Error [979] [42000]: ORA-00979: not a GROUP BY expression
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:19:43.562
+!MESSAGE Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 
+FROM emp
+GROUP BY job, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 
+FROM emp
+GROUP BY job, Error Msg = ORA-00979: not a GROUP BY expression
+
+!STACK 0
+Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 
+FROM emp
+GROUP BY job, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 
+FROM emp
+GROUP BY job, Error Msg = ORA-00979: not a GROUP BY expression
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:19:49.384
+!MESSAGE SQL Error [17439] [99999]: 부적합한 SQL 유형입니다: sqlKind = UNINITIALIZED
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:19:49.384
+!MESSAGE 부적합한 SQL 유형입니다: sqlKind = UNINITIALIZED
+!STACK 0
+java.sql.SQLException: 부적합한 SQL 유형입니다: sqlKind = UNINITIALIZED
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:79)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForRows(T4CStatement.java:896)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1119)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:19:50.823
+!MESSAGE SQL Error [979] [42000]: ORA-00979: not a GROUP BY expression
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:19:50.823
+!MESSAGE Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 
+FROM emp
+GROUP BY job, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 
+FROM emp
+GROUP BY job, Error Msg = ORA-00979: not a GROUP BY expression
+
+!STACK 0
+Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 
+FROM emp
+GROUP BY job, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 
+FROM emp
+GROUP BY job, Error Msg = ORA-00979: not a GROUP BY expression
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:20:15.632
+!MESSAGE SQL Error [979] [42000]: ORA-00979: not a GROUP BY expression
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:20:15.632
+!MESSAGE Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 
+FROM emp
+GROUP BY job
+ORDER BY job, HIREDATE, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 
+FROM emp
+GROUP BY job
+ORDER BY job, HIREDATE, Error Msg = ORA-00979: not a GROUP BY expression
+
+!STACK 0
+Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 
+FROM emp
+GROUP BY job
+ORDER BY job, HIREDATE, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 
+FROM emp
+GROUP BY job
+ORDER BY job, HIREDATE, Error Msg = ORA-00979: not a GROUP BY expression
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:21:29.077
+!MESSAGE SQL Error [979] [42000]: ORA-00979: not a GROUP BY expression
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:21:29.077
+!MESSAGE Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 입사일
+FROM emp
+GROUP BY job
+ORDER BY job, HIREDATE, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 입사일
+FROM emp
+GROUP BY job
+ORDER BY job, HIREDATE, Error Msg = ORA-00979: not a GROUP BY expression
+
+!STACK 0
+Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 입사일
+FROM emp
+GROUP BY job
+ORDER BY job, HIREDATE, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job, MIN(HIREDATE) 입사일
+FROM emp
+GROUP BY job
+ORDER BY job, HIREDATE, Error Msg = ORA-00979: not a GROUP BY expression
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:21:51.364
+!MESSAGE SQL Error [979] [42000]: ORA-00979: not a GROUP BY expression
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:21:51.364
+!MESSAGE Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job 직책, MIN(HIREDATE) 입사일
+FROM emp
+GROUP BY job
+ORDER BY job, HIREDATE, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job 직책, MIN(HIREDATE) 입사일
+FROM emp
+GROUP BY job
+ORDER BY job, HIREDATE, Error Msg = ORA-00979: not a GROUP BY expression
+
+!STACK 0
+Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job 직책, MIN(HIREDATE) 입사일
+FROM emp
+GROUP BY job
+ORDER BY job, HIREDATE, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job 직책, MIN(HIREDATE) 입사일
+FROM emp
+GROUP BY job
+ORDER BY job, HIREDATE, Error Msg = ORA-00979: not a GROUP BY expression
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:22:00.245
+!MESSAGE SQL Error [979] [42000]: ORA-00979: not a GROUP BY expression
+
+
+Error position: line: 45 pos: 107
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:22:00.245
+!MESSAGE SQL Error [979] [42000]: ORA-00979: not a GROUP BY expression
+
+!SUBENTRY 2 org.jkiss.dbeaver.model 4 0 2023-06-07 11:22:00.245
+!MESSAGE Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job 직책, MIN(HIREDATE) 입사일
+FROM emp
+GROUP BY job
+ORDER BY job, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job 직책, MIN(HIREDATE) 입사일
+FROM emp
+GROUP BY job
+ORDER BY job, Error Msg = ORA-00979: not a GROUP BY expression
+
+!STACK 0
+Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job 직책, MIN(HIREDATE) 입사일
+FROM emp
+GROUP BY job
+ORDER BY job, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job 직책, MIN(HIREDATE) 입사일
+FROM emp
+GROUP BY job
+ORDER BY job, Error Msg = ORA-00979: not a GROUP BY expression
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:22:35.668
+!MESSAGE SQL Error [979] [42000]: ORA-00979: not a GROUP BY expression
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:22:35.668
+!MESSAGE Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job 직책, MIN(HIREDATE) 입사일,
+		max(HIREDATE) 최근입사일
+FROM emp
+GROUP BY job
+ORDER BY job, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job 직책, MIN(HIREDATE) 입사일,
+		max(HIREDATE) 최근입사일
+FROM emp
+GROUP BY job
+ORDER BY job, Error Msg = ORA-00979: not a GROUP BY expression
+
+!STACK 0
+Error : 979, Position : 107, Sql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job 직책, MIN(HIREDATE) 입사일,
+		max(HIREDATE) 최근입사일
+FROM emp
+GROUP BY job
+ORDER BY job, OriginalSql = -- ex) 직책별 가장 먼저 입사한 입사일을 직책 A, B, C 순으로 정렬해서 출력
+SELECT ename, job 직책, MIN(HIREDATE) 입사일,
+		max(HIREDATE) 최근입사일
+FROM emp
+GROUP BY job
+ORDER BY job, Error Msg = ORA-00979: not a GROUP BY expression
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:26:03.622
+!MESSAGE SQL Error [933] [42000]: ORA-00933: SQL command not properly ended
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:26:03.622
+!MESSAGE Error : 933, Position : 187, Sql = -- ex) manager_id(관리자)별로 최고 급여(salary)를
+-- 		관리자id별로 정룔해서 출력
+SELECT manager_id, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID , OriginalSql = -- ex) manager_id(관리자)별로 최고 급여(salary)를
+-- 		관리자id별로 정룔해서 출력
+SELECT manager_id, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID , Error Msg = ORA-00933: SQL command not properly ended
+
+!STACK 0
+Error : 933, Position : 187, Sql = -- ex) manager_id(관리자)별로 최고 급여(salary)를
+-- 		관리자id별로 정룔해서 출력
+SELECT manager_id, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID , OriginalSql = -- ex) manager_id(관리자)별로 최고 급여(salary)를
+-- 		관리자id별로 정룔해서 출력
+SELECT manager_id, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID , Error Msg = ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 2 0 2023-06-07 11:26:03.772
+!MESSAGE Error positioning on query error
+!SUBENTRY 1 org.jkiss.dbeaver.model 2 0 2023-06-07 11:26:03.772
+!MESSAGE BadLocationException
+!STACK 0
+org.eclipse.jface.text.BadLocationException
+	at org.eclipse.jface.text.TreeLineTracker.fail(TreeLineTracker.java:1054)
+	at org.eclipse.jface.text.TreeLineTracker.lineByOffset(TreeLineTracker.java:268)
+	at org.eclipse.jface.text.TreeLineTracker.getLineNumberOfOffset(TreeLineTracker.java:1122)
+	at org.eclipse.jface.text.AbstractLineTracker.getLineNumberOfOffset(AbstractLineTracker.java:246)
+	at org.eclipse.jface.text.AbstractDocument.getLineOfOffset(AbstractDocument.java:872)
+	at org.eclipse.core.internal.filebuffers.SynchronizableDocument.getLineOfOffset(SynchronizableDocument.java:334)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditorBase.visualizeQueryErrors(SQLEditorBase.java:894)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$SQLEditorQueryListener.processQueryResult(SQLEditor.java:4271)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$SQLEditorQueryListener.lambda$4(SQLEditor.java:4244)
+	at org.jkiss.dbeaver.ui.UIUtils$8.runInUIThread(UIUtils.java:1669)
+	at org.jkiss.dbeaver.ui.AbstractUIJob.runInUIThread(AbstractUIJob.java:41)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:26:19.556
+!MESSAGE SQL Error [933] [42000]: ORA-00933: SQL command not properly ended
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:26:19.556
+!MESSAGE Error : 933, Position : 197, Sql = -- ex) manager_id(관리자)별로 최고 급여(salary)를
+-- 		관리자id별로 정룔해서 출력
+SELECT manager_id 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, OriginalSql = -- ex) manager_id(관리자)별로 최고 급여(salary)를
+-- 		관리자id별로 정룔해서 출력
+SELECT manager_id 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, Error Msg = ORA-00933: SQL command not properly ended
+
+!STACK 0
+Error : 933, Position : 197, Sql = -- ex) manager_id(관리자)별로 최고 급여(salary)를
+-- 		관리자id별로 정룔해서 출력
+SELECT manager_id 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, OriginalSql = -- ex) manager_id(관리자)별로 최고 급여(salary)를
+-- 		관리자id별로 정룔해서 출력
+SELECT manager_id 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, Error Msg = ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 2 0 2023-06-07 11:26:19.727
+!MESSAGE Error positioning on query error
+!SUBENTRY 1 org.jkiss.dbeaver.model 2 0 2023-06-07 11:26:19.727
+!MESSAGE BadLocationException
+!STACK 0
+org.eclipse.jface.text.BadLocationException
+	at org.eclipse.jface.text.TreeLineTracker.fail(TreeLineTracker.java:1054)
+	at org.eclipse.jface.text.TreeLineTracker.lineByOffset(TreeLineTracker.java:268)
+	at org.eclipse.jface.text.TreeLineTracker.getLineNumberOfOffset(TreeLineTracker.java:1122)
+	at org.eclipse.jface.text.AbstractLineTracker.getLineNumberOfOffset(AbstractLineTracker.java:246)
+	at org.eclipse.jface.text.AbstractDocument.getLineOfOffset(AbstractDocument.java:872)
+	at org.eclipse.core.internal.filebuffers.SynchronizableDocument.getLineOfOffset(SynchronizableDocument.java:334)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditorBase.visualizeQueryErrors(SQLEditorBase.java:894)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$SQLEditorQueryListener.processQueryResult(SQLEditor.java:4271)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$SQLEditorQueryListener.lambda$4(SQLEditor.java:4244)
+	at org.jkiss.dbeaver.ui.UIUtils$8.runInUIThread(UIUtils.java:1669)
+	at org.jkiss.dbeaver.ui.AbstractUIJob.runInUIThread(AbstractUIJob.java:41)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.jkiss.dbeaver.model 2 0 2023-06-07 11:32:33.669
+!MESSAGE Error positioning on query error
+!SUBENTRY 1 org.jkiss.dbeaver.model 2 0 2023-06-07 11:32:33.669
+!MESSAGE BadLocationException
+!STACK 0
+org.eclipse.jface.text.BadLocationException
+	at org.eclipse.jface.text.TreeLineTracker.fail(TreeLineTracker.java:1054)
+	at org.eclipse.jface.text.TreeLineTracker.lineByOffset(TreeLineTracker.java:268)
+	at org.eclipse.jface.text.TreeLineTracker.getLineNumberOfOffset(TreeLineTracker.java:1122)
+	at org.eclipse.jface.text.AbstractLineTracker.getLineNumberOfOffset(AbstractLineTracker.java:246)
+	at org.eclipse.jface.text.AbstractDocument.getLineOfOffset(AbstractDocument.java:872)
+	at org.eclipse.core.internal.filebuffers.SynchronizableDocument.getLineOfOffset(SynchronizableDocument.java:334)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditorBase.visualizeQueryErrors(SQLEditorBase.java:894)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$SQLEditorQueryListener.processQueryResult(SQLEditor.java:4271)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$SQLEditorQueryListener.lambda$4(SQLEditor.java:4244)
+	at org.jkiss.dbeaver.ui.UIUtils$8.runInUIThread(UIUtils.java:1669)
+	at org.jkiss.dbeaver.ui.AbstractUIJob.runInUIThread(AbstractUIJob.java:41)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:32:33.803
+!MESSAGE SQL Error [933] [42000]: ORA-00933: SQL command not properly ended
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:32:33.803
+!MESSAGE Error : 933, Position : 343, Sql = -- 그룹화된 데이터 중, 관리자를 기준으로 검색할 때와 그룹된 최고 급여를 기준으로 검색
+/*
+주의 사항 - where 조건문, 테이블의 데이터를 기준으로 조건을 비교/처리
+*/
+SELECT MANAGER_ID 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+WHERE MANAGER_ID >=130
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, OriginalSql = -- 그룹화된 데이터 중, 관리자를 기준으로 검색할 때와 그룹된 최고 급여를 기준으로 검색
+/*
+주의 사항 - where 조건문, 테이블의 데이터를 기준으로 조건을 비교/처리
+*/
+SELECT MANAGER_ID 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+WHERE MANAGER_ID >=130
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, Error Msg = ORA-00933: SQL command not properly ended
+
+!STACK 0
+Error : 933, Position : 343, Sql = -- 그룹화된 데이터 중, 관리자를 기준으로 검색할 때와 그룹된 최고 급여를 기준으로 검색
+/*
+주의 사항 - where 조건문, 테이블의 데이터를 기준으로 조건을 비교/처리
+*/
+SELECT MANAGER_ID 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+WHERE MANAGER_ID >=130
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, OriginalSql = -- 그룹화된 데이터 중, 관리자를 기준으로 검색할 때와 그룹된 최고 급여를 기준으로 검색
+/*
+주의 사항 - where 조건문, 테이블의 데이터를 기준으로 조건을 비교/처리
+*/
+SELECT MANAGER_ID 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+WHERE MANAGER_ID >=130
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, Error Msg = ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:32:40.445
+!MESSAGE SQL Error [933] [42000]: ORA-00933: SQL command not properly ended
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:32:40.445
+!MESSAGE Error : 933, Position : 345, Sql = -- 그룹화된 데이터 중, 관리자를 기준으로 검색할 때와 그룹된 최고 급여를 기준으로 검색
+/*
+주의 사항 - where 조건문, 테이블의 데이터를 기준으로 조건을 비교/처리
+*/
+SELECT MANAGER_ID 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES e
+WHERE MANAGER_ID >=130
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, OriginalSql = -- 그룹화된 데이터 중, 관리자를 기준으로 검색할 때와 그룹된 최고 급여를 기준으로 검색
+/*
+주의 사항 - where 조건문, 테이블의 데이터를 기준으로 조건을 비교/처리
+*/
+SELECT MANAGER_ID 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES e
+WHERE MANAGER_ID >=130
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, Error Msg = ORA-00933: SQL command not properly ended
+
+!STACK 0
+Error : 933, Position : 345, Sql = -- 그룹화된 데이터 중, 관리자를 기준으로 검색할 때와 그룹된 최고 급여를 기준으로 검색
+/*
+주의 사항 - where 조건문, 테이블의 데이터를 기준으로 조건을 비교/처리
+*/
+SELECT MANAGER_ID 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES e
+WHERE MANAGER_ID >=130
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, OriginalSql = -- 그룹화된 데이터 중, 관리자를 기준으로 검색할 때와 그룹된 최고 급여를 기준으로 검색
+/*
+주의 사항 - where 조건문, 테이블의 데이터를 기준으로 조건을 비교/처리
+*/
+SELECT MANAGER_ID 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES e
+WHERE MANAGER_ID >=130
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, Error Msg = ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 2 0 2023-06-07 11:32:40.601
+!MESSAGE Error positioning on query error
+!SUBENTRY 1 org.jkiss.dbeaver.model 2 0 2023-06-07 11:32:40.601
+!MESSAGE BadLocationException
+!STACK 0
+org.eclipse.jface.text.BadLocationException
+	at org.eclipse.jface.text.TreeLineTracker.fail(TreeLineTracker.java:1054)
+	at org.eclipse.jface.text.TreeLineTracker.lineByOffset(TreeLineTracker.java:268)
+	at org.eclipse.jface.text.TreeLineTracker.getLineNumberOfOffset(TreeLineTracker.java:1122)
+	at org.eclipse.jface.text.AbstractLineTracker.getLineNumberOfOffset(AbstractLineTracker.java:246)
+	at org.eclipse.jface.text.AbstractDocument.getLineOfOffset(AbstractDocument.java:872)
+	at org.eclipse.core.internal.filebuffers.SynchronizableDocument.getLineOfOffset(SynchronizableDocument.java:334)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditorBase.visualizeQueryErrors(SQLEditorBase.java:894)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$SQLEditorQueryListener.processQueryResult(SQLEditor.java:4271)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$SQLEditorQueryListener.lambda$4(SQLEditor.java:4244)
+	at org.jkiss.dbeaver.ui.UIUtils$8.runInUIThread(UIUtils.java:1669)
+	at org.jkiss.dbeaver.ui.AbstractUIJob.runInUIThread(AbstractUIJob.java:41)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:32:53.063
+!MESSAGE SQL Error [933] [42000]: ORA-00933: SQL command not properly ended
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:32:53.063
+!MESSAGE Error : 933, Position : 92, Sql = SELECT MANAGER_ID 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, OriginalSql = SELECT MANAGER_ID 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, Error Msg = ORA-00933: SQL command not properly ended
+
+!STACK 0
+Error : 933, Position : 92, Sql = SELECT MANAGER_ID 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, OriginalSql = SELECT MANAGER_ID 관리자, MAX(SALARY) 최고급여
+FROM EMPLOYEES
+ORDER BY MANAGER_ID
+GROUP BY MANAGER_ID, Error Msg = ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:34:39.970
+!MESSAGE Transaction log is not available.
+Connect to a database.
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:38:32.273
+!MESSAGE SQL Error [937] [42000]: ORA-00937: not a single-group group function
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 11:38:32.273
+!MESSAGE Error : 937, Position : 141, Sql = -- ex) 부서 번호 별로 최고급여를 출력, 부서번호는 10, 20만 
+-- 		최고 급여는 4000이상 데이터를 검색
+SELECT deptno 부서번호, max(sal)
+FROM emp, OriginalSql = -- ex) 부서 번호 별로 최고급여를 출력, 부서번호는 10, 20만 
+-- 		최고 급여는 4000이상 데이터를 검색
+SELECT deptno 부서번호, max(sal)
+FROM emp, Error Msg = ORA-00937: not a single-group group function
+
+!STACK 0
+Error : 937, Position : 141, Sql = -- ex) 부서 번호 별로 최고급여를 출력, 부서번호는 10, 20만 
+-- 		최고 급여는 4000이상 데이터를 검색
+SELECT deptno 부서번호, max(sal)
+FROM emp, OriginalSql = -- ex) 부서 번호 별로 최고급여를 출력, 부서번호는 10, 20만 
+-- 		최고 급여는 4000이상 데이터를 검색
+SELECT deptno 부서번호, max(sal)
+FROM emp, Error Msg = ORA-00937: not a single-group group function
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 2 0 2023-06-07 11:38:32.420
+!MESSAGE Error positioning on query error
+!SUBENTRY 1 org.jkiss.dbeaver.model 2 0 2023-06-07 11:38:32.420
+!MESSAGE BadLocationException
+!STACK 0
+org.eclipse.jface.text.BadLocationException
+	at org.eclipse.jface.text.TreeLineTracker.fail(TreeLineTracker.java:1054)
+	at org.eclipse.jface.text.TreeLineTracker.lineByOffset(TreeLineTracker.java:268)
+	at org.eclipse.jface.text.TreeLineTracker.getLineNumberOfOffset(TreeLineTracker.java:1122)
+	at org.eclipse.jface.text.AbstractLineTracker.getLineNumberOfOffset(AbstractLineTracker.java:246)
+	at org.eclipse.jface.text.AbstractDocument.getLineOfOffset(AbstractDocument.java:872)
+	at org.eclipse.core.internal.filebuffers.SynchronizableDocument.getLineOfOffset(SynchronizableDocument.java:334)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditorBase.visualizeQueryErrors(SQLEditorBase.java:894)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$SQLEditorQueryListener.processQueryResult(SQLEditor.java:4271)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$SQLEditorQueryListener.lambda$4(SQLEditor.java:4244)
+	at org.jkiss.dbeaver.ui.UIUtils$8.runInUIThread(UIUtils.java:1669)
+	at org.jkiss.dbeaver.ui.AbstractUIJob.runInUIThread(AbstractUIJob.java:41)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 11:44:59.804
+!MESSAGE No active connection
+
+!ENTRY org.eclipse.ui.ide 4 4 2023-06-07 11:45:39.217
+!MESSAGE Not properly disposed SWT resource
+!STACK 0
+java.lang.Error: SWT Resource was not properly disposed
+	at org.eclipse.swt.graphics.Resource.initNonDisposeTracking(Resource.java:172)
+	at org.eclipse.swt.graphics.Resource.<init>(Resource.java:120)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:713)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:341)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:290)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:268)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getCompositeIcon(DBeaverIcons.java:170)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getIconDescriptor(DBeaverIcons.java:122)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getImage(DBeaverIcons.java:94)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.refreshEditorIconAndTitle(SQLEditor.java:2865)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.onDataSourceChange(SQLEditor.java:2781)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.lambda$27(SQLEditor.java:3010)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.ui.ide 4 4 2023-06-07 11:46:45.698
+!MESSAGE Not properly disposed SWT resource
+!STACK 0
+java.lang.Error: SWT Resource was not properly disposed
+	at org.eclipse.swt.graphics.Resource.initNonDisposeTracking(Resource.java:172)
+	at org.eclipse.swt.graphics.Resource.<init>(Resource.java:120)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:713)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:341)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:290)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:268)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getCompositeIcon(DBeaverIcons.java:170)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getIconDescriptor(DBeaverIcons.java:122)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getImage(DBeaverIcons.java:94)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.refreshEditorIconAndTitle(SQLEditor.java:2865)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.onDataSourceChange(SQLEditor.java:2781)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.lambda$27(SQLEditor.java:3010)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-07 12:03:06.491
+!MESSAGE SQL Error [960] [42000]: ORA-00960: ambiguous column naming in select list
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2023-06-07 12:03:06.491
+!MESSAGE Error : 960, Position : 42, Sql = SELECT deptno, e.* 
+FROM emp e
+ORDER by DEPTNO , OriginalSql = SELECT deptno, e.* 
+FROM emp e
+ORDER by DEPTNO , Error Msg = ORA-00960: ambiguous column naming in select list
+
+!STACK 0
+Error : 960, Position : 42, Sql = SELECT deptno, e.* 
+FROM emp e
+ORDER by DEPTNO , OriginalSql = SELECT deptno, e.* 
+FROM emp e
+ORDER by DEPTNO , Error Msg = ORA-00960: ambiguous column naming in select list
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:213)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:37)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:733)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1737)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1692)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:300)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:96)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:582)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:498)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:934)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3865)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

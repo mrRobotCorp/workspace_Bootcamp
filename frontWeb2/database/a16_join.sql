@@ -92,9 +92,57 @@ FROM EMP e , SALGRADE s
 WHERE sal BETWEEN losal AND hisal 
 AND job= 'SALESMAN';
 
+-- 사원 정보 중 최고 급여자의 사원 정보 출력
+SELECT max(sal)
+FROM emp ;
 
+SELECT *
+FROM EMP
+--WHERE sal = 5000;
+WHERE sal = (
+	SELECT max(sal)
+	FROM emp 
+);
 
+-- ex) 사원번호가 가장 낮은 사원의 정보 출력
+SELECT *
+FROM EMP
+WHERE empno = (
+	SELECT min(empno)
+	FROM emp
+);
 
+-- ex) 사원중에서 가장 최근에 입사한 사원의 정보 출력
+SELECT *
+FROM emp
+WHERE hiredate = (
+	SELECT max(HIREDATE)
+	FROM emp
+);
+
+-- view : 가상 테이블, inline view(sql을 통해서 테이블 형태와 같이 바로 처리하는 것을 말함)
+SELECT *
+FROM EMP e ,
+(	
+	SELECT max(sal) SAL
+	FROM emp
+) me
+WHERE e.sal = me.sal;
+
+-- 부서 별 최고 급여자에 대한 정보를 출력
+SELECT deptno, max(sal)
+FROM emp
+GROUP BY deptno;
+
+SELECT *
+FROM emp,
+(
+	SELECT deptno, max(sal) sal
+	FROM emp
+	GROUP BY deptno
+) me
+WHERE e.deptno= me.deptno
+AND e.deptno = me.sal;
 
 
 

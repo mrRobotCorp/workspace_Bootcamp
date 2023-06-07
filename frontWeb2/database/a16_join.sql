@@ -134,15 +134,31 @@ SELECT deptno, max(sal)
 FROM emp
 GROUP BY deptno;
 
-SELECT *
-FROM emp,
+SELECT e.*
+FROM emp e,
 (
 	SELECT deptno, max(sal) sal
 	FROM emp
 	GROUP BY deptno
 ) me
 WHERE e.deptno= me.deptno
-AND e.deptno = me.sal;
+AND e.sal = me.sal
+ORDER BY e.DEPTNO;
+
+-- ex) 직책 별 (job) 가장 최근에 입사한 사원의 정보 출력
+SELECT max(hiredate) hiredate
+FROM emp;
+
+SELECT *
+FROM EMP e,
+(
+	SELECT job, max(hiredate) hiredate
+	FROM emp
+	GROUP BY job
+) me
+WHERE e.job = me.job
+AND e.HIREDATE = me.HIREDATE
+ORDER BY empno;
 
 
 

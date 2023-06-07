@@ -2125,3 +2125,6 @@ GROUP BY DEPARTMENT_name, Error Msg = ORA-00979: not a GROUP BY expression
 	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5092)
 	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 2 0 2023-06-07 17:55:47.520
+!MESSAGE Some data source listeners are still registered: [org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer@2a4ab692, org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer@175d61cc, org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer@33281acd, org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer@224ab5d8]

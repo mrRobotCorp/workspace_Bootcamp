@@ -66,13 +66,15 @@ GROUP BY job;
 
 SELECT * FROM emp;
 
-SELECT ename, deptno, e.SAL
+SELECT *
 FROM EMP e,
 (
-	SELECT max(sal) sal
+	SELECT DEPTNO, max(sal) sal
 	FROM emp
+	GROUP BY deptno
 ) me
-WHERE e.sal = me.sal;
+WHERE e.deptno = me.deptno
+AND e.sal = me.sal;
 
 --2. Subquery 연습 예제:
 --   2.1 급여가 평균 급여보다 많이 받는 사원들의 이름과 급여를 찾으시오.
@@ -93,14 +95,27 @@ FROM EMP e ,
 	WHERE ename = 'SMITH'
 ) me
 WHERE e.sal > me.sal;
+-- or
+SELECT ename, e.sal
+FROM EMP e
+WHERE e.sal > (SELECT sal FROM emp WHERE ename = 'SMITH');
 
 --3. Outer Join 연습 예제:
 --   3.1 사원들의 이름과 부서 이름을 가져오시오. (부서에 할당되지 않은 사원도 포함)
 --   3.2 각 부서별로 최대 급여를 받는 사원의 이름을 가져오시오. (부서에 할당되지 않은 사원도 포함)
-
+-- 사원 1000 사원명 null/50
+--		null 뿐만 아니라 부서정보에 없는 사원의 부서번호도 포함
+-- outer join null이 나올 수 있는 테이블과 컬럼에 (+)를 처리
 SELECT e.FIRST_NAME , d.DEPARTMENT_NAME 
 FROM EMPLOYEES e, DEPARTMENTS d ;
 
+-- correct
+SELECT e.ename, d.dname
+FROM emp e, dept d
+WHERE e.DEPTNO(+) = d.DEPTNO 
+AND sal = (SELECT max(sal) FROM emp WHERE DEPTNO = d.DEPTNO);
+
+-- wrong
 SELECT e.first_name, d.DEPARTMENT_NAME, e.SALARY 
 FROM EMPLOYEES e, DEPARTMENTS d,
 (
@@ -116,11 +131,12 @@ WHERE e.SALARY = me.salary;
 SELECT ename, e.sal
 FROM EMP e,
 (
-	SELECT max(sal) sal
+	SELECT job, max(sal) sal
 	FROM emp
 	GROUP BY job
 ) me
-WHERE e.sal = me.sal;
+WHERE e.JOB = me.job
+AND e.sal = me.sal;
 
 SELECT ename, e.sal
 FROM EMP e ,
@@ -168,6 +184,17 @@ WHERE e.sal=d.sal AND e.job=d.job;
 SELECT deptno, min(sal) FROM emp GROUP BY deptno ORDER BY deptno;
 SELECT e.ename, e.deptno, d.sal FROM emp e, (SELECT deptno, min(sal) sal FROM emp GROUP BY deptno ORDER BY deptno) d
 WHERE e.sal=d.sal ORDER BY deptno;
+
+--------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 
 

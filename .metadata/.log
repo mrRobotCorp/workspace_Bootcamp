@@ -9080,3 +9080,675 @@ Caused by: java.io.FileNotFoundException: C:\Program Files\Git\mingw64\share\git
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:111)
 	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:181)
 	... 76 more
+
+!ENTRY org.eclipse.jface 2 0 2023-06-08 16:19:59.107
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-06-08 16:19:59.107
+!MESSAGE A conflict occurred for CTRL+F3:
+Binding(CTRL+F3,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.java.open.structure,Open Structure,
+		Show the structure of the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.java.open.structure"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(CTRL+F3,
+	ParameterizedCommand(Command(org.jkiss.dbeaver.core.sql.editor.create,새 SQL 편집기,
+		새 SQL 편집기 열기 (새 스크립트 생성),
+		Category(org.jkiss.dbeaver.core.database,데이터베이스 연결,데이터베이스 연결 명령어,true),
+		WorkbenchHandlerServiceHandler("org.jkiss.dbeaver.core.sql.editor.create"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.jkiss.dbeaver.ui.perspective,,,system)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:21:01.590
+!MESSAGE No active connection
+
+!ENTRY org.eclipse.ui.ide 4 4 2023-06-08 16:22:33.693
+!MESSAGE Not properly disposed SWT resource
+!STACK 0
+java.lang.Error: SWT Resource was not properly disposed
+	at org.eclipse.swt.graphics.Resource.initNonDisposeTracking(Resource.java:172)
+	at org.eclipse.swt.graphics.Resource.<init>(Resource.java:120)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:713)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:341)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:290)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:268)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getCompositeIcon(DBeaverIcons.java:170)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getIconDescriptor(DBeaverIcons.java:122)
+	at org.jkiss.dbeaver.ui.DBeaverIcons.getImage(DBeaverIcons.java:94)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.refreshEditorIconAndTitle(SQLEditor.java:2865)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.onDataSourceChange(SQLEditor.java:2781)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.lambda$27(SQLEditor.java:3010)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:05.658
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:287)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:05.664
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:287)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:05.671
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:05.679
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:05.779
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:287)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:05.786
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:287)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:05.793
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:05.799
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:05.900
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:287)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:05.908
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:287)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:05.915
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:05.922
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:06.000
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:287)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:06.006
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:287)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:06.013
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:06.019
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:08.958
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:08.964
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:42.443
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:42.450
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:51.479
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:23:51.485
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:25:37.371
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:25:37.378
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:26:02.812
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:26:02.820
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:26:05.710
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:26:05.716
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:26:11.263
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:105)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2023-06-08 16:26:11.271
+!MESSAGE TABLE 'EMP11' not found in schema 'SCOTT'
+!STACK 0
+org.jkiss.dbeaver.DBException: TABLE 'EMP11' not found in schema 'SCOTT'
+	at org.jkiss.dbeaver.ext.oracle.model.OracleStructureAssistant$2.resolveObject(OracleStructureAssistant.java:334)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByPath(SQLSearchUtils.java:176)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:122)
+	at org.jkiss.dbeaver.model.sql.SQLSearchUtils.findObjectByFQN(SQLSearchUtils.java:65)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.getTableFromAlias(SQLCompletionAnalyzer.java:935)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:294)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.runAnalyzer(SQLCompletionAnalyzer.java:103)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:87)
+	at org.jkiss.dbeaver.model.sql.completion.SQLCompletionAnalyzer.run(SQLCompletionAnalyzer.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLCompletionProcessor$ProposalSearchJob.run(SQLCompletionProcessor.java:334)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.ui.ide 4 4 2023-06-08 17:15:14.743
+!MESSAGE Not properly disposed SWT resource
+!STACK 0
+java.lang.Error: SWT Resource was not properly disposed
+	at org.eclipse.swt.graphics.Resource.initNonDisposeTracking(Resource.java:172)
+	at org.eclipse.swt.graphics.Resource.<init>(Resource.java:120)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:668)
+	at org.eclipse.jface.resource.URLImageDescriptor.createImage(URLImageDescriptor.java:241)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:290)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:268)
+	at org.eclipse.jst.jee.ui.internal.navigator.web.WebAppProvider.getWeb40Image(WebAppProvider.java:170)
+	at org.eclipse.jst.jee.ui.internal.navigator.web.WebAppProvider.getImage(WebAppProvider.java:112)
+	at org.eclipse.jst.jee.ui.internal.navigator.Web25LabelProvider.getImage(Web25LabelProvider.java:47)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceLabelProvider.findImage(NavigatorContentServiceLabelProvider.java:204)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceLabelProvider.getColumnImage(NavigatorContentServiceLabelProvider.java:112)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceLabelProvider.getImage(NavigatorContentServiceLabelProvider.java:104)
+	at org.eclipse.ui.internal.navigator.NavigatorDecoratingLabelProvider$StyledLabelProviderAdapter.getImage(NavigatorDecoratingLabelProvider.java:63)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.getImage(DelegatingStyledCellLabelProvider.java:198)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider.getImage(DecoratingStyledCellLabelProvider.java:171)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.update(DelegatingStyledCellLabelProvider.java:124)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider.update(DecoratingStyledCellLabelProvider.java:134)
+	at org.eclipse.jface.viewers.ViewerColumn.refresh(ViewerColumn.java:144)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:970)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$UpdateItemSafeRunnable.run(AbstractTreeViewer.java:126)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:174)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:1048)
+	at org.eclipse.jface.viewers.StructuredViewer$UpdateItemSafeRunnable.run(StructuredViewer.java:427)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:174)
+	at org.eclipse.jface.viewers.StructuredViewer.updateItem(StructuredViewer.java:2107)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createTreeItem(AbstractTreeViewer.java:864)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createAddedElements(AbstractTreeViewer.java:433)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalAdd(AbstractTreeViewer.java:289)
+	at org.eclipse.jface.viewers.TreeViewer.internalAdd(TreeViewer.java:630)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.add(AbstractTreeViewer.java:167)
+	at org.eclipse.ui.navigator.CommonViewer.add(CommonViewer.java:305)
+	at org.eclipse.jst.j2ee.navigator.internal.ClearPlaceHolderJob.runInUIThread(ClearPlaceHolderJob.java:42)
+	at org.eclipse.jst.jee.ui.internal.navigator.ClearJeePlaceHolderJob.runInUIThread(ClearJeePlaceHolderJob.java:32)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)

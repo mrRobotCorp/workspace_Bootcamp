@@ -138,16 +138,37 @@ FROM EMP e,
 WHERE e.JOB = me.job
 AND e.sal = me.sal;
 
-SELECT ename, e.sal
+SELECT ename, d.DNAME 
 FROM EMP e ,
 (
-	SELECT min(sal) sal
-	FROM emp
-	GROUP BY deptno
-) me
-WHERE e.sal = me.sal;
+	SELECT dname, min(sal) sal
+	FROM emp e, dept d
+	WHERE e.deptno = d.deptno
+	GROUP BY dname
+) d
+WHERE e.deptno = d.deptno
+AND e.sal = d.sal;
 
---예제0607
+SELECT e.ename, d.dname
+FROM EMP e , DEPT d 
+WHERE e.deptno = d.DEPTNO 
+AND sal = (SELECT min(sal) FROM emp WHERE deptno = e.deptno);
+
+SELECT e.ename, e.dname, e.sal
+FROM (
+	SELECT ename, dname, e.deptno, sal
+	FROM emp e, dept d
+	WHERE e.deptno = d.DEPTNO 
+	) e,
+(
+	SELECT deptno, min(sal) sal
+	FROM emp e
+	GROUP BY e.DEPTNO 
+) d
+WHERE e.deptno = d.deptno
+AND e.sal = d.sal;
+
+-- team 문제 풀이---------------------------------------------
 --1. Group 함수 연습 예제:
 --   1.1 직업별로 평균 급여를 계산하시오.
 

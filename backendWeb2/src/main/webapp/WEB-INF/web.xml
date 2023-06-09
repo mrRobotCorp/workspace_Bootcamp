@@ -49,4 +49,14 @@
     <servlet-name>A04_Servlet_html</servlet-name>
     <url-pattern>/A04_Servlet_html</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ex0609</display-name>
+    <servlet-name>ex0609</servlet-name>
+    <servlet-class>backendWeb2.a01_servlet.ex0609</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ex0609</servlet-name>
+    <url-pattern>/ex0609</url-pattern>
+  </servlet-mapping>
 </web-app>

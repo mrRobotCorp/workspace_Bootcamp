@@ -90,14 +90,7 @@ SELECT *
 FROM EMP e
 WHERE sal = (SELECT max(sal) FROM EMP
 				WHERE deptno = e.deptno);
-			
-------------------------------------------------------
-/*
-
-
-
-
-*/
+		
 			
 CREATE TABLE emp11
 AS SELECT * FROM emp;
@@ -118,7 +111,7 @@ WHERE empno = 2000;
 
 --4. EMP 테이블에서 사원들의 급여를 10% 인상하는 SQL 문을 작성해보세요. 
 UPDATE emp11
-SET sal = sal + (sal *0.1);
+SET sal = sal * 1.1;
 
 --5. 새로운 사원 정보를 추가하고, 바로 롤백하여 원래 상태로 돌리는 SQL 문을 작성해보세요. 
 INSERT INTO emp11(ename, empno, job, sal) VALUES ('Kevin', 2000, '과장', 5000);

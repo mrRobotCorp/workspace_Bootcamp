@@ -405,6 +405,40 @@ public class A04_PreParedDao {
 		return isDelete;
 	}
 
+	public Employee getEmpList(String id) {
+		Employee emp = null;
+		String sql = "SELECT * FROM EMPLOYEES WHERE employee_id = ?";
+	    try {
+	        con = DB.con();
+	        // 초기에 sql을 넘기면서 pstmt 객체 생성
+			pstmt = con.prepareStatement(sql);
+	        rs = pstmt.executeQuery();
+	
+	        while (rs.next()) {
+	            emp = new Employee(
+	                    rs.getInt("employee_id"),
+	                    rs.getString("first_name"),
+	                    rs.getString("last_name"),
+	                    rs.getString("email"),
+	                    rs.getString("phone_number"),
+	                    rs.getDate("hire_date"),
+	                    rs.getString("job_id"),
+	                    rs.getDouble("salary"),
+	                    rs.getDouble("commission_pct"),
+	                    rs.getInt("manager_id"),
+	                    rs.getInt("department_id")
+	            );
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("DB 관련 오류: " + e.getMessage());
+	    } catch (Exception e) {
+	        System.out.println("일반 오류: " + e.getMessage());
+	    } finally {
+	        DB.close(rs, pstmt, con);
+	    }
+	    return emp;
+	}
+
 	public static void main(String[] args) {
 		A04_PreParedDao dao = new A04_PreParedDao();
 		

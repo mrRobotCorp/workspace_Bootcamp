@@ -98,6 +98,7 @@
 	 	}
 	 %>
 	 
+	 <p>랜덤 수 : <%=ranNum %></p>
 	 <p>운 결과 : <%=txt %></p>
 	 
 
@@ -113,7 +114,7 @@
 	String ageResult = "";
 	if(ranAge <= 13) {
 		ageResult = "어린이 사이트입니다.";
-	} else if( ranAge <=18 ) {
+	} else if( ranAge <18 ) {
 		ageResult = "어린이 사이트입니다.";
 	} else if( ranAge <=65 ) {
 		ageResult = "일반 사이트입니다.";
@@ -122,7 +123,10 @@
 	}
 	%>
 	
+	<h4>랜덤 나이 : <%=ranAge%></h5>
 	<h4>랜덤 나이 결과 : <%=ageResult %></h5>
+	
+
 
 
 

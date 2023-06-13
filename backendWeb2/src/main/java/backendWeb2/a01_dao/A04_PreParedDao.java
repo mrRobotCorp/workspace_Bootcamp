@@ -439,6 +439,33 @@ public class A04_PreParedDao {
 	    }
 	    return emp;
 	}
+	
+	public List<Jobs> getJob() {
+	    List<Jobs> jlist = new ArrayList<>();
+	    String sql = "SELECT * from jobs";
+	    try {
+	        con = DB.con();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+		
+	        while (rs.next()) {
+	        	jlist.add(new Jobs(
+	        			rs.getString("job_id"),
+	        			rs.getString("job_title"),
+	                    rs.getInt("min_salary"),
+	                    rs.getInt("max_salary")
+	            ));
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("DB 관련 오류: " + e.getMessage());
+	    } catch (Exception e) {
+	        System.out.println("일반 오류: " + e.getMessage());
+	    } finally {
+	        DB.close(rs, pstmt, con);
+	    }
+	    return jlist;
+	}
 
 	public List<Manager> getManager() {
 	    List<Manager> elist = new ArrayList<>();

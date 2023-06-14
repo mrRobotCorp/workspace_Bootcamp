@@ -84,7 +84,7 @@ main.jsp, bottom.jsp에서 호출하는 것을 처리해보세요.
 	 if(point1 != null && point2 != null) {
 		 p01 = Integer.parseInt(point1);
 		 p02 = Integer.parseInt(point2);
-		 result = p01 / p02;
+		 result = (double) p01 / p02;
 	 }
 	 
 	 %>

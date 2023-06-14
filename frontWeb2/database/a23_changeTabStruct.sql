@@ -1,0 +1,13 @@
+DROP TABLE student08;
+DROP SEQUENCE seq01;
+SELECT * FROM STUDENT01 s ;
+
+ALTER TABLE student01
+ADD sno NUMBER;
+
+
+
+
+
+
+

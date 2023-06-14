@@ -84,6 +84,26 @@ INSERT INTO EMPLOYEES02 VALUES(NULL);
 
 SELECT * FROM EMPLOYEES02;
 
+-- ex) product02 테이블에 pid(물건 식별자 -), 물건명(not null),
+-- 		가격 설정하여 sys.all_constraints 테이블 확인, 입력 처리
+SELECT * FROM PROD p;
+
+CREATE TABLE prod02(
+	pid number(10) PRIMARY KEY,
+	pname varchar(30) CONSTRAINTS prod02_pname_nn NOT NULL,
+	price number(10) 
+);
+
+SELECT *
+FROM sys.all_constraints
+WHERE table_name LIKE 'prod02';
+
+INSERT INTO prod02 VALUES (101, 'cookie', 3000);
+INSERT INTO prod02 VALUES (102, 'coffee', 1600);
+INSERT INTO prod02 VALUES (103, 'cake', 5500);
+INSERT INTO prod02(pid, pname) VALUES (104, 'spoon');
+
+SELECT * FROM prod02;
 
 
 

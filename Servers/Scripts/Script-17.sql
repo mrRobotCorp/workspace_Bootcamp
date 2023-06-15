@@ -63,7 +63,7 @@ SELECT *
 FROM sys.all_constraints
 WHERE table_name LIKE 'emp14';
 
- 
+
 
 
 

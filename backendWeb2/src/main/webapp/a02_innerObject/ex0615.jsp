@@ -11,6 +11,8 @@
 	?price=3000&cnt=3&price....
 	[1단계:코드] 4. 깁밥의 가격과 갯수를 3종류를 요청값으로 받아서 해당 내용의 계산 결과를 
 	테이블에 총비용과 함께 출력하세요.
+	
+	장바구니에서 최종 결제할 내용을 check한 후, 결제 내역을 출력에서 화면에 표시
 	 --%>
 	 <%
 	 String []priceS = request.getParameterValues("price");

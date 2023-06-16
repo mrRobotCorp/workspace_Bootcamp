@@ -13,8 +13,10 @@
 </head>
 <body>
 	<%
-	Member m = new Member("himan", "7777", "Elliot", "admin", 8000);
+	//Member m = new Member("himan", "7777", "Elliot", "admin", 8000);
 	%>
+	<!-- 
+	
 	<h3>내 정보 화면</h3>
 	<table border>
 		<col width="30%">
@@ -46,5 +48,6 @@
 			</td>
 		</tr>
 	</table>
+	 -->
 </body>
 </html>

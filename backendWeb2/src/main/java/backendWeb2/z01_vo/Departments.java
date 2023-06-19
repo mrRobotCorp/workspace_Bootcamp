@@ -1,10 +1,11 @@
 package backendWeb2.z01_vo;
-
+// backendWeb2.z01_vo.Departments
 public class Departments {
 	private int d_id;
 	private String d_name;
 	private int manager_id;
 	private double loc_id;
+	
 	public int getD_id() {
 		return d_id;
 	}

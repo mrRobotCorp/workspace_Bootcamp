@@ -1,5 +1,5 @@
 package backendWeb2.z01_vo;
-
+// backendWeb2.z01_vo.Product
 public class Product {
 	private String pname;
 	private int price;
@@ -34,6 +34,13 @@ public class Product {
 		this.price = price;
 		this.cnt = cnt;
 		this.pinfo = pinfo;
+	}
+	
+	
+	public Product(String pname, int price, int cnt) {
+		this.pname = pname;
+		this.price = price;
+		this.cnt = cnt;
 	}
 	public Product() {
 		// TODO Auto-generated constructor stub

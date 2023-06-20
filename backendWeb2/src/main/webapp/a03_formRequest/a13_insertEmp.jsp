@@ -34,6 +34,8 @@
 	if(commS != null ) commDou = Double.parseDouble(commS);
 	if(deptnoS != null ) deptInt = Integer.parseInt(deptnoS);
 	
+	// VO객체에 만들어서 처리하면 이후에 DB연동이나 필요에 따라 효과적인 처리 가능
+	// 1. 생성자에 type에 맞는 순서 확인
 	Emp em = new Emp(num01, eMem, jobS, mrgInt, hired, salDou, commDou, deptInt);
 	%>
 	

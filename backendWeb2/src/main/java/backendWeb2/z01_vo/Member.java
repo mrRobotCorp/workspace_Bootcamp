@@ -1,5 +1,5 @@
 package backendWeb2.z01_vo;
-
+// backendWeb2.z01_vo.Member
 import java.util.Date;
 
 public class Member {

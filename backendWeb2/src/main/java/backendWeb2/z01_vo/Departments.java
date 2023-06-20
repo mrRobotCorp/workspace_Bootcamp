@@ -27,6 +27,11 @@ public class Departments {
 	public double getLoc_id() {
 		return loc_id;
 	}
+	public Departments(int d_id, String d_name, double loc_id) {
+		this.d_id = d_id;
+		this.d_name = d_name;
+		this.loc_id = loc_id;
+	}
 	public void setLoc_id(double loc_id) {
 		this.loc_id = loc_id;
 	}

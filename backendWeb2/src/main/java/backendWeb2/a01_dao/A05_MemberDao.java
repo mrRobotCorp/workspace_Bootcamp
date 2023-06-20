@@ -1,5 +1,5 @@
 package backendWeb2.a01_dao;
-// frontWeb2 A05_MemberDao
+// backendWeb2.a01_dao.A05_MemberDao
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +12,41 @@ public class A05_MemberDao {
 	private Connection con;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
+	
+//	public List<Member> mlist() {
+//		List<Member> memlist = new ArrayList<Member>();
+//		String sql = "SELECT * FROM member02\r\n"
+//				+ "WHERE reg";
+//	
+//		try {
+//			con = DB.con();
+//			pstmt = con.prepareStatement(sql);
+//			pstmt.setString(1, id);
+//			pstmt.setString(2, pass);
+//			rs = pstmt.executeQuery();
+//			
+//			// ResultSet -> VO 단일(if)/여러 개(while)
+//			if(rs.next()) {
+//				mem = new Member(
+//						rs.getString(1),
+//						rs.getString(2),
+//						rs.getString(3),
+//						rs.getInt(4),
+//						rs.getString(5),
+//						rs.getDate(6)
+//					);
+//			}
+//		
+//		} catch (SQLException e) {
+//			System.out.println("DB 예외 : " + e.getMessage());
+//
+//		} catch(Exception e) {
+//			System.out.println("일반 예외 : " + e.getMessage());
+//		} finally {
+//			DB.close(rs, pstmt, con);
+//		}
+//		return memlist;
+//	}
 	
 	public Member login(String id, String pass) {
 		Member mem = null;		

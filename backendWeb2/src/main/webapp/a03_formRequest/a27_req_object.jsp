@@ -83,7 +83,7 @@
                </tr>
           </thead>
           <tbody>
-          <% for(Member m:dao.mlist()) {
+          <% 
         	%>
                <tr>
                  <td><%= ""%></td>
@@ -92,7 +92,7 @@
                  <td><%= ""%></td>
                  <td><%= ""%></td>
                </tr>
-          <%} %>
+          <% %>
           </tbody>
         </table> 
      </div>

@@ -4,8 +4,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
+import backendWeb2.z01_vo.Emp;
 
+// backendWeb2.a01_dao.A02_EmpDao
 
 public class A02_EmpDao {
 	//1. 필드선언(핵심 내장 객체)
@@ -18,7 +22,8 @@ public class A02_EmpDao {
 	
 	//2. 기능 메서드 선언..
 	//	1) 사원 전체 정보 출력..
-	public void empListAll() {
+	public List<Emp> empListAll() {
+			List<Emp> elist = new ArrayList<>();
 			// # 전체적으로 예외 처리.
 			// 연결
 			try {
@@ -29,14 +34,22 @@ public class A02_EmpDao {
 				stmt = con.createStatement();
 				// 결과(ResultSet)
 				rs = stmt.executeQuery(sql);
-				int row=1;
 				while(rs.next()) { // 행단위로 이동 다음 행이 없을 떄까지
-					System.out.print("행번호:"+row++);
-					System.out.print("\t"+rs.getInt("empno"));
-					System.out.print("\t"+rs.getString("ename"));
-					System.out.print("\t"+rs.getInt("mgr"));
-					System.out.println("\t"+rs.getDouble("sal"));
-					// ex) 사원명과 관리자번호, 급여  출력해보세요.
+//					System.out.print("행번호:"+row++);
+//					System.out.print("\t"+rs.getInt("empno"));
+//					System.out.print("\t"+rs.getString("ename"));
+//					System.out.print("\t"+rs.getInt("mgr"));
+//					System.out.println("\t"+rs.getDouble("sal"));
+					elist.add( new Emp(
+							rs.getInt("empno"),
+							rs.getString("ename"),
+							rs.getString("job"),
+							rs.getInt("mgr"),
+							rs.getString("hiredate"),
+							rs.getDouble("sal"),
+							rs.getDouble("comm"),
+							rs.getInt("deptno")
+					));
 					
 				}
 				/*
@@ -52,6 +65,8 @@ public class A02_EmpDao {
 			} catch (SQLException e) {
 				System.out.println("DB 처리 예외:"+e.getMessage());
 			}
+			return elist;
+			
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,55 @@ public class A04_PreParedDao {
 
 	private Connection con;
 	private PreparedStatement pstmt;
+	private Statement stmt;
 	private ResultSet rs;
+	
+	public List<Emp> empListAll() {
+		List<Emp> elist = new ArrayList<>();
+		// # 전체적으로 예외 처리.
+		// 연결
+		try {
+			con = DB.con();
+			// 대화할 내용
+			String sql = "SELECT * FROM emp02 order by empno";
+			// 대화할 수 있는 객체는 연결(con)에 의해 생성
+			stmt = con.createStatement();
+			// 결과(ResultSet)
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) { // 행단위로 이동 다음 행이 없을 떄까지
+//				System.out.print("행번호:"+row++);
+//				System.out.print("\t"+rs.getInt("empno"));
+//				System.out.print("\t"+rs.getString("ename"));
+//				System.out.print("\t"+rs.getInt("mgr"));
+//				System.out.println("\t"+rs.getDouble("sal"));
+				elist.add( new Emp(
+						rs.getInt("empno"),
+						rs.getString("ename"),
+						rs.getString("job"),
+						rs.getInt("mgr"),
+						rs.getString("hiredate"),
+						rs.getDouble("sal"),
+						rs.getDouble("comm"),
+						rs.getInt("deptno")
+				));
+				
+			}
+			/*
+			rs.next() : 반복을 통해서 행단위로 커서를 위치시키는
+				다음 행이 데이터가 없으면 false 있으면 true
+			while(rs.next()){ // 다음 행이 없을 때까지 반복
+				System.out.println(cnt++)
+			}			
+			rs.get데이터유형("컬럼명")
+			 * 
+			 * */
+			// 자원해제				
+		} catch (SQLException e) {
+			System.out.println("DB 처리 예외:"+e.getMessage());
+		}
+		return elist;
+		
+}
 	
 	public List<Employee> getEmpList(Map<String, String> sch) {
         List<Employee> elist = new ArrayList<>();

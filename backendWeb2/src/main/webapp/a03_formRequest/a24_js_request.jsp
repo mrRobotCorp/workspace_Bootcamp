@@ -55,6 +55,8 @@
 			btn.value = "유효성 확인 완료";
 		};
 		
+		// 버튼으로 submit 처리하는 법
+		// <button type="submit">
 		btn.onclick = function() {
 			alert("click");
 			document.querySelector("form").submit();

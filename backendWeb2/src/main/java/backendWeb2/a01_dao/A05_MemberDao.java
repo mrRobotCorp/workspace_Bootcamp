@@ -48,6 +48,38 @@ public class A05_MemberDao {
 //		return memlist;
 //	}
 	
+	public Boolean getMember(String id) {
+		boolean isMember = false;
+      String sql = "SELECT * FROM member\r\n" + "WHERE id=?";
+
+	
+		try {
+	         con = DB.con();
+	         pstmt = con.prepareStatement(sql);
+
+	         pstmt.setString(1, id);
+	         rs = pstmt.executeQuery();
+	         
+	         if (rs.next()) { 
+	            String yn = rs.getString("id"); 
+	            if (yn.equals(id)) {
+	             isMember = true; 
+	             } 
+	         }
+
+		
+		} catch (SQLException e) {
+			System.out.println("DB 예외 : " + e.getMessage());
+
+		} catch(Exception e) {
+			System.out.println("일반 예외 : " + e.getMessage());
+		} finally {
+			DB.close(rs, pstmt, con);
+		}
+		
+		return isMember;
+	}
+	
 	public Member login(String id, String pass) {
 		Member mem = null;		
 		String sql = "SELECT * FROM member02\r\n"
@@ -59,7 +91,7 @@ public class A05_MemberDao {
 			
 			// 대화(sql 전달 후, 매개변수로 전달)
 			pstmt.setString(1, id);
-			pstmt.setString(2, pass);
+			pstmt.setString(2, pass);	
 			rs = pstmt.executeQuery();
 			
 			// ResultSet -> VO 단일(if)/여러 개(while)
@@ -131,8 +163,10 @@ public class A05_MemberDao {
 		// (String id, String pass, String name, int point, String auth)
 		Member mem = new Member("pieceOfpeace", "0000", "Dalyne", 2000, "사용자");
 		A05_MemberDao dao = new A05_MemberDao();
-		dao.InsertMem(mem);
-	
+//		dao.InsertMem(mem);
+		dao.getMember("himan");
+		
+		
 	}
 	
 

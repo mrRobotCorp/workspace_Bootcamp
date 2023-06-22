@@ -157,6 +157,7 @@ ex) 아래 구조의 내용을 테이블로 만들고(정규화 전 테이블)
 			1		2
 			1		3
 			2		5
+
 	-------------------------------------------
 			
 	ex) 아래 테이블을 정규화 과정을 처리
@@ -183,7 +184,118 @@ ex) 아래 구조의 내용을 테이블로 만들고(정규화 전 테이블)
 	1		마우스
 	1		모니터
 	
+	----------------------------------------------------
+	# 제2정규화 대상 테이블
+	주문 (Order)
+	----------------------------
+	주문번호 (OrderID, PK)
+	고객번호 (CustomerID)
+	고객이름 (CustomerName)
+	주소 (Address)
+	제품번호 (ProductID, FK)
 	
+	제품 (Product)
+	----------------------------
+	제품번호 (ProductID, PK)
+	제품명 (ProductName
+	
+	==========================
+	[테이블: 학생_성적]
+	
+	학생_코드 (기본 키)
+	학생_이름
+	과목_코드
+	과목_이름
+	성적
+	
+	===========================
+	"수강과목" (CourseEnrollment)
+	
+	학번 (StudentID, 기본키)
+	과목코드 (CourseCode, 기본키)
+	과목명 (CourseName)
+	담당교수 (Professor)
+	학점 (Credits)
+	수강년도 (Year)
+	학기 (Semester)
+	
+	--> ex) 제 2정규화를 처리하여 분리된 데이터로 만들 것
+			모든 컬럼이 기본 키에 완전 함수 종속성을 가지게 처리
+	
+	"수강과목" (CourseEnrollment)
+	학번 (StudentID, 기본키)
+	과목코드 (CourseCode, 기본키)
+	과목명 (CourseName)
+	
+	학점 (Credits)
+	수강년도 (Year)
+	학기 (Semester)
+	
+	과목 (Course)
+	과목코드 (CourseCode, 기본 키) 2개 복합 키로(식별 관계 처리)
+	담당교수 (Professor)
+	수강년도 (Year)
+	학기 (Semester)
+	
+	
+	
+	==============================
+	주문(Order)
+	주문 번호(OrderID) (기본 키)
+	고객 번호(CustomerID)
+	고객 이름(CustomerName)
+	상품 번호(ProductID)
+	상품 이름(ProductName)
+	주문 수량(Quantity)
+	주문 일자(OrderDate)	
+	===========================
+	예시 테이블: "대여정보" (RentalInfo)
+	
+	대여ID (RentalID, 기본키)
+	자전거ID (BikeID)
+	대여자ID (UserID)
+	대여일시 (RentalDateTime)
+	반납일시 (ReturnDateTime)
+	대여지점 (RentalLocation)
+	반납지점 (ReturnLocation)
+	대여요금 (RentalFee)	
+	
+	ex) 제2 정규화 처리
+	고객정보 (Customers)
+	고객 번호(CustomerID)
+	고객 이름(CustomerName)
+	
+	상품정보 (Products)
+	상품 번호(ProductID)
+	상품 이름(ProductName)
+	
+	주문정보 (Order)
+	주문 번호(OrderID)
+	고객 번호(CustomerID)
+	상품 번호(ProductID)
+	주문 수량(Quantity)
+	주문 일자(OrderDate)
+	
+	
+	주문상세 (OrderDetail)
+	------------------------
+	주문 ID(OrderID)
+	상품 ID(ProductID)
+	주문 수량(Quantity)
+	가격 (Price)
+	상품 이름(ProductName)
+	배송지 (DeliveryAddress)
+	
+	ex) 제2 정규화 처리
+	상품 (Product)
+	상품 ID (ProductID)
+	상품 이름(ProductName)
+	가격 (Price)
+	
+	주문상세 (OrderDetail)
+	주문 번호(OrderID)
+	
+
 	
 		
 */

@@ -6,6 +6,7 @@
 			"driver": "oracle_thin",
 			"name": "localhost",
 			"save-password": true,
+			"read-only": true,
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
@@ -18,7 +19,10 @@
 					"@dbeaver-connection-type@": "BASIC",
 					"@dbeaver-sid-service@": "SERVICE"
 				},
-				"auth-model": "oracle_native"
+				"auth-model": "oracle_native",
+				"bootstrap": {
+					"autocommit": false
+				}
 			}
 		}
 	},

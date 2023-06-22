@@ -24,6 +24,37 @@ public class A04_PreParedDao {
 	private Statement stmt;
 	private ResultSet rs;
 	
+	public List<Emp> getEmpList() {
+	    List<Emp> elist = new ArrayList<>();
+	    String sql = "SELECT * FROM emp02 order by empno";
+	    
+	    try {
+	        con = DB.con();
+	        pstmt = con.prepareStatement(sql); 
+	        rs = pstmt.executeQuery();
+	
+	        while (rs.next()) {
+	            elist.add(new Emp(
+	                    rs.getInt("empno"),
+	                    rs.getString("ename"),
+	                    rs.getString("job"),
+	                    rs.getInt("mgr"),
+	                    rs.getDate("hiredate"),
+	                    rs.getDouble("sal"),
+	                    rs.getDouble("comm"),
+	                    rs.getInt("deptno")
+	            ));
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("DB 관련 오류: " + e.getMessage());
+	    } catch (Exception e) {
+	        System.out.println("일반 오류: " + e.getMessage());
+	    } finally {
+	        DB.close(rs, pstmt, con);
+	    }
+	    return elist;
+	}
+	
 	public List<Emp> empListAll() {
 		List<Emp> elist = new ArrayList<>();
 		// # 전체적으로 예외 처리.

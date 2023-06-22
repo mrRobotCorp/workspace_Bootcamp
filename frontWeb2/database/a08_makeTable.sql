@@ -27,7 +27,7 @@ INSERT INTO prod VALUES('pa103', 'milk', 2000);
 
 SELECT * FROM prod;
 
-CREATE TABLE MEMBER(
+CREATE TABLE MEMBER0(
 	id varchar2(50),
 	pw NUMBER,
 	memname varchar2(50),
@@ -35,12 +35,12 @@ CREATE TABLE MEMBER(
 	admin varchar2(50)
 );
 
-INSERT INTO MEMBER values('abc', 1234, 'jun3bug', 1305, 'user');
-INSERT INTO MEMBER values('efg', 1234, 'draagon', 644, 'user');
-INSERT INTO MEMBER values('hij', 1234, 'mrrobot', 3366, 'user');
-INSERT INTO MEMBER values('klm', 1234, 'ellis', 745, 'user');
+INSERT INTO MEMBER0 values('abc', 1234, 'jun3bug', 1305, 'user');
+INSERT INTO MEMBER0 values('efg', 1234, 'draagon', 644, 'user');
+INSERT INTO MEMBER0 values('hij', 1234, 'mrrobot', 3366, 'user');
+INSERT INTO MEMBER0 values('klm', 1234, 'ellis', 745, 'user');
 
-SELECT * FROM MEMBER;
+SELECT * FROM MEMBER0;
 
 -- ex) 학생 정보2 테이블 (학생번호, 학생명, 국어, 영어, 수학)
 

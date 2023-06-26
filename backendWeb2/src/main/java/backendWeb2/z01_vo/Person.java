@@ -4,6 +4,7 @@ public class Person {
 	private String name;
 	private int age;
 	private String loc;
+	
 	public Person(String name, int age, String loc) {
 		this.name = name;
 		this.age = age;

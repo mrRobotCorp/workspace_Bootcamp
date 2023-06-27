@@ -61,6 +61,8 @@ session.setAttribute("jb01", new JobHistory(105, "2023-06-26", "2023-06-26", "IT
           
           
         </table>  
+        
+        <a href="a03_session.jsp">session 확인하러 가기</a>
         <table class="table">
           <thead class="table-success">
                <tr>

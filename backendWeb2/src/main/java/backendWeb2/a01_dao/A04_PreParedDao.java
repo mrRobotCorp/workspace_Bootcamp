@@ -1,5 +1,5 @@
 package backendWeb2.a01_dao;
-
+// backendWeb2.a01_dao.A04_PreParedDao
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -485,7 +485,41 @@ public class A04_PreParedDao {
 	
 		return isDelete;
 	}
-
+	
+	public List<Emp> getEmpList(String ename, String job) {
+	    List<Emp> elist = new ArrayList<>();
+	    String sql = "SELECT * FROM emp02 where ename like ? and job like ? order by empno ";
+	    
+	    try {
+	        con = DB.con();
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, '%'+ename+"%");
+	        pstmt.setString(2, '%'+job+"%");
+	        rs = pstmt.executeQuery();
+	        
+	
+	        while (rs.next()) {
+	            elist.add(new Emp(
+	                    rs.getInt("empno"),
+	                    rs.getString("ename"),
+	                    rs.getString("job"),
+	                    rs.getInt("mgr"),
+	                    rs.getDate("hiredate"),
+	                    rs.getDouble("sal"),
+	                    rs.getDouble("comm"),
+	                    rs.getInt("deptno")
+	            ));
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("DB 관련 오류: " + e.getMessage());
+	    } catch (Exception e) {
+	        System.out.println("일반 오류: " + e.getMessage());
+	    } finally {
+	        DB.close(rs, pstmt, con);
+	    }
+	    return elist;
+	}
+	
 	public Employee getEmpList(String id) {
 		Employee emp = null;
 		String sql = "SELECT * FROM EMPLOYEES WHERE employee_id = ?";

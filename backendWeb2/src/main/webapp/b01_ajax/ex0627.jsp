@@ -11,6 +11,10 @@
 </head>
 <body>
 	<script>
+		function ccallServer() {
+			
+		}	
+	
 		function getSyn(page){
 			let xhr = new XMLHttpRequest();
 			xhr.open("get",page,false);

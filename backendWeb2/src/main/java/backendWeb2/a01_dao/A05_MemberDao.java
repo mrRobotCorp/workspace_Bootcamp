@@ -80,10 +80,10 @@ public class A05_MemberDao {
 		return isMember;
 	}
 	
-	public Member login(String id, String pass) {
+	public Member checkMem(String id) {
 		Member mem = null;		
-		String sql = "SELECT * FROM member02\r\n"
-				+ "WHERE id = ? AND pass = ?";
+		String sql = "SELECT * FROM member\r\n"
+				+ "WHERE id = ?";
 	
 		try {
 			con = DB.con();
@@ -91,7 +91,6 @@ public class A05_MemberDao {
 			
 			// 대화(sql 전달 후, 매개변수로 전달)
 			pstmt.setString(1, id);
-			pstmt.setString(2, pass);	
 			rs = pstmt.executeQuery();
 			
 			// ResultSet -> VO 단일(if)/여러 개(while)
@@ -159,6 +158,44 @@ public class A05_MemberDao {
 		}
 	}
 	
+	public Member login(String id, String pass) {
+		Member mem = null;		
+		String sql = "SELECT * FROM member\r\n"
+				+ "WHERE id = ? AND pass = ?";
+	
+		try {
+			con = DB.con();
+			pstmt = con.prepareStatement(sql);
+			
+			// 대화(sql 전달 후, 매개변수로 전달)
+			pstmt.setString(1, id);
+			pstmt.setString(2, pass);	
+			rs = pstmt.executeQuery();
+			
+			// ResultSet -> VO 단일(if)/여러 개(while)
+			if(rs.next()) {
+				mem = new Member(
+						rs.getString(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getInt(4),
+						rs.getString(5),
+						rs.getDate(6)
+					);
+			}
+		
+		} catch (SQLException e) {
+			System.out.println("DB 예외 : " + e.getMessage());
+	
+		} catch(Exception e) {
+			System.out.println("일반 예외 : " + e.getMessage());
+		} finally {
+			DB.close(rs, pstmt, con);
+		}
+		
+		return mem;
+	}
+
 	public static void main(String[] args) {
 		// (String id, String pass, String name, int point, String auth)
 		Member mem = new Member("pieceOfpeace", "0000", "Dalyne", 2000, "사용자");

@@ -59,4 +59,14 @@
     <servlet-name>ex0609</servlet-name>
     <url-pattern>/ex0609</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>codeIns.do</display-name>
+    <servlet-name>codeIns.do</servlet-name>
+    <servlet-class>backendWeb2.a01_dao.A06_CodeInsert</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>codeIns.do</servlet-name>
+    <url-pattern>/codeIns.do</url-pattern>
+  </servlet-mapping>
 </web-app>

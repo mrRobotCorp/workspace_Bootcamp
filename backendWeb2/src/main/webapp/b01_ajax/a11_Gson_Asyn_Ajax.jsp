@@ -15,10 +15,8 @@
 			let xhr = new XMLHttpRequest();
 			xhr.open("get", page, true); // 비동기 옵션 (true)
 			xhr.send();
-			let ret = "";
 			xhr.onreadystatechange = function() {
 				// 상태값을 확인해서 전송이 완료되고, 200(정상)일 때
-				// 리턴 처리
 				if(xhr.readyState == 4 && xhr.status == 200) {
 					console.log(xhr.responseText);
 					let memObj = JSON.parse( );
@@ -32,7 +30,6 @@
 					}
 				}
 			}
-			// return ret;
 		}
 		function checkMem() {
 			let idOb = document.querySelector("#id"); 

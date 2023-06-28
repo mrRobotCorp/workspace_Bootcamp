@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import backendWeb2.z01_vo.Code;
 import backendWeb2.z01_vo.Departments;
+import backendWeb2.z01_vo.Dept;
 import backendWeb2.z01_vo.Emp;
 import backendWeb2.z01_vo.Employee;
 import backendWeb2.z01_vo.JobHistory;
@@ -267,9 +269,10 @@ public class A04_PreParedDao {
         return jobList;
     }
 	
-	// void, int(리턴 필요한 데이터 유형 표시) 다르게 선언하는지
-	public void insertEmp(Emp ins) {
-		String sql = "INSERT INTO EMP02 values(?, ?, ?, ?, to_date(?, 'YYYY-MM-DD'), ?, ?, ?)";
+	public void insertCode(Code ins) {
+		//code_seq.nextval, '기획', 1007, 4, 40
+		String sql = "INSERT INTO code VALUES "
+				+ "(code_seq.nextval, ?, ?, ?, ?);";
 		try {
 			con = DB.con();
 			// 자동 commit 방지
@@ -277,14 +280,10 @@ public class A04_PreParedDao {
 			
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(1, ins.getEmpno());
-			pstmt.setString(2, ins.getEname());
-			pstmt.setString(3, ins.getJob());
-			pstmt.setInt(4, ins.getMgr());
-			pstmt.setString(5, ins.getHiredateS());
-			pstmt.setDouble(6,ins.getSal());
-			pstmt.setDouble(7, ins.getComm());
-			pstmt.setInt(8, ins.getDeptno());
+			pstmt.setString(1, ins.getTitle());
+			pstmt.setInt(2, ins.getRefno());
+			pstmt.setInt(3, ins.getOrdno());
+			pstmt.setString(4, ins.getVal());
 			
 			System.out.println(pstmt.executeUpdate());
 			con.commit(); // 입력 시 확정 commit
@@ -486,30 +485,26 @@ public class A04_PreParedDao {
 		return isDelete;
 	}
 	
-	public List<Emp> getEmpList(String ename, String job) {
-	    List<Emp> elist = new ArrayList<>();
-	    String sql = "SELECT * FROM emp02 where ename like ? and job like ? order by empno ";
+	public List<Code> getCombo(int refno) {
+	    List<Code> elist = new ArrayList<>();
+	    String sql = "SELECT title, refno, ordno\r\n"
+	    		+ "FROM code\r\n"
+	    		+ "WHERE refno = ?\r\n"
+	    		+ "ORDER BY ordno";
 	    
 	    try {
 	        con = DB.con();
 	        pstmt = con.prepareStatement(sql);
-	        pstmt.setString(1, '%'+ename+"%");
-	        pstmt.setString(2, '%'+job+"%");
+	        pstmt.setInt(1, refno);
 	        rs = pstmt.executeQuery();
 	        
-	
 	        while (rs.next()) {
-	            elist.add(new Emp(
-	                    rs.getInt("empno"),
-	                    rs.getString("ename"),
-	                    rs.getString("job"),
-	                    rs.getInt("mgr"),
-	                    rs.getDate("hiredate"),
-	                    rs.getDouble("sal"),
-	                    rs.getDouble("comm"),
-	                    rs.getInt("deptno")
+	            elist.add(new Code(
+	                    rs.getString("title"),
+	                    rs.getString("val")
 	            ));
 	        }
+	        
 	    } catch (SQLException e) {
 	        System.out.println("DB 관련 오류: " + e.getMessage());
 	    } catch (Exception e) {
@@ -599,6 +594,144 @@ public class A04_PreParedDao {
 	                    rs.getInt("empno"),
 	                    rs.getString("ename"),
 	                    rs.getString("dname")
+	            ));
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("DB 관련 오류: " + e.getMessage());
+	    } catch (Exception e) {
+	        System.out.println("일반 오류: " + e.getMessage());
+	    } finally {
+	        DB.close(rs, pstmt, con);
+	    }
+	    return elist;
+	}
+
+	public List<Dept> getDeptList(String dname, String loc) {
+	    List<Dept> dlist = new ArrayList<>();
+	    String sql = "SELECT * FROM DEPT d \r\n"
+	    		+ "WHERE dname=? OR loc = ? ";
+	    
+	    try {
+	        con = DB.con();
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, '%'+dname+"%");
+	        pstmt.setString(2, '%'+loc+"%");
+	        rs = pstmt.executeQuery();
+	        
+	
+	        while (rs.next()) {
+	        	dlist.add(new Dept(
+	                    rs.getInt("deptno"),
+	                    rs.getString("dname"),
+	                    rs.getString("loc")
+	            ));
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("DB 관련 오류: " + e.getMessage());
+	    } catch (Exception e) {
+	        System.out.println("일반 오류: " + e.getMessage());
+	    } finally {
+	        DB.close(rs, pstmt, con);
+	    }
+	    return dlist;
+	}
+
+	public List<Code> getCodeList(String title) {
+	    List<Code> elist = new ArrayList<>();
+	    String sql = "SELECT NO, title, refno, ordno\r\n"
+	    		+ "FROM code\r\n"
+	    		+ "WHERE title LIKE ?\r\n"
+	    		+ "ORDER BY refno, ordno";
+	    
+	    try {
+	        con = DB.con();
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, '%'+title+"%");
+	        rs = pstmt.executeQuery();
+	        
+	
+	        while (rs.next()) {
+	            elist.add(new Code(
+	                    rs.getInt("no"),
+	                    rs.getString("title"),
+	                    rs.getInt("refno"),
+	                    rs.getInt("ordno")
+	            ));
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("DB 관련 오류: " + e.getMessage());
+	    } catch (Exception e) {
+	        System.out.println("일반 오류: " + e.getMessage());
+	    } finally {
+	        DB.close(rs, pstmt, con);
+	    }
+	    return elist;
+	}
+
+	// void, int(리턴 필요한 데이터 유형 표시) 다르게 선언하는지
+	public void insertEmp(Emp ins) {
+		String sql = "INSERT INTO EMP02 values(?, ?, ?, ?, to_date(?, 'YYYY-MM-DD'), ?, ?, ?)";
+		try {
+			con = DB.con();
+			// 자동 commit 방지
+			con.setAutoCommit(false);
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, ins.getEmpno());
+			pstmt.setString(2, ins.getEname());
+			pstmt.setString(3, ins.getJob());
+			pstmt.setInt(4, ins.getMgr());
+			pstmt.setString(5, ins.getHiredateS());
+			pstmt.setDouble(6,ins.getSal());
+			pstmt.setDouble(7, ins.getComm());
+			pstmt.setInt(8, ins.getDeptno());
+			
+			System.out.println(pstmt.executeUpdate());
+			con.commit(); // 입력 시 확정 commit
+			
+			pstmt.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			System.out.println("DB : " + e.getMessage());
+			
+			try {
+				con.rollback(); // 잘못 입력 시 rollback 복구 처리
+			} catch (SQLException e1) {
+				System.out.println(e.getMessage());
+			}
+			
+		} catch(Exception e) {
+			System.out.println("일반" + e.getMessage());
+		} finally {
+			DB.close(rs, pstmt, con);
+		}
+	
+	}
+
+	public List<Emp> getEmpList(String ename, String job) {
+	    List<Emp> elist = new ArrayList<>();
+	    String sql = "SELECT * FROM emp02 where ename like ? and job like ? order by empno ";
+	    
+	    try {
+	        con = DB.con();
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, '%'+ename+"%");
+	        pstmt.setString(2, '%'+job+"%");
+	        rs = pstmt.executeQuery();
+	        
+	
+	        while (rs.next()) {
+	            elist.add(new Emp(
+	                    rs.getInt("empno"),
+	                    rs.getString("ename"),
+	                    rs.getString("job"),
+	                    rs.getInt("mgr"),
+	                    rs.getDate("hiredate"),
+	                    rs.getDouble("sal"),
+	                    rs.getDouble("comm"),
+	                    rs.getInt("deptno")
 	            ));
 	        }
 	    } catch (SQLException e) {

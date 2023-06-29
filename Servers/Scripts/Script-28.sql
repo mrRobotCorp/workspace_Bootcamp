@@ -37,6 +37,11 @@ CREATE TABLE code (
 
 SELECT * FROM code;
 
+SELECT * FROM CODE 
+WHERE title LIKE '%%'
+START WITH refno = 0
+CONNECT BY PRIOR NO = refno;
+	    		
 
 CREATE SEQUENCE code_seq
 	START WITH 1000;

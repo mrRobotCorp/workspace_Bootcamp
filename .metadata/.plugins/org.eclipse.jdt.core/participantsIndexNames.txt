@@ -27,3 +27,5 @@ E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.jst.jsp.core\js
 \backendWeb2\src\main\java
 E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2445785079.index
 \backend2\src\main\java
+E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1222340933.index
+\backend2\src\main\java

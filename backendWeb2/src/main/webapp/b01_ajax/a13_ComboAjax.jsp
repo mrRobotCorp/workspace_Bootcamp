@@ -11,78 +11,17 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <title>Insert title here</title>
+<script src = "https://code.jquery.com/jquery-3.7.0.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+    	// window.onload와 동일한 메서드
+    	$(document).ready( function(){
+    		
+    		
+    	});
+    </script>    
 </head>
-<%--
-    code(키, 값, 상위키,정렬순위)
-    1000  과일   0
-    1001  사과   1000 1
-    1002  바나나  1000 2
-    1003  딸기   1000 3
-    1004  오렌지  1000 4
-    select *
-    from code
-    where 상위키 = 1000;
-    order 정렬순위   
-1. select(Combo box) 모듈 ajax로 list 및 등록 처리
-	만들어 보기.
-2. 처리순서
-	1) DB 테이블 sql 구성
-	2) Dao 생성
-	3) 초기 list 화면 구성 : ajax처리(backend )
-	4) 등록 click시 등록 화면 구성
-	5) 클릭시, 상세화면 구성
-		- 수정/삭제 처리..
-	6) Combox Box 활용
-		
-# 진행 순서
-0. 파일
-	프런트(a13_ComBoAjax.jsp)
-1. backend(z13_comboList.jsp)
-	요청값 : title
-	import 처리(dao,Gson,Code)
-	Gson으로 json 데이터 로딩	
--------------------------------------		   
-2. frontend(a13_ComBoAjax.jsp)    
-    1) 화면구성
-    	제목 [   ] [검색]
-    2) 이벤트 처리
-    3) 이벤트 핸들러 처리
-    	- 검색 DOM
-    	- ajax 처리
-    	- 화면 리스트 처리..
-    	
-# 코드 등록 처리 ajax
-1. back단(servlet 이용)
-	1) Dao(등록 처리-메서드 추가)
-		sql (insert 문) 
-			INSERT INTO code VALUES (code_seq.nextval, '과일','val',0,1);
-			INSERT INTO code VALUES (code_seq.nextval, ?,?,?,?)
-			
-		dao insert메서드 추가.
-	2) 요청값 받기
-	3) 등록 결과 리턴 문자열  
-2. front단
-	1) 등록 버튼 : 클릭
-	2) 등록 pop창 로딩(bootstrap 모달창)
-		등록 항목 text
-		제목:[  ]
-		값 : [  ]
-		상위번호: [  ]
-		정렬순서:[  ]
-		[등록]
-	3) 이벤트 핸들러
-		ajax로 등록 controller 호출 처리
-# 등록후, 처리 프로세스
-1. 등록완료
-	- 등록 성공
-	- 화면에 있는 데이터를 재조회 처리
-	- 입력데이터 초기화 
-	- 계속 여부 확인
-		- 계속시 등록 처리할 수 있게 하고
-		- 취소시 창이 닫게 처리.
-		  	
-    	
- --%>
+
 <script type="text/javascript">
 	function schCode13(){
 		if(event.keyCode==13){
@@ -121,10 +60,16 @@
 		// ajax로 상세 데이터 가져와서 화면에 데이터 넣기
 		document.querySelector(".modal-title").innerText 
 			= "코드 상세 화면 [코드번호:" + no + "]";
+		$("#regBtn").hide();
+		$("#uptBtn").show();
+		$("#delBtn").show();
 	}
 	
 	function insModal() {
 		document.querySelector(".modal-title").innerText = "코드등록";
+		$("#regBtn").show();
+		$("#uptBtn").hide();
+		$("#delBtn").hide();
 	}
 </script>
 <body>
@@ -180,8 +125,21 @@
 
 				<!-- Modal body 
 				
-				-- 제목, 값, 상위번호, 정렬 
--- title, val, refno, ordno 
+				/*
+SELECT * FROM CODE c 
+WHERE NO=?
+
+UPDATE CODE 
+SET TITLE = ?,
+	REFNO = ?,
+	ORDNO = ?,
+	val = ?
+WHERE no = ?;
+
+DELETE 
+FROM code
+WHERE NO = ?;
+*/
 				-->
 				<form id="regFrm">
 				<div class="modal-body">
@@ -211,13 +169,14 @@
 					</div>										
 				</div>
 				</form>
+				
 				<div class="modal-footer">
 					<button type="button" class="btn btn-success"
-						onclick="ajaxSave()">등록</button>
+						id="regBtn" onclick="ajaxSave()">등록</button>
 					<button type="button" class="btn btn-primary"
-						onclick="ajaxUpdate()">수정</button>
+						id="uptBtn" onclick="ajaxUpdate()">수정</button>
 					<button type="button" class="btn btn-warning"
-						onclick="ajaxDelete()">삭제</button>
+						id="delBtn" onclick="ajaxDelete()">삭제</button>
 					<button type="button" class="btn btn-danger"
 						data-bs-dismiss="modal">Close</button>
 						

@@ -53,7 +53,7 @@
      	<jsp:useBean id="list" class="java.util.ArrayList" scope="session"/>
     	<jsp:useBean id="dao" class="backendWeb2.a01_dao.A04_PreParedDao"/>
 		<c:if test="${not empty emp.ename }">
-     		<${dao.insertEmp(emp) }
+     		${dao.insertEmp(emp) }
      	</c:if>
 		<table class="table table-striped table-hover">
 			<thead class="table-success">
@@ -74,7 +74,7 @@
 			        <td>${e.job }</td>
 			        <td>${e.mgr }</td>
 			        <td>${e.hiredate }</td>
-			        <td>${e.sal}</td>
+			        <td><fmt:formatNumber value="${emp.sal}"/></td>
 			        <td>${e.comm}</td>
 			        <td>${e.deptno}</td>
 			   	</tr>

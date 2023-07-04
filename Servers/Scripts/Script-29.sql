@@ -1,0 +1,30 @@
+SELECT * FROM CODE c ;
+SELECT * FROM CODE c 
+WHERE NO=1011;
+
+UPDATE CODE 
+SET TITLE = '변경',
+	REFNO = 0,
+	ORDNO = 1,
+	val = '변경'
+WHERE no = 1017;
+
+DELETE 
+FROM code
+WHERE NO = 1017;
+
+/*
+SELECT * FROM CODE c 
+WHERE NO=?
+
+UPDATE CODE 
+SET TITLE = ?,
+	REFNO = ?,
+	ORDNO = ?,
+	val = ?
+WHERE no = ?;
+
+DELETE 
+FROM code
+WHERE NO = ?;
+*/

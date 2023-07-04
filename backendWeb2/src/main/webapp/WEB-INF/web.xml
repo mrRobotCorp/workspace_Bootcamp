@@ -69,4 +69,14 @@
     <servlet-name>codeIns.do</servlet-name>
     <url-pattern>/codeIns.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>codeDetail.do</display-name>
+    <servlet-name>codeDetail.do</servlet-name>
+    <servlet-class>backendWeb2.a01_servlet.A07_CodeDetail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>codeDetail.do</servlet-name>
+    <url-pattern>/codeDetail.do</url-pattern>
+  </servlet-mapping>
 </web-app>

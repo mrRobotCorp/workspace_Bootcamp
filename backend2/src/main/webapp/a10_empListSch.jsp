@@ -56,8 +56,13 @@
 		      	</tr>
 		    </thead>
 		    <tbody>
+		    <c:set vat="jsonArry" value='[{"name":"Joe", "age":25, "loc":"seoul"},
+		    		{"name":"Amy", "age":32, "loc":"busan"}]'/>
 		    	<c:forEach var="emp" items="${empList}">
 			   	<tr  class="text-center">
+			   	<%--emp.getEmpno() 접근해서 호출하는 것
+			   		el은 property개념으로 데이터를 가져옴
+			   	 --%>
 			        <td>${emp.empno}</td>
 			        <td>${emp.ename}</td>
 			        <td>${emp.job}</td>

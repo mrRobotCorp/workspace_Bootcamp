@@ -40,20 +40,20 @@ public class A06_CodeInsert extends HttpServlet {
 		System.out.println(ordno);
 		System.out.println(val);
 		//int no, String title, int refno, int ordno, String val
-		if(title != null) {
-			Code ins = new Code(
-					0,
-					title,
-					Integer.parseInt(refno),
-					Integer.parseInt(ordno),
-					val
-					);
-			A04_PreParedDao dao = new A04_PreParedDao();
-			dao.insertCode(ins);
-			prn = "Y";
+//		if(title != null) {
+//			Code ins = new Code(
+//					0,
+//					title,
+//					Integer.parseInt(refno),
+//					Integer.parseInt(ordno),
+//					val
+//					);
+//			A04_PreParedDao dao = new A04_PreParedDao();
+//			dao.insertCode(ins);
+//			prn = "Y";
 			
 		}
-		response.getWriter().print(prn);
+//		response.getWriter().print(prn);
 	}
 
 }

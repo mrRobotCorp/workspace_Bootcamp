@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
+<c:set var="path" value="$${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,16 +14,8 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <title>Insert title here</title>
-<script src = "https://code.jquery.com/jquery-3.7.0.js" type="text/javascript"></script>
-    
-    <script type="text/javascript">
-    	// window.onload와 동일한 메서드
-    	$(document).ready( function(){
-    		
-    		
-    	});
-    </script>    
 </head>
+    <script src = "https://code.jquery.com/jquery-3.7.0.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 	function schCode13(){
@@ -41,7 +36,7 @@
 				var codeList = JSON.parse(xhr.responseText)
 				var show=""
 				codeList.forEach(function(code){
-					show+="<tr ondblclick='detail()' class='text-center "+(code.refno==0?'table-info':'')+"'>"
+					show+="<tr ondblclick='detail("+code.no+")' class='text-center "+(code.refno==0?'table-info':'')+"'>"
 					show+="<td>"+code.no+"</td>"
 					show+="<td>"+code.title+"</td>"
 					show+="<td>"+(code.val==undefined?'':code.val)+"</td>"
@@ -52,24 +47,54 @@
 				var tBody = document.querySelector("tbody")
 				tBody.innerHTML = show;
 			}
-		}		
+		}
+		
 	}
-	
-	function detail(no) {
-		document.querySelector("#insertModal").click();
-		// ajax로 상세 데이터 가져와서 화면에 데이터 넣기
-		document.querySelector(".modal-title").innerText 
-			= "코드 상세 화면 [코드번호:" + no + "]";
-		$("#regBtn").hide();
-		$("#uptBtn").show();
-		$("#delBtn").show();
+	function detail(no){
+		document.querySelector("#detailModal").click()
+		document.querySelector(".modal-title").innerText
+			="코드상세[코드번호:"+no+"]"
+		
+		$("#regBtn").hide()
+		$("#uptBtn").show()
+		$("#delBtn").show()
+		// ajax로 상세 데이터를 가져와서 화면에 데이터 넣기
+		// /backendWeb/codeDetail.do?no=1005
+		// path : 상단에 선언된 project명을 통한 경로 지정.
+		
+		// ex)
+    	// /backendWeb/empList.do?div=y
+    	// jquery로 사원정보를 리스트 출력하세요.	
+		$.ajax({
+			url:"${path}/codeDetail.do",
+			type:"post",
+			data:"no="+no,
+			dataType:"json",
+			success:function(data){
+				console.log(data)
+				//alert(data);
+				// title val refno ordno
+				$("#regFrm #title").val(data.title)
+				$("#regFrm #val").val(data.val)
+				$("#regFrm #refno").val(data.refno)
+				$("#regFrm #ordno").val(data.ordno)
+				
+				
+			},
+			error:function(err){
+				console.log(err)
+			}
+			
+		})
+		
+		
 	}
-	
-	function insModal() {
-		document.querySelector(".modal-title").innerText = "코드등록";
-		$("#regBtn").show();
-		$("#uptBtn").hide();
-		$("#delBtn").hide();
+	function insModal(){
+		document.querySelector(".modal-title").innerText
+		="코드등록"
+		$("#regBtn").show()
+		$("#uptBtn").hide()
+		$("#delBtn").hide()
 	}
 </script>
 <body>
@@ -83,12 +108,16 @@
 				<input type="text" value="0"
 				class="form-control" id="refno" onkeyup="schCode13()"
 				placeholder="상위코드 입력" name="refno">
+
+				
 		</div>
-		
-		<div id="detailModal" data-bs-toggle="modal"
-			data-bs-target="#myModal"></div>
-		<button type="button" onclick="insModal()" id="insertModal" class="btn btn-success" data-bs-toggle="modal"
+		<div  id="detailModal" data-bs-toggle="modal"
+			data-bs-target="#myModal"></div>		
+		<button type="button" onclick="insModal()" 
+			 class="btn btn-success" data-bs-toggle="modal"
 			data-bs-target="#myModal">코드등록</button>
+
+
 
 		<button onclick="schCode()" type="button" class="btn btn-primary">조회</button>
 		<table class="table table-striped table-hover">
@@ -125,21 +154,8 @@
 
 				<!-- Modal body 
 				
-				/*
-SELECT * FROM CODE c 
-WHERE NO=?
-
-UPDATE CODE 
-SET TITLE = ?,
-	REFNO = ?,
-	ORDNO = ?,
-	val = ?
-WHERE no = ?;
-
-DELETE 
-FROM code
-WHERE NO = ?;
-*/
+				-- 제목, 값, 상위번호, 정렬 
+-- title, val, refno, ordno 
 				-->
 				<form id="regFrm">
 				<div class="modal-body">
@@ -160,7 +176,7 @@ WHERE NO = ?;
 						<input type="text"
 							class="form-control" id="refno"
 						placeholder="상위번호 입력" name="refno">
-					</div>
+					</div>  
 					<div class="mb-3 mt-3">
 						<label for="ordno">정렬순서:</label> 
 						<input type="number"
@@ -168,15 +184,15 @@ WHERE NO = ?;
 						placeholder="정렬순서 입력" name="ordno">
 					</div>										
 				</div>
-				</form>
-				
+				</form>  
+
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success"
-						id="regBtn" onclick="ajaxSave()">등록</button>
-					<button type="button" class="btn btn-primary"
-						id="uptBtn" onclick="ajaxUpdate()">수정</button>
-					<button type="button" class="btn btn-warning"
-						id="delBtn" onclick="ajaxDelete()">삭제</button>
+					<button id="regBtn" type="button" class="btn btn-success"
+						onclick="ajaxSave()">등록</button>
+					<button id="uptBtn"  type="button" class="btn btn-primary"
+						onclick="ajaxUpdate()">수정</button>
+					<button id="delBtn"  type="button" class="btn btn-warning"
+						onclick="ajaxDelete()">삭제</button>
 					<button type="button" class="btn btn-danger"
 						data-bs-dismiss="modal">Close</button>
 						
@@ -222,7 +238,26 @@ WHERE NO = ?;
 		}
 		// 초기에 수행 처리..(화면에 검색된 상태에서 처리)
 		schCode();
-		document.querySelector("#")
+		/*
+		1. 등록완료
+			- 등록 성공
+			- 화면에 있는 데이터를 재조회 처리
+			- 입력데이터 초기화 
+			- 계속 여부 확인
+				- 계속시 등록 처리할 수 있게 하고
+				- 취소시 창이 닫게 처리.
+		2. 리스트데이터
+			화면구현
+				- 제목:[   ]
+			    - 상위코드:[  ]
+			js로 요청값 처리	
+			계층형 sql로 계층별로 리스트되게 처리.
+			sql 처리
+			dao 변경
+			요청값 상위코드 전달.(Servlet에서)
+			
+		
+		*/
 		
 	</script>
 

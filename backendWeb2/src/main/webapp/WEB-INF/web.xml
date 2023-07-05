@@ -79,4 +79,24 @@
     <servlet-name>codeDetail.do</servlet-name>
     <url-pattern>/codeDetail.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>prodCalcu.do</display-name>
+    <servlet-name>prodCalcu.do</servlet-name>
+    <servlet-class>backendWeb2.a01_servlet.A08_AjaxController01</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>prodCalcu.do</servlet-name>
+    <url-pattern>/prodCalcu.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>prodPrint.do</display-name>
+    <servlet-name>prodPrint.do</servlet-name>
+    <servlet-class>backendWeb2.a01_servlet.A09_AjaxController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>prodPrint.do</servlet-name>
+    <url-pattern>/prodPrint.do</url-pattern>
+  </servlet-mapping>
 </web-app>

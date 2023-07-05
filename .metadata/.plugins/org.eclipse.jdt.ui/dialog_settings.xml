@@ -136,4 +136,7 @@
 	</section>
 	<section name="BreadcrumbItemDropDown">
 	</section>
+	<section name="ClasspathContainerSelectionPage">
+		<item key="index" value="7"/>
+	</section>
 </section>

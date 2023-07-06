@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="path" 
+	value="${pageContext.request.contextPath}"/>
 <fmt:requestEncoding value="utf-8"/>
  
 <!DOCTYPE html>
@@ -19,28 +20,32 @@
     <script type="text/javascript">
     	// window.onload와 동일한 메서드
     	$(document).ready( function(){
-    		// backendWeb/dept.do?deptno=20
-    		// 1. url: "${path}//dept.do",
-    		// 2. data : "deptno=" + $("#deptno").val(),
-    		// 3. succeess : function(dept) { 받는 객체
-    		if(event.keyCode = 13) {
-    			$.ajax({
-    				url: "${path}//dept.do",
-    				type:"post",
-    				data:"deptno=" + $("#deptno").val(),
-    				dataType:"json",
-    				success:function(dept) {
-    					console.log(dept);
-    					var add = "<td>" + dept.deptno + "</td>";
-    					add += "<td>" + dept.dname + "</td>";
-    					add += "<td>" + dept.loc + "</td>";
-    					$("#deptInfo").html(add);
-    				},
-    				error:function(err) {
-    					console.log(err);
-    				}
-    			})
-    		} 
+    		
+    		$("#deptno").keyup(function(){
+    			// enter키 입력시 수행
+    			// 백앤드:/backendWeb/dept.do?deptno=20
+    			// 1. url:"${path}/dept.do", 요청 url
+    			// 2. data:"deptno="+$("#deptno").val(), 요청 값
+    			// 3. success:function(dept){ 받는 객체
+    			if(event.keyCode == 13){
+    				$.ajax({
+    					url:"${path}/dept.do",
+    					type:"post",
+    					data:"deptno="+$("#deptno").val(),
+    					dataType:"json", // json 문자열 ==> 객체로 바꾸어준다.
+    					success:function(dept){
+    						console.log(dept)
+    						var add = "<td>"+dept.deptno+"</td>"
+    						add += "<td>"+dept.dname+"</td>"
+    						add += "<td>"+dept.loc+"</td>"
+    						$("#deptInfo").html(add)
+    					},
+    					error:function(err){
+    						console.log(err)
+    					}
+    				})
+    			}
+    		})
     	});
     </script>      
     
@@ -48,24 +53,23 @@
 </head>
 <body>
     <div class="container mt-3">
-    	<h2>부서정보 검색</h2>
+    	<h2>부서정보검색</h2>
 	  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	  		<div class="container-fluid">    	
 	            <input type="number" class="form-control me-2" 
-	      	     id="dept" placeholder="부서번호 입력" name="title"  aria-label="Search">
-
+	      	     id="deptno" placeholder="부서번호 입력"  aria-label="Search">
 	 	    </div>
 	 	</nav>
 		<table class="table table-striped table-hover">
 			<thead class="table-success">
 		      	<tr  class="text-center">
-				    <th>Firstname</th>
-				    <th>Lastname</th>
-				    <th>Email</th>
+				    <th>부서번호</th>
+				    <th>부서명</th>
+				    <th>부서위치</th>
 		      	</tr>
 		    </thead>
 		    <tbody>
-			   	<tr id="deptInfo" class="text-center">
+			   	<tr id="deptInfo"  class="text-center">
 			   	</tr>
 		 	</tbody>
 		</table>      	

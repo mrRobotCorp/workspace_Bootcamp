@@ -28,6 +28,9 @@
     			// 2. data:"deptno="+$("#deptno").val(), 요청 값
     			// 3. success:function(dept){ 받는 객체
     			if(event.keyCode == 13){
+    				// http://localhost:5080/backendWeb/dept.do?deptno=20
+    				// {"deptno":20,"dname":"RESEARCH","loc":"DALLAS"}
+
     				$.ajax({
     					url:"${path}/dept.do",
     					type:"post",
@@ -70,6 +73,9 @@
 		    </thead>
 		    <tbody>
 			   	<tr id="deptInfo"  class="text-center">
+			        <td >John</td>
+			        <td>Doe</td>
+			        <td>john@example.com</td>
 			   	</tr>
 		 	</tbody>
 		</table>      	

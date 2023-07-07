@@ -1,10 +1,5 @@
-INDEX VERSION 1.4+E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2102072354.index
+INDEX VERSION 1.4+C:\workspace_Bootcamp\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 3314203587.index
-2234081748.index
-792667014.index
-733629686.index
-1160122927.index
 1212584144.index
-3818921735.index
-1482318575.index
+706044875.index
+780639356.index

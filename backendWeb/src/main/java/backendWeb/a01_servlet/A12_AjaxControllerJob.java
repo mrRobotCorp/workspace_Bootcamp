@@ -17,7 +17,7 @@ import backendWeb.z01_vo.Job;
 /**
  * Servlet implementation class A12_AjaxControllerJob
  */
-@WebServlet(name = "jobControll", urlPatterns = { "/jobControll" })
+@WebServlet(name = "job.do", urlPatterns = { "/job.do" })
 public class A12_AjaxControllerJob extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,21 +33,19 @@ public class A12_AjaxControllerJob extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.setCharacterEncoding("utf-8");
-//		response.setContentType("text/plain;utf-8");
-		// 1. 요청값 처리
+		// TODO Auto-generated method stub
+		// List까지 처리하고 
+		// 1. 요청값처리
 		String job_id = request.getParameter("job_id");
-		if(job_id == null) job_id = "";
+		if(job_id==null) job_id="";
 		
-		// 2. model 핵심 데이터 처리
+		// 2. model 핵심데이터 처리
 		A04_PreparedDao dao = new A04_PreparedDao();
-		List<Job> jlist = dao.getJobList(job_id);
-//		Job j = dao.getJobs(job_id);
-
+		List<Job> jlist = dao.getJobs(job_id);
+		
 		// 3. view 호출
-		Gson g = new Gson();
-//		response.getWriter().print(g.toJson(j));
-		response.getWriter().print(g.toJson(jlist));
+		Gson gson = new Gson();
+		response.getWriter().print(gson.toJson(jlist));
 		
 		
 	}

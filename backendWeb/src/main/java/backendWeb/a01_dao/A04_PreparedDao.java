@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 
 import backendWeb.z01_vo.Code;
 import backendWeb.z01_vo.Department;
+import backendWeb.z01_vo.Dept;
 import backendWeb.z01_vo.Emp;
 import backendWeb.z01_vo.Employee;
 import backendWeb.z01_vo.Job;
@@ -339,19 +340,19 @@ public class A04_PreparedDao {
 	    return elist;
 	}
 
-	public List<Job> getJobList(String job_id) {
-	    List<Job> jlist = new ArrayList<Job>();
-	    String sql = "SELECT * FROM JOBS j \r\n"
-	    		+ "WHERE JOB_ID like ?";
+	public List<Job> getJobs() {
+	    List<Job> elist = new ArrayList<Job>();
+	    String sql = "	SELECT * \r\n"
+	    		+ "	FROM jobs\r\n"
+	    		+ "	ORDER BY job_title ";
 	    System.out.println("# DB 접속 #");
 	    try {
 	        con = DB.con();
 	        pstmt = con.prepareStatement(sql); 
-	        pstmt.setString(1, '%' + job_id + '%');; 
 	        rs = pstmt.executeQuery();
 	        //job_id, job_title, min_salary, max_salary
 	        while (rs.next()) {
-	        	jlist.add( new Job(
+	        	elist.add(new Job(
 	        			rs.getString("job_id"),
 	        			rs.getString("job_title"),
 	        			rs.getInt("min_salary"),
@@ -365,7 +366,7 @@ public class A04_PreparedDao {
 	    } finally {
 	        DB.close(rs, pstmt, con);
 	    }
-	    return jlist;
+	    return elist;
 	}
 
 	public List<Emp> getEmpList() {
@@ -579,7 +580,7 @@ WHERE NO = ?
 	    		+ "        ordno = ?,\r\n"
 	    		+ "        val = ?\r\n"
 	    		+ "   WHERE NO = ?";
-	    
+	    // title title refno ordno val NO
 	    try {
 	        con = DB.con();
 	        con.setAutoCommit(false);
@@ -627,63 +628,78 @@ WHERE NO = ?
 	    }
 	}
 
-	public List<Job> getJobs() {
-	    List<Job> elist = new ArrayList<Job>();
-	    String sql = "	SELECT * \r\n"
-	    		+ "	FROM jobs\r\n"
-	    		+ "	ORDER BY job_title ";
-	    System.out.println("# DB 접속 #");
-	    try {
-	        con = DB.con();
-	        pstmt = con.prepareStatement(sql); 
-	        rs = pstmt.executeQuery();
-	        //job_id, job_title, min_salary, max_salary
-	        while (rs.next()) {
-	        	elist.add(new Job(
-	        			rs.getString("job_id"),
-	        			rs.getString("job_title"),
-	        			rs.getInt("min_salary"),
-	        			rs.getInt("max_salary")
-	            ));
-	        }
-	    } catch (SQLException e) {
-	        System.out.println("DB 관련 오류: " + e.getMessage());
-	    } catch (Exception e) {
-	        System.out.println("일반 오류: " + e.getMessage());
-	    } finally {
-	        DB.close(rs, pstmt, con);
-	    }
-	    return elist;
-	}
+	/*
+	SELECT * 
+	FROM code
+	WHERE NO = ?
+	UPDATE code
+	    SET title = ?,
+	        refno = ?,
+	        ordno = ?,
+	        val = ?
+	   WHERE NO = ?
+	delete
+	FROM code
+	WHERE NO = ?
+	 * */
+		public Dept getDept(int no) {
+		    Dept c = new Dept(0,"","");
+		    String sql = " SELECT * \r\n"
+		    		+ "FROM dept\r\n"
+		    		+ "WHERE deptno = ?";
+		    try {
+		        con = DB.con();
+		        pstmt = con.prepareStatement(sql);
+		        pstmt.setInt(1, no);
+		        rs = pstmt.executeQuery();
+		        if (rs.next()) {
+		            c = new Dept(
+		                    rs.getInt("deptno"),
+		                    rs.getString("dname"),
+		                    rs.getString("loc")
+		            );
+		        }
+		    } catch (SQLException e) {
+		        System.out.println("DB 관련 오류: " + e.getMessage());
+		    } catch (Exception e) {
+		        System.out.println("일반 오류: " + e.getMessage());
+		    } finally {
+		        DB.close(rs, pstmt, con);
+		    }
+		    return c;
+		}
 
-	public Job getJobs(String job_id) {
-	    Job job = new Job("", "", 0, 0);
-	    String sql = "SELECT * FROM JOBS j \r\n"
-	    		+ "WHERE JOB_ID like ?";
-	    System.out.println("# DB 접속 #");
-	    try {
-	        con = DB.con();
-	        pstmt = con.prepareStatement(sql); 
-	        pstmt.setString(1, '%' + job_id + '%');; 
-	        rs = pstmt.executeQuery();
-	        //job_id, job_title, min_salary, max_salary
-	        if (rs.next()) {
-	        	job = new Job(
-	        			rs.getString("job_id"),
-	        			rs.getString("job_title"),
-	        			rs.getInt("min_salary"),
-	        			rs.getInt("max_salary")
-	            );
-	        }
-	    } catch (SQLException e) {
-	        System.out.println("DB 관련 오류: " + e.getMessage());
-	    } catch (Exception e) {
-	        System.out.println("일반 오류: " + e.getMessage());
-	    } finally {
-	        DB.close(rs, pstmt, con);
-	    }
-	    return job;
-	}
+	public List<Job> getJobs(String job_id) {
+
+			List<Job> jlist = new ArrayList<Job>(); 
+		    String sql = "	SELECT * \r\n"
+		    		+ "FROM jobs\r\n"
+		    		+ "WHERE JOB_ID like ? ";
+		    System.out.println("# DB 접속 #");
+		    try {
+		        con = DB.con();
+		        pstmt = con.prepareStatement(sql); 
+		        pstmt.setString(1, '%'+job_id+'%');; 
+		        rs = pstmt.executeQuery();
+		        //job_id, job_title, min_salary, max_salary
+		        while (rs.next()) {
+		        	jlist.add(new Job(
+		        			rs.getString("job_id"),
+		        			rs.getString("job_title"),
+		        			rs.getInt("min_salary"),
+		        			rs.getInt("max_salary")
+		        			)
+		        	);
+		        }
+		    } catch (SQLException e) {
+		        System.out.println("DB 관련 오류: " + e.getMessage());
+		    } catch (Exception e) {
+		        System.out.println("일반 오류: " + e.getMessage());
+		    } finally {
+		        DB.close(rs, pstmt, con);
+		    }
+		    return jlist;
+		}
 
 	public static void main(String[] args) {
         A04_PreparedDao dao = new A04_PreparedDao();

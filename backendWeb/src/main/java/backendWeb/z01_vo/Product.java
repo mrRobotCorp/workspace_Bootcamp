@@ -7,20 +7,10 @@ public class Product {
 	private int price;
 	private int cnt;
 	private String prodInfo;
-	
-	private double tot;
-	private double ratio;
-	
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
-	public Product(int price, int ratio ,int tot) {
-		this.price = price;
-		this.tot = tot;
-		this.ratio = ratio;
-	}
-
-
+	
 	public Product(String name, int price, int cnt) {
 		this.name = name;
 		this.price = price;

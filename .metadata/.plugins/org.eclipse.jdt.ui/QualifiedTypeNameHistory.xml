@@ -25,4 +25,6 @@
     <fullyQualifiedTypeName name="backendWeb2.z01_vo.Member"/>
     <fullyQualifiedTypeName name="backendWeb.z01_vo.Code"/>
     <fullyQualifiedTypeName name="com.google.gson.Gson"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 </qualifiedTypeNameHistroy>

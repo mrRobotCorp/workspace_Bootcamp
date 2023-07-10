@@ -152,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\backendWeb" path="/backendWeb" reloadable="true" source="org.eclipse.jst.jee.server:backendWeb"/></Host>
+      <Context docBase="E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\backendWeb" path="/backendWeb" reloadable="true" source="org.eclipse.jst.jee.server:backendWeb"/><Context docBase="E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\springweb" path="/springweb" reloadable="true" source="org.eclipse.jst.jee.server:springweb"/></Host>
     </Engine>
   </Service>
 </Server>

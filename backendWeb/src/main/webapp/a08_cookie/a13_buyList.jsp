@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="java.net.URLEncoder"
+    import="java.net.URLDecoder"
+    %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <c:set var="path" value="${pageContext.request.contextPath}"/>
@@ -47,23 +50,32 @@
 	 	Cookie cks[] = request.getCookies();
 	 	String ckPname = "";
 	 	
-	 	for(Cookie ck:cks) {
-	 		if(ck.getName().equals("pname")) {
-	 			ckPname += ck.getValue();
-	 		}
+	 	if(!pname.equals("")) {
+		 	for(Cookie ck:cks) {
+		 		if(ck.getName().equals("pname")) {
+		 			ckPname += URLDecoder.decode(ck.getValue(), "utf-8")
+		 					 + ", ";
+		 		}
+		 	}
+	 		
 	 	}
 	 	
-	 	response.addCookie(new Cookie("pname", ckPname));
+	 	ckPname += pname;
+	 	response.addCookie(new Cookie("pname", 
+						URLEncoder.encode(ckPname, "utf-8")
+		));
 	 	%>
 		<table class="table table-striped table-hover">
 			<thead class="table-success">
 		      	<tr  class="text-center">
-				    <th>물건명</th>
+		      		<th>입력한 물건</th>
+				    <th>전체 물건명</th>
 		      	</tr>
 		    </thead>
 		    <tbody>
 			   	<tr  class="text-center">
 			        <td><%=pname %></td>
+			        <td><%=ckPname %></td>
 			   	</tr>
 		 	</tbody>
 		</table>      	

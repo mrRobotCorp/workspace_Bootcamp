@@ -65,6 +65,10 @@ public class A05_MVC_Controller {
 			d.addAttribute("result", result);
 			return "WEB-INF\\views\\a01_start\\a05_login.jsp";
 		}
+		/*
+		name = "id" value = ""
+		name = "pass" value = ""
+		*/
 		
 		// 사원명/직책명을 사원정보 조회 처리
 		// http://localhost:5050/springweb/empList88.do
@@ -76,6 +80,12 @@ public class A05_MVC_Controller {
 			d.addAttribute("empList", dao.getEmpList(sch));
 			
 			return "WEB-INF\\views\\a01_start\\a06_empList.jsp";
+			/*
+			name = "ename"
+			name = "job"
+			<c:for var = "emp" items = "${empList}"
+				${emp.empno} ${emp.ename} ${emp.job}
+			*/
 		}
 		
 		// http://localhost:5050/springweb/deptList88.do

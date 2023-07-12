@@ -4,6 +4,7 @@ public class Music {
 	private String mname;
 	private String singer;
 	private int  pubyear;
+	
 	public Music() {
 		// TODO Auto-generated constructor stub
 	}

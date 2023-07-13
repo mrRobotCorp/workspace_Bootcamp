@@ -34,4 +34,11 @@
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="backendWeb.z01_vo.Product"/>
     <fullyQualifiedTypeName name="backendWeb.z01_vo.Music"/>
+    <fullyQualifiedTypeName name="a01_diexp.z01_vo.Mart"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="a01_diexp.z01_vo.ShoppingMall"/>
+    <fullyQualifiedTypeName name="a01_diexp.z01_vo.Sensor"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="a01_diexp.z01_vo.Monitor"/>
+    <fullyQualifiedTypeName name="a01_diexp.z01_vo.Student"/>
 </qualifiedTypeNameHistroy>

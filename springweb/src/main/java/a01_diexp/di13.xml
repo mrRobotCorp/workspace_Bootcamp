@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:task="http://www.springframework.org/schema/task" 
+   xmlns:aop="http://www.springframework.org/schema/aop" 
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mvc="http://www.springframework.org/schema/mvc"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:c="http://www.springframework.org/schema/c"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:util="http://www.springframework.org/schema/util"
+   xmlns:websocket="http://www.springframework.org/schema/websocket"
+   xmlns:sec="http://www.springframework.org/schema/security"
+   xmlns:tx="http://www.springframework.org/schema/tx" 
+    
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd       
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc.xsd     
+        http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd
+         http://www.springframework.org/schema/websocket
+      http://www.springframework.org/schema/websocket/spring-websocket.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd   
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd   
+      ">
+	<bean id="obj" class="java.lang.Object"/>
+<!-- 
+# 1:다 관계 객체 활용
+1. 객체 구조 예시
+	쇼핑몰안에 판매하는 물품들
+	회사안에 여러 사원들
+	단일 객체안에 여러 다중의 객체들을 할당하는 구조를 말한다.
+2. java 클래스 선언..
+	1) 포함될 다중 객체를 위한 class 선언
+		class Product
+			물건명, 가격, 갯수
+	2) 포함할 객체 class 선언
+		class Mart
+			마트명
+			List<Product> plist
+			
+			// 1:다관계 할당 메서드
+			void setProductList(List<Product> list)
+				this.plist = list
+			// 2. 1:다관계 표현 메서드
+			void showBuyList(){
+				@@ 마트에서 구매한 물건들
+				for(Product prod:plist){
+					물건명 가격 갯수 출력...
+				}
+			}
+3. 위 내용을 xml 컨테이너에 의해 표현하기
+	0) 포함될 객체
+		<bean id="pro01"
+		<bean id="pro02"
+		<bean id="pro03"
+	1) set Property 설정 부분..
+		<property name="productList>
+			<list>
+				<ref bean="pro01">
+				<ref bean="pro02">
+				<ref bean="pro03">
+						
+ -->	
+ 	<bean id="prod01" class="a01_diexp.z01_vo.Product">
+ 		<constructor-arg value="apple"></constructor-arg>
+ 		<constructor-arg value="3000"></constructor-arg>
+ 		<constructor-arg value="2"></constructor-arg>
+ 	</bean>
+ 	<bean id="prod02" class="a01_diexp.z01_vo.Product">
+ 		<constructor-arg value="banana"></constructor-arg>
+ 		<constructor-arg value="4000"></constructor-arg>
+ 		<constructor-arg value="3"></constructor-arg>
+ 	</bean>
+ 	<bean id="prod03" class="a01_diexp.z01_vo.Product">
+ 		<constructor-arg value="mango"></constructor-arg>
+ 		<constructor-arg value="12000"></constructor-arg>
+ 		<constructor-arg value="4"></constructor-arg>
+ 	</bean>
+ 	
+ 	<bean id="m01" class="a01_diexp.z01_vo.Mart">
+ 		<constructor-arg value="rose mart"></constructor-arg>
+ 		<property name="plist">
+ 			<list>
+ 				<ref bean="prod01"></ref>
+ 				<ref bean="prod02"></ref>
+ 				<ref bean="prod03"></ref>
+ 			</list>
+ 		</property>
+ 	</bean>
+ 	<!-- 
+ 	Member 아이디 패스워드 이름 권한 포인트
+ 	 -->
+ 	<bean id="mem01" class="a01_diexp.z01_vo.Member">
+ 		<constructor-arg value="skrr"></constructor-arg>
+ 		<constructor-arg value="1111"></constructor-arg>
+ 		<constructor-arg value="Sam"></constructor-arg>
+ 		<constructor-arg value="admin"></constructor-arg>
+ 		<constructor-arg value="9090"></constructor-arg>
+ 	</bean>
+ 	<bean id="mem02" class="a01_diexp.z01_vo.Member">
+ 		<constructor-arg value="skrrt"></constructor-arg>
+ 		<constructor-arg value="1212"></constructor-arg>
+ 		<constructor-arg value="Amy"></constructor-arg>
+ 		<constructor-arg value="User"></constructor-arg>
+ 		<constructor-arg value="19334"></constructor-arg>
+ 	</bean>
+ 	<bean id="mem03" class="a01_diexp.z01_vo.Member">
+ 		<constructor-arg value="higirl"></constructor-arg>
+ 		<constructor-arg value="3030"></constructor-arg>
+ 		<constructor-arg value="Kevin"></constructor-arg>
+ 		<constructor-arg value="User"></constructor-arg>
+ 		<constructor-arg value="2811"></constructor-arg>
+ 	</bean>
+ 	
+ 	<bean id="sh01" class="a01_diexp.z01_vo.ShoppingMall">
+ 		<constructor-arg value="the Hyundai"></constructor-arg>
+ 		<property name="mlist">
+ 			<list>
+ 				<ref bean="mem01"></ref>
+ 				<ref bean="mem02"></ref>
+ 				<ref bean="mem03"></ref>
+ 			</list>
+ 		</property>
+ 	</bean>
+	
+	      
+</beans>   
+
+
+   

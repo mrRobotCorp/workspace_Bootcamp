@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:task="http://www.springframework.org/schema/task" 
+   xmlns:aop="http://www.springframework.org/schema/aop" 
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mvc="http://www.springframework.org/schema/mvc"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:c="http://www.springframework.org/schema/c"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:util="http://www.springframework.org/schema/util"
+   xmlns:websocket="http://www.springframework.org/schema/websocket"
+   xmlns:sec="http://www.springframework.org/schema/security"
+   xmlns:tx="http://www.springframework.org/schema/tx" 
+    
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd       
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc.xsd     
+        http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd
+         http://www.springframework.org/schema/websocket
+      http://www.springframework.org/schema/websocket/spring-websocket.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd   
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd   
+      ">
+	<bean id="obj" class="java.lang.Object"/>
+	
+	<bean id="sensor01" class="a01_diexp.z01_vo.Sensor">
+		<property name="agent">
+			<set>
+				<value>주식매매</value>
+				<value>주식매매</value>
+				<value>자산관리</value>
+				<value>주식매매</value>
+				<value>자산관리</value>
+				<value>보험관리</value>
+				<value>보험관리</value>
+				<value>보험관리</value>
+			</set>
+		</property>
+		<property name="addInfo">
+			<props>
+				<prop key="apple">3000</prop>
+				<prop key="banana">4000</prop>
+				<prop key="mango">12000</prop>
+				<prop key="orange">5000</prop>
+				<prop key="orange">3500</prop>
+				<prop key="banana">6000</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="g01" class="a01_diexp.z01_vo.Gamer">
+		<property name="bead">
+			<set>
+				<value>빨강</value>
+				<value>빨강</value>
+				<value>노랑</value>
+				<value>주황</value>
+				<value>주황</value>
+				<value>초록</value>
+				<value>노랑</value>
+				<value>빨강</value>
+			</set>
+		</property>
+		<property name="beadCnt">
+			<props>
+				<prop key="red">3</prop>
+				<prop key="yellow">5</prop>
+				<prop key="green">5</prop>
+				<prop key="purple">3</prop>
+				<prop key="purple">3</prop>
+				<prop key="purple">3</prop>
+				<prop key="blue">4</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="monitor" class="a01_diexp.z01_vo.Monitor">
+	<!-- setConfig(Map<String, Integer> config) -->
+		<property name="config">
+			<map>
+				<entry key="간격" value="1000"></entry>
+				<entry key="시간">
+					<value>2000</value>
+				</entry>
+				<entry key="범위(h)">
+					<value>25</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="stu" class="a01_diexp.z01_vo.Student">
+		<property name="records">
+			<map>
+				<entry key="국어">
+					<value>80</value>
+				</entry>
+				<entry key="영어">
+					<value>98</value>
+				</entry>
+				<entry key="수학">
+					<value>89</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	
+	      
+</beans>   
+
+
+   

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:task="http://www.springframework.org/schema/task" 
+   xmlns:aop="http://www.springframework.org/schema/aop" 
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mvc="http://www.springframework.org/schema/mvc"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:c="http://www.springframework.org/schema/c"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:util="http://www.springframework.org/schema/util"
+   xmlns:websocket="http://www.springframework.org/schema/websocket"
+   xmlns:sec="http://www.springframework.org/schema/security"
+   xmlns:tx="http://www.springframework.org/schema/tx" 
+    
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd       
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc.xsd     
+        http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd
+         http://www.springframework.org/schema/websocket
+      http://www.springframework.org/schema/websocket/spring-websocket.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd   
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd   
+      ">
+      
+      <bean id="obj" class="java.lang.Object"></bean>
+      
+      <bean id="p01" class="a01_diexp.z01_vo.Person"
+      p:name="Joe" p:age="25" p:loc="seoul">
+      </bean>
+      
+      <!-- (String name, int price, int cnt) -->
+      <bean id="prod1" class="a01_diexp.z01_vo.Product"
+      c:name="apple" c:price="3000" c:cnt="2"></bean>
+      <bean id="prod2" class="a01_diexp.z01_vo.Product"
+      c:_0="banana" c:_1="4000" c:_2="3"></bean>
+      
+      <!-- 
+      Dept : 프로퍼티로 선언
+      Calculator : 생성자 (1,2)로 선언해서 호출
+      int deptno, String dname, String loc
+       -->
+      
+      <bean id="d01" class="a01_diexp.z01_vo.Dept"
+      c:_0="40" c:_1="인사" c:_2="busan"></bean>
+      
+      <!-- 
+      int num01, int num02, String cal, int tot
+       -->
+      <bean id="c01" class="backendWeb.z01_vo.Calculator"
+      c:_0="20" c:_1="24" c:_2=" + " c:_3="44" ></bean>
+      
+      <!-- String mname, String singer, int pubyear -->
+      <bean id="m01" class="backendWeb.z01_vo.Music"
+      c:_0="invincible" c:_1="Omar" c:_2="2022"></bean>
+      <bean id="m02" class="backendWeb.z01_vo.Music"
+      c:_0="22" c:_1="Taylor swift" c:_2="2015"></bean>
+      <bean id="m03" class="backendWeb.z01_vo.Music"
+      c:_0="pink + white" c:_1="Frank Ocean" c:_2="2019"></bean>
+</beans>      

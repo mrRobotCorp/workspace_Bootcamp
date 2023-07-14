@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item key="CommitDialog.location.x" value="746"/>
+	<item key="CommitDialog.location.y" value="215"/>
+	<item key="CommitDialog.size.x" value="1174"/>
+	<item key="CommitDialog.size.y" value="463"/>
+	<item key="CommitDialog.weights.0" value="500"/>
+	<item key="CommitDialog.weights.1" value="500"/>
 	<section name="NewLocationWizard">
 		<list key="ConfigurationWizardMainPage.STORE_URL_ID">
 			<item value="https://192.168.10.99/svn/web"/>

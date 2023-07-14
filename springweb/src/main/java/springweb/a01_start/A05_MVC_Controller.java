@@ -13,7 +13,7 @@ import backendWeb.z01_vo.Emp;
 // springweb.a01_start.A05_MVC_Controller
 @Controller
 public class A05_MVC_Controller {
-	// http://localhost:5050/springweb/mvc01.do
+	// http://localhost:5080/springweb/mvc01.do
 	// ?num01=30&cal= * &num02=10
 	@RequestMapping("mvc01.do")
 	public String mvc01(Calculator c) {

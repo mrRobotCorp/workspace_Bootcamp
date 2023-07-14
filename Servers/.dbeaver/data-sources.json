@@ -23,6 +23,26 @@
 					"autocommit": false
 				}
 			}
+		},
+		"oracle_thin-1895302b3fb-4bdecce773e3bf31": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "192.168.10.120",
+			"save-password": true,
+			"configuration": {
+				"host": "192.168.10.120",
+				"port": "1521",
+				"database": "xe",
+				"url": "jdbc:oracle:thin:@//192.168.10.120:1521/xe",
+				"configurationType": "MANUAL",
+				"home": "C:\\oraclexe\\app\\oracle\\product\\11.2.0\\server",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
 		}
 	},
 	"connection-types": {

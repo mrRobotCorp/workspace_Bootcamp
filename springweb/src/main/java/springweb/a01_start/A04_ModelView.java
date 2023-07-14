@@ -10,7 +10,7 @@ import backendWeb.z01_vo.Product;
 // springweb.a01_start.A04_ModelView
 @Controller
 public class A04_ModelView {
-	// http://localhost:5050/springweb/modelExp01.do
+	// http://localhost:5080/springweb/modelExp01.do
 	@RequestMapping("modelExp01.do")
 	public String start(Model d) {
 		// 모델 데이터에 객체 선언

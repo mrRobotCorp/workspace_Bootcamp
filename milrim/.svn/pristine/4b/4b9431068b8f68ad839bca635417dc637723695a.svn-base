@@ -1,0 +1,14 @@
+package milrim_project.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class test {
+
+	// http://localhost:4040/milrim/milrim_project/start.do
+	@RequestMapping("start.do")
+	public String start() {
+		return "WEB-INF\\views\\a01_start\\a01_start.jsp";
+	}
+}

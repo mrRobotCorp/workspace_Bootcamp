@@ -34,5 +34,8 @@ public class HPUser {
 	public void setHandPhone(HandPhone handPhone) {
 		this.handPhone = handPhone;
 	}
+	public void setHandPhone2(HandPhone handPhone) {
+		this.handPhone = handPhone;
+	}
 	
 }

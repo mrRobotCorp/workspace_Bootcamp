@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javaexp.a02_begin.A01_HelloJava"/>
-    <fullyQualifiedTypeName name="javaexp.a08_relation.vo.Computer"/>
-    <fullyQualifiedTypeName name="javaexp.a08_relation.vo.Product"/>
-    <fullyQualifiedTypeName name="javaexp.a08_relation.vo.Mart"/>
-    <fullyQualifiedTypeName name="javaexp.a08_relation.access.story2.woodHome.WoodCutter"/>
-    <fullyQualifiedTypeName name="javaexp.a08_relation.access.ourHome.Father"/>
-    <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="javaexp.a08_relation.a01_pck.Person"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="javaexp.a11_api.A05_StringBuffer"/>
@@ -31,7 +24,6 @@
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="backendWeb.z01_vo.Product"/>
     <fullyQualifiedTypeName name="a01_diexp.z01_vo.Mart"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="a01_diexp.z01_vo.ShoppingMall"/>
     <fullyQualifiedTypeName name="a01_diexp.z01_vo.Sensor"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
@@ -39,12 +31,33 @@
     <fullyQualifiedTypeName name="a01_diexp.z01_vo.Student"/>
     <fullyQualifiedTypeName name="a01_diexp.z01_vo.Person"/>
     <fullyQualifiedTypeName name="a01_diexp.z01_vo.Product"/>
-    <fullyQualifiedTypeName name="a01_diexp.z01_vo.Dept"/>
     <fullyQualifiedTypeName name="backendWeb.z01_vo.Calculator"/>
     <fullyQualifiedTypeName name="backendWeb.z01_vo.Music"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="a01_diexp.z02_vo.Person"/>
+    <fullyQualifiedTypeName name="a01_diexp.z01_vo.Car"/>
+    <fullyQualifiedTypeName name="a01_diexp.z01_vo.CarDriver"/>
+    <fullyQualifiedTypeName name="a01_diexp.z03_vo.Music"/>
+    <fullyQualifiedTypeName name="a01_diexp.z01_vo.Dept"/>
+    <fullyQualifiedTypeName name="a01_diexp.z01_vo.Member"/>
+    <fullyQualifiedTypeName name="a01_diexp.z04_vo.Code"/>
+    <fullyQualifiedTypeName name="a01_diexp.z04_vo.Emp"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="backendWeb.z01_vo.Dept"/>
+    <fullyQualifiedTypeName name="a01_diexp_z05_mvc.A01_Controller"/>
+    <fullyQualifiedTypeName name="a01_diexp_z05_mvc.A02_Service"/>
+    <fullyQualifiedTypeName name="a01_diexp.z06_callMvc.A01_Controller"/>
+    <fullyQualifiedTypeName name="a01_diexp.z06_callMvc.Web_Controller"/>
+    <fullyQualifiedTypeName name="a01_diexp.z06_callMvc.A02_Service"/>
+    <fullyQualifiedTypeName name="a01_diexp.z06_callMvc.A03_Dao"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="a01_diexp.z07_mvcAuto.A01_EmpController"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="backendWeb.z01_vo.Emp"/>
 </qualifiedTypeNameHistroy>

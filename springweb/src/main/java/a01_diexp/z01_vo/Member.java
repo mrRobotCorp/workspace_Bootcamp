@@ -1,5 +1,6 @@
 package a01_diexp.z01_vo;
 // a01_diexp.z01_vo.Member
+
 public class Member {
 	// Member 아이디 패스워드 이름 권한 포인트
 	private String id;

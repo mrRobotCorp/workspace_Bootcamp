@@ -35,6 +35,7 @@ public class A06_ReqModelController {
 	//		모델데이터 : ### 어쩌구 모델데이터
 	
 	@GetMapping("form2.do")
+	
 	public String ex01() {
 		return "WEB-INF\\views\\a01_start\\a09_form.jsp";
 	}

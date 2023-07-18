@@ -8,6 +8,8 @@ import backendWeb.z01_vo.Emp;
 
 @Service
 public class A02_EmpService {
+	// 컨테이너에 객체 안에 있는 Autowired에 의해 자동 로딩되게 함
+	// new @@@() 없이 컨테이너에 있는 객체를 활용할 수 있음
 	@Autowired
 	private A04_PreparedDao dao;
 	

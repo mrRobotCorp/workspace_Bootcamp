@@ -10,7 +10,7 @@ import backendWeb.z01_vo.PlayTeam;
 import backendWeb.z01_vo.Product;
 
 // springweb.a01_start.A01_StartController
-@Controller
+@Controller("startCtrl")
 public class A01_StartController {
    // http://localhost:8080/springweb/start.do
    // http://localhost:8080/springweb/req01.do?name=홍길동&age=25

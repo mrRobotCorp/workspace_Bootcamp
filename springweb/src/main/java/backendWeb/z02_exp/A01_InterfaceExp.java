@@ -28,6 +28,7 @@ interface MemberDao {
 	public List<Member> memberList();
 }
 // mybatis --> XXMapper.xml에 의해서 sql
+//	인터페이스명, 메서드명, 리턴값, 매개변수 -> XXX.Mapper.xml
 class MemberDaoImpl implements MemberDao {
 	@Override
 	public List<Member> memberList() {

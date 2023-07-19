@@ -1,5 +1,5 @@
 package springweb.a05_mvcexp.z01_vo;
-
+// 
 public class Member {
 	private String id;
 	private String pass;

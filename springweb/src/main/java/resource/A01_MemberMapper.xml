@@ -14,14 +14,90 @@
 		
 	</select>
 	<!-- 
-	sql = " like ? "
-	pstmt.setString(1, sch.getId());
-	
-	parameterType="member"가 가지고 있는 getXXX()
-	에 property이어야 한다.
-	===> 인터페이스를 상속한 실제객체가 mybatis에 의해
-	만들어 진다.
-	
+	아래 내용을 추가 메서드 2개 만들어서 처리
+	SELECT job
+FROM EMP e WHERE empno = 7369;
+
+SELECT deptno
+FROM EMP e WHERE empno = 7521;
 	 -->
+	 
+	 <select id="exp01" resultType="string" >
+		select ename
+		FROM emp
+		WHERE empno = 7369			
+	</select>	 
+	<select id="daoexp2" resultType="string">
+		SELECT job
+		FROM emp
+		WHERE empno = 7369		
+	</select>
+	<select id="daoexp3" resultType="int">
+		SELECT deptno
+		FROM emp
+		WHERE empno = 7521		
+	</select>		
+	<select id="exp04" parameterType="string"
+					   resultType="string">
+		SELECT job
+		FROM emp
+		WHERE ename=#{ename}						           
+	</select>	
+	<select id="exp05" parameterType="int" resultType="double">
+		SELECT sal	
+		FROM emp
+		WHERE empno = #{empno}	
+	</select>
+	<select id="exp06" parameterType="string" resultType="int">
+		SELECT mgr
+		FROM emp
+		WHERE ename = #{ename}	
+	</select>
+	<select id="exp07" parameterType="int" resultType="date">
+		SELECT hiredate 
+		FROM emp
+		WHERE empno = #{empno}
+	</select>
+	  
+	  <insert id="exp08Ins" parameterType="dept">
+	  	INSERT INTO DEPT01 values(#{deptno}, #{dname}, #{loc})
+	  </insert>
+	  <!-- 
+	  SELECT *
+	FROM EMP e WHERE ENAME LIKE '%' || '' || '%'
+	AND sal BETWEEN 1000 AND 3000
+	   -->
+	   <insert id="stuIns" parameterType="student">
+	   		INSERT INTO STUDENT02 s VALUES(#{sno}, #{name}, #{kor}, #{eng}, #{math})
+	   </insert>
+	   
+		<insert id="locIns" parameterType="locations">
+	   		INSERT INTO LOCATIONS10 l 
+			values(#{location_id}, #{street_address}, #{postal_code}, #{city}, 
+			#{state_province}, #{country_id},)
+	   </insert>
+	   
+	   <select id="exp11EmpList" resultType="emp" parameterType="emp">
+	   	SELECT *
+		FROM EMP e WHERE ename LIKE '%' || #{ename} || '%'
+		AND sal BETWEEN #{minSal} and #{maxSal}
+	   </select>
+	   
+   		<select id="exp12EmpList" resultType="emp" parameterType="map">
+   		SELECT *
+		FROM EMP
+		WHERE ename LIKE '%'||#{ename_sch}||'%'
+		AND job LIKE '%'||#{job_sch}||'%'
+   		</select>
+   		
+   		<select id="exp13EmpList" resultType="emp" parameterType="map">
+   		SELECT *
+		FROM EMP
+		WHERE job IN (#{job01}, #{job02})
+   		</select>
+   		
+   		<insert id="exp14DeptInsert">
+   		INSERT INTO dept01 VALUES (#{no}, #{dpartnm}, #{location})
+   		</insert>
 
 </mapper>	

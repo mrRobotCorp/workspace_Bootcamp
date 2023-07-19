@@ -13,10 +13,21 @@ public class A01_MemberController {
 	@Autowired
 	private A01_memberService service;
 	
+	// http://localhost:7080/springweb/memberList.do
 	@RequestMapping("memberList.do")
 	public String memberList(Member sch, Model d) {
-		System.out.println("-- 데이터 크기 --");
-		System.out.println(service.memberList(sch).size());
-		return "";
+		System.out.println("#데이터 크기#");
+		System.out.println(
+				service.memberList(sch).size());
+		d.addAttribute("memberList", service.memberList(sch));
+		return "WEB-INF\\views\\a05_mvcexp\\a02_memberList.jsp";
 	}
+	
+	// http://localhost:5070/springweb/daoexp.do  
+	@RequestMapping("daoexp.do")
+	public String daoexp() {
+		service.daoexp();
+		return "";
+	}	
+	
 }

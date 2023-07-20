@@ -5,8 +5,12 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
+import springweb.a05_mvcexp.z01_vo.Dept;
 import springweb.a05_mvcexp.z01_vo.Emp;
+import springweb.a05_mvcexp.z01_vo.Employees;
+import springweb.a05_mvcexp.z01_vo.Job;
 import springweb.a05_mvcexp.z01_vo.Member;
+import springweb.a05_mvcexp.z01_vo.Student02;
 
 // springweb.a05_job.a03_dao.A01_MemberDao
 public interface A01_MemberDao {
@@ -30,6 +34,28 @@ public interface A01_MemberDao {
 	public void exp14DeptInsert(@Param("no") int deptno,
 			@Param("dpartnm") String dname,
 			@Param("location") String loc);
+	
+	public List<Emp> exp15EmpList(@Param("startDte") String startDte,
+				@Param("endDte") String endDte);
+	
+	public List<Student02> exp16StuList(@Param("stuName") String stuName,
+						@Param("startP") int startP,
+						@Param("endP") int endP);
+	
+	public int getEmpCount(@Param("minSal") int minSal,
+				@Param("maxSal") int maxSal);
+	
+	public double getDeptMaxSal(@Param("deptno") int deptno);
+	
+	public List<Employees> getEmployee(@Param("id") int employee_id);
+	public List<Job> getJobList(@Param("jobId") String jobId);
+	public List<String> exp19getEnames(@Param("minSal") int minSal,
+						@Param("maxSal") int maxSal);
+	
+	public List<String> exp20GetLoc(@Param("ctryId") String ctryId);
+	public List<Emp> getEmpResultExp();
+	public List<Dept> getDeptResultExp();
+	
 	
 	
 }

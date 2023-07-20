@@ -8,8 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import springweb.a05_mvcexp.a03_dao.A01_MemberDao;
+import springweb.a05_mvcexp.z01_vo.Dept;
 import springweb.a05_mvcexp.z01_vo.Emp;
+import springweb.a05_mvcexp.z01_vo.Employees;
+import springweb.a05_mvcexp.z01_vo.Job;
 import springweb.a05_mvcexp.z01_vo.Member;
+import springweb.a05_mvcexp.z01_vo.Student02;
 
 @Service
 public class A01_memberService {
@@ -59,6 +63,51 @@ public class A01_memberService {
 		
 		dao.exp14DeptInsert(22, "교욱", "부산");
 		
+		for(Emp emp:dao.exp15EmpList("1981-01-01", "1981-12-31")) {
+			System.out.print(emp.getEname() + "\t");
+			System.out.println(emp.getHiredate() + "\t");
+		}
+		
+		for(Student02 stu:dao.exp16StuList("", 50, 100)) {
+			System.out.print(stu.getSno() + "\t");
+			System.out.println(stu.getName() + "\t");
+		}
+		
+		System.out.println("getEmpCount : " + dao.getEmpCount(2000, 5000));
+		System.out.println("getDeptMaxSal : " + dao.getDeptMaxSal(10));
+		
+		for(Employees emp:dao.getEmployee(100)) {
+			System.out.print(emp.getEmployee_id() + "\t");
+			System.out.print(emp.getFirst_name() + "\t");
+			System.out.println(emp.getEmail() + "\t");
+		}
+
+		for(Job j:dao.getJobList("O")) {
+			System.out.print(j.getJob_id() + "\t");
+			System.out.print(j.getJob_title() + "\t");
+			System.out.print(j.getMin_sal() + "\t");
+			System.out.println(j.getMax_sal());			
+		}
+		
+		for(String name:dao.exp19getEnames(1000, 2000)) {
+			System.out.println("exp19 : " + name);
+		}
+		
+		for(String loc:dao.exp20GetLoc("S")) {
+			System.out.println("exp20 : " + loc);
+		}
+		
+		for(Emp emp:dao.getEmpResultExp()) {
+			System.out.print(emp.getEmpno() + "\t");
+			System.out.print(emp.getEname() + "\t");
+			System.out.println(emp.getSal() + "\t");
+		}
+		
+		for(Dept d:dao.getDeptResultExp()) {
+			System.out.print(d.getDeptno() + "\t");
+			System.out.print(d.getDname() + "\t");
+			System.out.println(d.getLoc() + "\t");
+		}
 	}
 	
 	/*

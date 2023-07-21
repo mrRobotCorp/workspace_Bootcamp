@@ -1,5 +1,6 @@
 package springweb.a05_mvcexp.a02_service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import springweb.a05_mvcexp.a03_dao.A01_MemberDao;
 import springweb.a05_mvcexp.z01_vo.Dept;
 import springweb.a05_mvcexp.z01_vo.Emp;
+import springweb.a05_mvcexp.z01_vo.EmpDept;
 import springweb.a05_mvcexp.z01_vo.Employees;
 import springweb.a05_mvcexp.z01_vo.Job;
 import springweb.a05_mvcexp.z01_vo.Member;
@@ -107,6 +109,49 @@ public class A01_memberService {
 			System.out.print(d.getDeptno() + "\t");
 			System.out.print(d.getDname() + "\t");
 			System.out.println(d.getLoc() + "\t");
+		}
+		
+		for(EmpDept ed:dao.getEmpDeptList("S", "SAL")) {
+			System.out.print(ed.getEmp().getEmpno() + "\t");
+			System.out.print(ed.getEmp().getEname() + "\t");
+			System.out.print(ed.getDept().getDeptno() + "\t");
+			System.out.println(ed.getDept().getDname() + "\t");
+		}
+		
+		/*
+		for(EmpJob ej:dao.getEmpJobList("o", "Acc")) {
+			Employees e = ej.getEmployee();
+			Job j = ej.getJob();
+			System.out.print(e.getEmployee_id()+"\t");
+			System.out.print(e.getFirst_name()+"\t");
+			System.out.print(e.getLast_name()+"\t");
+			System.out.print(e.getEmail()+"\t");
+			System.out.print(e.getSalary()+"\t");
+			System.out.print(j.getJob_id()+"\t");
+			System.out.print(j.getJob_title()+"\n");
+		}	
+		
+		
+		System.out.println(dao.getDeptnoCnt(30));
+		System.out.println(dao.getSalCnt(1000, 4000));
+		
+		dao.dInsert(55, "마케팅", "인천");
+		
+		*/
+		
+		System.out.println("연습28 동적 query 처리");
+		for(Emp e:dao.getDynamicSQL(null)) {
+			System.out.println(e.getEmpno());
+		}
+		
+		List<Integer> empnos = new ArrayList<Integer>();
+		empnos.add(7369);
+		empnos.add(7499);
+		empnos.add(7521);
+		for(Emp emp:dao.getEmpByEmpnos(empnos)) {
+			System.err.print(emp.getEmpno() + "\t");
+			System.err.print(emp.getEname() + "\t");
+			System.err.println(emp.getJob() + "\t");
 		}
 	}
 	

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import springweb.a05_mvcexp.z01_vo.Dept;
 import springweb.a05_mvcexp.z01_vo.Emp;
+import springweb.a05_mvcexp.z01_vo.EmpDept;
 import springweb.a05_mvcexp.z01_vo.Employees;
 import springweb.a05_mvcexp.z01_vo.Job;
 import springweb.a05_mvcexp.z01_vo.Member;
@@ -56,6 +57,22 @@ public interface A01_MemberDao {
 	public List<Emp> getEmpResultExp();
 	public List<Dept> getDeptResultExp();
 	
+	public List<EmpDept> getEmpDeptList(@Param("ename") String ename,
+						@Param("dname") String dname);	
 	
+	/*
+	public List<EmpJob> getEmpJobList(
+			  @Param("first_name") String first_name,
+			  @Param("job_title") String job_title);
+	  
+	public int getDeptnoCnt(@Param("deptno") int deptno);	
+	public int getSalCnt(@Param("minSal") int minSal,
+			@Param("maxSal") int maxSal);	
 	
+	public void dInsert(@Param("deptno") int deptno,
+			@Param("dname") String dname,
+			@Param("loc") String loc);
+	*/
+	public List<Emp> getDynamicSQL(@Param("ename") String ename);
+	public List<Emp> getEmpByEmpnos(@Param("empnos") List<Integer> empnos);
 }

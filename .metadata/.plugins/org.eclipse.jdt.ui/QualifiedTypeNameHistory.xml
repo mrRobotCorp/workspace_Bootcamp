@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="frontWeb2.DB"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
@@ -56,8 +55,9 @@
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="springweb.a05_mvcexp.z01_vo.Employees"/>
     <fullyQualifiedTypeName name="springweb.a05_mvcexp.z01_vo.Job"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
     <fullyQualifiedTypeName name="springweb.a05_mvcexp.z01_vo.Location"/>
     <fullyQualifiedTypeName name="springweb.a05_mvcexp.z01_vo.Dept"/>
     <fullyQualifiedTypeName name="backendWeb.z01_vo.Dept"/>
+    <fullyQualifiedTypeName name="springweb.a05_mvcexp.z01_vo.EmpDept"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
 </qualifiedTypeNameHistroy>

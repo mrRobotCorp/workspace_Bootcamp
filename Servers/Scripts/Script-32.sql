@@ -73,5 +73,45 @@ FROM DEPT01 d ;
 
 INSERT INTO dept01 VALUES (21, '회계', '제주');
 
+SELECT e.*, dname, loc
+FROM EMP e , DEPT d 
+WHERE e.DEPTNO = d.DEPTNO 
+AND ename LIKE '%'||'S'||'%'
+AND dname LIKE '%'||'SAL'||'%';
 
+SELECT * FROM EMPLOYEES e ;
 
+SELECT e.*, job_title, min_salary, max_salary
+FROM EMPLOYEES e , JOBS j 
+WHERE e.JOB_ID = j.JOB_ID 
+AND FIRST_NAME LIKE '%'||'A'||'%'
+AND job_title LIKE '%'||'P'||'%';
+
+SELECT count(*) FROM emp WHERE deptno = 30;
+
+SELECT count(*)
+FROM EMP e
+WHERE sal BETWEEN 1000 AND 4000;
+
+SELECT * FROM DEPT01 d ;
+
+INSERT INTO DEPT01 VALUES(55, '마케팅', '인천');
+
+SELECT * FROM STUDENT02 s ; 
+
+SELECT *
+FROM EMP
+WHERE ENAME = 'SMITH'
+AND job = 'CLERK';
+
+SELECT *
+FROM EMP
+WHERE 1=1
+--if ename != null
+AND ename='SMITH';
+
+CREATE TABLE student09
+AS SELECT * FROM STUDENT02;
+
+SELECT * FROM emp 
+WHERE empno IN (7369, 7499, 7521);

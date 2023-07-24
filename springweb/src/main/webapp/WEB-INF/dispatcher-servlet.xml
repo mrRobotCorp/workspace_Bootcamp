@@ -43,6 +43,12 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 	</context:component-scan>
+	
+	<context:property-placeholder
+		location="classpath:resource/a01_config, classpath:resource/a02_config"/>
+
+	<!-- container안에서도 접근, java 소스로도 접근 가능. key/value -->
+	
 	<bean class="backendWeb.a01_dao.A04_PreparedDao"/>
 	<!-- 
 	# DB연결처리
@@ -53,10 +59,10 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" 
-			value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-		<property name="username" value="scott"/>	
-		<property name="password" value="tiger"/>	
+			value="${jdbc.driver}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.user}"/>	
+		<property name="password" value="${jdbc.pass}"/>	
 	
 	</bean> 
 	<!-- 

@@ -1,19 +1,21 @@
 package springweb.a05_mvcexp.a02_service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import springweb.a05_mvcexp.a03_dao.A01_MemberDao;
-import springweb.a05_mvcexp.z01_vo.Emp;
+import springweb.a05_mvcexp.a03_dao.A04_FileUploadDao;
 import springweb.a05_mvcexp.z01_vo.Member;
+import springweb.a05_mvcexp.z01_vo.Restore;
 
 @Service
 public class A01_MemberService {
 	@Autowired
 	private A01_MemberDao dao; // 인터페이스 = new 실제객체()
+	@Autowired
+	private A04_FileUploadDao dao2;
 	
 	public List<Member> memberList(Member sch){
 		if(sch.getId()==null) sch.setId("");
@@ -136,7 +138,6 @@ public class A01_MemberService {
 		//dao.updateStudent("마길동11", 90, 80, 90, 4);
 		System.out.println("연습27 사원삭제 :");
 		dao.delEmp(1006);
-		*/
 		System.out.println("연습25 부서등록1 :");
 		dao.insertDept(80, "회계2", "서울");		
 		System.out.println("연습26 학생수정 :");
@@ -161,5 +162,9 @@ public class A01_MemberService {
 		   System.out.print(emp.getEname()+"\t");
 		   System.out.print(emp.getJob()+"\n");
 		}		
+		*/
+		
+		System.out.println("연습30 파일 업로드 등록");
+		dao2.insFileInfo(new Restore(2, "파일내용", "파일명"));
 	}
 }

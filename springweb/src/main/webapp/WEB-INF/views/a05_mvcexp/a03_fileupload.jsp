@@ -23,6 +23,10 @@
     	$(document).ready( function(){
     		
     		//$("h2").text("jquery 로딩 성공")
+    		let msg = "${msg}"
+    		if(msg != "") {
+    			alert(msg);
+    		}
     	});
     </script>      
     
@@ -36,7 +40,7 @@
 	    	<form method="post" enctype="multipart/form-data" class="d-flex align-items-center" >
 	            <input type="text" class="form-control me-2" 
 	      	     id="title" placeholder="자료명 입력" value="${param.title}" name="title"  aria-label="Search">
-	            <input type="text" class="form-control me-2" 
+	            <input type="file" class="form-control me-2" 
 	      	     id="report" placeholder="파일 선택"  name="report" aria-label="Search">
 
 	      	     

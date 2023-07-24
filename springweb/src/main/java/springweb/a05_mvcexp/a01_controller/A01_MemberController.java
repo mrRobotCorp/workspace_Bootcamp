@@ -13,7 +13,7 @@ public class A01_MemberController {
 	@Autowired
 	private A01_MemberService service;
 	
-	// http://localhost:7080/springweb/memberList.do
+	// http://localhost:5070/springweb/memberList.do
 	@RequestMapping("memberList.do")
 	public String memberList(Member sch, Model d) {
 		System.out.println("#데이터 크기#");

@@ -1,0 +1,95 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>   
+<fmt:requestEncoding value="utf-8"/>
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="project5 Milrim">
+    <meta property="og:url" content="https://mrrobotcorp.github.io/project5_Milrim/">
+    <meta property="og:image" content="https://mrrobotcorp.github.io/project5_Milrim//source/thumbnail.png">
+    <meta property="og:description" content="4조 프로젝트 사이트 - Milrim">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="project5 Milrim">
+    <meta name="twitter:url" content="https://mrrobotcorp.github.io/project5_Milrim/">
+    <meta name="twitter:image" content="https://mrrobotcorp.github.io/project5_Milrim//source/thumbnail.png">
+    <meta name="twitter:description" content="4조 프로젝트 사이트 - Milrim">
+    <meta name="description" content="4조 프로젝트 사이트 - Milrim">
+    <meta name='keywords' content='project, milrim, toy project, community, ott service'>
+
+    <link rel="icon" href="./source/favicon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="./source/apple-icon-180x180.png" sizes="180x180">
+    <title>Milrim | 밀림</title>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/findId.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="gnb">
+                <li>
+                    <a href="./home.html"><img class="headLogo" src="./source/logo_noBg_b.png"></a>
+                </li>
+                <li><a href="./home.html">밀림의 숲</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="find">
+            <div class="findInner">
+                <div class="findForm">
+                    <h3>아이디 찾기</h3>
+                    <div  class="findInput">
+                        <label>닉네임</label>
+                        <input type="text" id="nick" class="fnick" name="nick" maxlength="16" placeholder="아이디를 입력하세요" 
+                        onfocus="this.placeholder=''" onblur="this.placeholder='아이디를 입력하세요.'">
+                    </div>
+                    <div class="findInput">
+                        <label>휴대폰 번호</label>
+                        <input type="number" id="pnum" name="pnum" maxlength="11" placeholder="비밀번호를 입력하세요" 
+                        onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호를 입력하세요.'">
+                    </div>
+                    <input type="submit" id="findBtn" class="findBtn" value="아이디 찾기">
+                </div>
+            </div>
+            <div class="findInner">
+                <div class="findForm">
+                    <h3>비밀번호 찾기</h3>
+                    <div  class="findInput">
+                        <label>아이디</label>
+                        <input type="text" id="id" name="id" maxlength="16" placeholder="아이디를 입력하세요" 
+                        onfocus="this.placeholder=''" onblur="this.placeholder='아이디를 입력하세요.'">
+                    </div>
+                    <div class="findInput">
+                        <label>휴대폰 번호</label>
+                        <input type="number" id="pnum" name="pnum" maxlength="16" placeholder="휴대번호를 입력하세요" 
+                        onfocus="this.placeholder=''" onblur="this.placeholder='휴대번호를 입력하세요.'">
+                    </div>
+                    <input type="submit" id="findBtn" class="findBtn" value="비밀번호 찾기">
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <footer>
+        <img src="./source/logo_noBg.png">
+        <p>© Milrim, Inc. 2023. No more dull moments!</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/main.js"></script>
+
+</body>
+
+</html>

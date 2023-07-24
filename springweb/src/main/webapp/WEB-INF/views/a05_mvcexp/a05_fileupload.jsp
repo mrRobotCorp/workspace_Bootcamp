@@ -23,6 +23,10 @@
     	$(document).ready( function(){
     		
     		//$("h2").text("jquery 로딩 성공")
+    		let msg = "${msg}";
+    		if(msg != "") {
+    			alert(msg);
+    		}
     	});
     </script>      
     

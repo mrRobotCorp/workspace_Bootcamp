@@ -1,0 +1,26 @@
+package milrim_project.login.m01_Controller;
+
+import org.apache.ibatis.annotations.Param; 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class M01_MemberController {
+
+	// http://localhost:5080/milrim/insMem.do
+	@GetMapping("insMem.do")
+	public String insMember() {
+		
+		return "WEB-INF\\views\\project5_Milrim\\home.jsp";
+	}
+	
+	/*
+	@PostMapping("")
+	public String insMember() {
+		
+		return "WEB-INF\\views\\project5_Milrim\\join.jsp";
+	}
+	*/
+}

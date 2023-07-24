@@ -3,6 +3,16 @@ package springweb.a05_mvcexp.z01_vo;
 public class EmpDept {
 	private Emp emp;
 	private Dept dept;
+	
+	public EmpDept() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public EmpDept(Emp emp, Dept dept) {
+		this.emp = emp;
+		this.dept = dept;
+	}
+
 	public Emp getEmp() {
 		return emp;
 	}
@@ -13,13 +23,6 @@ public class EmpDept {
 		return dept;
 	}
 	public void setDept(Dept dept) {
-		this.dept = dept;
-	}
-	public EmpDept() {
-		// TODO Auto-generated constructor stub
-	}
-	public EmpDept(Emp emp, Dept dept) {
-		this.emp = emp;
 		this.dept = dept;
 	}
 	

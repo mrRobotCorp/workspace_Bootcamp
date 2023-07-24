@@ -3,7 +3,6 @@ package a01_diexp.z01_vo;
 public class HandPhone {
 	private String number;
 	private String company;
-	
 	public HandPhone() {
 		// TODO Auto-generated constructor stub
 	}
@@ -24,4 +23,5 @@ public class HandPhone {
 		this.company = company;
 	}
 	
+
 }

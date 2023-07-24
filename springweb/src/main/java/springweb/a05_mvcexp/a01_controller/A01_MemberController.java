@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import springweb.a05_mvcexp.a02_service.A01_memberService;
+import springweb.a05_mvcexp.a02_service.A01_MemberService;
 import springweb.a05_mvcexp.z01_vo.Member;
 
 @Controller
 public class A01_MemberController {
 	@Autowired
-	private A01_memberService service;
+	private A01_MemberService service;
 	
 	// http://localhost:7080/springweb/memberList.do
 	@RequestMapping("memberList.do")
@@ -22,12 +22,15 @@ public class A01_MemberController {
 		d.addAttribute("memberList", service.memberList(sch));
 		return "WEB-INF\\views\\a05_mvcexp\\a02_memberList.jsp";
 	}
-	
-	// http://localhost:5070/springweb/daoexp.do  
+	// http://localhost:7080/springweb/daoexp.do  
 	@RequestMapping("daoexp.do")
 	public String daoexp() {
 		service.daoexp();
 		return "";
 	}	
+	
+	
+	
+	
 	
 }

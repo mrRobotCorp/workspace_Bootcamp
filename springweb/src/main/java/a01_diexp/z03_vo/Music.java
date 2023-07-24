@@ -2,12 +2,12 @@ package a01_diexp.z03_vo;
 
 import org.springframework.stereotype.Component;
 
-@Component("m01")
+// backendWeb.z01_vo.Music
+@Component
 public class Music {
 	private String mname;
 	private String singer;
 	private int  pubyear;
-	
 	public Music() {
 		// TODO Auto-generated constructor stub
 	}

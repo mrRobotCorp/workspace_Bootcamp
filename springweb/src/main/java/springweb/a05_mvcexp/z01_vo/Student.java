@@ -1,16 +1,15 @@
 package springweb.a05_mvcexp.z01_vo;
-
-public class Student02 {
+// springweb.a05_mvcexp.z01_vo.Student
+public class Student {
 	private int sno;
 	private String name;
 	private int kor;
 	private int eng;
 	private int math;
-	
-	public Student02() {
+	public Student() {
 		// TODO Auto-generated constructor stub
 	}
-	public Student02(int sno, String name, int kor, int eng, int math) {
+	public Student(int sno, String name, int kor, int eng, int math) {
 		this.sno = sno;
 		this.name = name;
 		this.kor = kor;
@@ -47,6 +46,5 @@ public class Student02 {
 	public void setMath(int math) {
 		this.math = math;
 	}
-	
 	
 }

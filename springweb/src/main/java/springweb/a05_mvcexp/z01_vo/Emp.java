@@ -1,7 +1,6 @@
 package springweb.a05_mvcexp.z01_vo;
-// backendWeb.z01_vo.Emp
 import java.util.Date;
-// backendWeb.z01_vo.Emp
+// springweb.a05_mvcexp.z01_vo.Emp
 public class Emp {
 	private int empno;
 	private String ename;
@@ -15,19 +14,31 @@ public class Emp {
 	private double minSal;
 	private double maxSal;
 	
+	public Emp() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Emp(String ename, double minSal, double maxSal) {
 		this.ename = ename;
 		this.minSal = minSal;
 		this.maxSal = maxSal;
 	}
-	public Emp() {
-		// TODO Auto-generated constructor stub
-	}
+
 	// 검색시 필요한 ename, job
 	public Emp(String ename, String job) {
 		this.ename = ename;
 		this.job = job;
 	}	
+	/*
+
+	SET ENAME = '오길동(upt)',
+	    job = '대리',
+	    sal = 5000,
+	    hiredate = to_date('2023/06/01','YYYY/MM/DD')
+    WHERE empno = 7369
+	Emp(7369, "오길동(upt)", "대리", "2023/06/01",5000.0)
+	*/
+	
 	public Emp(int empno, String ename, String job,
 			String hiredateS, Double sal) {
 		this.empno = empno;
@@ -142,6 +153,6 @@ public class Emp {
 	public void setMaxSal(double maxSal) {
 		this.maxSal = maxSal;
 	}
-	
+
 	
 }

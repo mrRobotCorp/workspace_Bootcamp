@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="path" 
+	value="${pageContext.request.contextPath}"/>
 <fmt:requestEncoding value="utf-8"/>
  
 <!DOCTYPE html>
@@ -28,17 +29,19 @@
 </head>
 <body>
     <div class="container mt-3">
-    	<h2>부서정보 조회</h2>
+    	<h2>부정 정보 리스트</h2>
 	  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	  		<div class="container-fluid">    	
 	    	<form method="post"  class="d-flex align-items-center" >
 	            <input type="text" class="form-control me-2" 
-	      	     placeholder="부서명 입력" value="${dept.dname}" name="dname"  aria-label="Search">
+	      	     placeholder="부서명 입력" value="${dept.dname}" 
+	      	     name="dname"  aria-label="Search">
 	            <input type="text" class="form-control me-2" 
-	      	     placeholder="부서위치 입력" value="${dept.loc}"  name="loc"  aria-label="Search">
-
-	      	     
-	         	<button type="submit" class="btn btn-primary" style="width:200px;">조회</button>
+	      	     placeholder="부서위치 입력" value="${dept.loc}"
+	      	     name="loc"  aria-label="Search">
+	          
+	         	<button type="submit" class="btn btn-primary"
+	         		 style="width:200px;">조회</button>
 	     	</form>
 	 	    </div>
 	 	</nav>
@@ -51,11 +54,11 @@
 		      	</tr>
 		    </thead>
 		    <tbody>
-		    	<c:forEach var="dept" items="${deptList }">
+		    	<c:forEach var="dept" items="${dlist}">
 			   	<tr  class="text-center">
-			        <td>${dept.deptno }</td>
-			        <td>${dept.dname }</td>
-			        <td>${dept.loc }</td>
+			        <td>${dept.deptno}</td>
+			        <td>${dept.dname}</td>
+			        <td>${dept.loc}</td>
 			   	</tr>
 			   	</c:forEach>
 		 	</tbody>

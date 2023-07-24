@@ -17,19 +17,23 @@ public class DIExp13 {
 		// DL(Dependency Lookup) 객체를 찾는 처리
 		Object obj = ctx.getBean("obj", Object.class);
 		System.out.println("컨테이너의 객체호출:"+obj);
-		
 		Mart m01 = ctx.getBean("m01", Mart.class);
 		m01.buyList();
 		/*
 		Member 아이디 패스워드 이름 권한 포인트
-		ShoppingMall 쇼핑몰명 Member 
-			mlist로 할당
+		ShoppingMall 쇼핑몰명  Member
+			mlist로 할당.
 			showMemberList()로 해당 쇼핑몰의 
-			회원 리스트(회원 아이디, 이름, 권한, 포인트) 출력
-		*/
+				회원리스트(회원아이디, 이름, 권한, 포인트) 출력
+		1단계 Member 클래스 구성
+		2단계 ShoppingMall 클래스 구성
 		
-		ShoppingMall sh01 = ctx.getBean("sh01", ShoppingMall.class);
-		sh01.showMemberList();
+		3단계 xml 컨테이너 선언
+		
+		4단계 main() 호출 처리
+		 * */
+		ShoppingMall sm = ctx.getBean("small",ShoppingMall.class);
+		sm.showMemberList();
 		
 		ctx.close();
 		System.out.println("종료");

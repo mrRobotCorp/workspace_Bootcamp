@@ -3,8 +3,7 @@ package a01_diexp.z03_vo;
 import java.util.Date;
 
 import org.springframework.stereotype.Component;
-
-@Component("mem01")
+@Component
 public class Member {
 	private String id;
 	private String pass;

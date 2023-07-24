@@ -7,22 +7,25 @@
 		parameterType="member" 
 		resultType="member">
 		SELECT * 
-		FROM MEMBER02
+		FROM MEMBER01
 		WHERE id LIKE '%'||#{id}||'%'
 		AND name LIKE '%'||#{name}||'%'
-		
-		
 	</select>
 	<!-- 
-	아래 내용을 추가 메서드 2개 만들어서 처리
-	SELECT job
-FROM EMP e WHERE empno = 7369;
-
-SELECT deptno
-FROM EMP e WHERE empno = 7521;
+// springweb.a05_mvcexp.a03_dao.A01_MemberDao
+public interface A01_MemberDao {
+	public List<Member> memberList(Member sch);
+}	
 	 -->
-	 
-	 <select id="exp01" resultType="string" >
+	<!-- 
+	sql = " like ? "
+	pstmt.setString(1, sch.getId());
+	parameterType="member"가 가지고 있는 getXXX()
+	에 property이어야 한다.
+	===> 인터페이스를 상속한 실제객체가 mybatis에 의해
+	만들어 진다.
+	 -->
+	<select id="exp01" resultType="string" >
 		select ename
 		FROM emp
 		WHERE empno = 7369			
@@ -58,156 +61,139 @@ FROM EMP e WHERE empno = 7521;
 		FROM emp
 		WHERE empno = #{empno}
 	</select>
-	  
-	  <insert id="exp08Ins" parameterType="dept">
-	  	INSERT INTO DEPT01 values(#{deptno}, #{dname}, #{loc})
-	  </insert>
-	  <!-- 
-	  SELECT *
-	FROM EMP e WHERE ENAME LIKE '%' || '' || '%'
-	AND sal BETWEEN 1000 AND 3000
-	   -->
-	   <insert id="stuIns" parameterType="student">
-	   		INSERT INTO STUDENT02 s VALUES(#{sno}, #{name}, #{kor}, #{eng}, #{math})
-	   </insert>
-	   
-		<insert id="locIns" parameterType="locations">
-	   		INSERT INTO LOCATIONS10 l 
-			values(#{location_id}, #{street_address}, #{postal_code}, #{city}, 
-			#{state_province}, #{country_id},)
-	   </insert>
-	   
-	   <select id="exp11EmpList" resultType="emp" parameterType="emp">
-	   	SELECT *
-		FROM EMP e WHERE ename LIKE '%' || #{ename} || '%'
-		AND sal BETWEEN #{minSal} and #{maxSal}
-	   </select>
-	   
-   		<select id="exp12EmpList" resultType="emp" parameterType="map">
-   		SELECT *
-		FROM EMP
-		WHERE ename LIKE '%'||#{ename_sch}||'%'
-		AND job LIKE '%'||#{job_sch}||'%'
-   		</select>
-   		
-   		<select id="exp13EmpList" resultType="emp" parameterType="map">
-   		SELECT *
-		FROM EMP
-		WHERE job IN (#{job01}, #{job02})
-   		</select>
-   		
-   		<insert id="exp14DeptInsert">
-   		INSERT INTO dept01 VALUES (#{no}, #{dpartnm}, #{location})
-   		</insert>
-   		
-   		<select id="exp15EmpList" resultType="emp">
-   			SELECT *
-			FROM EMP
-			WHERE HIREDATE
-			BETWEEN TO_DATE(#{startDte}, 'YYYY-MM-DD')
-			AND TO_DATE(#{endDte}, 'YYYY-MM-DD')
-   		</select>
-   		
-   		<select id="exp16StuList" resultType="student">
-   			SELECT *
-			FROM STUDENT02 
-			WHERE name LIKE '%'||#{stuName}||'%'
-			AND (kor+eng+math)/3 BETWEEN #{startP} AND #{endP}
-   		</select>
-   		
-   		<select id="getEmpCount" resultType="int">
-   			SELECT COUNT(*)
-			FROM EMP
-			WHERE sal BETWEEN #{minSal} AND #{maxSal}
-   		</select>
-   		
-   		<select id="getDeptMaxSal" resultType="double">
-   			SELECT max(sal)
-			FROM EMP 
-			WHERE deptno = #{deptno}
-   		</select>
-   		
-   		<select id="getEmployee" resultType="employee">
-   			SELECT EMPLOYEE_ID, FIRST_NAME , LAST_NAME,
-				EMAIL, PHONE_NUMBER , HIRE_DATE , JOB_ID ,
-				SALARY , COMMISSION_PCT , MANAGER_ID , DEPARTMENT_ID 
-			FROM EMPLOYEES e 
-			WHERE EMPLOYEE_ID = #{id}
-   		</select>
-   		
-   		<select id="getJobList" resultType="job">
-   			SELECT *
-			FROM JOBS j 
-			WHERE JOB_ID LIKE '%'||#{jobId}||'%'
-   		</select>
-   		
-   		<select id="exp19getEnames" resultType="string">
-	   		SELECT ename
-			FROM EMP
-			WHERE sal BETWEEN #{minSal} AND #{maxSal}
-   		</select>
-   		
-   		<select id="exp20GetLoc" resultType="string">
-   			SELECT CITY 
-			FROM LOCATIONS 
-			WHERE COUNTRY_ID like '%'||#{ctryId}||'%'
-   		</select>
-   		
-   		<resultMap type="emp" id="rst01">
-   			<id column="no" property="empno"/>
-   			<result column="name" property="ename"></result>
-   			<result column="salary" property="sal"></result>
-   		</resultMap>
-   		
-   		<select id="getEmpResultExp" resultMap="rst01">
-   			SELECT empno NO, ename name,
-					sal salary
-			FROM emp02
-			order by empno
-   		</select>
-   		
-   		<resultMap type="dept" id="rst02">
-   			<id column="no" property="deptno"/>
-   			<result column="name" property="dname"/>
-   			<result column="location" property="loc"/>
-   		</resultMap>
-   		
-   		<select id="getDeptResultExp" resultMap="rst02">
-   			SELECT deptno NO, dname name, loc location
-			FROM DEPT01
-			ORDER BY DEPTNO 
-   		</select>
-   		
-   		<resultMap type="empdept" id="edRst">
-   			<association property="emp" javaType="emp">
-   				<id column="empno" property="empno"/>
-   				<result column="ename" property="ename"/>
-   				<result column="job" property="job"/>
-   				<result column="mgr" property="mgr"/>
-   				<result column="hiredate" property="hiredate"/>
-   				<result column="comm" property="comm"/>
-   				<result column="sal" property="sal"/>
-   				<result column="deptno" property="deptno"/>
-   			</association>
-   			<association property="dept" javaType="dept">
-   				<id column="deptno" property="deptno"/>
-   				<result column="dname" property="dname"/>
-   				<result column="loc" property="loc"/>
-   			</association>
-   		</resultMap>
-   		
-   		<select id="getEmpDeptList" resultMap="edRst">
-   			SELECT e.*, dname, loc
-			FROM EMP e , DEPT d 
-			WHERE e.DEPTNO = d.DEPTNO 
-			AND ename LIKE '%'||#{ename}||'%'
-			AND dname LIKE '%'||#{dname}||'%'
-   		</select>
-   		
-   		<!-- 
-   		
-   		<resultMap type="empjob" id="ejRst">
-		<association property="employees"   javaType="employees">
+	<!-- 
+	// INSERT INTO dept01 values(11,'인사','서울')
+	public void exp08Ins(Dept ins);	
+	 -->
+	<insert id="exp08Ins" parameterType="dept">
+		INSERT INTO dept01 values(#{deptno},#{dname},#{loc})
+	</insert>
+	<!-- 
+	public void exp09insStu(Student ins);	
+	 -->
+	<insert id="exp09insStu" parameterType="student">
+		INSERT INTO STUDENT02 values(#{sno},#{name},#{kor},#{eng},#{math})	
+	</insert>
+	<insert id="exp10InsLoc" parameterType="location">
+		INSERT INTO locations10
+		values(#{location_id},#{street_address},
+				#{postal_code},#{city},
+				#{state_province},#{country_id})
+	</insert>
+	<select id="exp11EmpList" resultType="emp" 
+		parameterType="emp">
+		SELECT *
+		FROM emp
+		WHERE ename LIKE '%'||#{ename}||'%'
+		AND sal BETWEEN #{minSal} AND #{maxSal}
+	</select>	
+	<select id="exp12EmpList" resultType="emp"
+			parameterType="map">
+		select *
+		from emp
+		where ename like '%'||#{ename_sch}||'%'
+		and job like '%'||#{job_sch}||'%'	
+	</select>	
+	<select id="exp13EmpList" resultType="emp"
+			parameterType="map">
+		SELECT *
+		FROM emp
+		WHERE job IN (#{job01},#{job02})	
+	</select>
+	<insert id="exp14DeptInsert">
+		INSERT INTO dept01 values(#{no},#{dpartnm},
+		                          #{location})	
+	</insert>		
+	<select id="exp15EmpList" resultType="emp">
+		SELECT *
+		FROM emp
+		WHERE hiredate 
+		BETWEEN to_date(#{startDte},'YYYY-MM-DD') 
+		AND to_date(#{endDte},'YYYY-MM-DD')	
+	</select>	
+	<select id="exp16studList" resultType="student">
+		SELECT *
+		FROM STUDENT02 
+		WHERE name LIKE '%'||#{name}||'%'
+		AND (kor+eng+math)/3 between #{stPt} AND #{edPt}	
+	</select>
+	<select id="exp17getEmpLoyee" resultType="employee">
+		SELECT employee_id, first_name, last_name,
+		       email, phone_number, hire_date,
+		       job_id, salary, commission_pct,
+		       manager_id, department_id 
+		FROM EMPLOYEES
+		WHERE EMPLOYEE_ID =#{id}				
+	</select>	
+	<select id="exp18getJob" resultType="job">
+		SELECT job_id, job_title, min_salary, max_salary
+		FROM jobs
+		WHERE JOB_ID = #{id}
+	</select>
+	<select id="exp19getEnames" resultType="string">
+		SELECT ename
+		FROM emp
+		WHERE sal BETWEEN #{minSal} AND #{mxSal}			
+	</select>	 
+	<select id="getCities" resultType="string">
+		SELECT city
+		FROM locations
+		WHERE COUNTRY_ID =#{id}		
+	</select>	
+	<resultMap type="emp" id="rst01">
+		<id column="no" property="empno"/>
+		<result column="name" property="ename"/>
+		<result column="salary" property="sal"/>
+	</resultMap>
+	<select id="getEmpResultExp" resultMap="rst01">
+		SELECT empno NO, ename name,
+		       sal salary
+		FROM emp02	
+		order by no
+	</select>
+	<resultMap type="dept" id="dRlt">
+		<id column="no" property="deptno"/>
+		<result column="name" property="dname"/>
+		<result column="location" property="loc"/>
+	</resultMap>
+	<select id="getDeptResultExp" resultMap="dRlt">
+		SELECT deptno NO, dname name, loc location
+		FROM dept01
+	</select>
+	<!-- 
+		public EmpDept getEmpDeptList(@Param("ename") String ename,
+									  @Param("dname") String dname);  
+	
+	
+	 -->
+	<resultMap type="empdept" id="edRst">
+		<association property="emp"   javaType="emp">
+			<id column="empno" property="empno"/>
+			<result column="ename" property="ename"/>
+			<result column="job" property="job"/>
+			<result column="mgr" property="mgr"/>
+			<result column="sal" property="sal"/>
+			<result column="hiredate" property="hiredate"/>
+			<result column="comm" property="comm"/>
+			<result column="deptno" property="deptno"/>
+		</association>
+		<association property="dept"   javaType="dept">
+			<id column="deptno" property="deptno"/>
+			<result column="dname" property="dname"/>
+			<result column="loc" property="loc"/>
+		</association>
+	</resultMap>
+	
+	
+	<select id="getEmpDeptList" resultMap="edRst" >
+		SELECT e.*, dname, loc
+		FROM emp e, dept d
+		WHERE e.deptno =d.deptno
+		AND ename LIKE '%'||#{ename}||'%'
+		AND dname LIKE '%'||#{dname}||'%'		
+	</select>
+	<resultMap type="empjob" id="ejRst">
+		<association property="employee"   javaType="employee">
 			<id column="employee_id" property="employee_id"/>
 			<result column="first_name" property="first_name"/>
 			<result column="last_name" property="last_name"/>
@@ -234,45 +220,28 @@ FROM EMP e WHERE empno = 7521;
 		WHERE e.JOB_ID = j.JOB_ID
 		AND first_name LIKE '%'||#{first_name}||'%'
 		AND job_title LIKE '%'||#{job_title}||'%'	
-	</select>
-	
-	<select id="getDeptnoCnt" resultType="int">
-		SELECT count(*) FROM emp WHERE deptno = #{deptno}
-	</select>
-	
-	<select id="getSalCnt" resultType="int">
-		SELECT count(*)
-		FROM EMP e
-		WHERE sal BETWEEN #{minSal} AND #{maxSal}
-	</select>
-	
-	<insert id="dInsert">
-   		INSERT INTO DEPT01 VALUES(#{deptno}, #{dname}, #{loc})
-   </insert>
-   
-   public List<Emp> getDynamicSQL(@Param("ename") String ename);
-   		 -->
-	
-	
+	</select>	
+	<!-- 
+List<Emp> getDynamicSQL(@Param("ename") 
+									String ename)	
+	 -->
 	<select id="getDynamicSQL" resultType="emp">
 		select *
 		from emp
 		where 1=1
-		<if test="ename!=null">
-		ename like '%'||#{ename}||'%'
-		</if>		
-	</select>
-	
+		<if test="ename != null">
+			and ename like '%'||#{ename}||'%'
+		</if>
+	</select> 
 	<select id="getEmpByEmpnos" resultType="emp">
-		SELECT * FROM emp 
-		WHERE empno IN 
-		<foreach collection="empnos" item="empno" separator=","
-			open="(" close=")">
+		SELECT *
+		FROM emp
+		WHERE empno IN	
+		<foreach collection="empnos" item="empno"
+			separator="," open="(" close=")">
 			#{empno}
 		</foreach>
-	</select>
-   		
-   		
-   		
-
+	</select>	
+	
+	 
 </mapper>	

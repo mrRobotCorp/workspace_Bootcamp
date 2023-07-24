@@ -14,7 +14,11 @@ public class A02_JobService {
 	private A04_PreparedDao dao;
 	
 	public List<Job> getJobs(String job_id) {
-		if(job_id == null) job_id = "";
-		return dao.getJobs();
+		return dao.getJobs(job_id);
 	}
 }
+
+
+
+
+

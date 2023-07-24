@@ -6,10 +6,9 @@ import java.util.Set;
 // setAgent(Set<String> agent)
 // setAddInfo(Properties addInfo)
 public class Sensor {
-	// Set, properties 선언
+	// Set, Properties 선언..
 	private Set<String> agent;
 	private Properties addInfo;
-	
 	public Set<String> getAgent() {
 		return agent;
 	}
@@ -22,9 +21,7 @@ public class Sensor {
 	public void setAddInfo(Properties addInfo) {
 		this.addInfo = addInfo;
 	}
-	public Sensor() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 	
 }

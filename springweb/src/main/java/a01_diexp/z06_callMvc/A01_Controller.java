@@ -4,12 +4,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class A01_Controller {
-	public String callCtrl() {
-		
-		return "A01 컨트롤러";
-	}
-	
-	public void controllMsg() {	
+	public void controllerMsg() {
 		System.out.println("Controller 호출");
 	}
 }

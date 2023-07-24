@@ -30,27 +30,32 @@
 </head>
 <body>
     <div class="container mt-3">
-    	<h2>좋아하는 가수</h2>
+    	<h2>파일 업로드</h2>
 	  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	  		<div class="container-fluid">    	
-	    	<form method="post"  class="d-flex align-items-center" >
+	    	<form method="post" enctype="multipart/form-data" class="d-flex align-items-center" >
 	            <input type="text" class="form-control me-2" 
-	      	     id="sname" placeholder="이름 입력" value="${param.sname}" name="sname"  aria-label="Search">
-
+	      	     id="title01" placeholder="파일명 입력" value="${param.title}" name="title01"  aria-label="Search">
+	            <input type="file" class="form-control me-2" 
+	      	     id="report01" placeholder="파일 업로드" multiple="multiple" name="report01"  aria-label="Search">     
 	      	     
-	         	<button type="submit" class="btn btn-primary">조회</button>
+	         	<button type="submit" class="btn btn-primary">업로드</button>
 	     	</form>
 	 	    </div>
 	 	</nav>
 		<table class="table table-striped table-hover">
 			<thead class="table-success">
 		      	<tr  class="text-center">
-				    <th>입력 결과</th>
+				    <th>Firstname</th>
+				    <th>Lastname</th>
+				    <th>Email</th>
 		      	</tr>
 		    </thead>
 		    <tbody>
 			   	<tr  class="text-center">
-			        <td>${s01 }</td>
+			        <td>John</td>
+			        <td>Doe</td>
+			        <td>john@example.com</td>
 			   	</tr>
 		 	</tbody>
 		</table>      	

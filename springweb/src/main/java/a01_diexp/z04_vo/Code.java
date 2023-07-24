@@ -1,8 +1,5 @@
 package a01_diexp.z04_vo;
 
-import org.springframework.stereotype.Component;
-
-@Component("code")
 public class Code {
 	private int no;
 	private String title;

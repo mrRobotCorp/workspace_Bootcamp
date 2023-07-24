@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="path" 
+	value="${pageContext.request.contextPath}"/>
 <fmt:requestEncoding value="utf-8"/>
  
 <!DOCTYPE html>
@@ -32,8 +33,8 @@
 		<table class="table table-striped table-hover">
 		    <tbody>
 			   	<tr  class="text-center">
-			        <td>${prod.name }</td>
-			        <td>${prod.price }</td>
+			        <td>${prod.name}</td>
+			        <td>${prod.price}</td>
 			        <td>${prod.cnt}</td>
 			   	</tr>
 		 	</tbody>

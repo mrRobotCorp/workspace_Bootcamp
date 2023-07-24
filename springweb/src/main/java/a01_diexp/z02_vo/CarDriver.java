@@ -2,30 +2,34 @@ package a01_diexp.z02_vo;
 
 import org.springframework.stereotype.Component;
 
-@Component("cardriver02") // 변경된 id를 사용할 수 있음
+//a01_diexp.z01_vo.Car CarDriver
+@Component("cardriver01") // 변경된 id를 사용할 수 있다.
 public class CarDriver {
-	//CarDriver 자동차 기사 이름 Car 객체
-	private String driver;
+	private String name;
 	private Car car;
-	
-	public void driveCar() {
-		System.out.println("-- 자동차 운전 --");
-		System.out.println("운전 기사 : " + driver);
-		if(car != null) {
-			System.out.println("-- 운전하는 자동차 정보 --");
-			System.out.println("차종 : " + car.getCname());
-			System.out.println("배기량 : " + car.getCc());
-			System.out.println("속도 : " + car.getSpeed());
-		} else {
-			System.out.println("운전하지 않음");
+	public CarDriver() {
+		// TODO Auto-generated constructor stub
+	}
+	public CarDriver(String name) {
+		this.name = name;
+	}
+	public void driving() {
+		System.out.println("자동차를 "+name+" 타고 운행할려고 합니다.");
+		if(car!=null) {
+			System.out.println("# 운행할 차량 정보 #");
+			System.out.println("자동차 종류:"+car.getKind());
+			System.out.println("배기량:"+car.getCc());
+			System.out.println("최고속도:"+car.getMaxVel());
+		}else {
+			System.out.println("소유한 차량이 없네요. ㅠㅠ");
 		}
+		
 	}
-	
-	public String getDriver() {
-		return driver;
+	public String getName() {
+		return name;
 	}
-	public void setDriver(String driver) {
-		this.driver = driver;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public Car getCar() {
 		return car;
@@ -33,16 +37,8 @@ public class CarDriver {
 	public void setCar(Car car) {
 		this.car = car;
 	}
-	
 	public void setCar02(Car car) {
 		this.car = car;
-	}
-	
-	public CarDriver(String driver) {
-		this.driver = driver;
-	}
-	public CarDriver() {
-	}
-	
+	}	
 	
 }

@@ -31,13 +31,22 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd   
       ">
+	<!-- 
+	# 웹프로그램에서 가장 많이 사용하는 패턴으로
+	특정 패키지에 annotation으로 @Controller, @Service,
+	@Repository가 들어 있으면 객체로 인식하여 사용하게 한다.
+	 -->
+	<context:component-scan base-package="a01_diexp.z05_mvc">
+		<context:include-filter type="annotation" 
+			expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" 
+			expression="org.springframework.stereotype.Service"/>
+		<context:include-filter type="annotation" 
+			expression="org.springframework.stereotype.Repository"/>
+
+	</context:component-scan> 
       
-      <context:component-scan base-package="a01_diexp_z05_mvc">
-      	<context:include-filter type="annotation" 
-      		expression="org.springframework.stereotype.Controller"/>
-   		<context:include-filter type="annotation" 
-      		expression="org.springframework.stereotype.Service"/>
-   		<context:include-filter type="annotation" 
-    		expression="org.springframework.stereotype.Repository"/>
-       </context:component-scan>
-</beans>      
+</beans>   
+
+
+   

@@ -1,12 +1,11 @@
 package springweb.a05_mvcexp.z01_vo;
-// 
+
 public class Member {
 	private String id;
 	private String pass;
 	private String name;
 	private String auth;
 	private int point;
-	
 	public Member() {
 		// TODO Auto-generated constructor stub
 	}
@@ -47,7 +46,5 @@ public class Member {
 	public void setPoint(int point) {
 		this.point = point;
 	}
-	
-	
 	
 }

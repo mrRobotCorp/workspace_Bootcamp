@@ -31,19 +31,18 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd   
       ">
-      
-      <context:component-scan base-package="a01_diexp.z07_mvcAuto">
-      	<context:include-filter type="annotation" 
-      		expression="org.springframework.stereotype.Controller"/>
-   		<context:include-filter type="annotation" 
-      		expression="org.springframework.stereotype.Service"/>
-   		<context:include-filter type="annotation" 
-    		expression="org.springframework.stereotype.Repository"/>
-       </context:component-scan>
-       
-       <bean class="backendWeb.a01_dao.A04_PreparedDao"></bean>
-       <!-- 
-		A04_PreparedDao dao = new A04_PreparedDao();
-		와 동일
-        -->
-</beans>      
+	<context:component-scan base-package="a01_diexp.z07_mvcAuto">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+	</context:component-scan>	
+	
+	<bean class="backendWeb.a01_dao.A04_PreparedDao"/>
+	<!-- 
+	A04_PreparedDao dao = new A04_PreparedDao();
+	 -->
+		      
+</beans>   
+
+
+   

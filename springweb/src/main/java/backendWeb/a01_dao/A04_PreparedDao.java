@@ -1,5 +1,5 @@
 package backendWeb.a01_dao;
-// backendWeb.a01_dao.A04_PreparedDao
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,11 +20,12 @@ import backendWeb.z01_vo.JobHistory;
 import backendWeb.z01_vo.Location;
 import backendWeb.z01_vo.Manager;
 
-
+// backendWeb.a01_dao.A04_PreparedDao
 // ctrl+shift+o
 // backendWeb.z01_vo.Emp
 // backendWeb.a01_dao.A04_PreparedDao
 public class A04_PreparedDao {
+	
     private Connection con;
     private PreparedStatement pstmt;
     private ResultSet rs;
@@ -196,10 +197,11 @@ public class A04_PreparedDao {
     }
 
     public void updateEmp(Emp upt) {
-        String sql = "UPDATE EMP02 SET ENAME = ?, job = ?, "
-        		+ "sal = ?, hiredate = to_date(?,'YYYY/MM/DD')"
-        		+ ",deptno = ? "
-        		+ " WHERE empno = ?";
+        String sql = "UPDATE EMP02 "
+        		+ "   SET ENAME = ?, job = ?, sal = ?, "
+        		+ "       hiredate = to_date(?,'YYYY/MM/DD'),"
+        		+ "       deptno = ? "
+        		+ "   WHERE empno = ?";
         try {
             con = DB.con();
             con.setAutoCommit(false);
@@ -254,14 +256,14 @@ public class A04_PreparedDao {
         return isUpdate;
     }
 
-    public int deleteEmp(int empno) {
+    public int deleteLocation(int location_id) {
         int isDelete = 0;
-        String sql = "DELETE FROM emp02 WHERE empno =?";
+        String sql = "DELETE FROM locations10 WHERE location_id=?";
         try {
             con = DB.con();
             con.setAutoCommit(false);
             pstmt = con.prepareStatement(sql);
-            pstmt.setInt(1, empno);
+            pstmt.setInt(1, location_id);
             isDelete = pstmt.executeUpdate();
             if (isDelete == 1) {
                 con.commit();
@@ -404,19 +406,20 @@ public class A04_PreparedDao {
 	    return elist;
 	}
 
-	public Emp getEmp(int empno) {
-	    Emp emp = null;
-	    String sql = "SELECT * FROM emp02 where empno = ?";
+	public List<Emp> getEmpList(String ename, String job) {
+	    List<Emp> elist = new ArrayList<>();
+	    String sql = "SELECT * FROM emp02 where ename like ? and job like ? order by empno ";
 	    
 	    try {
 	        con = DB.con();
 	        pstmt = con.prepareStatement(sql);
-	        pstmt.setInt(1, empno);
+	        pstmt.setString(1, '%'+ename+"%");
+	        pstmt.setString(2, '%'+job+"%");
 	        rs = pstmt.executeQuery();
 	        
 	
 	        while (rs.next()) {
-	            emp = new Emp(
+	            elist.add(new Emp(
 	                    rs.getInt("empno"),
 	                    rs.getString("ename"),
 	                    rs.getString("job"),
@@ -425,7 +428,7 @@ public class A04_PreparedDao {
 	                    rs.getDouble("sal"),
 	                    rs.getDouble("comm"),
 	                    rs.getInt("deptno")
-	            );
+	            ));
 	        }
 	    } catch (SQLException e) {
 	        System.out.println("DB 관련 오류: " + e.getMessage());
@@ -434,7 +437,7 @@ public class A04_PreparedDao {
 	    } finally {
 	        DB.close(rs, pstmt, con);
 	    }
-	    return emp;
+	    return elist;
 	}
 
 	public List<Code> getCodeList(String title, int refno) {
@@ -607,7 +610,8 @@ WHERE NO = ?
 	        DB.close(rs, pstmt, con);
 	    }
 	}
-	public void deleteCode(int no) {
+	public int deleteCode(int no) {
+		int ret = 0;
 	    String sql = "delete\r\n"
 	    		+ "FROM code\r\n"
 	    		+ "WHERE NO = ?";
@@ -616,8 +620,8 @@ WHERE NO = ?
 	        con.setAutoCommit(false);
 	        pstmt = con.prepareStatement(sql);
 	        pstmt.setInt(1, no);
-	        int result = pstmt.executeUpdate();
-	        if (result == 1) {
+	        ret = pstmt.executeUpdate();
+	        if (ret >= 1) {
 	            con.commit();
 	            System.out.println("삭제 성공");
 	        }
@@ -629,115 +633,7 @@ WHERE NO = ?
 	    } finally {
 	        DB.close(rs, pstmt, con);
 	    }
-	}
-
-	/*
-	SELECT * 
-	FROM code
-	WHERE NO = ?
-	UPDATE code
-	    SET title = ?,
-	        refno = ?,
-	        ordno = ?,
-	        val = ?
-	   WHERE NO = ?
-	delete
-	FROM code
-	WHERE NO = ?
-	 * */
-		public List<Dept> getDeptList(Dept sch) {
-		    List<Dept> dlist = new ArrayList<Dept>();
-		    String sql = " SELECT * \r\n"
-		    		+ "FROM dept\r\n"
-		    		+ "WHERE dname like ?\r\n"
-		    		+ "AND loc like ?";
-		    try {
-		        con = DB.con();
-		        pstmt = con.prepareStatement(sql);
-		        pstmt.setString(1, "%" + sch.getDname() + "%");
-		        pstmt.setString(2, "%" + sch.getLoc() + "%");
-		        rs = pstmt.executeQuery();
-		        while (rs.next()) {
-		            dlist.add(new Dept(
-		                    rs.getInt("deptno"),
-		                    rs.getString("dname"),
-		                    rs.getString("loc")
-		            ));
-		        }
-		    } catch (SQLException e) {
-		        System.out.println("DB 관련 오류: " + e.getMessage());
-		    } catch (Exception e) {
-		        System.out.println("일반 오류: " + e.getMessage());
-		    } finally {
-		        DB.close(rs, pstmt, con);
-		    }
-		    return dlist;
-		}
-
-	public List<Job> getJobs(String job_id) {
-
-			List<Job> jlist = new ArrayList<Job>(); 
-		    String sql = "	SELECT * \r\n"
-		    		+ "FROM jobs\r\n"
-		    		+ "WHERE JOB_ID like ? ";
-		    System.out.println("# DB 접속 #");
-		    try {
-		        con = DB.con();
-		        pstmt = con.prepareStatement(sql); 
-		        pstmt.setString(1, '%'+job_id+'%');; 
-		        rs = pstmt.executeQuery();
-		        //job_id, job_title, min_salary, max_salary
-		        while (rs.next()) {
-		        	jlist.add(new Job(
-		        			rs.getString("job_id"),
-		        			rs.getString("job_title"),
-		        			rs.getInt("min_salary"),
-		        			rs.getInt("max_salary")
-		        			)
-		        	);
-		        }
-		    } catch (SQLException e) {
-		        System.out.println("DB 관련 오류: " + e.getMessage());
-		    } catch (Exception e) {
-		        System.out.println("일반 오류: " + e.getMessage());
-		    } finally {
-		        DB.close(rs, pstmt, con);
-		    }
-		    return jlist;
-		}
-
-	public List<Emp> getEmpList(String ename, String job) {
-	    List<Emp> elist = new ArrayList<>();
-	    String sql = "SELECT * FROM emp02 where ename like ? and job like ? order by empno ";
-	    
-	    try {
-	        con = DB.con();
-	        pstmt = con.prepareStatement(sql);
-	        pstmt.setString(1, '%'+ename+"%");
-	        pstmt.setString(2, '%'+job+"%");
-	        rs = pstmt.executeQuery();
-	        
-	
-	        while (rs.next()) {
-	            elist.add(new Emp(
-	                    rs.getInt("empno"),
-	                    rs.getString("ename"),
-	                    rs.getString("job"),
-	                    rs.getInt("mgr"),
-	                    rs.getDate("hiredate"),
-	                    rs.getDouble("sal"),
-	                    rs.getDouble("comm"),
-	                    rs.getInt("deptno")
-	            ));
-	        }
-	    } catch (SQLException e) {
-	        System.out.println("DB 관련 오류: " + e.getMessage());
-	    } catch (Exception e) {
-	        System.out.println("일반 오류: " + e.getMessage());
-	    } finally {
-	        DB.close(rs, pstmt, con);
-	    }
-	    return elist;
+	    return ret;
 	}
 
 	/*
@@ -781,29 +677,27 @@ WHERE NO = ?
 		    return c;
 		}
 
-	public List<Emp> getEmpList(Emp sch) {
-		    List<Emp> elist = new ArrayList<>();
-		    String sql = "SELECT * FROM emp02 where ename like ? and job like ? order by empno ";
-		    
+	public List<Job> getJobs(String job_id) {
+
+			List<Job> jlist = new ArrayList<Job>(); 
+		    String sql = "	SELECT * \r\n"
+		    		+ "FROM jobs\r\n"
+		    		+ "WHERE JOB_ID like ? ";
+		    System.out.println("# DB 접속 #");
 		    try {
 		        con = DB.con();
-		        pstmt = con.prepareStatement(sql);
-		        pstmt.setString(1, '%'+sch.getEname()+"%");
-		        pstmt.setString(2, '%'+sch.getJob()+"%");
+		        pstmt = con.prepareStatement(sql); 
+		        pstmt.setString(1, '%'+job_id+'%');; 
 		        rs = pstmt.executeQuery();
-		        
-		
+		        //job_id, job_title, min_salary, max_salary
 		        while (rs.next()) {
-		            elist.add(new Emp(
-		                    rs.getInt("empno"),
-		                    rs.getString("ename"),
-		                    rs.getString("job"),
-		                    rs.getInt("mgr"),
-		                    rs.getDate("hiredate"),
-		                    rs.getDouble("sal"),
-		                    rs.getDouble("comm"),
-		                    rs.getInt("deptno")
-		            ));
+		        	jlist.add(new Job(
+		        			rs.getString("job_id"),
+		        			rs.getString("job_title"),
+		        			rs.getInt("min_salary"),
+		        			rs.getInt("max_salary")
+		        			)
+		        	);
 		        }
 		    } catch (SQLException e) {
 		        System.out.println("DB 관련 오류: " + e.getMessage());
@@ -812,17 +706,125 @@ WHERE NO = ?
 		    } finally {
 		        DB.close(rs, pstmt, con);
 		    }
-		    return elist;
+		    return jlist;
 		}
 
-	public int deleteLocation(int location_id) {
+	public List<Emp> getEmpList(Emp sch) {
+	    List<Emp> elist = new ArrayList<>();
+	    String sql = "SELECT * FROM emp02 where ename like ? and job like ? order by empno ";
+	    
+	    try {
+	        con = DB.con();
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, '%'+sch.getEname()+"%");
+	        pstmt.setString(2, '%'+sch.getJob()+"%");
+	        rs = pstmt.executeQuery();
+	        
+	
+	        while (rs.next()) {
+	            elist.add(new Emp(
+	                    rs.getInt("empno"),
+	                    rs.getString("ename"),
+	                    rs.getString("job"),
+	                    rs.getInt("mgr"),
+	                    rs.getDate("hiredate"),
+	                    rs.getDouble("sal"),
+	                    rs.getDouble("comm"),
+	                    rs.getInt("deptno")
+	            ));
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("DB 관련 오류: " + e.getMessage());
+	    } catch (Exception e) {
+	        System.out.println("일반 오류: " + e.getMessage());
+	    } finally {
+	        DB.close(rs, pstmt, con);
+	    }
+	    return elist;
+	}
+
+	/*
+	SELECT * 
+	FROM code
+	WHERE NO = ?
+	UPDATE code
+	    SET title = ?,
+	        refno = ?,
+	        ordno = ?,
+	        val = ?
+	   WHERE NO = ?
+	delete
+	FROM code
+	WHERE NO = ?
+	 * */
+		public List<Dept> getDeptList(Dept sch) {
+			List<Dept> dlist = new ArrayList<Dept>();
+		    String sql = " SELECT * \r\n"
+		    		+ "FROM dept\r\n"
+		    		+ "WHERE dname like ?\r\n "
+		    		+ "AND loc like ?";
+		    try {
+		        con = DB.con();
+		        pstmt = con.prepareStatement(sql);
+		        pstmt.setString(1, "%"+sch.getDname()+"%");
+		        pstmt.setString(2, "%"+sch.getLoc()+"%");
+		        rs = pstmt.executeQuery();
+		        while (rs.next()) {
+		        	dlist.add(new Dept(
+		                    rs.getInt("deptno"),
+		                    rs.getString("dname"),
+		                    rs.getString("loc"))
+		            );
+		        }
+		    } catch (SQLException e) {
+		        System.out.println("DB 관련 오류: " + e.getMessage());
+		    } catch (Exception e) {
+		        System.out.println("일반 오류: " + e.getMessage());
+		    } finally {
+		        DB.close(rs, pstmt, con);
+		    }
+		    return dlist;
+		}
+
+	public Emp getEmp(int empno) {
+		    Emp emp = null;
+		    String sql = "SELECT * FROM emp02 "
+		    		+ "where empno=? ";
+		    try {
+		        con = DB.con();
+		        pstmt = con.prepareStatement(sql);
+		        pstmt.setInt(1, empno);
+		        rs = pstmt.executeQuery();
+		        if(rs.next()) {
+		        	emp=new Emp(
+		                    rs.getInt("empno"),
+		                    rs.getString("ename"),
+		                    rs.getString("job"),
+		                    rs.getInt("mgr"),
+		                    rs.getDate("hiredate"),
+		                    rs.getDouble("sal"),
+		                    rs.getDouble("comm"),
+		                    rs.getInt("deptno")
+		            );
+		        }
+		    } catch (SQLException e) {
+		        System.out.println("DB 관련 오류: " + e.getMessage());
+		    } catch (Exception e) {
+		        System.out.println("일반 오류: " + e.getMessage());
+		    } finally {
+		        DB.close(rs, pstmt, con);
+		    }
+		    return emp;
+		}
+
+	public int deleteEmp(int empno) {
 	    int isDelete = 0;
-	    String sql = "DELETE FROM locations10 WHERE location_id=?";
+	    String sql = "DELETE FROM emp02 WHERE empno=?";
 	    try {
 	        con = DB.con();
 	        con.setAutoCommit(false);
 	        pstmt = con.prepareStatement(sql);
-	        pstmt.setInt(1, location_id);
+	        pstmt.setInt(1, empno);
 	        isDelete = pstmt.executeUpdate();
 	        if (isDelete == 1) {
 	            con.commit();

@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="path" 
+	value="${pageContext.request.contextPath}"/>
 <fmt:requestEncoding value="utf-8"/>
  
 <!DOCTYPE html>
@@ -33,12 +34,14 @@
 	  		<div class="container-fluid">    	
 	    	<form method="post"  class="d-flex align-items-center" >
 	            <input type="text" class="form-control me-2" 
-	      	     id="age" placeholder="이름 입력" value="${name}" name="age"  aria-label="Search">
-
-	         	<button type="submit" class="btn btn-primary" style="width:200px;">조회</button>
+	      	     id="name" placeholder="이름 입력"
+	      	      value="${names}" name="name"  aria-label="Search">
+	         	<button type="submit" class="btn btn-primary"
+	         		 style="width:200px;">조회</button>
 	     	</form>
 	 	    </div>
-	 	</nav>   
+	 	</nav>
+	 	<%-- --%>
     </div>
 </body>
 </html>

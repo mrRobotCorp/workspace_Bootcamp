@@ -1,7 +1,7 @@
 package a01_diexp.z01_vo;
 
 import java.util.Map;
-
+// a01_diexp.z01_vo.Student
 public class Student {
 	private Map<String, Integer> records;
 
@@ -12,8 +12,5 @@ public class Student {
 	public void setRecords(Map<String, Integer> records) {
 		this.records = records;
 	}
-
-	public Student() {
-		// TODO Auto-generated constructor stub
-	}
+	
 }

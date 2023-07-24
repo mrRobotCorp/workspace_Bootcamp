@@ -47,9 +47,7 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
     <fullyQualifiedTypeName name="springweb.a05_mvcexp.z01_vo.Emp"/>
     <fullyQualifiedTypeName name="springweb.a05_mvcexp.z01_vo.Member"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="backendWeb.z01_vo.Dept"/>
     <fullyQualifiedTypeName name="springweb.a05_mvcexp.z01_vo.EmpDept"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 </qualifiedTypeNameHistroy>

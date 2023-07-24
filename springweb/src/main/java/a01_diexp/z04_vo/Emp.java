@@ -1,10 +1,7 @@
 package a01_diexp.z04_vo;
 // backendWeb.z01_vo.Emp
 import java.util.Date;
-
-import org.springframework.stereotype.Component;
 // backendWeb.z01_vo.Emp
-@Component("emp")
 public class Emp {
 	private int empno;
 	private String ename;

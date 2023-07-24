@@ -5,6 +5,15 @@ public class Calculator {
 	private int num02;
 	private String cal;
 	private int tot;
+	public Calculator() {
+		// TODO Auto-generated constructor stub
+	}
+	public Calculator(int num01, int num02, String cal, int tot) {
+		this.num01 = num01;
+		this.num02 = num02;
+		this.cal = cal;
+		this.tot = tot;
+	}
 	public int getNum01() {
 		return num01;
 	}
@@ -29,16 +38,6 @@ public class Calculator {
 	public void setTot(int tot) {
 		this.tot = tot;
 	}
-	public Calculator(int num01, int num02, String cal, int tot) {
-		this.num01 = num01;
-		this.num02 = num02;
-		this.cal = cal;
-		this.tot = tot;
-	}
-	public Calculator() {
-		// TODO Auto-generated constructor stub
-	}
-	
 	
 	
 }

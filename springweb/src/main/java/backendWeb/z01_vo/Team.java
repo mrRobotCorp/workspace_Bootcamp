@@ -1,11 +1,13 @@
 package backendWeb.z01_vo;
 
-public class PlayTeam {
+public class Team {
 	private String tname;
-	private String win;
+	private int win;
 	private int def;
-	
-	public PlayTeam(String tname, String win, int def) {
+	public Team() {
+		// TODO Auto-generated constructor stub
+	}
+	public Team(String tname, int win, int def) {
 		this.tname = tname;
 		this.win = win;
 		this.def = def;
@@ -16,10 +18,10 @@ public class PlayTeam {
 	public void setTname(String tname) {
 		this.tname = tname;
 	}
-	public String getWin() {
+	public int getWin() {
 		return win;
 	}
-	public void setWin(String win) {
+	public void setWin(int win) {
 		this.win = win;
 	}
 	public int getDef() {
@@ -28,6 +30,5 @@ public class PlayTeam {
 	public void setDef(int def) {
 		this.def = def;
 	}
-	
 	
 }

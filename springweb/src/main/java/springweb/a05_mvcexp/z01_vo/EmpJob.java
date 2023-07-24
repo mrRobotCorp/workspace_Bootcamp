@@ -1,19 +1,19 @@
 package springweb.a05_mvcexp.z01_vo;
 // springweb.a05_mvcexp.z01_vo.EmpJob
 public class EmpJob {
-	private Employees employee;
+	private Employee employee;
 	private Job job;
 	public EmpJob() {
 		// TODO Auto-generated constructor stub
 	}
-	public EmpJob(Employees employee, Job job) {
+	public EmpJob(Employee employee, Job job) {
 		this.employee = employee;
 		this.job = job;
 	}
-	public Employees getEmployee() {
+	public Employee getEmployee() {
 		return employee;
 	}
-	public void setEmployee(Employees employee) {
+	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
 	public Job getJob() {

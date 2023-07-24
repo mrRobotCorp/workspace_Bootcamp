@@ -1,15 +1,22 @@
 package a01_diexp.z01_vo;
-
+// a01_diexp.z01_vo.Car
 public class Car {
-	//Car 차종 배기량 최고속도
-	private String cname;
+	private String kind;
 	private int cc;
-	private int speed;
-	public String getCname() {
-		return cname;
+	private int maxVel;
+	public Car() {
+		// TODO Auto-generated constructor stub
 	}
-	public void setCname(String cname) {
-		this.cname = cname;
+	public Car(String kind, int cc, int maxVel) {
+		this.kind = kind;
+		this.cc = cc;
+		this.maxVel = maxVel;
+	}
+	public String getKind() {
+		return kind;
+	}
+	public void setKind(String kind) {
+		this.kind = kind;
 	}
 	public int getCc() {
 		return cc;
@@ -17,21 +24,11 @@ public class Car {
 	public void setCc(int cc) {
 		this.cc = cc;
 	}
-	public int getSpeed() {
-		return speed;
+	public int getMaxVel() {
+		return maxVel;
 	}
-	public void setSpeed(int speed) {
-		this.speed = speed;
+	public void setMaxVel(int maxVel) {
+		this.maxVel = maxVel;
 	}
-	public Car() {
-		// TODO Auto-generated constructor stub
-	}
-	public Car(String cname, int cc, int speed) {
-		this.cname = cname;
-		this.cc = cc;
-		this.speed = speed;
-	}
-	
-	
 	
 }

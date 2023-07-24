@@ -70,74 +70,79 @@
 				<ref bean="pro03">
 						
  -->	
- 	<bean id="prod01" class="a01_diexp.z01_vo.Product">
- 		<constructor-arg value="apple"></constructor-arg>
- 		<constructor-arg value="3000"></constructor-arg>
- 		<constructor-arg value="2"></constructor-arg>
- 	</bean>
- 	<bean id="prod02" class="a01_diexp.z01_vo.Product">
- 		<constructor-arg value="banana"></constructor-arg>
- 		<constructor-arg value="4000"></constructor-arg>
- 		<constructor-arg value="3"></constructor-arg>
- 	</bean>
- 	<bean id="prod03" class="a01_diexp.z01_vo.Product">
- 		<constructor-arg value="mango"></constructor-arg>
- 		<constructor-arg value="12000"></constructor-arg>
- 		<constructor-arg value="4"></constructor-arg>
- 	</bean>
- 	
- 	<bean id="m01" class="a01_diexp.z01_vo.Mart">
- 		<constructor-arg value="rose mart"></constructor-arg>
- 		<property name="plist">
- 			<list>
- 				<ref bean="prod01"></ref>
- 				<ref bean="prod02"></ref>
- 				<ref bean="prod03"></ref>
- 			</list>
- 		</property>
- 	</bean>
- 	<!-- 
- 	Member 아이디 패스워드 이름 권한 포인트
- 	List<Member> list = new ArrayList<Member>();
- 	list.add(mem01);
- 	list.add(mem02);
- 	list.add(mem03);
- 	
- 	ShoppingMall sm = new ShoppingMall("");
- 	sm.setMlist(list);
- 	 -->
- 	<bean id="mem01" class="a01_diexp.z01_vo.Member">
- 		<constructor-arg value="skrr"></constructor-arg>
- 		<constructor-arg value="1111"></constructor-arg>
- 		<constructor-arg value="Sam"></constructor-arg>
- 		<constructor-arg value="admin"></constructor-arg>
- 		<constructor-arg value="9090"></constructor-arg>
- 	</bean>
- 	<bean id="mem02" class="a01_diexp.z01_vo.Member">
- 		<constructor-arg value="skrrt"></constructor-arg>
- 		<constructor-arg value="1212"></constructor-arg>
- 		<constructor-arg value="Amy"></constructor-arg>
- 		<constructor-arg value="User"></constructor-arg>
- 		<constructor-arg value="19334"></constructor-arg>
- 	</bean>
- 	<bean id="mem03" class="a01_diexp.z01_vo.Member">
- 		<constructor-arg value="higirl"></constructor-arg>
- 		<constructor-arg value="3030"></constructor-arg>
- 		<constructor-arg value="Kevin"></constructor-arg>
- 		<constructor-arg value="User"></constructor-arg>
- 		<constructor-arg value="2811"></constructor-arg>
- 	</bean>
- 	
- 	<bean id="sh01" class="a01_diexp.z01_vo.ShoppingMall">
- 		<constructor-arg value="the Hyundai"></constructor-arg>
- 		<property name="mlist">
- 			<list>
- 				<ref bean="mem01"></ref>
- 				<ref bean="mem02"></ref>
- 				<ref bean="mem03"></ref>
- 			</list>
- 		</property>
- 	</bean>
+	<bean id="prod01" class="a01_diexp.z01_vo.Product">
+		<constructor-arg value="사과"/>
+		<constructor-arg value="3000"/>
+		<constructor-arg value="2"/>
+	</bean> 
+	<bean id="prod02" class="a01_diexp.z01_vo.Product">
+		<constructor-arg value="바나나"/>
+		<constructor-arg value="4000"/>
+		<constructor-arg value="3"/>
+	</bean> 
+	<bean id="prod03" class="a01_diexp.z01_vo.Product">
+		<constructor-arg value="딸기"/>
+		<constructor-arg value="12000"/>
+		<constructor-arg value="4"/>
+	</bean> 
+	<bean id="m01" class="a01_diexp.z01_vo.Mart">
+		<constructor-arg value="행복마트"/>
+		<property name="plist">
+			<list>
+				<ref bean="prod01"/>
+				<ref bean="prod02"/>
+				<ref bean="prod03"/>
+			</list>
+		</property>
+	
+	</bean> 
+	<bean id="mem01" class="a01_diexp.z01_vo.Member">
+		<constructor-arg value="himan"/>
+		<constructor-arg value="7777"/>
+		<constructor-arg value="홍길동"/>
+		<constructor-arg value="관리자"/>
+		<constructor-arg value="10000"/>
+	</bean>
+	<bean id="mem02" class="a01_diexp.z01_vo.Member">
+		<constructor-arg value="higirl"/>
+		<constructor-arg value="8888"/>
+		<constructor-arg value="홍리나"/>
+		<constructor-arg value="관리자"/>
+		<constructor-arg value="12000"/>
+	</bean>
+	<bean id="mem03" class="a01_diexp.z01_vo.Member">
+		<constructor-arg value="goodMan"/>
+		<constructor-arg value="7777"/>
+		<constructor-arg value="김철수"/>
+		<constructor-arg value="일반사용자"/>
+		<constructor-arg value="7000"/>
+	</bean>
+	<!-- 
+	Member mem01 = new Member(....);
+	Member mem02 = new Member(....);
+	Member mem03 = new Member(....);
+	List<Member> list = new ArrayList<Member();
+	list.add(mem01);
+	list.add(mem02);
+	list.add(mem03);
+	ShoppingMall sm = new ShoppingMall("컴퓨터부품쇼핑몰");
+	sm.setMlist(list);
+	 -->
+	<bean id="small" class="a01_diexp.z01_vo.ShoppingMall">
+		<constructor-arg value="컴퓨터부품쇼핑몰"/>
+		<property name="mlist">
+			<list>
+				<ref bean="mem01"/>
+				<ref bean="mem02"/>
+				<ref bean="mem03"/>
+			</list>
+		</property>
+	</bean>
+
+	
+	
+	
+ 
 	
 	      
 </beans>   

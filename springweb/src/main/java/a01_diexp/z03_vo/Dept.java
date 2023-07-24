@@ -2,7 +2,8 @@ package a01_diexp.z03_vo;
 
 import org.springframework.stereotype.Component;
 
-@Component("d01")
+// backendWeb.z01_vo.Dept
+@Component
 public class Dept {
 	private int deptno;
 	private String dname;

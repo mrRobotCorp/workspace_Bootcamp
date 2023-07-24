@@ -14,8 +14,9 @@ public class A02_DeptService {
 	private A04_PreparedDao dao;
 	
 	public List<Dept> getDeptList(Dept sch) {
-		if(sch.getDname() == null) sch.setDname("");
-		if(sch.getLoc() == null) sch.setLoc("");
+		// 비지니스 로직 처리..
+		if(sch.getDname()==null) sch.setDname("");
+		if(sch.getLoc()==null) sch.setLoc("");
 		return dao.getDeptList(sch);
 	}
 }

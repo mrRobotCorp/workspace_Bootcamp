@@ -1,5 +1,5 @@
 package a01_diexp.z01_vo;
-// a01_diexp.z01_vo.Product
+
 public class Product {
 	private String name;
 	private int price;

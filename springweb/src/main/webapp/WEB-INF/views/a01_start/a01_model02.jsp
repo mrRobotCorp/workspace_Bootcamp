@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="path" 
+	value="${pageContext.request.contextPath}"/>
 <fmt:requestEncoding value="utf-8"/>
  
 <!DOCTYPE html>
@@ -28,20 +29,21 @@
 </head>
 <body>
     <div class="container mt-3">
-    	<h2>부서 정보</h2>
+    	<h2>부서정보</h2>
+
 		<table class="table table-striped table-hover">
-			<thead>
-				<tr class="text-center">
-					<td>부서번호</td>
-					<td>부서명</td>
-					<td>부서위치</td>
-				</tr>
-			</thead>
+			<thead class="table-success">
+		      	<tr  class="text-center">
+				    <th>부서번호</th>
+				    <th>부서명</th>
+				    <th>부서위치</th>
+		      	</tr>
+		    </thead>
 		    <tbody>
 			   	<tr  class="text-center">
 			        <td>${dept.deptno}</td>
-			        <td>${dept.dname }</td>
-			        <td>${dept.loc }</td>
+			        <td>${dept.dname}</td>
+			        <td>${dept.loc}</td>
 			   	</tr>
 		 	</tbody>
 		</table>      	

@@ -1,0 +1,796 @@
+# DB 처리를 효과적으로 해주는 mybatis framework
+1. 웹개발에서 데이터베이스 연동 처리는 중요한 부분 중에 하나이다.
+2. DB 처리시, 자원의 효율적 처리, 보다 쉬운 DB 연동 및 sql 처리는
+	프로그램에서 반드시 수행해야할 부분이다.
+3. spring은 여러가지 DB연동 framework을 지원하는데,
+4. 그 중에서 가장 쉽고도 효율적을 framework을 사용해보자.
+5. mybatis framework 처리 학습 내용 계열화
+	1) interface 개념 이해
+		인터페이스를 통해서 다양한 실제 객체 생성 활용
+	2) mybatis framwork에 의해 처리 구조에 대한 이해.
+		- 컨테이너 등록	
+			접속(dbcp) ex) DB.java, 
+			mybatis 공통 설정 파일
+		- mybatis 공통 설정파일 
+			사용 vo : 간편하게 활용
+			  패키지명.패키지명...클래스명 ==> alias명 지정
+			  ==> 각 mapper.xml에서 사용하기 위하여
+			단위 데이터 처리 mapper.xml, 호출
+			  사용할 mapper를 선언..
+		- mapper.xml
+			실제 sql 처리
+				
+			리턴할 내용 선언 처리
+		- 인터페이스 선언
+	3) dao 인터페이스와 mapper.xml의 설정에 대한 이해
+		- 네임스페이스 : 패키지명.인터페이스명
+		- id  : 메서드명
+		- parameterType : 메서드의 매개변수유형
+		- resultType : 리턴타입의 유형
+	4) 실제 개발 순서 및 처리 
+		- sql 작성
+		- vo 작성
+		- 공통 mybatis 등록 : alias, mappper.xml 선언
+		- dao 인터페이스 작성
+		- mapper.xml 선언 및 처리.
+		- service단에 dao 메서드 호출해서 확인
+
+연결 풀[1] 또는 커넥션 풀(connection pool)은 소프트웨어 공학에서
+데이터베이스로의 추가 요청이 필요할 때 연결을 재사용할 수 있도록 
+관리되는 데이터베이스 연결의 캐시이다. 
+연결 풀을 사용하면 데이터베이스의 명령 실행의 성능을 강화할 수 있다. 
+각 사용자마다 데이터베이스 연결을 열고 유지보수하는 것은 비용이 많이 
+들고 자원을 낭비한다. 연결 풀의 경우 연결이 수립된 이후에 풀에 위치해 
+있으므로 다시 사용하면 새로운 연결을 수립할 필요가 없어진다. 
+모든 연결이 사용 중이면 새로운 연결을 만들고 풀에 추가된다. 
+연결 풀은 사용자가 데이터베이스에 연결을 수립하는데까지 대기해야하는 
+시간을 줄이기도 한다.
+
+# Member list 검색 처리하기 mybatis로 만들기
+1 sql 작성
+	SELECT * 
+	FROM MEMBER01
+	WHERE id LIKE '%%'
+	AND name LIKE '%%'
+
+2 vo 작성
+	id, pass, name, auth, point
+3 dao 인터페이스 작성
+4 공통 mybatis 등록 : alias, mappper.xml 선언
+5 mapper.xml 선언 및 처리.
+
+
+  리턴데이터
+  ==> Mapper.xml ==> A01_MemberDao상속받은 실제객체가 만들어진다.
+  연동 규칙을 설정
+    mapper.xml     interface
+  1. namespce      springweb.a05_mvcexp.a03_dao.A01_MemberDao
+  2. id            메서드명 memberList
+  3. parameterType Member:공통mybatis에서 지정이름
+  4. resutType     List<Member>
+  5. sql
+  	  getXXX호출.   ==> 실제 객체 메서드가 만들어져서 사용가능하다.
+# mybatis Dao 처리 연습
+0. 규칙과 처리순서
+	1) 규칙
+	mapper.xml   	dao 인터페이스
+	----------------------------
+	namespace		패키지명.인터페이스명
+	id				메서드명
+	parameterType	메서드의 매개변수유형
+	resultType		메서드의 리턴유형
+	resultMap		sql의 결과과 VO의 property가 다를 때
+	2) 처리 순서
+		sql 작성
+		vo작성// 공통 mybatis.xml에 alias 추가
+		인터페이스/메서드 추가
+		mapper.xml 처리
+		service단 호출 확인
+1. 기본호출 연습
+	0) 기본 
+		매개변수 X
+		리턴유형 문자열
+		
+		select ename
+		FROM emp
+		WHERE empno = 7369
+		
+		인터페이스(A01_MemberDao)
+		public String exp01();
+		
+		mapper(A01_MemberMapper.xml)
+		<!-- java.lang.String ==> string -->
+		<select id="exp01" resultType="string" >
+			select ename
+			FROM emp
+			WHERE empno = 7369			
+		</select>
+		
+		service(A01_MemberService.java)
+		public void daoexp() { 메서드 하위에 삽입
+			System.out.println("첫번째연습:"+dao.exp01());
+		
+		ex) 아래 내용을 추가 메서드 2개를 만들어서 처리하세요. 
+
+		public void daoexp2();
+		public void daoexp3();		
+		<select id="daoexp2">
+		SELECT job
+		FROM emp
+		WHERE empno = 7369		
+		</select>
+		<select id="daoexp3">
+		SELECT deptno
+		FROM emp
+		WHERE empno = 7521		
+		</select>		
+
+
+		
+				
+
+		
+	1) 매개변수
+		단일
+			SELECT job
+			FROM emp
+			WHERE ename='SMITH'		
+			
+			public String exp04(String ename);
+			
+			<select id="exp04" parameterType="string"
+					           resultType="string">
+				SELECT job
+				FROM emp
+				WHERE ename=#{ename}						           
+			</select>
+			
+			service
+				System.out.println("연습04:"+dao.exp04("SMITH"));
+				
+			SELECT sal
+			FROM emp
+			WHERE empno = 7844;
+			
+			public double exp05(int empno);
+			public int exp06(String ename);
+			public Date exp07(int empno);
+			
+			
+			SELECT mgr
+			FROM job
+			WHERE ename = 'CLARK';
+			
+			
+			
+			SELECT hiredate
+			FROM emp
+			WHERE empno = 7844;
+		다중
+			객체
+			INSERT INTO dept01 values(11,'인사','서울')
+			vo ==> dept VO 필요
+			
+		    Map형식
+			@Param("mapper이름") 타입 유형
+	2) 리턴유형
+		기본유형
+		객체유형
+		다중객체유형
+		컬럼명과 객체가 다른 유형
+2. 추가 인터페이스/Mapper 생성시 처리시
+3. 추가 dao 패키지 처리시	
+	
+# 등록 연습
+1. sql 작성
+	INSERT INTO STUDENT02 values(4,'한영호',90,95,80);
+	
+	INSERT INTO STUDENT02 values(#{sno},
+		#{name},#{kor},#{eng},#{math})
+2. vo작성
+	4,'한영호',90,95,80
+	sql에서 사용하는 데이터 유형 확인
+	테이블에 컬럼이 있으면 컬럼명과 유형과 동일하게 하고,
+	만약에 없으면 추가해서 vo에 속성과 property를 처리하여야 한다.
+	CREATE TABLE "SCOTT"."STUDENT02" 
+   	(	"SNO" NUMBER, 
+	"NAME" VARCHAR2(50), 
+	"KOR" NUMBER(3,0), 
+	"ENG" NUMBER(3,0), 
+	"MATH" NUMBER(3,0)
+	class Student
+		private int sno;
+		private String name;
+		private int kor;
+		private int eng;
+		private int math;
+	
+	select *
+	from emp
+	where sal between 1000 and 2000;
+	emp 테이블에 sal있지만, 최대값과 최소값은 없다.
+	vo에 아래 속성 추가.
+		private int minSal;
+		private int maxSal;
+		get/setXXXX()
+	
+3. 공통 mybatis.xml에 alias 추가
+	1) 추가된 vo는 alias 등록 처리
+		student	
+4. 인터페이스/메서드 추가
+		INSERT INTO STUDENT02 values(#{sno},
+		#{name},#{kor},#{eng},#{math})
+	public void exp09insStu(Student ins);	
+5. mapper.xml 처리
+	등록된 student을 사용해서 입력과 리턴시 활용
+	<insert id="exp09insStu" 
+	    parameterTyp="student">
+		INSERT INTO STUDENT02 values(#{sno},
+		#{name},#{kor},#{eng},#{math})	
+	</insert>
+6. service단 호출 확인		
+	dao.exp09insStu(new Student(5,"마길동",90,90,100));
+7. 테스트 화면 호출시 입력된 데이터 확인..	
+	  
+ex) 입력 처리
+INSERT INTO locations10
+values(1000,'강남구 역삼동 100번',2433,'서울',
+'대한민국','KR');
+# 등록처리연습
+1. sql 작성
+INSERT INTO locations10
+values(1000,'강남구 역삼동 100번',2433,'서울',
+'대한민국','KR')	
+2. vo작성// 공통 mybatis.xml에 alias 추가
+   (	"LOCATION_ID" NUMBER(4,0), 
+	"STREET_ADDRESS" VARCHAR2(40), 
+	"POSTAL_CODE" VARCHAR2(12), 
+	"CITY" VARCHAR2(30) NOT NULL ENABLE, 
+	"STATE_PROVINCE" VARCHAR2(25), 
+	"COUNTRY_ID" CHAR(2)
+
+class Location
+private int location_id;
+private String street_address;
+private String postal_code;
+private String city;
+private String state_province;
+private String country_id;
+3. 인터페이스/메서드 추가
+	public void exp10InsLoc(Location ins);
+
+4. mapper.xml 처리
+	<insert id="exp10InsLoc" parameterType="location">
+		INSERT INTO locations10
+		values(#{location_id},#{street_address},
+				#{postal_code},#{city},
+				#{state_province},#{country_id})
+	</insert>
+5. service단 호출 확인			
+# 조회 처리하는 sql			
+1.sql 작성
+	SELECT *
+	FROM emp
+	WHERE ename LIKE '%'||''||'%'
+	AND sal BETWEEN 1000 AND 3000
+2. vo작성
+	
+3. 공통 mybatis.xml에 alias 추가
+4. 인터페이스/메서드 추가
+	public List<Emp> exp11EmpList(Emp sch);
+	--public Emp exp12GetEmp(int empno);
+
+5. mapper.xml 처리
+	<select id="exp11EmpList" resultType="emp" 
+		parameterType="emp">
+		SELECT *
+		FROM emp
+		WHERE ename LIKE '%'||#{ename}||'%'
+		AND sal BETWEEN #{minSal} AND #{maxSal}
+	</select>
+6. service단 호출 확인			
+	for(Emp emp:dao.exp11EmpList(new Emp("",1000,3000))){
+		System.out.print(emp.getEname()+"\t");
+		System.out.print(emp.getJob()+"\t");
+		System.out.print(emp.getSal()+"\t");
+	}
+# 2~3개 데이터 처리하는 map 형식 처리
+select *
+from emp
+where ename like '%'||''||'%'
+and job like '%'||''||'%'
+1. sql
+	select *
+	from emp
+	where ename like '%'||'A'||'%'
+	and job like '%'||'ER'||'%'
+2. vo/mybatis
+3. interface
+	public List<Emp> exp12EmpList(Map sch);
+	public List<Emp> exp13EmpList(Map sch);
+4. mapper
+	<select id="exp12EmpList" resultType="emp"
+			parameterType="map">
+		select *
+		from emp
+		where ename like '%'||#{ename_sch}||'%'
+		and job like '%'||#{job_sch}||'%'	
+	</select>
+	<select id="exp13EmpList" resultType="emp"
+			parameterType="map">
+		SELECT *
+		FROM emp
+		WHERE job IN (#{job01},#{job02})	
+	</select>
+5. service
+	Map<String,String> sch = new HashMap<String,String>();
+	sch.put("ename_sch","A");
+	sch.put("job_sch","ER");
+	for(Emp e:dao.exp12EmpList(sch)){
+		System.out.println(e.getEname()+"\t");
+		System.out.println(e.getJob()+"\n");
+	}
+	Map<String,String sch2 = new HashMap<String, String>();
+	sch2.put("job01","CLERK");
+	sch2.put("job02","MANAGER");
+	for(Emp e:dao.exp13EmpList(sch2)){
+		System.out.println(e.getEname()+"\t");
+		System.out.println(e.getJob()+"\n");
+	}	
+
+dao ==> mapper ==> service 처리 하세요.
+SELECT *
+FROM emp
+WHERE job IN (#{job01},#{job02})
+# vo처리없이 2~3데이터 매개변수 처리하기(@Param()활용)
+1. sql
+-- INSERT INTO dept01 values(#{no},#{dpartnm},#{location})
+2. 인터페이스 확인
+	public void exp14DeptInsert(@Param("no") int deptno,
+						@Param("dpartnm") String dname,
+						@Param("location") String loc);
+3. mapper
+	주의) 매개변수로 mybatis에서 지원하는 @Param("no") 형식으로
+	처리하기에 parameterType을 선언하지 않는다.
+	<insert id="exp14DeptInsert">
+		INSERT INTO dept01 values(#{no},#{dpartnm},
+		                          #{location})	
+	</insert>
+4. service 처리.
+	dao.exp14DeptInsert(22,"교육","부산");
+	
+# @Param 활용 DB 처리
+1. sql 작성
+	SELECT *
+	FROM emp
+	WHERE hiredate 
+	BETWEEN to_date(#{startDte},'YYYY-MM-DD') 
+	AND to_date(#{endDte},'YYYY-MM-DD')
+2. vo/공통 등록(x)
+3. dao인터페이스
+	public List<Emp> exp15EmpList(
+		@Param("startDte") String startDte,
+		@Param("endDte") String endDte);
+4. mapper
+	<select id="exp15EmpList" resultType="emp">
+		SELECT *
+		FROM emp
+		WHERE hiredate 
+		BETWEEN to_date(#{startDte},'YYYY-MM-DD') 
+		AND to_date(#{endDte},'YYYY-MM-DD')	
+	</select>	
+5. service
+	for(Emp emp:dao.exp15EmpList("1981-01-01","1981-12-31")){
+		System.out.print(emp.getEname()+"\t");
+		System.out.print(emp.getHiredate()+"\n");
+	}		
+		
+ex)
+SELECT *
+FROM STUDENT02 
+WHERE name LIKE '%'||''||'%'
+AND (kor+eng+math)/3 between 50 AND 100;
+1. sql
+SELECT *
+FROM STUDENT02 
+WHERE name LIKE '%'||#{name}||'%'
+AND (kor+eng+math)/3 between #{stPt} AND #{edPt};
+
+2. vo(x)
+3. interface
+public List<Student> exp16studList(@Param("name") String name,
+							  @Param("stPt") int stPt,
+			                  @Param("edPt") int edPt);
+4. mapper
+<select id="exp16studList" resultType="student">
+	SELECT *
+	FROM STUDENT02 
+	WHERE name LIKE '%'||#{name}||'%'
+	AND (kor+eng+math)/3 between #{stPt} AND #{edPt}	
+</select>	
+5. service
+	for(Student std:dao.exp16studList("길동",50,100)){
+		System.out.print(std.getName()+"\t");
+		System.out.print((std.getKor()+std.getEng()
+				std.getMath())/3+"\n");
+	}		                  
+					
+# dao 리턴값 처리 예제(단계별)
+0. 기본 속성
+	resultType
+	메서드의 리턴 타입이 void인 경우 생략 가능
+1. 단일데이터 
+	결과값 기본 데이터 유형의 단일 데이터이거나 문자열인 경우를 말한다.
+	- 사원의 수를 검색
+		select count(*)
+		from emp
+		where sal between 2000 and 3000
+		
+		public int getEmpCount(@Param("minSal") int minSal,
+							   @Param("maxSal") int minSal);
+		mapper.xml
+		<select id="getEmpCount" resultType="int">
+			select count(*)
+			from emp
+			where sal between #{minSal} and #{maxSal}							   
+		</select>
+	- 사원중에 특정 부서의 급여가 최고데이터
+	    sql
+			SELECT max(sal)
+			FROM emp
+			WHERE deptno = 10 			
+			SELECT max(sal)
+			FROM emp
+			WHERE deptno = #{deptno}		   
+	    인터페이스 선언
+	    	public double getDeptMaxSal(@Param("deptno")
+	    			int deptno);
+	    mapper선언
+	    	<select id="getDeptMaxSal" resultType="double">
+				SELECT max(sal)
+				FROM emp
+				WHERE deptno = #{deptno}	    	
+	    	</select>
+2. 단일객체처리
+	sql에서 여러 컬럼을 한 row로 처리되는 경우를 말한다.
+	보통 검색시는 key로 입력할 때, 주로 나타난다.
+	select * from emp where empno = 7800
+	이렇게 되면 여러열의 데이터를 담을 수 있는 객체 vo를 선언하고,
+	vo를 공통 mybatis에 선언한 후에 처리할 수 있다.
+	alias명 설정, mapper에서는 resultType="객체명"
+	일반적으로 컬럼명과 getProperty가 동일할 때, 사용한다.
+	1) 처리 순서
+		sql 작성
+			SELECT employee_id, first_name, last_name,
+			       email, phone_number, hire_date,
+			       job_id, salary, commission_pct,
+			       manager_id, department_id 
+			FROM EMPLOYEES
+			WHERE EMPLOYEE_ID =100
+		
+		
+		vo 작성
+		private int	employee_id;
+		private String first_name;
+		private String last_name;
+		private String email;
+		private String phone_number;
+		private Date hire_date;
+		private String job_id;
+		private double salary;
+		private double commission_pct;
+		private int manager_id;
+		private int department_id;
+		
+		
+		공통 mybatis vo등록
+		dao인터페이스 작성
+			public Employee exp17getEmpLoyee(
+							@Param("id") int employee_id); 
+		mapper 등록
+			<select id="exp17getEmpLoyee" resultType="employee">
+				SELECT employee_id, first_name, last_name,
+				       email, phone_number, hire_date,
+				       job_id, salary, commission_pct,
+				       manager_id, department_id 
+				FROM EMPLOYEES
+				WHERE EMPLOYEE_ID =#{id}				
+			</select>
+		service단 확인
+			for(Employee emp:dao.exp17getEmpLoyee(100)){
+				System.out.print(emp.getEmployee_id()+"\t");
+				System.out.print(emp.getFirst_name()+"\t");
+				System.out.print(emp.getEmail()+"\n");
+			}
+ex)
+SELECT *
+FROM jobs
+WHERE JOB_ID = 'AD_PRES';	
+class Job{
+	private String job_id;
+	private String job_title;
+	private int min_salary;
+	private int max_salary;
+	
+
+}	
+public Job getJob(@Param("id") String id);
+
+<select id="getJob" resultType="job">
+	SELECT job_id, job_title, min_salary, max_salary
+	FROM jobs
+	WHERE JOB_ID = #{id}
+</select>
+
+Job job = dao.getJob("AD_PRES");
+System.out.println(job.getJob_id());
+System.out.println(job.getJob_title());
+System.out.println(job.getMin_salary());
+System.out.println(job.getmax_salary());
+	
+	
+3. 단일배열데이터
+	조회된 데이터가 단일열의 배열형 데이터를 말한다.
+	현재 등록된 사원번호,  급여가 1000~3000사이 사원명
+	리턴형식이 단일 배열이거나, List<타입>으로 설정해서
+	처리한다.
+	sql
+		SELECT ename
+		FROM emp
+		WHERE sal BETWEEN 1000 AND 2000
+	SELECT ename
+	FROM emp
+	WHERE sal BETWEEN #{minSal} AND #{mxSal}
+	#dao
+	public List<String> exp19getEnames(
+			@Param("minSal") int minSal,			
+			@Param("mxSal") int mxSal);
+	#mapper
+	<select id="exp19getEnames"
+		 resultType="string">
+		SELECT ename
+		FROM emp
+		WHERE sal BETWEEN #{minSal} AND #{mxSal}			
+	</select>					
+	#service
+	for(String name:dao.exp19getEnames(1000,3000){
+		System.out.println(name);
+	}
+	ex)
+	SELECT city
+	FROM locations
+	WHERE COUNTRY_ID ='US'	
+	
+	public List<String> getCities(@Param("id") String id);
+	
+	<select id="getCities" resultType="string">
+		SELECT city
+		FROM locations
+		WHERE COUNTRY_ID =#{id}		
+	</select>	
+	for(String city:dao.getCities("US")){
+		System.out.println(city);
+	}
+
+4. 객체형배열데이터
+	resultType으로 위에 있는 단일데이터와 List형
+	데이터를 처리할 수 있다.
+
+5. resultMap의 활용
+	1) 컬럼명하고 property 다른 경우 설정처리..
+	2) 사원정보/부서정보 join
+		select e.*, d.dname, d.loc
+		from emp e, dept d
+		where e.deptno = d.deptno;
+	3) class EmpDept{
+			private Emp emp;
+			private Dept dept;
+			//set/get메서드..
+	   }	
+	   class DeptEmpList{
+	   	    private Dept dept;
+	   	    private List<Emp> emp;
+	   }
+	   class Dept2{
+	   	  private int deptno;
+	   	  private String dname;
+	   	  private String loc;
+	   	  private Emp emp;
+	   	  
+	   }	
+# resultMap을 활용한 처리
+1. sql column과 vo property가 다른 경우
+	1) xxxMapper.xml 
+		<resultMap의 선언
+			id = "사용할이름"
+			type = "vo객체
+			<result column="" property=""
+		
+SELECT empno NO, ename name,
+       sal salary
+FROM emp
+
+public List<Emp> getEmpResultExp();
+
+	<resultMap type="emp" id="rst01">
+		<id column="no" property="empno"/>
+		<result column="name" property="ename"/>
+		<result column="salary" property="sal"/>
+id는 sql 결과가 중복되더라도 첫번째 데이터를 출력처리하는 식별자
+	컬럼을 처리하는 것을 말한다.
+	참고) 중복되어라도 그대로 vo객체에 담을려면 id==> result로
+	처리한다.
+column="no" property="empno"
+	sql결과는 column으로 설정된 내용을 vo특정한 set property에
+	mapping시킬 때, 사용된다..
+	
+이렇게 해서 설정된 공통 resultMap의 id속성의 rst01은 각 select의
+속성 resultMap에 값으로 할당하여 공통으로 재활용할 수 있다.
+	
+ex) resultMap 처리 예제	
+SELECT deptno NO, dname name, loc location
+FROM dept01		
+	
+
+
+
+# 여러가지 join 구문을 통한 1:1관계 vo객체의  resultMap 처리
+1. sql을 사용하면, 하나의 테이블을 sql을 만드는 것보다,
+	여러개의 테이블을 이용해서 join하여 결과를 만드는 경우가 많은데,
+2. 이 때, 기존에 만들어진 VO를 재활용하여 객체안에 객체로 사용할 때,
+	mybatis의 resultMap에서 새로운 구성요소를 이용하여서 사용한다.
+3. 처리 순서
+	1) sql 작성(join구문)
+		SELECT e.*, dname, loc
+		FROM emp e, dept d
+		WHERE e.deptno =d.deptno
+		AND ename LIKE '%'||#{ename}||'%'
+		AND dname LIKE '%'||#{dname}||'%'	
+	
+	2) VO - 기존 만들어진 class로 객체 안에 객체의 구성으로 
+		선언한다.
+		class EmpDept{
+			private Emp emp;
+			private Dept dept;
+		}
+		
+	3) 공통 mybatis vo 추가
+		springweb.a05_mvcexp.z01_vo.EmpDept	
+	
+	4) dao 인터페이스 선언
+		public EmpDept getEmpDeptList(@Param("ename") String ename,
+									  @Param("dname") String dname);  
+		SELECT e.*, dname, loc
+		FROM emp e, dept d
+		WHERE e.deptno =d.deptno
+		AND ename LIKE '%'||#{ename}||'%'
+		AND dname LIKE '%'||#{dname}||'%'										  
+	5) mapper 선언
+		resultmap에서 association 요소 사용
+		<resultMap type="empdept" id="edRst">
+			<association property="emp">
+				<id column="empno" property="empno"/>
+				<result column="ename" property="ename"/>
+				<result column="job" property="job"/>
+				<result column="mgr" property="mgr"/>
+				<result column="hiredate" property="hiredate"/>
+				<result column="comm" property="comm"/>
+				<result column="deptno" property="deptno"/>
+			</association>
+			<association property="dept">
+				<id column="deptno" property="deptno"/>
+				<result column="dname" property="dname"/>
+				<result column="loc" property="loc"/>
+			</association>
+		</resultMap>
+ex) Employee, Job Association
+1. sql
+SELECT e.*, job_title, min_salary,
+	   max_salary
+FROM EMPLOYEES e, JOBS j	
+WHERE e.JOB_ID = j.JOB_ID
+AND first_name LIKE '%'||#{first_name}||'%'
+AND job_title LIKE '%'||#{job_title}||'%'
+2. vo
+class EmpJob{
+	private Employee employee;
+	private Job job;
+}
+3. mybatis 등록.
+
+4. interface 선언
+	public List<EmpJob> getEmpJobList(
+			  @Param("first_name") String first_name,
+			  @Param("job_title") String job_title);	
+		
+	6) service 호출 test
+
+# 기타 여러가지 형식의 dao인터페이스 형식 처리.
+1. 간단하게 mapper 사용하지 않고 dao 인터페이스에서 sql로 처리하는 경우
+2. 형식(dao 인터페이스에서 처리)
+	@Select("sql구문과 매개변수 처리")
+	public 리턴유형 메서드명(@Param("매개변수명") 입력데이터);
+	
+# 동적 sql 처리
+1. 프로그래밍 DB 처리시, 가능한한 동적 sql을 만들지 말아야지
+	효과적으로 데이터 처리를 할 수 있지만, 여건에 따라서
+	sql의 변화가 필요로 하는 경우가 있다.
+2. 이를 동적 query이라고 한다. 즉, 조건에 따라 sql 구문 자체가
+	변경되는 것을 말한다.
+3. mybatis는 동적 쿼리를 위하여, ${전달데이터}와 
+	ognl(object graph navigation language) 방식의
+	조건<if><choose><when>, 반복<foreach>, <where>
+	<trim><set> 등을 지원하고 있다.
+4. 기본 형식
+	select *
+	from emp
+	where 1=1
+	<if test="ename != null and ename!='' ">
+		and ename like '%'|| #{ename} ||'%'
+	</if>
+	<if test="job != null">
+		and job like '%'|| #{job} ||'%'
+	</if>	
+	ename이 null값일 때는 전체 검색을 하고, 데이터가 있을 때는
+	해당 이름으로 키워드 검색하게 처리..
+# 반복문 처리 동적 쿼리
+1. 기본형식
+	<foreach collection="배열/리스트매개변수" 
+		item="단위데이터" separator=","  open="(" close=")">
+	</foreach>
+2. 배열이나 리스트형식을 데이터를 전달하고, 해당 데이터을
+	단위데이터를 반복형식으로 동적쿼리를 처리하는 것을 말한다.
+3. 속성
+	1) separator :반복형식의 구분자.
+	2) open : 시작 동적 쿼리 추가 내용
+	3) close : 종료 동적 쿼리 추가 내용
+4. 예제 처리
+	사원번호를 in 구문으로 검색하는 반복 쿼리 처리
+	SELECT *
+	FROM emp
+	WHERE empno IN (7369,7499,7521)	
+	1) dao
+	public List<Emp> getEmpByEmpnos(
+	    @Param("empnos") List<Integer> empnos);
+	2) mapper
+	<select id="getEmpByEmpnos" resultType="emp">
+		SELECT *
+		FROM emp
+		WHERE empno IN	
+		<foreach collection="empnos" item="empno"
+			separator="," open="(" close=")">
+			#{empno}
+		</foreach>
+	</select>
+	3) service
+	   List<Integer> empnos = new ArrayList<Integer>();
+	   empnos.add(7369);
+	   empnos.add(7499);
+	   empnos.add(7521);
+	   for(Emp emp:dao.getEmpByEmpnos(empnos)){
+	   	   System.out.print(emp.getEmpno()+"\t");
+	   	   System.out.print(emp.getEname()+"\t");
+	   	   System.out.print(emp.getJob()+"\n");
+	   }	
+	
+	</select>
+	
+	
+	
+	
+	    
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+			
+			
+			
+			
+					

@@ -9,6 +9,15 @@ public class Member {
 	public Member() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Member(String id, String pass, String name, int point, String auth) {
+		this.id = id;
+		this.pass = pass;
+		this.name = name;
+		this.auth = auth;
+		this.point = point;
+	}
+	
 	public Member(String id, String pass, String name, String auth, int point) {
 		this.id = id;
 		this.pass = pass;

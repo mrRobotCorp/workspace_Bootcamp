@@ -16,3 +16,13 @@ insert into restore values(1, '내용', '파일명', sysdate, sysdate);
 
 select * from restore
 where no = 1;
+
+DELETE FROM RESTORE;
+SELECT * from restore order by regdte DESC;
+
+SELECT * FROM MEMBER02;
+
+SELECT * FROM JOBS
+WHERE JOB_ID LIKE '%'||'A'||'%'
+AND JOB_TITLE LIKE '%'||'V'||'%';
+

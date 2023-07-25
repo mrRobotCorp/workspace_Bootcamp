@@ -43,11 +43,21 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 	</context:component-scan>
+	 
+	<context:property-placeholder location="classpath:resource/a01_config,classpath:resource/a02_config"/>
 	
-	<context:property-placeholder
-		location="classpath:resource/a01_config, classpath:resource/a02_config"/>
-
-	<!-- container안에서도 접근, java 소스로도 접근 가능. key/value -->
+	<!-- 
+	<context:property-placeholder location="classpath:resource/a01_config"/>
+	<context:property-placeholder location="classpath:resource/a02_config"/>
+	 -->
+	<!-- container안에서도 접근, java소스로도 접근 가능..key/val 
+	
+	jdbc.driver=oracle.jdbc.driver.OracleDriver
+jdbc.url=jdbc:oracle:thin:@localhost:1521:xe
+jdbc.user=scott
+jdbc.pass=tiger
+	-->
+	
 	
 	<bean class="backendWeb.a01_dao.A04_PreparedDao"/>
 	<!-- 
@@ -66,6 +76,9 @@
 	
 	</bean> 
 	<!-- 
+oracle.jdbc.driver.OracleDriver	
+jdbc:oracle:thin:@localhost:1521:xe
+	
 	# mybatis연동처리..
 	1. 위 연결 정보 설정
 	2. mybatis 공통 xml 연동 처리
@@ -109,7 +122,11 @@
 	컨트롤러에 요청값으로 MultiPartFile이 파일업로드 객체로 사용할 수 있게 해준다-->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
-
+	<!-- json 뷰 추가 -->
+	<bean id="jsonView"
+		class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+		<property name="contentType" value="text/html;charset=utf-8"/>
+	</bean>
 	
 		
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -118,8 +135,9 @@
 	<!-- 그 외는 화면을 처리하는 viewer(jsp)로 우선순위를 뒤로 지정 
 	
 	return "WEB-INF\\views\\a02_emp\\a02_emp_datail.jsp";
+	<bean id="downloadViewer" class="springweb.a06_util.DownloadViewer"/>
 	-->
-	 
+		 
 	
 </beans>   
 

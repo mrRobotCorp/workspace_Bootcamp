@@ -7,7 +7,7 @@
 		parameterType="member" 
 		resultType="member">
 		SELECT * 
-		FROM MEMBER01
+		FROM MEMBER02
 		WHERE id LIKE '%'||#{id}||'%'
 		AND name LIKE '%'||#{name}||'%'
 	</select>
@@ -242,6 +242,7 @@ List<Emp> getDynamicSQL(@Param("ename")
 			#{empno}
 		</foreach>
 	</select>	
+
 	
 	 
 </mapper>	

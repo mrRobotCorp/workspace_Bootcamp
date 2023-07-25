@@ -35,5 +35,4 @@ public class A02_EmpService {
 	// controller  dao ==> service로 변경..
 	// controller 안에  A04_PreparedDao 객체 생성부분 삭제 처리.
 	
-	
 }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="/springweb/a00_com/vue.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	    var model = {msg:"뷰 디렉티브",
+	             msg2:"안녕하세요",
+	             msg3:"<h3>반가워용</h3>",
+	             al01 : "right",
+	             im01: "apple.jpeg",
+	             im02: "banana.jpeg",
+	             im03: "mango.jpeg",
+	             }
+	    var vm = new Vue({
+	       el:".container",
+	       data:model
+	    })
+	 });
+	// a04_vtext_vhtml.html
+	// v-text, v-html을 활용하여 학생의 이름과 국어, 영어, 수학 점수를 출력
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	  <h3 v-text="msg2"></h3>
+	  <div v-text="msg3"></div>
+	  <div v-html="msg3"></div>
+	  <h3 v-bind:align="al01">{{msg}}</h3>
+	  <img v-bind:src="im01">
+	  <img :src="im02">
+	  <img :src="im02">
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

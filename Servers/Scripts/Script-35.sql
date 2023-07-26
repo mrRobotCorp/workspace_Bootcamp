@@ -1,0 +1,15 @@
+
+CREATE TABLE jobs01
+AS SELECT * FROM JOBS j ;
+
+SELECT * FROM jobs01;
+
+ALTER TABLE SCOTT.JOBS01 MODIFY JOB_ID VARCHAR2(50);
+ALTER TABLE SCOTT.JOBS01 MODIFY JOB_TITLE VARCHAR2(55) ;
+
+INSERT INTO jobs01 values('AD01', '관리자01', 5000, 10000);
+
+/*
+INSERT INTO jobs01 values(#{job_id}, #{job_title}, 
+						#{min_salary}, #{max_salary})
+*/

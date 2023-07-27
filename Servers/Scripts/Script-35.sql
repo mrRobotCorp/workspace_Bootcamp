@@ -10,6 +10,8 @@ ALTER TABLE SCOTT.JOBS01 MODIFY JOB_TITLE VARCHAR2(55) ;
 INSERT INTO jobs01 values('AD01', '관리자01', 5000, 10000);
 
 /*
-INSERT INTO jobs01 values(#{job_id}, #{job_title}, 
-						#{min_salary}, #{max_salary})
+job_id와 job_title
+은 반드시 입력해야 함
+DB에 입력되지 않은 데이터를 처리해야 함
+
 */

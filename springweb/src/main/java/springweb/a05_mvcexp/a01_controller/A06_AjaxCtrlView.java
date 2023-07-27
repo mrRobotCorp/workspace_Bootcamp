@@ -55,4 +55,5 @@ public class A06_AjaxCtrlView {
 	public ResponseEntity<String> insertJob2(Job ins) {
 		return ResponseEntity.ok(service.insertJob(ins));
 	}
+
 }

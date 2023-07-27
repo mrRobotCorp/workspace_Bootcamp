@@ -10,16 +10,26 @@ import springweb.a05_mvcexp.z01_vo.Job;
 
 @Service
 public class A06_JobService {
-	@Autowired
-	private A06_JobDao dao;
 	
-	public List<Job> getJobList(Job sch) {
-		if(sch.getJob_id() == null) sch.setJob_id("");
-		if(sch.getJob_title() == null) sch.setJob_title("");
+	@Autowired 
+	private A06_JobDao dao;
+	public List<Job> getJobList(Job sch){
+		if(sch.getJob_id()==null) sch.setJob_id("");
+		if(sch.getJob_title()==null) sch.setJob_title("");
 		return dao.getJobList(sch);
 	}
-	
 	public String insertJob(Job ins) {
-		return dao.insertJob(ins)>0?"등록성공":"등록되지 않음";
+		return dao.insertJob(ins)>0?"등록성공":"등록되지 않음" ;
+		
+	}	
+	public String checkId(String job_id) {
+		return dao.checkId(job_id)>0?"등록불가":"등록가능";
 	}
+	public String checktitle(String job_title) {
+		return dao.checktitle(job_title)>0?"등록불가":"등록가능";
+	}
+	/*
+	
+	 * */
+
 }

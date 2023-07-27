@@ -10,6 +10,5 @@
 	
 	<mappers>
 		<mapper resource="resource/M01_Mapper.xml"/>
-		<mapper resource="resource/M02_MapperYJ.xml"/>
 	</mappers>
 </configuration>

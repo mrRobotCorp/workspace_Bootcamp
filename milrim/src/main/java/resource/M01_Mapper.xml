@@ -2,12 +2,8 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >	
-<mapper namespace="milrim_project.login.m03_dao.M01_MemberDao">
-	<select id="exp01" resultType="string" >
-		select name
-		FROM member
-		WHERE name = '윤석민'			
-	</select>
+<mapper namespace="milrim_project.login.m03_dao.MemberDao">
+
 
 	 
 </mapper>	

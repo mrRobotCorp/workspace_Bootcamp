@@ -51,6 +51,8 @@ E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.jst.jsp.core\js
 \frontWeb2\src\main\java
 E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1543470161.index
 \frontWeb2\src\main\java
+E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2028995839.index
+\milrim\src\main\java
 E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3877839794.index
 \backendWeb2\src\main\java
 E:\a01_javaexp\workspace_Bootcamp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4052765256.index

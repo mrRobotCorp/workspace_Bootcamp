@@ -15,3 +15,16 @@ job_id와 job_title
 DB에 입력되지 않은 데이터를 처리해야 함
 
 */
+
+SELECT * FROM REGIONS01 ;
+
+SELECT * FROM REGIONS01
+WHERE REGION_ID = 1;
+
+CREATE TABLE REGIONS01
+AS SELECT * FROM REGIONS;
+
+UPDATE REGIONS01
+	SET	region_id = 11,
+		region_name = 'AA'
+WHERE region_id = 1;

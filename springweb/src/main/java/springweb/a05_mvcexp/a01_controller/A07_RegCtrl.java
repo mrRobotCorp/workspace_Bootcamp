@@ -21,20 +21,34 @@ public class A07_RegCtrl {
 	public String regList() {
 		return "WEB-INF\\views\\a05_mvcexp\\a09_regList.jsp";
 	}
+
 	
-	
-	// regData.do
 	@RequestMapping("regData.do")
 	public ResponseEntity<List<Region>> jobList(
 		@RequestParam(value = "region_name",
 					  defaultValue = "") String region_name){
 		return ResponseEntity.ok(
 			service.regionList(region_name));
-	}		
+	}	
+	
 	// regInsert.do?region_id=5&region_name=부산
 	@RequestMapping("regInsert.do")
 	public ResponseEntity<String> regInsert(Region ins){
 		return ResponseEntity.ok(service.insertRegion(ins));
 	}	
+	
+	
+	@RequestMapping("getReg.do")
+	public ResponseEntity<Region> getReg(int region_id) {
+		return ResponseEntity.ok(service.getReg(region_id));
+	}
+	@RequestMapping("updateReg.do")
+	public ResponseEntity<String> updateReg(Region upt) {
+		return ResponseEntity.ok(service.updateReg(upt));
+	}
+	@RequestMapping("deleteReg.do")
+	public ResponseEntity<String> deleteReg(int region_id) {
+		return ResponseEntity.ok(service.deleteReg(region_id));
+	}
 	
 }

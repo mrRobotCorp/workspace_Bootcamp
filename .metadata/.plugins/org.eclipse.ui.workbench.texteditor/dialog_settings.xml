@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="regFrm"/>
+		<item key="selection" value="frm"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
@@ -25,14 +25,15 @@
 			<item value="package javaexp.a04_calcu;"/>
 		</list>
 		<list key="replacehistory">
+			<item value="frm"/>
 			<item value="/"/>
 			<item value=""/>
 			<item value="modalFrm"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="-251"/>
-		<item key="DIALOG_Y_ORIGIN" value="186"/>
+		<item key="DIALOG_X_ORIGIN" value="-70"/>
+		<item key="DIALOG_Y_ORIGIN" value="86"/>
 		<item key="DIALOG_WIDTH" value="557"/>
 		<item key="DIALOG_HEIGHT" value="680"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

@@ -26,6 +26,7 @@
     <script type="text/javascript">
     	// window.onload와 동일한 메서드
     	$(document).ready( function(){
+    		$("#detailBtn").hide()
     		search()
     		
     		//$("h2").text("jquery 로딩 성공")
@@ -36,22 +37,29 @@
     		$("#schBtn").click(function(){
     			search()
     		})
+    		$("#regBtn").click(function(){
+    			$("#modalTitle").text("직책 등록")
+       			$("#jobRegBtn").show()
+      			$("#jobUptBtn").hide()
+      			$("#jobDelBtn").hide()   			
+    		})
+    		
     		$("#jobRegBtn").click(function(){
     			if(confirm("직책정보를 등록하겠습니까?")){
-    				//alert($("#regFrm").serialize())
+    				//alert($("#frm").serialize())
     				// jobInsAjax2.do?job_id=ASS4&job_title=개발자4&min_salary=3500&max_salary=12000
     				$.ajax({
     					url:"${path}/jobInsAjax2.do",
     					type:"post",
-    					data:$("#regFrm").serialize(),
+    					data:$("#frm").serialize(),
     					dataType:"text",
     					success:function(data){
     						// 등록후 반영된 내용을 리스트하게
     						search();
     						// 폼에 있는 등록시 입력된 내용을 초기화할 때,
     						// 처리하는 form하위 요소객체 초기화
-    						$("#regFrm")[0].reset();
-    						if(!confirm(data+"\n계속 등록하시겠습니까?")){
+    						$("#frm")[0].reset();
+    						if(!confirm(data.replace("\"", "")+"\n계속 등록하시겠습니까?")){
     							// 창을 닫게 처리 : 이벤트 강제 처리
     							$("#clsBtn").click();
     						}
@@ -60,7 +68,8 @@
     						console.log(err)
     					}
     				})		
-    						
+   					
+   				$("#joinUptBtn")
     						
     			}
     		})
@@ -79,13 +88,14 @@
 					var add = ""
 					jobs.forEach(function(job){
 						console.log(job)
-						add+="<tr  class='text-center'>"
+						add+="<tr  class='text-center' onclick='detail(\""+job.job_id+"\")' >"
 						add+="<td>"+job.job_id+"</td>"
 						add+="<td>"+job.job_title+"</td>"
 						add+="<td>"+job.min_salary.toLocaleString()+"</td>"
 						add+="<td>"+job.max_salary.toLocaleString()+"</td>"
 						add+="</tr>"
 					})
+					console.log(add)
 					$("#show").html(add);
 				},
 				error:function(err){
@@ -94,6 +104,27 @@
 			})    		
     		
     	}
+    	function detail(job_id){
+    		//alert(job_id)
+    		$("#detailBtn").click()
+    		$("#modalTitle").text("직책 상세정보("+job_id+")")
+   			$("#jobRegBtn").hide()
+  			$("#jobUptBtn").show()
+  			$("#jobDelBtn").show()  
+  			// ajax 처리
+  			$.ajax({
+  				url:"${path}/getJob.do",
+  				data : $("#frm").serialize(),
+  				dataType : "json",
+  				success : function(job) {
+  					$("#frm [name=job_title]").val(job.job_title);
+  				}
+  				error : function() {
+  					
+  				}
+  			})
+    	}
+    	
     </script>      
     
     
@@ -122,6 +153,21 @@ jobListData2.do
 	         		class="btn btn-success" 
 	         		data-toggle="modal" data-target="#exampleModalCenter"
 	         		>등록</button>
+	         	<button id="detailBtn" type="button" 
+	         		class="btn btn-success" 
+	         		data-toggle="modal" data-target="#exampleModalCenter"
+	         		></button>
+	         	<!-- 
+	         	$("#detailBtn").hide()
+	         	
+	           	function detail(job_id){
+    				alert(job_id)
+    				$("#detailBtn").click()
+    			}
+	         	
+	         	
+	         	 -->	
+	         		
 	         	
 	     	</form>
 	 	    </div>
@@ -139,7 +185,7 @@ jobListData2.do
 		      	</tr>
 		    </thead>
 		    <tbody id="show">
-			   	<tr  class="text-center">
+			   	<tr  class="text-center" >
 			        <td></td>
 			        <td></td>
 			        <td></td>
@@ -152,7 +198,7 @@ jobListData2.do
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">직책 등록</h5>
+        <h5 class="modal-title" id="modalTitle">직책 등록</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -161,7 +207,7 @@ jobListData2.do
       	<!-- 
       	job_id=ASS4&job_title=개발자4&min_salary=3500&max_salary=12000
       	 -->
-		<form  id="regFrm"   class="form"  method="post">
+		<form  id="frm"   class="form"  method="post">
 	     <div class="row">
 	      <div class="col">
 	        <input type="text" class="form-control" 
@@ -185,8 +231,20 @@ jobListData2.do
 	    </form> 
       </div>
       <div class="modal-footer">
-        <button type="button" id="clsBtn" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <!-- 등록시   
+      			$("#jobRegBtn").show()
+      			$("#jobUptBtn").hide()
+      			$("#jobDelBtn").hide()
+           , 
+      		상세시  show(), hide() 
+       			$("#jobRegBtn").hide()
+      			$("#jobUptBtn").show()
+      			$("#jobDelBtn").show()     		
+      		-->
         <button type="button" id="jobRegBtn" class="btn btn-success">직책등록</button>
+        <button type="button" id="jobUptBtn" class="btn btn-warning">직책수정</button>
+        <button type="button" id="jobDelBtn" class="btn btn-danger">직책삭제</button>
+        <button type="button" id="clsBtn" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

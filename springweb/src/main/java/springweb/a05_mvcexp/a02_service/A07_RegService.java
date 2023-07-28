@@ -2,6 +2,7 @@ package springweb.a05_mvcexp.a02_service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,18 @@ public class A07_RegService {
 	public String insertRegion(Region insert) {
 		return dao.insertRegion(insert)>0?
 				"등록성공":"등록되지 않음";
-	}			 
+	}		
 	
+	public Region getReg(@Param("region_id") int region_id) {
+		return dao.getRegion(region_id);
+	}
+	public String updateReg(Region upt) {
+		return dao.updateReg(upt)>0?"등록성공":"등록실패";
+	}
+	public String deleteReg(@Param("region_id") int region_id) {
+		return dao.deletReg(region_id)>0?"삭제성공":"삭제실패";
+	}
+	
+	
+
 }

@@ -14,27 +14,27 @@ td {
 <script src="/springweb/a00_com/vue.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		var vm = new Vue({
+		let vm = new Vue({
 			el : ".container",
 			data : {
-				msg : "사원정보 리스트",
-				empList : [ {
-					empno : 7780,
-					ename : "Joe",
-					job : "사원",
-					dname : "IT"
+				msg : "부서 정보 리스트",
+				deptList : [ {
+					deptno : 101,
+					dname : "인사",
+					loc : "seoul"
 				}, {
-					empno : 7781,
-					ename : "Tom",
-					job : "대리",
-					dname : "ACC"
+					deptno : 102,
+					dname : "재무",
+					loc : "busan"
 				}, {
-					empno : 7782,
-					ename : "Sam",
-					job : "과장",
-					dname : "GRT"
+					deptno : 103,
+					dname : "회계",
+					loc : "incheon"
+				}, {
+					deptno : 104,
+					dname : "개발",
+					loc : "suwon"
 				}, ]
-			// ex) a12_deptList.html 부서정보 리스트 출력
 			}
 		})
 	});
@@ -44,7 +44,7 @@ td {
 
 	<div class="container">
 		<div class="jumbotron text-center">
-			<h2></h2>
+			<h2>{{msg}}</h2>
 		</div>
 		<form id="frm01" class="form-inline" method="post">
 			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -62,18 +62,16 @@ td {
 			<thead>
 
 				<tr class="table-success text-center">
-					<th>사원번호</th>
-					<th>사원명</th>
-					<th>직책명</th>
+					<th>부서번호</th>
 					<th>부서명</th>
+					<th>부서 위치</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr v-for="emp in empList" class="text-center">
-					<td>{{emp.empno}}</td>
-					<td>{{emp.ename}}</td>
-					<td>{{emp.job}}</td>
-					<td>{{emp.dname}}</td>
+				<tr v-for="d in deptList" class="text-center">
+					<td>{{d.deptno}}</td>
+					<td>{{d.dname}}</td>
+					<td>{{d.loc}}</td>
 				</tr>
 			</tbody>
 		</table>

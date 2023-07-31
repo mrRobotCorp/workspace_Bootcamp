@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Good day!! ^^</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{txt-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="/springweb/a00_com/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{msg:"사원정보리스트",ename:"",job:"",
+				  empList:[]},
+			methods:{
+				checkValid:function(){
+					console.log("키업")
+					if(event.keyCode==13){
+						this.search()
+					}
+				},
+				search:function(){
+					console.log("검색!")
+					// http://localhost:7080/springweb/empListAjax.do 현재 서버를 이용할 때 생략가능
+					
+					var url = "/springweb/empListAjax.do?ename="+this.ename+"&job="+this.job;
+					this.empList = [] // 검색 내용 초기화
+					var vm = this
+					// 주의) this : Vue()객체로 메서드나 모델데이터를
+					// 접근 가능..
+					fetch(url).then(function(response){
+						//this : fetch api 객체를 지칭.
+						console.log("# 함수1(response 객체) #")
+						console.log(response)
+						return response.json()
+					}).then(function(json){
+						console.log("# 함수2(json 객체) #")
+						var empList = json
+						console.log(empList)
+						empList.forEach(function(emp){
+							// emp.hiredate : 1970.1.1 기준 시간 1/1000
+							// js에서 날짜로 사용할려면 new Date(위시간)
+							emp.sal = emp.sal.toLocaleString()
+							var dte = new Date(emp.hiredate)
+							console.log(dte.toLocaleDateString())
+							emp.hiredateS=dte.toLocaleDateString()
+						})
+						vm.empList = empList
+						console.log(empList)
+					}).catch(function(err){
+						console.log("#에러 발생시#")
+						console.log(err)
+					})
+					
+				}
+			}	  
+			/*
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input v-model="ename" @keyup="checkValid" class="form-control mr-sm-2" placeholder="사원명" />
+	    <input v-model="job"  @keyup="checkValid"  class="form-control mr-sm-2" placeholder="직책명" />
+	    <button @click="search" class="btn btn-info" type="button">Search</button>
+ 	</nav>			
+			*/
+				  
+		}) 
+	});
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+	
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input v-model="ename" @keyup="checkValid" class="form-control mr-sm-2" placeholder="사원명" />
+	    <input v-model="job"  @keyup="checkValid"  class="form-control mr-sm-2" placeholder="직책명" />
+	    <button @click="search" class="btn btn-info" type="button">Search</button>
+ 	</nav>
+	
+   <table class="table table-hover table-striped">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>사원번호</th>
+        <th>사원명</th>
+        <th>직책명</th>
+        <th>입사일</th>
+        <th>급여</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr v-for="emp in empList"  class="text-center">
+    		<td>{{emp.empno}}</td>
+    		<td>{{emp.ename}}</td>
+    		<td>{{emp.job}}</td>
+    		<td>{{emp.hiredateS}}</td>
+    		<td>{{emp.sal}}</td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

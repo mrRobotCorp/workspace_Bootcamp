@@ -6,6 +6,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="member" type="milrim_project.login.m04_vo.Member"/>
+		<typeAlias alias="freeboard" type="milrim_project.login.m04_vo.Freeboard"/>
 	</typeAliases>
 	
 	<mappers>

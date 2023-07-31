@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="/springweb/a00_com/vue.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		let vm = new Vue({
+			el : ".container",
+			data : {msg :"method 처리", num01 : 0, num02 : 0, sum:0},
+			methods : {
+				plus : function() {
+					// this : Vue 객체를 지칭. vue가 가지고 있는
+					// 모델 데이터나 메서드 접근 가능
+					this.sum = Number(this.num01) + Number(this.num02)
+				}
+			}
+		
+		})
+	});
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	  <h4>{{num01}} + {{num02}} = {{sum}}</h4>
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input v-model="num01" class="form-control mr-sm-2"/>
+	    <input v-model="num02" class="form-control mr-sm-2"/>
+	    <button v-on:click="plus" class="btn btn-info" type="button">합산</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

@@ -10,19 +10,39 @@
 <script src="/springweb/a00_com/jquery.min.js"></script>
 <script src="/springweb/a00_com/bootstrap.min.js"></script>
 <script src="/springweb/a00_com/vue.js"></script>
+
 <script type="text/javascript">
+/*
+# 조건문 처리 디렉티브
+1. 특정요소객체가 조건에 합당할 때 즉 true일 때만
+	화면에 보이게 할때 사용하는 디렉티브이다.
+2. 모델데이터의 조건값에 따른 처리로 볼 수 있다.
+3. 기본 형식
+	var model = {price:0}
+	
+	<input v-model="price"/>
+	<span v-if="price>=6000">Gold</span>
+	<span v-else-if="price>=3000">Silver</span>
+	<span v-else>Basic</span> 
+	
+	a09_if.html
+		점수:[   ]  : 점수에 따른 테이블에 출력과 학점을 표시하세요
+	    ------
+		점수 : 학점
+		92    A점
+	
+	
+ */
 	$(document).ready(function(){
-		let model = { msg : "조건문(v-if)",
-				price:0 }
-		let vm = new Vue({
-			el : ".container",
-			data : model
+		var model = {msg:"조건문(v-if)처리",price:0}
+		var vm = new Vue({
+			el:".container",
+			data:model
 		})
 	});
 </script>
 </head>
 <body>
-
 <div class="container">
 	<div class="jumbotron text-center">
 	  <h2 >{{msg}}</h2>
@@ -32,7 +52,7 @@
 	</div>
 	<form id="frm01" class="form-inline"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input v-model="price" class="form-control mr-sm-2" placeholder="가격" />
+	    <input v-model="price" class="form-control mr-sm-2" placeholder="가격입력" />
  	</nav>
 	</form>
    <table class="table table-hover table-striped">

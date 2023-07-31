@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="/springweb/a00_com/vue.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		// a14_method.html
+		// 물건명, 가격, 갯수 입력 받고 계산 버튼 실행
+		// h3 타이틀로 구매한 물건은 @@@이고 단가는 @@원 @@개 총 @@ 원
+		let vm = new Vue({
+			el : ".container",
+			data : {pname :"jelly", price:0, cnt:0, tot:0},
+			methods: {
+				calc : function() {
+					this.tot = Number(this.price) * Number(this.cnt)
+				}
+			}
+		})
+	});
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	<!-- 조건에 따라서 show/hide -->
+	  <h3 v-show="tot>0">구매한 물건은 {{pname}}</h3>
+	  <h4>가격 : {{price}}, 갯수 : {{cnt}}</h4>
+	  <h4>총계 : {{tot}}</h4>
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input v-model="price" class="form-control mr-sm-2" placeholder="가격 입력"/>
+	    <input v-model="cnt" class="form-control mr-sm-2" placeholder="갯수 입력"/>
+	    <button @click="calc" class="btn btn-info" type="button">계산</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

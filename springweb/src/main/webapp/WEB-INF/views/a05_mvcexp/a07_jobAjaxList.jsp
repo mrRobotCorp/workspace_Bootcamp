@@ -32,13 +32,14 @@
     		//$("h2").text("jquery 로딩 성공")
     		$("#job_id, #job_title").keyup(function(){
     			search()
-
     		})
     		$("#schBtn").click(function(){
     			search()
     		})
     		$("#regBtn").click(function(){
+    			$("#frm")[0].reset();
     			$("#modalTitle").text("직책 등록")
+    			$("#frm [name=job_id]").attr("readonly",false)
        			$("#jobRegBtn").show()
       			$("#jobUptBtn").hide()
       			$("#jobDelBtn").hide()   			
@@ -59,7 +60,7 @@
     						// 폼에 있는 등록시 입력된 내용을 초기화할 때,
     						// 처리하는 form하위 요소객체 초기화
     						$("#frm")[0].reset();
-    						if(!confirm(data.replace("\"", "")+"\n계속 등록하시겠습니까?")){
+    						if(!confirm(data.replaceAll("\"", "")+"\n계속 등록하시겠습니까?")){
     							// 창을 닫게 처리 : 이벤트 강제 처리
     							$("#clsBtn").click();
     						}
@@ -68,11 +69,58 @@
     						console.log(err)
     					}
     				})		
-   					
-   				$("#joinUptBtn")
+    						
     						
     			}
     		})
+    		/*
+    		      			$("#jobUptBtn").hide()
+      			$("#jobDelBtn").hide()
+    		*/
+    		$("#jobUptBtn").click(function(){
+    			if(confirm("수정하시겠습니까?")){
+    				// updateJob.do?job_id=AC_MGR&job_title=Accountant&min_salary=9000&max_salary=18000
+    				// $("frm").serialize()	
+    				$.ajax({
+    					url:"${path}/updateJob.do",
+    					type:"post",
+    					data:$("#frm").serialize(),
+    					dataType:"text",
+    					success:function(data){
+    						// 수정후 반영된 내용을 리스트하게
+    						search();
+    						if(!confirm(data.replaceAll("\"", "")+"\n계속 하시겠습니까?")){
+    							// 창을 닫게 처리 : 이벤트 강제 처리
+    							$("#clsBtn").click();
+    						}
+    					},
+    					error:function(err){
+    						console.log(err)
+    					}
+    				})		
+    			}
+    		})
+    		$("#jobDelBtn").click(function(){
+    			if(confirm("삭제하시겠습니까?")){
+    				// deleteJob.do?job_id=AA_PP
+    				$.ajax({
+    					url:"${path}/deleteJob.do",
+    					type:"post",
+    					data:"job_id="+$("#frm [name=job_id]").val(),
+    					dataType:"text",
+    					success:function(data){
+    						// 삭제후 반영된 내용을 리스트하게
+    						search();
+    						alert( data.replaceAll("\"", "") )
+    						$("#clsBtn").click();
+    						
+    					},
+    					error:function(err){
+    						console.log(err)
+    					}
+    				})	    						
+    			}
+    		})    		
     		
     	});
     	function search(){
@@ -111,18 +159,31 @@
    			$("#jobRegBtn").hide()
   			$("#jobUptBtn").show()
   			$("#jobDelBtn").show()  
-  			// ajax 처리
+  			// ajax 처리..
+  			//getJob.do?job_id=AC_ACCOUNT
+  			/*
+  			success:function(job){
+				$("#frm [name=job_title]").val(job.job_title);
+				
+  			*/
   			$.ajax({
-  				url:"${path}/getJob.do",
-  				data : $("#frm").serialize(),
-  				dataType : "json",
-  				success : function(job) {
-  					$("#frm [name=job_title]").val(job.job_title);
-  				}
-  				error : function() {
-  					
-  				}
+  			   url:"${path}/getJob.do",
+  			   type:"post",
+  			   data:"job_id="+job_id,
+  			   dataType:"json",
+  			   success:function(job){
+  				 $("#frm [name=job_id]").val(job.job_id);	 	  
+  				 $("#frm [name=job_title]").val(job.job_title);	 	  
+  				 $("#frm [name=min_salary]").val(job.min_salary);	 	  
+  				 $("#frm [name=max_salary]").val(job.max_salary);
+  				 $("#frm [name=job_id]").attr("readonly",true)
+  			   },
+  			   error:function(err){
+  				  console.log(err)
+  			   }
   			})
+  			
+  			
     	}
     	
     </script>      

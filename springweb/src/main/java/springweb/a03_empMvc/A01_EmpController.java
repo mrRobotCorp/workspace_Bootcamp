@@ -1,12 +1,14 @@
 package springweb.a03_empMVC;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import backendWeb.a01_dao.A04_PreparedDao;
 import backendWeb.z01_vo.Emp;
 // springweb.a02_emp.A01_EmpController
 @Controller("empCtrl01")
@@ -29,6 +31,11 @@ public class A01_EmpController {
 		d.addAttribute("empList", service.getEmpList(sch));
 		
 		return "WEB-INF\\views\\a03_emp\\a01_empList.jsp";
+	}
+	
+	@RequestMapping("empListAjax.do")
+	public ResponseEntity<List<Emp>> jobList(Emp sch) {
+		return ResponseEntity.ok(service.getEmpList(sch));
 	}
 	// view
 	// ename=홍길동&job=사원  ==> form

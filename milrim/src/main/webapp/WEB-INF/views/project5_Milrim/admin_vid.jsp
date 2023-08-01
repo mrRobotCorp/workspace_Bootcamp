@@ -90,7 +90,7 @@
         <form method="post" class="listBox" id="test-list">
             <span>
                 <input type="checkbox" name="vidOne" id="allCh">
-                <label for="allCh">전체 선택</label>
+                <label for="allCh">업로드</label>
             </span>
             <button type="button" class="uptBtn">수정</button>
             <button type="button" class="delBtn">삭제</button>
@@ -101,72 +101,44 @@
                 <li>업로드일</li>
             </ul>
 
-            <ul class="listAll list">
+            <ul class="listAll list" v-for="(post, idx) in displayedPosts" :key="post.postid">
                 <li>
-                    <ul class="listRow">
-                        <span class="vidCheck">
-                            <input type="checkbox" name="vidOne" id="vid0" value="video0">
-                            <label for="vid0"></label>
-                        </span>
+                    <ul class="listRow" >
+						<span class="vidCheck">
+						  <input type="checkbox" :id="'pst' + (idx + 1)" :value="post.postid" v-model="selectedItems" 
+						  	@change="handleCheckboxChange(post.postid)">
+						  <label :for="'pst' + (idx + 1)"></label>
+						</span>
                         <div class="vidInfo">
                             <li class="vidTitle">
                                 <img src="./source/thumb03.jpg"> 
                                 <div>
-                                    <p>데스노트 리마스터링</p>
-                                    <p>총 39회</p>
+                                    <p>{{post.title}}</p>
+                                    <p>{{post.voList.length}} 회차</p>
                                 </div>
                             </li>
-                            <li class="vidId">VID-0538</li>
-                            <li class="upload">2023-05-05</li>
+                            <li class="vidId">{{post.videoid}}</li>
+                            <li class="upload">{{post.uploaddate}}</li>
                         </div>
-                        <button type="button" class="epShowBtn">
-                            <img src="./source/arrow_d.png">
-                        </button>
+                     <button type="button" class="epShowBtn" @click="toggleEpList(idx)">
+                         <img src="./source/arrow_d.png">
+                     </button>
                     </ul>
-                    <div class="epListAll">
-                        <ul class="epList">
-                            <li>
-                                <p>2023-07-12</p>
-                                <p>1회차의 제목 제목 1회차의 제목 제목</p>
+                    
+                    
+                    <div class="epListAll" v-for="list in post.voList" :key="list.videoid">
+                        <ul class="epList" >
+                            <li> 
+                                <p>{{list.uploaddate}}</p>
+                                <p>{{list.title}}</p>
                             </li>
-                            <li>
-                                <p>2023-07-12</p>
-                                <p>2회차</p>
-                            </li>
-                            <li>
-                                <p>2023-07-12</p>
-                                <p>3회차의 제목 제목</p>
-                            </li>
-                            <li>
-                                <p>2023-07-12</p>
-                                <p>3회차의 제목 제목</p>
-                            </li>
-                            <li>
-                                <p>2023-07-12</p>
-                                <p>3회차의 제목 제목</p>
-                            </li>
-                            <li>
-                                <p>2023-07-12</p>
-                                <p>3회차의 제목 제목</p>
-                            </li>
-                            <li>
-                                <p>2023-07-12</p>
-                                <p>3회차의 제목 제목 3회차의 제목 제목</p>
-                            </li>
-                            <li>
-                                <p>2023-07-12</p>
-                                <p>3회차의 제목 제목 3회차의 제목 제목</p>
-                            </li>
-                            <li>
-                                <p>2023-07-12</p>
-                                <p>3회차의 제목 제목 3회차의 제목 제목</p>
-                            </li>
+                            
                             <li>
                                 <img class="addBtn" src="./source/addIco.png">
                             </li>
                         </ul>
-
                     </div>
+                    
                 </li>
 
             </ul>
@@ -214,92 +186,166 @@
     <script src="./js/materialize.js"></script>
     <script src="./js/admin.js"></script>
     <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector("body").insertAdjacentHTML("afterbegin", `<div class="darkBg"></div>`);
 
-        var options = {
-            valueNames: ['vidCheck', 'vidTitle', 'vidId', 'upload'],
-            page: 5,
-            pagination: true
-        };
+        const bg = document.querySelector(".darkBg");
+        const uptBtn = document.querySelector(".uptBtn");
+        const closeBtn = document.querySelector(".modal-close");
+        var elems = document.querySelector('.modal');
+        var options = {}; // 적절한 구성 옵션으로 'options' 변수를 정의합니다.
+        var instances = M.Modal.init(elems, options);
 
-        var vidList = new List('videos', options);
+        var listRow = document.querySelectorAll(".listRow");
 
-        // --- 임시 데이터 생성 -----
-        for (let i = 1; i < 10; i++) {
-            vidList.add({
-                vidCheck: `<input type="checkbox" name="vidOne" id="vid` + i + `" value="video`+i+`">
-                <label for="vid` + i + `"></label>`,
-                vidTitle: `<img src="./source/thumb03.jpg"> 
-                            <div>
-                                <p>데스노트 리마스터링</p>
-                                <p>총 39회</p>
-                            </div>`,
-                vidId: "VID-100" + i,
-                upload: "2023-07-0" + i
-            });
+        uptBtn.onclick = function() {
+          instances.open();
+          bg.classList.add("active");
         }
 
-        
+        closeBtn.onclick = function() {
+          bg.classList.remove("active");
+        }
 
-        // -------------------- 회차 정보 --------------------
-        const epBtn = document.querySelectorAll(".epShowBtn");
-        const epList = document.querySelectorAll(".epListAll");
-        
-
-        epBtn.forEach((e,i) => {
-            e.onclick = function() {
-                epList[i].classList.toggle("active");
-                epBtn[i].classList.toggle("active");
-            }
-        })
-
-        // ----------------------- modal ---------------------------------
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelector("body").insertAdjacentHTML("afterbegin", `
-                <div class="darkBg"></div>`);
-
-            const bg = document.querySelector(".darkBg");
-            const uptBtn = document.querySelector(".uptBtn");
-            const closeBtn = document.querySelector(".modal-close");
-            var elems = document.querySelector('.modal');
-            var instances = M.Modal.init(elems, options);
-            
-            var listRow = document.querySelectorAll(".listRow");
-
-            uptBtn.onclick = function() {
-                instances.open();
-                bg.classList.add("active");
-            }
-            
-            closeBtn.onclick = function() {
-                bg.classList.remove("active");
-            }
-
-            listRow.forEach((e) => {
-                e.ondblclick = function() {
-                    instances.open();
-                    bg.classList.add("active");
-                }
-            });
-
-            // ---- modal 영역 밖 클릭 시 닫기
-            document.addEventListener('mouseup', function(e) {
-                if(!elems.contains(e.target)) {
-                    instances.close();
-                    bg.classList.remove("active");
-                }
-            });
-
-            const ep = document.querySelectorAll(".epList li");
-            
-
-            ep.forEach((e) => {
-                e.onclick = function() {
-                    instances.open();
-                    bg.classList.add("active");
-                }
-            })
-
+        listRow.forEach((e) => {
+          e.ondblclick = function() {
+            instances.open();
+            bg.classList.add("active");
+          }
         });
+
+        // ---- modal 영역 밖 클릭 시 닫기
+        document.addEventListener('mouseup', function(e) {
+          if (!elems.contains(e.target)) {
+            instances.close();
+            bg.classList.remove("active");
+          }
+        });
+
+        const ep = document.querySelectorAll(".epList li");
+
+        ep.forEach((e) => {
+          e.onclick = function() {
+            instances.open();
+            bg.classList.add("active");
+          }
+        });
+
+
+
+   		
+   		
+        var vm = new Vue({
+            el: ".vidSection",
+            data: {
+              jsonPost: [], // 제목 데이터 
+              selectedItems: [], // 체크박스 배열에 저장
+              currentPage: 1, // 현재 페이지 번호
+              itemsPerPage: 9, // 한 페이지당 항목 수
+              valLoad: "",
+            },
+            computed: {
+              // 현재 페이지에 해당하는 데이터만 계산하여 반환하는 computed 속성
+              displayedPosts: function() {
+                var startIndex = (this.currentPage - 1) * this.itemsPerPage;
+                var endIndex = startIndex + this.itemsPerPage;
+                return this.jsonPost.slice(startIndex, endIndex);
+              },
+            },
+            methods: {
+              rePostJson: function() {
+                var vm = this;
+                // AJAX 요청을 이용하여 데이터 가져오기
+                $.ajax({
+                  url: "${path}/adminFindVide.do", // 수정
+                  type: "post",
+                  dataType: "json",
+                  success: function(vlist) {
+                    console.log(vlist);
+                    vm.jsonPost = vlist; // jsonData 업데이트
+                    console.log(vm.jsonPost);
+                    console.log(vm.jsonPostNum);
+                  },
+                  error: function(err) {
+                    console.log(err);
+                  }
+                });
+              },
+              toggleEpList: function (idx) {
+            	    // 해당 영상의 showEpList 값이 true일 때는 false로, false일 때는 true로 토글
+            	    this.jsonPost[idx].showEpList = !this.jsonPost[idx].showEpList;
+            	  },
+              handleCheckboxChange: function(postid) {
+            	    const idx = this.selectedItems.indexOf(postid);
+            	    if (idx === -1) {
+            	      // 선택되지 않은 경우 선택 배열에 추가
+            	      this.selectedItems.push(postid);
+            	    } else {
+            	      // 선택된 경우 선택 배열에서 제거
+            	      this.selectedItems.splice(idx, 1);
+            	    }
+            	    console.log('선택된 아이템 ID:', this.selectedItems);
+            	  },
+              prevPage: function() {
+                if (this.currentPage > 1) {
+                  this.currentPage -= 1;
+                }
+              },
+              nextPage: function() {
+                var totalPages = Math.ceil(this.jsonPost.length / this.itemsPerPage);
+                if (this.currentPage < totalPages) {
+                  this.currentPage += 1;
+                }
+              },
+            },
+            created: function() {
+              // 페이지가 로드되면 데이터를 가져오도록 초기 실행
+              this.rePostJson();
+            }
+          });
+
+          // 버튼 클릭 시 데이터를 다시 가져오도록 설정
+          $("#schPostBtn").click(function() { //수정
+            vm.rePostJson();
+          });
+          $("#schPost").keyup(function(key){ // 수정
+            if(key.keyCode ===13){
+              vm.rePostJson();
+            }
+          });
+
+          $(".delBtn").click(function() { // 수정
+            delOk(); // 먼저 삭제 함수 호출
+            $.when(delOk())
+              .done(function(ok) {
+                // 모든 AJAX 요청이 성공적으로 완료된 후 수행할 동작을 작성
+                vm.rePostJson();
+              })
+              .fail(function(err) {
+                // AJAX 요청 중 하나라도 실패한 경우에 수행할 동작을 작성
+                alert("하나 이상의 AJAX 요청이 실패했습니다.");
+              });
+          });
+
+          function delOk() {
+            for (var i = 0; i < vm.selectedItems.length; i++) {
+              console.log(i + ": " + vm.selectedItems[i]);
+              $.ajax({
+                url: "${path}/admin_pst_Del.do",
+                type: "post",
+                data: { postid: vm.selectedItems[i] }, // Pass data as an object
+                dataType: "text",
+                success: function(ok) {
+                  console.log(ok);
+                },
+                error: function(err) {
+                  console.log(err);
+                }
+              });
+            }
+          }
+        });
+
 
     </script>
 

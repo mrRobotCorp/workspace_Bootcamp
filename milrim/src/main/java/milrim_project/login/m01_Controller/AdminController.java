@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import milrim_project.login.m02_Service.AdminService;
 import milrim_project.login.m04_vo.Freeboard;
 import milrim_project.login.m04_vo.Member;
+import milrim_project.login.m04_vo.Videopost;
 
 @Controller
 public class AdminController {
@@ -58,7 +59,7 @@ public class AdminController {
 		return ResponseEntity.ok(service.adminPstList(title));
 	}
 	// == 포스트 삭제 어드민 ========
-	@GetMapping("admin_pst_Del.do")
+	@PostMapping("admin_pst_Del.do")
 	@ResponseBody
 	public ResponseEntity<String> adminPstDel(@Param("postid")String postid){
 		System.out.println(ResponseEntity.ok(service.adminPstDel(postid)));
@@ -71,7 +72,27 @@ public class AdminController {
 		return "WEB-INF\\views\\project5_Milrim\\admin_vid.jsp";
 	}
 	
+	
 	// == 비디오 조회 어드민 ========
+	/*
+	 * @RequestMapping("adminFindVide.do")
+	 * 
+	 * @ResponseBody public ResponseEntity<List<Videopost>> adminFindVide (){
+	 * System.out.println(service.buildHierarchy(service.adminFindVide())); //
+	 * service.buildHierarchy(service.adminFindVide()); return
+	 * ResponseEntity.ok(service.buildHierarchy(service.adminFindVide())); }
+	 */
+	@RequestMapping("adminFindVide.do")
+	@ResponseBody
+	public ResponseEntity<List<Videopost>> adminFindVide() {
+	    List<Videopost> hierarchicalList = service.adminFindVide();
+	    List<Videopost> hierarchicalResult = service.buildHierarchy(hierarchicalList);
+
+	    // 디버깅을 위해 로그를 추가해보기
+	    System.out.println("Hierarchical Result: " + hierarchicalResult);
+
+	    return ResponseEntity.ok(hierarchicalResult);
+	}
 	
 	
 	// == 비디오 삭제 어드민 ========
@@ -85,10 +106,7 @@ public class AdminController {
 	
 	
 	// == 비디오 업로드 어드민 ========
-	@RequestMapping("sdf.do")
-	public String asd() {
-		return "WEB-INF\\views\\project5_Milrim\\text.jsp";
-	}
+
 	
 	
 }

@@ -1,11 +1,18 @@
 package milrim_project.login.m03_dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import milrim_project.login.m04_vo.Member;
+import milrim_project.login.m04_vo.Videopost;
 
+/**
+ * @author user
+ *
+ */
 public interface MemberDao {
 	// 회원가입
 	@Insert("INSERT INTO MEMBER VALUES (#{id},#{pass},#{name},#{email},#{phonenumber},'user')")
@@ -29,8 +36,7 @@ public interface MemberDao {
 	@Select("SELECT pass FROM MEMBER WHERE id = #{id} AND PHONENUMBER = #{phonenumber}")
 	public String findPass(@Param("id") String id, @Param("phonenumber") String phonenumber);
 	
-	
-	
+
 	
 	
 	

@@ -29,11 +29,13 @@ INSERT INTO MEMBER values('heoyo4238','00000000','윤석민','heoyoun38@naver.co
 INSERT INTO MEMBER values('heo1238','00000000','윤석민','heoyoun38@naver.com','01022222222','admin');
 INSERT INTO MEMBER values('heo2238','00000000','윤석민','heoyoun38@naver.com','01022222222','admin');
 INSERT INTO MEMBER values('heo23238','00000000','윤석민','heoyoun38@naver.com','01022222222','admin');
+
 INSERT INTO MEMBER values('heo22338','00000000','윤석민','heoyoun38@naver.com','01022222222','admin');
 INSERT INTO MEMBER values('h2323n38','00000000','윤석민','heoyoun38@naver.com','01022222222','admin');
 INSERT INTO MEMBER values('heo22338','00000000','윤석민','heoyoun38@naver.com','01022222222','admin');
 INSERT INTO MEMBER values('heo22338','00000000','윤석민','heoyoun38@naver.com','01022222222','admin');
 INSERT INTO MEMBER values('heo2338','00000000','윤석민','heoyoun38@naver.com','01022222222','admin');
+
 INSERT INTO MEMBER values('heo2338','00000000','윤석민','heoyoun38@naver.com','01022222222','admin');
 INSERT INTO MEMBER values('h23o23238','00000000','윤석민','heoyoun38@naver.com','01022222222','admin');
 
@@ -76,12 +78,12 @@ DELETE FROM VIDEOPOST WHERE VALUE = '갓슈벨';
 
 SELECT LEVEL, p.*
 FROM VIDEOPOST p
-START WITH ParentNumber = '갓슈벨'
+START WITH ParentNumber LIKE '%'||''||'%'
 CONNECT BY PRIOR ParentNumber = value;
 
 SELECT LEVEL, v.*
 FROM VIDEOPOST v
-START WITH value IS NULL
+START WITH value IS NULL 
 CONNECT BY PRIOR ParentNumber = value;
 
 
@@ -136,7 +138,7 @@ DELETE FROM FREEBOARD WHERE postid = 3;
 
 
 SELECT postid,title,TO_CHAR (fbdate,'YYYY-MM-DD'),id FROM FREEBOARD WHERE title LIKE '%'||'실험2'||'%';
-INSERT INTO FREEBOARD VALUES (freeboSQU.nextval,'실험','안녕~',sysdate,'himan');
+INSERT INTO FREEBOARD VALUES (freeboSQU.nextval,'실험','안녕~',sysdate,'heoyoun38');
 INSERT INTO FREEBOARD VALUES (freeboSQU.nextval,'실험2','안녕~2',sysdate,'himan');
 INSERT INTO FREEBOARD VALUES (freeboSQU.nextval,'실험3','안녕~3',sysdate,'himan');
 -- Membership table

@@ -81,33 +81,35 @@
     </div>
 
     <section class="pstSection" id="posts">
-        <form method="post" class="memSchBox schBox search">
-            <button type="button"></button>
+        <div class="memSchBox schBox search">
+            <button type="button" id="schPostBtn"></button>
             <input name="adm_pstSch" placeholder="게시글 제목을 검색" value="" id="schPost">
-        </form>
+        </div>
 
         <form method="post" class="listBox" id="test-list">
-            <span>
+<!--        <span>
                 <input type="checkbox" name="pstOne" id="allCh">
                 <label for="allCh">전체 선택</label>
-            </span>
+            </span> -->
             <!-- 
                 <button type="button" class="uptBtn">수정</button>
             -->
-            <button type="button" class="delBtn">삭제</button>
-
+			<div class="dBtn">
+                <button type="button" class="delBtn">삭제</button>
+            </div>
             <ul class="listHead pst">
                 <li>글 제목</li>
                 <li>작성일</li>
                 <li>회원 ID</li>
             </ul>
 
-            <ul class="listAll list" v-for="post in jsonPost" :key="post.postid">
+            <ul class="listAll list" v-for="(post, idx) in displayedPosts" :key="post.postid">
                 <li>
                     <ul class="listRow">
                         <span class="pstCheck">
-                            <input type="checkbox" name="pstOne" id="pst0" value="pst0">
-                            <label for="pst0"></label>
+                            <input type="checkbox" name="pstOne" :id="'pst' + (idx + 1)" :value="post.postid"
+                            v-model="selectedItems" @change="handleCheckboxChange">
+                            <label :for="'pst' + (idx + 1)"></label>
                         </span>
                         <div class="pstInfo">
                             <li class="pstTitle">{{post.title}}</li>
@@ -120,7 +122,11 @@
             </ul>
             <ul class="pagination"></ul>
         </form>
-
+        <div class="pagination">
+		    <button class="pBtn prevBtn" @click="prevPage"></button>
+		    <span>{{ currentPage }}</span>
+		    <button class="pBtn nextBtn" @click="nextPage"></button>
+		</div>
         <!-- -------- 모달창 ------------ -->
         <!--
 
@@ -150,33 +156,42 @@
     </section>
     <script src="./js/header.js"></script>
     <script src="./js/materialize.js"></script>
-    <script src="./js/admin.js"></script>
-<!--     <script>
-        var options = {
-            valueNames: ['pstCheck', 'pstTitle', 'pstDate', 'pstMem'],
-            page: 9,
-            pagination: true
-        };
-
-        var pstList = new List('posts', options);  
-
-
-        // --- 임시 데이터 생성 -----
-        for (let i = 1; i < 20; i++) {
-            pstList.add({
-                pstCheck: `<input type="checkbox" name="pstOne" id="pst` + i + `" value="pst`+ i +`">
-                <label for="pst` + i + `"></label>`,
-                pstTitle: "게시글의 제목을 넣~는~곳" + i,
-                pstDate: "2023-05-0" + i,
-                pstMem: "회원" + i
-            });
-        }
-    </script> -->
-	    <script type="text/javascript">
-         var vm = new Vue({
+    <script>
+	 // -------------------- 사이드 탭 --------------------------
+	    const tabs = document.querySelectorAll(".nav li");
+	    const href = window.location.href;
+	
+	    if (href.includes("mem")) {
+	        tabs[0].classList.add("active");
+	        tabs[1].classList.remove("active");
+	        tabs[2].classList.remove("active");
+	    } else if (href.includes("vid")) {
+	        tabs[0].classList.remove("active");
+	        tabs[1].classList.add("active");
+	        tabs[2].classList.remove("active");
+	    } else {
+	        tabs[0].classList.remove("active");
+	        tabs[1].classList.remove("active");
+	        tabs[2].classList.add("active");
+	    }
+    </script>
+    <script>
+        var vm = new Vue({
             el: ".pstSection",
             data: {
                 jsonPost: [], // 초기 데이터 설정
+                jsonPostNum: [], // 초기 데이터 설정
+                selectedItems: [],
+                currentPage: 1, // 현재 페이지 번호
+                itemsPerPage: 9, // 한 페이지당 항목 수
+            },
+            computed: {
+                // 현재 페이지에 해당하는 데이터만 계산하여 반환하는 computed 속성
+                displayedPosts: function() {
+                    var startIndex = (this.currentPage - 1) * this.itemsPerPage;
+                    var endIndex = startIndex + this.itemsPerPage;
+                    return this.jsonPost.slice(startIndex, endIndex);
+                },
             },
             methods: {
                 rePostJson: function() {
@@ -184,7 +199,7 @@
                     $.ajax({
                         url: "${path}/admin_pst_List.do",
                         type: "post",
-                        data: "title="+$("#schPost").val(),
+                        data: "title=" + $("#schPost").val(),
                         dataType: "json",
                         success: function(plist) {
                             console.log(plist);
@@ -194,7 +209,21 @@
                             console.log(err);
                         }
                     });
-                }
+                },
+                handleCheckboxChange: function() {
+                    console.log('선택된 아이템 ID:', this.selectedItems);
+                },
+                prevPage: function() {
+                    if (this.currentPage > 1) {
+                        this.currentPage -= 1;
+                    }
+                },
+                nextPage: function() {
+                    var totalPages = Math.ceil(this.jsonPost.length / this.itemsPerPage);
+                    if (this.currentPage < totalPages) {
+                        this.currentPage += 1;
+                    }
+                },
             },
             created: function() {
                 // 페이지가 로드되면 데이터를 가져오도록 초기 실행
@@ -203,13 +232,45 @@
         });
 
         // 버튼 클릭 시 데이터를 다시 가져오도록 설정
-        $("#asdf").click(function() {
-            vm.jsonPost();
-        }); 
-        
-        
-        
-        
+        $("#schPostBtn").click(function() {
+            vm.rePostJson();
+        });
+        $("#schPost").keyup(function(key){
+        	if(key.keyCode ===13){
+        		vm.rePostJson();
+        	}
+        })
+        document.addEventListener('DOMContentLoaded', function() {
+        $(".delBtn").click(function() {
+            delOk(); // 먼저 삭제 함수 호출
+            $.when(delOk())
+                .done(function(ok) {
+                    // 모든 AJAX 요청이 성공적으로 완료된 후 수행할 동작을 작성
+                    vm.rePostJson();
+                })
+                .fail(function(err) {
+                    // AJAX 요청 중 하나라도 실패한 경우에 수행할 동작을 작성
+                    alert("하나 이상의 AJAX 요청이 실패했습니다.");
+                });
+        });
+        function delOk() {
+            for (var i = 0; i < vm.selectedItems.length; i++) {
+                console.log(i + ": " + vm.selectedItems[i]);
+                $.ajax({
+                    url: "${path}/admin_pst_Del.do",
+                    type: "post",
+                    data: { postid: vm.selectedItems[i] }, // Pass data as an object
+                    dataType: "text",
+                    success: function(ok) {
+                    	console.log(ok);
+                    },
+                    error: function(err) {
+                        console.log(err);
+                    }
+                });
+            }
+        }
+        });
     </script>
 
 </body>

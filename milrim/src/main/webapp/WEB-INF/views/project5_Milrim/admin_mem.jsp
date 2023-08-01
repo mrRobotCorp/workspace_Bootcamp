@@ -81,10 +81,10 @@
     </div>
 
     <section class="memSection" id="users">
-        <form class="memSchBox schBox search">
+        <div class="memSchBox schBox search">
             <button type="button" id="schMemBtn"></button>
             <input type="text" placeholder="밀림의 회원 검색" id="schMem" value=""><!-- name="adm_memSch" -->
-        </form>
+        </div>
 
         <form method="post" class="listBox" id="test-list">
 <!--        <span>
@@ -94,7 +94,9 @@
             <!-- 
                 <button type="button" class="uptBtn">수정</button>
             -->
-            <button type="button" class="delBtn">삭제</button>
+            <div class="dBtn">
+                <button type="button" class="delBtn">삭제</button>
+            </div>
 
             <ul class="listHead mem">
                 <li id="asdf">회원 ID</li>
@@ -133,10 +135,10 @@
             </ul>
         </form>
         <div class="pagination">
-    <button @click="prevPage"> <img alt="" src=""> </button>
-    <span>{{ currentPage }}</span>
-    <button @click="nextPage"> 다음 </button>
-</div>
+		    <button class="pBtn prevBtn" @click="prevPage"></button>
+		    <span>{{ currentPage }}</span>
+		    <button class="pBtn nextBtn" @click="nextPage"></button>
+		</div>
         
         <!-- -------- 모달창 ------------ -->
         <!--
@@ -330,12 +332,6 @@
     $("#schMemBtn").click(function() {
         vm.reMemJson();
     });
-/*  $("#schMem").keyup(function(key) {
-    	if(key.keyCode==13){
-	        vm.reMemJson();
-    	}
-    }); */
-
     $(".delBtn").click(function(){
     	delOk()
  	    $.when(delOk())
@@ -350,6 +346,11 @@
 		    });
  
     })
+$("#schMem").keyup(function(event) {
+    if (event.keyCode == 13) {
+        vm.reMemJson();
+    }
+});
     function delOk(){
     	for(var i=0;i<vm.selectedItems.length;i++){
     		console.log(i+": "+vm.selectedItems[i])
@@ -359,8 +360,7 @@
                 data: { id: vm.selectedItems[i] }, // Pass data as an object
                 dataType:"text",
                 success: function(ok) {
-                    console.log(ok);
-                    
+                	console.log(ok);
                 },
                 error: function(err) {
                     console.log(err);

@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 
 import milrim_project.login.m04_vo.Freeboard;
 import milrim_project.login.m04_vo.Member;
+import milrim_project.login.m04_vo.Videopost;
 
 public interface AdminDao {
 	
@@ -29,11 +30,14 @@ public interface AdminDao {
 	@Delete("DELETE FROM FREEBOARD WHERE postid = #{postid}")
 	public int adminPstDel(@Param("postid")String postid);
 	
-	// 포스트
+	// 비디오 출력
+	@Select("SELECT LEVEL, v.*\r\n"
+	        + "FROM VIDEOPOST v\r\n"
+	        + "START WITH value IS NULL\r\n"
+	        + "CONNECT BY PRIOR ParentNumber = value")
+	public List<Videopost> adminFindVide();
 
-
-
-	// 포스트
+	// 비디오
 
 
 

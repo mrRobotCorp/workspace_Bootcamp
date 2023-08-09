@@ -43,6 +43,20 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 	</context:component-scan>
+	<!-- # 웹 소켓 통신을 위한 선언
+	1. java로 핸들러 클리스가 가능하게 mapping/adapter 선언.
+	 --> 
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>	 
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+																<mvc:default-servlet-handler/>	 
+	<!-- 
+	2. java핸들러 클래스 선언및 client에서 호출 url 지정..
+	 --> 
+	<websocket:handlers>
+		<websocket:mapping handler="chatHandler" 
+			path="/chat-ws.do"/>
+	</websocket:handlers>
+	 
 	 
 	<context:property-placeholder location="classpath:resource/a01_config,classpath:resource/a02_config"/>
 	
@@ -109,12 +123,7 @@ jdbc:oracle:thin:@localhost:1521:xe
 	class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<property name="order" value="0"/>
 	</bean>
-	
-	
-	
-	
 	<!-- 추가되는 뷰가 적기 때문에 우선순위를 지정.
-	 
 	return "파일업로드 view" ==> container에서 명시적으로 선언하여
 		처리하는 뷰
 	-->
@@ -127,6 +136,18 @@ jdbc:oracle:thin:@localhost:1521:xe
 		class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
 		<property name="contentType" value="text/html;charset=utf-8"/>
 	</bean>
+	<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+	<!-- 
+		@Component("이름")
+		@Bean("이름")
+		로 클래스를 선언하여 컨테이너 등록도 가능하다.
+		1. 일반적으로 사용자 정의 클래스의 경우 클래스의 선언과 
+			함께 위 형식으로 등록하고
+		2. framework(lib의 jar)에 있는 객체인 경우 컨테이너
+			에서 선언하여 등록한다. 
+		ex) 뷰리졸버를 호출할 때, 컨트롤러의 메서드 마지막에
+			return "뷰"를 형식으로 지정할 수 있다. 
+	 -->
 	
 		
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

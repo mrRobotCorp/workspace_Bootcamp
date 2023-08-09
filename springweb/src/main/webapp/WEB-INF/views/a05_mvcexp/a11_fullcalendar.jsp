@@ -50,6 +50,8 @@
 				console.log("시작:"+arg.startStr)
 				console.log("마지막:"+arg.endStr)
 				console.log("종일여부:"+arg.allDay)
+				// 상세화면에 있던 내용 초기화 처리
+				$("form")[0].reset()
 				$("#calTitle").text("일정등록")
 				$("#regBtn").show()
 				$("#uptBtn").hide()
@@ -59,7 +61,8 @@
 				$("#end").val(arg.end.toLocaleString())
 				$("[name=end]").val(arg.endStr)				
 				$("#allDay").val(""+arg.allDay)				
-				$("[name=allDay]").val(arg.allDay?1:0)				
+				$("[name=allDay]").val(arg.allDay?1:0)	
+				
 				$("#modal01").click();
 				
 				
@@ -92,6 +95,7 @@
 				console.log("종일여부:"+arg.event.allDay)
 				console.log("배경색상:"+arg.event.backgroundColor)
 				console.log("글자색상:"+arg.event.textColor)
+				// 추가적인 속성을 지정하고 가져올 때, extendedProps 사용
 				console.log("작성자:"+arg.event.extendedProps.writer)
 				console.log("내용:"+arg.event.extendedProps.content)
 				console.log("링크:"+arg.event.extendedProps.urlLink)
@@ -99,19 +103,14 @@
 				$("#regBtn").hide()
 				$("#uptBtn").show()
 				$("#delBtn").show()
-				$("[name=id]").val(arg.event.id)
-				$("[name=title]").val(arg.event.title)
-				$("[name=writer]").val(arg.event.extendedProps.writer)
-				$("#start").val(arg.event.start.toLocaleString())
-				$("[name=start]").val(arg.event.startStr)
-				$("#end").val(arg.event.end.toLocaleString())
-				$("[name=end]").val(arg.event.endStr)
-				$("[name=backgroundColor]").val(arg.event.backgroundColor)
-				$("[name=textColor]").val(arg.event.textColor)
-				$("[name=content]").val(arg.event.extendedProps.content)
-				$("[name=urlLink]").val(arg.event.extendedProps.urlLink)
-				$("#allDay").val(""+arg.event.allDay)				
-				$("[name=allDay]").val(arg.event.allDay?1:0)					
+				addForm(arg.event)
+				$("[name=urlLink]").dblclick(function(){
+					// 내부페이지 외부 페이지 이동
+					if(confirm("해당페이지로 이동하겠습니까?")){
+						// 새로운 창으로 페이지 로딩 및 이동 처리
+						window.open($(this).val(),"","")	
+					}			
+				})
 				/*
 				1. 타이틀 변경:일정상세
 				2. 버튼 보이기 : 등록X, 수정/삭제(O)
@@ -127,6 +126,17 @@
 				$("#modal01").click();
 				console.log("#상세데이터확인#")
 				console.log(arg.event)
+			},
+			eventDrop:function(arg){// 특정 일정을 드래그해서 드랍
+				// 실제는 일정의 시작과 종료일이 변경되는 것인데
+				// 수정할려면 form의 내용을 변경..
+				addForm(arg.event)
+				ajaxFun("calendarUpdate.do")
+				
+			},
+			eventResize:function(arg){// 특정 일정의 사이즈를 변경
+				addForm(arg.event)
+				ajaxFun("calendarUpdate.do")				
 			},
 			editable : true,
 			dayMaxEvents : true, // allow "more" link when too many events
@@ -158,26 +168,70 @@
 				console.log("#등록데이터 확인#")
 				console.log("http://localhost:7080/springweb/insertCalendar.do?"
 						+$("form").serialize())
-				$.ajax({
-					type:"post",
-					url:"${path}/insertCalendar.do",
-					data:$("form").serialize(),
-					success:function(data){
-						if(confirm(data.replaceAll("\"","")+
-								"\n전체화면 확인하시겠습니까?")){
-							location.reload()
-						}
-					},
-					error:function(err){
-						console.log(err)
-					}
-				})
-				
+				ajaxFun("insertCalendar.do")		
 			}
 		})
-		
-		
+		$("#uptBtn").click(function(){
+			if(confirm("수정하시겠습니까?")){
+				console.log("#수정 확인#")
+				console.log("http://localhost:7080/springweb/calendarUpdate.do?"
+						+$("form").serialize())
+				ajaxFun("calendarUpdate.do")		
+			}
+			
+		})
+		$("#delBtn").click(function(){
+			if(confirm("삭제하시겠습니까?")){
+				console.log("#삭제데이터 확인#")
+				console.log("http://localhost:7080/springweb/calendarDelete.do?"
+						+$("form").serialize())
+				ajaxFun("calendarDelete.do")		
+			}
+		})		
 	});
+	// ajax 공통 처리 함수
+	function ajaxFun(url){
+		$.ajax({
+			type:"post",
+			url:"${path}/"+url,
+			data:$("form").serialize(),
+			success:function(data){
+				if(confirm(data.replaceAll("\"","")+
+						"\n전체화면 확인하시겠습니까?")){
+					location.reload()
+				}
+			},
+			error:function(err){
+				console.log(err)
+			}
+		})		
+	}
+	// form 입력 내용 처리 공통 함수
+	function addForm(event){
+		$("form")[0].reset()
+		$("[name=id]").val(event.id)
+		$("[name=title]").val(event.title)
+		$("[name=writer]").val(event.extendedProps.writer)
+		$("#start").val(event.start.toLocaleString())
+		$("[name=start]").val(event.startStr)
+		console.log("# 마지막일:"+event.end)
+		var end = event.end
+		// 마지막일정이 null일 때, bug 처리..
+		if(end==null){
+			end = event.start
+			// null일때는 시작일정 + 1시간으로 기본 설정
+			end.setDate(end.getDate()+(1/24));
+			console.log("# 마지막일(최종):"+ (end.toISOString()))
+		}		
+		$("#end").val(end.toLocaleString())
+		$("[name=end]").val(end.toISOString())
+		$("[name=backgroundColor]").val(event.backgroundColor)
+		$("[name=textColor]").val(event.textColor)
+		$("[name=content]").val(event.extendedProps.content)
+		$("[name=urlLink]").val(event.extendedProps.urlLink)
+		$("#allDay").val(""+event.allDay)				
+		$("[name=allDay]").val(event.allDay?1:0)
+	}
 </script>
 <style>
 <

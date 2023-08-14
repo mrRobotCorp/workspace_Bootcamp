@@ -3,70 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <title>Good day!! ^^</title>
-<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css">
 <style>
-	td{txt-align:center;}
+td {
+	txt-align: center;
+}
 </style>
 <script src="/springweb/a00_com/jquery.min.js"></script>
 <script src="/springweb/a00_com/bootstrap.min.js"></script>
 <script src="/springweb/a00_com/vue.js"></script>
 
 <script type="text/javascript">
-/*
-# vue에서 클래스 처리
-1. 일반 css에서 클래스 적용과 비교
-	.클래스명1{ 속성:속성값}
-	.클래스명2{ 속성:속성값}
-	1) css
-		<태그 class="클래스명1 클래스명2"
-	2) vue
-		<태그 :class="{클래스명1:true,클래스명2:true}"
-		위 선언된 클래스를 v-bind:class="{클래스명:true}"
-		형태로 true/false로 적용여부를 설정하여 model에서
-		선언하면 위 내용을 이벤트핸들러에 의해변경하여 적용할 수 
-		있게 한다.
- */
-	$(document).ready(function(){
+	/*
+	 # vue에서 클래스 처리
+	 1. 일반 css에서 클래스 적용과 비교
+	 .클래스명1{ 속성:속성값}
+	 .클래스명2{ 속성:속성값}
+	 1) css
+	 <태그 class="클래스명1 클래스명2"
+	 2) vue
+	 <태그 :class="{클래스명1:true,클래스명2:true}"
+	 위 선언된 클래스를 v-bind:class="{클래스명:true}"
+	 형태로 true/false로 적용여부를 설정하여 model에서
+	 선언하면 위 내용을 이벤트핸들러에 의해변경하여 적용할 수 
+	 있게 한다.
+
+	 */
+	$(document).ready(function() {
 		var vm = new Vue({
-			el:".container",
-			data:{msg:"타이틀"}
-		}) 
+			el : ".container",
+			data : {
+				msg : "클래스 처리",
+				ck01 : "",
+				ck02 : "",
+				ck03 : "",
+				ck04 : "",
+				ch05 : "",
+			}
+		})
 	});
 </script>
 </head>
 <body>
+	<style>
+.cls01 {
+	color: red;
+}
 
-<div class="container">
-	<div class="jumbotron text-center">
-	  <h2 >{{msg}}</h2>
+.cls02 {
+	background-color: yellow;
+}
+
+.cls03 {
+	color: #f0f;
+	border: 1px solid #f00;
+}
+
+.cls04 {
+	border: 1px dashed #00f;
+	font-size: 22px;
+}
+
+.cls05 {
+	color: #999;
+	border: 2px solid #ff0;
+}
+</style>
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h2>{{msg}}</h2>
+			<h3 class="cls01 cls02">일반 css 클래스 처리</h3>
+			<h3 :class="{cls01:true,cls02:true}">vue에서 클래스 처리</h3>
+			<h3 :class="{cls01:false,cls02:true}">vue에서 클래스 처리</h3>
+			<h3 :class="{cls01:ck01,cls02:ck02}">vue에서 클래스 처리(v-model로 연동)</h3>
+			글자색상:<select v-model="ck01" class="form-control mr-sm-2">
+				<option value="true">적용</option>
+				<option value="">미적용</option>
+			</select><br> 배경색상:<select v-model="ck02" class="form-control mr-sm-2">
+				<option value="true">적용</option>
+				<option value="">미적용</option>
+			</select><br>
+			<!-- data:{msg:"클래스 처리",ck01:"",ck02:""} -->
+			<!-- ex) 클래스1   보더굵기/색상/타입  -->
+			<!-- ex) 클래스2   보더굵기/색상/타입  글자크기  -->
+			<!-- ex) 클래스3   보더굵기/색상/타입  글자색상  -->
+			<!-- 위 select 옵션으로 클래스1,클래스2,클래스3 적용유무로
+	  		선택하여 처리하게 하세요. -->
+
+			<h3 :class="{cls03:ck03}">ex01 v-model로 연동 처리</h3>
+			<select v-model="ck03" class="form-control mr-sm-2">
+				<option value="true">적용</option>
+				<option value="">미적용</option>
+			</select><br>
+			<h3 :class="{cls04:ck04}">ex02 v-model로 연동 처리</h3>
+			<select v-model="ck04" class="form-control mr-sm-2">
+				<option value="true">적용</option>
+				<option value="">미적용</option>
+			</select><br>
+			<h3 :class="{cls05:ck05}">ex03 v-model로 연동 처리</h3>
+			<select v-model="ck05" class="form-control mr-sm-2">
+				<option value="true">적용</option>
+				<option value="">미적용</option>
+			</select><br>
+
+
+
+		</div>
+		<form id="frm01" class="form-inline" method="post">
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+				<input class="form-control mr-sm-2" placeholder="제목" /> <input
+					class="form-control mr-sm-2" placeholder="내용" />
+				<button class="btn btn-info" type="submit">Search</button>
+			</nav>
+		</form>
+		<table class="table table-hover table-striped">
+			<col width="10%">
+			<col width="50%">
+			<col width="15%">
+			<col width="15%">
+			<col width="10%">
+			<thead>
+
+				<tr class="table-success text-center">
+					<th>번호</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>작성일</th>
+					<th>조회</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="text-center">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
-	<form id="frm01" class="form-inline"  method="post">
-  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input class="form-control mr-sm-2" placeholder="제목" />
-	    <input class="form-control mr-sm-2" placeholder="내용" />
-	    <button class="btn btn-info" type="submit">Search</button>
- 	</nav>
-	</form>
-   <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
-    <thead>
-    
-      <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
-      </tr>
-    </thead>	
-    <tbody>
-    	<tr  class="text-center"><td></td><td></td><td></td><td></td><td></td></tr>
-    </tbody>
-	</table>       
-</div>
 </body>
 </html>
